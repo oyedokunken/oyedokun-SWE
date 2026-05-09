@@ -190,7 +190,7 @@ Browser loads page
 - About: animated philosophy statement, personal details grid
 - Skills: 30+ technologies in grouped icon grid
 - Services: 9 cards with equalized descriptions, no em dashes
-- Projects: 16 projects filterable by category (Platform, SaaS, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress) with filled white pills (black text, fixed across themes)
+- Projects: 16 projects filterable by category (Platform, SaaS, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress) with category pills inside cards (filled white bg/black text, fixed across themes) and tag pills (filled white bg/black text, fixed across themes)
 - Experience: animated scroll-driven timeline line, spring-pop dots, impact-focused bullet points
 - Education: FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab) in card grid
 - WhyMe: 6 USP cards with alternating elevated backgrounds (cards 2/4/6 elevated at rest)

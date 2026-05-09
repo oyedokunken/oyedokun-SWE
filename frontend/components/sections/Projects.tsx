@@ -352,8 +352,10 @@ export default function Projects() {
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`text-[11px] tracking-[1px] uppercase px-4 py-2 rounded-full transition-all duration-200 bg-white text-black ${
-                  filter === cat ? "" : "opacity-70 hover:opacity-100"
+                className={`text-[11px] tracking-[1px] uppercase px-4 py-2 rounded-full border transition-all duration-200 ${
+                  filter === cat
+                    ? "bg-[var(--text-primary)] text-[var(--bg)] border-[var(--text-primary)]"
+                    : "border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                 }`}
               >
                 {cat}
@@ -378,7 +380,7 @@ export default function Projects() {
 
                 <div className="relative z-10 p-6 flex flex-col justify-between flex-1">
                   <div className="flex items-start justify-between">
-                    <span className="text-[10px] tracking-[2px] uppercase text-white/40 border border-white/10 px-3 py-1 rounded-full">
+                    <span className="text-[10px] tracking-[2px] uppercase bg-white text-black px-3 py-1 rounded-full">
                       {project.category}
                     </span>
                     <div className="flex gap-2">

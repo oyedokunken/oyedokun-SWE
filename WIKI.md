@@ -56,7 +56,7 @@ The `useSiteReady` hook (`frontend/lib/useSiteReady.ts`) listens for the `siteRe
 | Skills | `#skills` | Tool icon grid |
 | Services | `#services` | Equal-height cards (min-h-[380px]) in responsive grid |
 | Why Me | `#why-me` | 6 USP cards with alternating elevated backgrounds (2/4/6 elevated at rest) |
-| Projects | `#projects` | Filterable cards with abstract covers, filled white pills with black text (fixed across themes) |
+| Projects | `#projects` | Filterable cards with abstract covers, category pills inside cards (filled white bg/black text, fixed across themes) and tag pills (filled white bg/black text, fixed across themes) |
 | Experience | `#experience` | Timeline with animated progress line, impact-focused bullets |
 | Education | `#education` | FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab) in card grid |
 | Testimonials | `#testimonials` | Client quotes with theme-aware avatar |
