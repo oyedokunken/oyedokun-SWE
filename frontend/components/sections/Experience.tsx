@@ -7,7 +7,7 @@ const experiences = [
   {
     company: "Athena Networks",
     role: "Software Engineer",
-    period: "Oct 2025 to Present",
+    period: "October 2025 to Present",
     location: "Australia (Remote)",
     type: "Full-time",
     highlights: [
@@ -18,9 +18,9 @@ const experiences = [
     ],
   },
   {
-    company: "Rexta",
+    company: "Rexta Technologies",
     role: "Software Engineer",
-    period: "Jun 2025 to Present",
+    period: "June 2025 to Present",
     location: "Akure, Nigeria (Hybrid)",
     type: "Full-time",
     highlights: [
@@ -46,7 +46,7 @@ const experiences = [
   {
     company: "Ren Power Limited",
     role: "Software Engineer",
-    period: "Jul 2025 to Present",
+    period: "July 2025 to Present",
     location: "Florida, USA (Remote)",
     type: "Contract",
     highlights: [
@@ -59,7 +59,7 @@ const experiences = [
   {
     company: "Ascentor BI",
     role: "Frontend Engineer",
-    period: "Jun 2025 to Present",
+    period: "June 2025 to Present",
     location: "Lagos, Nigeria",
     type: "Full-time",
     highlights: [

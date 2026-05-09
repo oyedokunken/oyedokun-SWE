@@ -352,10 +352,10 @@ export default function Projects() {
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`text-[11px] tracking-[1px] uppercase px-4 py-2 rounded-full border transition-all duration-200 ${
+                className={`text-[11px] tracking-[1px] uppercase px-4 py-2 rounded-full transition-all duration-200 ${
                   filter === cat
-                    ? "bg-[var(--text-primary)] text-[var(--bg)] border-[var(--text-primary)]"
-                    : "border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                    ? "bg-[var(--text-primary)] text-[var(--bg)]"
+                    : "bg-[var(--text-primary)]/10 text-[var(--text-primary)] hover:bg-[var(--text-primary)]/20"
                 }`}
               >
                 {cat}
@@ -416,7 +416,7 @@ export default function Projects() {
                     </p>
                     <div className="flex flex-wrap gap-1.5 pt-1">
                       {project.tags.slice(0, 3).map((tag) => (
-                        <span key={tag} className="text-[9px] tracking-wide uppercase px-2 py-1 rounded bg-white/5 text-white/40">
+                        <span key={tag} className="text-[9px] tracking-wide uppercase px-2 py-1 rounded bg-[var(--text-primary)] text-[var(--bg)]">
                           {tag}
                         </span>
                       ))}
