@@ -60,7 +60,7 @@ export default function Education() {
             transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl lg:text-5xl font-bold tracking-tight"
           >
-            Where I have learned.
+            My scholastic endeavours. 
           </motion.h2>
         </div>
 

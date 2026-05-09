@@ -70,7 +70,7 @@ export default function Header() {
             <Logo />
           </button>
 
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.slice(1);
               return (
@@ -106,7 +106,7 @@ export default function Header() {
             </button>
             <button
               onClick={() => setMenuOpen(true)}
-              className="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              className="lg:hidden w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
               aria-label="Open menu"
             >
               <Menu size={16} />

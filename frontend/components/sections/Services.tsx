@@ -90,7 +90,7 @@ const services = [
 function ServiceCard({ service, index }: { service: (typeof services)[0]; index: number }) {
   return (
     <motion.div
-      className="relative rounded-2xl border border-white/10 p-8 md:p-10 min-h-[340px] flex flex-col justify-between overflow-hidden"
+      className="relative rounded-2xl border border-white/10 p-8 md:p-10 min-h-[380px] h-full flex flex-col justify-between overflow-hidden"
       initial={{ y: 50, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true, margin: "-60px" }}
@@ -161,15 +161,9 @@ export default function Services() {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, i) => (
-            <div
-              key={service.num}
-              className={i > 0 ? "max-md:-mt-12" : ""}
-              style={{ position: "relative", zIndex: i + 1 }}
-            >
-              <ServiceCard service={service} index={i} />
-            </div>
+            <ServiceCard key={service.num} service={service} index={i} />
           ))}
         </div>
       </div>

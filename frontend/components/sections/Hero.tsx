@@ -6,12 +6,12 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { ArrowDown, MapPin } from "lucide-react";
 import { useSiteReady } from "@/lib/useSiteReady";
 
-function Counter({ target, suffix = "+" }: { target: number; suffix?: string }) {
+function Counter({ target, suffix = "+", ready }: { target: number; suffix?: string; ready: boolean }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true });
   const [count, setCount] = useState(0);
   useEffect(() => {
-    if (!inView) return;
+    if (!ready || !inView) return;
     let current = 0;
     const steps = 40;
     const increment = Math.ceil(target / steps);
@@ -21,7 +21,7 @@ function Counter({ target, suffix = "+" }: { target: number; suffix?: string }) 
       else setCount(current);
     }, 35);
     return () => clearInterval(timer);
-  }, [inView, target]);
+  }, [ready, inView, target]);
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
@@ -79,13 +79,13 @@ export default function Hero() {
             transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative block lg:hidden order-first"
           >
-            <div className="relative w-full aspect-square">
+            <div className="relative w-full aspect-[3/4]">
               <div className="absolute inset-0 rounded-2xl border border-[var(--border-color)] overflow-hidden">
                 <Image
-                  src="/oyedokunken.jpg"
+                  src="/oyedokun-hero.png"
                   alt="Oyedokun Kehinde"
                   fill
-                  className="object-cover object-top grayscale"
+                  className="object-contain object-center grayscale"
                   priority
                   sizes="320px"
                 />
@@ -169,7 +169,7 @@ export default function Hero() {
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-2xl font-bold tracking-tight">
-                    <Counter target={stat.target} />
+                    <Counter target={stat.target} ready={ready} />
                   </p>
                   <p className="text-xs text-[var(--text-muted)] tracking-wide mt-0.5">{stat.label}</p>
                 </div>
@@ -190,7 +190,7 @@ export default function Hero() {
                   src="/oyedokun-hero.png"
                   alt="Oyedokun Kehinde"
                   fill
-                  className="object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
+                  className="object-contain object-center grayscale hover:grayscale-0 transition-all duration-700"
                   priority
                   sizes="420px"
                 />
