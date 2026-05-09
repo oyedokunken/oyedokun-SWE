@@ -6,6 +6,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.3.0] - 2026-05-09
+
+### Changed
+- Hero image: mobile and desktop both use `oyedokunken.jpg` with `object-cover object-center` to fill container completely
+- Hero counters: animation now waits for `ready` state before starting (prevents early trigger)
+- Header: mobile hamburger menu now shows on tablet (md→lg breakpoints), desktop nav hidden until lg
+- Services: removed mobile card stacking effect completely; all cards have equal height (min-h-[380px] + h-full)
+- Education: section heading changed to "My scholastic endeavours."
+
+---
+
 ## [1.2.0] - 2026-05-09
 
 ### Added

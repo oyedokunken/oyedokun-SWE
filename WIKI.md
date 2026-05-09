@@ -54,10 +54,11 @@ The `useSiteReady` hook (`frontend/lib/useSiteReady.ts`) listens for the `siteRe
 | Marquee | - | Infinite horizontal scroll |
 | About | `#about` | Scroll-driven word reveal, icon detail items, philosophy cards |
 | Skills | `#skills` | Tool icon grid |
-| Services | `#services` | Stacking scroll-driven cards |
-| Why Me | `#why-me` | 6 USP cards in gap-px grid |
+| Services | `#services` | Equal-height cards (min-h-[380px]) in responsive grid |
+| Why Me | `#why-me` | 6 USP cards with alternating elevated backgrounds (2/4/6 elevated at rest) |
 | Projects | `#projects` | Filterable cards with abstract covers |
-| Experience | `#experience` | Timeline with animated progress line |
+| Experience | `#experience` | Timeline with animated progress line, impact-focused bullets |
+| Education | `#education` | FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab) in card grid |
 | Testimonials | `#testimonials` | Client quotes with theme-aware avatar |
 | Photo Scroll | - | Infinite marquee photos |
 | Contact | `#contact` | Form with phone input + modal feedback |
@@ -65,7 +66,7 @@ The `useSiteReady` hook (`frontend/lib/useSiteReady.ts`) listens for the `siteRe
 
 ## Backend Email System
 
-HTML templates are inlined as TypeScript string constants in `backend/src/services/mailer.ts`. No file I/O is performed at runtime, making the email system fully compatible with Vercel's serverless read-only file system. The `resume.pdf` attachment uses a fallback path chain (`__dirname`-based, `process.cwd()/backend`, `process.cwd()`) to resolve correctly across local and Vercel environments.
+HTML templates are inlined as TypeScript string constants in `backend/src/services/mailer.ts`. No file I/O is performed at runtime, making the email system fully compatible with Vercel's serverless read-only file system. The `resume.pdf` attachment uses a fallback path chain (`__dirname`-based, `process.cwd()/backend`, `process.cwd()`) to resolve correctly across local and Vercel environments. All 4 email templates (contact-owner, contact-user, resume-delivery, resume-request) use the real SVG logo from the Hero component, explicit horizontal dividers, and icon-based social footer links (WhatsApp, LinkedIn, GitHub, Portfolio) with no text.
 
 ## Deployment Notes
 

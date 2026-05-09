@@ -50,8 +50,8 @@ oyedokun/
       globals.css         CSS variables, Tailwind base, utility classes
     components/
       layout/             Header, Footer, MobileMenu
-      sections/           Hero, About, Skills, Services, Projects,
-                          Experience, Testimonials, PhotoScroll, Contact
+      sections/           Hero, About, Skills, Services, WhyMe, Projects,
+                          Experience, Education, Testimonials, PhotoScroll, Contact
       ui/                 Preloader, ResumeModal, Modal, ThemeToggle,
                           ScrollToTop, WhatsAppFloat
     context/              ThemeContext, ResumeModalContext
@@ -191,7 +191,9 @@ Browser loads page
 - Skills: 30+ technologies in grouped icon grid
 - Services: 9 cards with equalized descriptions, no em dashes
 - Projects: 16 projects filterable by category (Platform, SaaS, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress)
-- Experience: animated scroll-driven timeline line, spring-pop dots, 4 bullet points per role
+- Experience: animated scroll-driven timeline line, spring-pop dots, impact-focused bullet points
+- Education: FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab) in card grid
+- WhyMe: 6 USP cards with alternating elevated backgrounds (cards 2/4/6 elevated at rest)
 - Testimonials: quote cards with avatar images
 - Photo scroll: infinite bidirectional marquee in two rows
 - Contact: form with field icons, Zod validation, rate-limited API, success/error modal
