@@ -9,8 +9,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [1.4.0] - 2026-05-09
 
 ### Changed
-- Projects: category filter pills now use filled theme-responsive colors (white bg/black text in dark mode, black bg/white text in light mode)
-- Projects: project tag pills now use filled theme-responsive colors (white bg/black text in dark mode, black bg/white text in light mode)
+- Projects: category filter pills now use filled white background with black text (fixed, not theme-responsive)
+- Projects: project tag pills now use filled white background with black text (fixed, not theme-responsive)
 
 ---
 
