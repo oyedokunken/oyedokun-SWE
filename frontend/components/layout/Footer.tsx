@@ -125,7 +125,7 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} Oyedokun Kehinde. All rights reserved.
             </p>
             <p className="text-xs text-[var(--text-muted)]">
-              Engineered by{" "}
+              Made with 🤍 by{" "}
               <a
                 href="https://wa.link/nv875h"
                 target="_blank"

@@ -18,6 +18,7 @@ const photos = [
   "/shoot/oyedokun-13.png",
   "/shoot/oyedokun-14.png",
   "/shoot/oyedokun-15.png",
+  "/shoot/oyedokun-16.jpg",
 ];
 
 const row1 = [...photos.slice(0, 7), ...photos.slice(0, 7), ...photos.slice(0, 7)];

@@ -11,10 +11,10 @@ const experiences = [
     location: "Australia (Remote)",
     type: "Full-time",
     highlights: [
-      "Building scalable customer portals and onboarding systems for ISPs",
-      "Developing REST APIs and third-party service integrations for business-critical operations",
-      "Implementing secure authentication, rate limiting, and API protection systems",
-      "Collaborating with cross-functional teams to ship features on tight delivery cycles",
+      "Building scalable customer portals and onboarding flows that reduce ISP support overhead",
+      "Designing and delivering business-critical API integrations that power core service operations",
+      "Hardening platform security with robust authentication, rate limiting, and access controls",
+      "Collaborating across teams to consistently hit delivery timelines on high-stakes features",
     ],
   },
   {
@@ -24,10 +24,10 @@ const experiences = [
     location: "Akure, Nigeria (Hybrid)",
     type: "Full-time",
     highlights: [
-      "Building production-grade full-stack platforms with React, Next.js, Node.js",
-      "Developing real-time WebSocket systems for live data processing and trading",
-      "Integrating Stripe, Cloudinary, and third-party APIs across multiple platforms",
-      "Architecting multi-tenant data models and role-based access control systems",
+      "Building production-grade platforms that handle real trading workflows and live financial data",
+      "Delivering real-time data systems that enable instant visibility into market activity",
+      "Owning payment and media integrations that directly support revenue-generating features",
+      "Architecting multi-tenant data models that scale cleanly across multiple product lines",
     ],
   },
   {
@@ -37,10 +37,10 @@ const experiences = [
     location: "Lagos, Nigeria (Part-time)",
     type: "Part-time",
     highlights: [
-      "Leading technology strategy across ESG advisory and publishing platforms",
-      "Architecting RIOS: multi-tenant ESG SaaS with GRI, TCFD, and IFRS frameworks",
-      "Managing production systems for five live platforms simultaneously",
-      "Establishing engineering processes, code standards, and deployment pipelines",
+      "Setting and executing technology strategy across ESG advisory and publishing platforms",
+      "Architecting RIOS, a multi-tenant ESG SaaS platform built to support global compliance reporting",
+      "Overseeing five live platforms simultaneously without degrading uptime or delivery speed",
+      "Building the engineering foundation: processes, standards, and pipelines that enable the team to scale",
     ],
   },
   {
@@ -50,10 +50,10 @@ const experiences = [
     location: "Florida, USA (Remote)",
     type: "Contract",
     highlights: [
-      "Built a full-stack solar energy marketplace with Next.js, Prisma, and Supabase",
-      "Designed core features: product marketplace, quote workflows, and recycling network",
-      "Ongoing production maintenance and authentication system stabilization",
-      "Implemented AI chatbot integration and guided onboarding tour for new users",
+      "Built a full-stack solar energy marketplace enabling end-to-end product discovery, quoting, and recycling",
+      "Designed the core platform architecture to support marketplace growth from day one",
+      "Stabilised production systems and resolved critical authentication issues affecting user access",
+      "Shipped an AI chatbot and guided onboarding flow that reduced new user drop-off significantly",
     ],
   },
   {
@@ -63,10 +63,10 @@ const experiences = [
     location: "Lagos, Nigeria",
     type: "Full-time",
     highlights: [
-      "Building responsive multi-role mentorship platform with React and TypeScript",
-      "Integrating Google, Apple, and Facebook social authentication flows",
-      "Improving frontend performance, SEO, and accessibility across the platform",
-      "Delivering component library and design system aligned with brand guidelines",
+      "Building a responsive multi-role mentorship platform used across institutions and cohorts",
+      "Implementing seamless social authentication flows to reduce signup friction for new users",
+      "Improving platform performance, SEO, and accessibility to expand reach and discoverability",
+      "Delivering a unified component library and design system that accelerates feature development",
     ],
   },
 ];

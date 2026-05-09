@@ -8,6 +8,7 @@ import Services from "@/components/sections/Services";
 import WhyMe from "@/components/sections/WhyMe";
 import Projects from "@/components/sections/Projects";
 import Experience from "@/components/sections/Experience";
+import Education from "@/components/sections/Education";
 import Testimonials from "@/components/sections/Testimonials";
 import PhotoScroll from "@/components/sections/PhotoScroll";
 import Contact from "@/components/sections/Contact";
@@ -24,6 +25,7 @@ export default function Home() {
       <WhyMe />
       <Projects />
       <Experience />
+      <Education />
       <Testimonials />
       <PhotoScroll />
       <Contact />

@@ -89,13 +89,13 @@ export default function WhyMe() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[var(--bg)] hover:bg-[var(--bg-elevated)] transition-colors duration-300 group p-8"
+              className={`transition-colors duration-300 group p-8 ${i % 2 === 1 ? "bg-[var(--bg-elevated)] hover:bg-[var(--bg)]" : "bg-[var(--bg)] hover:bg-[var(--bg-elevated)]"}`}
             >
               <div className="flex items-start justify-between mb-6">
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="w-11 h-11 rounded-xl bg-white/[0.04] border border-[var(--border-color)] flex items-center justify-center group-hover:border-white/20 transition-colors duration-300"
+                  className={`w-11 h-11 rounded-xl border flex items-center justify-center transition-colors duration-300 ${i % 2 === 1 ? "bg-white/[0.06] border-white/20" : "bg-white/[0.04] border-[var(--border-color)] group-hover:border-white/20"}`}
                 >
                   <usp.icon size={18} className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors duration-300" />
                 </motion.div>

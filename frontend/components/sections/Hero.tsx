@@ -187,7 +187,7 @@ export default function Hero() {
             <div className="relative mx-auto w-full max-w-[420px] aspect-[3/4]">
               <div className="absolute inset-0 rounded-2xl border border-[var(--border-color)] overflow-hidden">
                 <Image
-                  src="/oyedokunken.jpg"
+                  src="/oyedokun-hero.png"
                   alt="Oyedokun Kehinde"
                   fill
                   className="object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"

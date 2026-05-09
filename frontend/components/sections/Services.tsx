@@ -161,9 +161,15 @@ export default function Services() {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-5">
           {services.map((service, i) => (
-            <ServiceCard key={service.num} service={service} index={i} />
+            <div
+              key={service.num}
+              className={i > 0 ? "max-md:-mt-12" : ""}
+              style={{ position: "relative", zIndex: i + 1 }}
+            >
+              <ServiceCard service={service} index={i} />
+            </div>
           ))}
         </div>
       </div>

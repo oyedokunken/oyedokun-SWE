@@ -6,6 +6,26 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.2.0] - 2026-05-09
+
+### Added
+- Education section after Experience: FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab), with card grid, icons, animations, theme-aware
+- White heart emoji to footer "Made with 🤍 by @oyedokunken"
+- New photo `oyedokun-16.jpg` added to PhotoScroll marquee
+- Hero desktop image swapped to `oyedokun-hero.png`
+
+### Changed
+- Email templates: replaced `ok` text logo with the real SVG logo from codebase (circle, path, dot mark); explicit `<divider>` elements between header/body and body/footer
+- Email footer: replaced text social links with icon-only buttons (WhatsApp, LinkedIn, GitHub, Portfolio); no email address text in any template
+- `contact-user` email: title → "I got your message.", body → "Your message has been received, {{name}}."
+- Email templates: fully consistent structure across all 4 (owner contact, user contact, resume delivery, resume request)
+- Experience bullets: all rewritten for business impact and outcomes, removed tech-stack name-dropping
+- WhyMe cards: cards 2, 4, 6 use elevated background by default; hover reverses to base (creates visual checkerboard rhythm)
+- ScrollToTop button: dark mode = white bg + dark icon; light mode = dark bg + white icon
+- Services: mobile-only card stacking (each card overlaps the previous by `-mt-12` with increasing z-index)
+
+---
+
 ## [1.1.1] - 2026-05-09
 
 ### Added
