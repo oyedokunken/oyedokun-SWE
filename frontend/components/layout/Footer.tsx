@@ -175,14 +175,15 @@ export default function Footer() {
         <button
           onClick={() => scrollTo("#hero")}
           aria-label="Back to top"
-          className="relative z-10 w-full group py-12 sm:py-16 flex items-center justify-center"
+          className="relative z-10 w-full group py-10 sm:py-14"
         >
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ scale: 1.01 }}
+            whileHover={{ scale: 1.005 }}
             className="flex items-center gap-4 sm:gap-6"
           >
             <svg
@@ -212,6 +213,7 @@ export default function Footer() {
               oyedokun<span style={{ opacity: 0.25 }}>.dev</span>
             </span>
           </motion.div>
+          </div>
         </button>
       </div>
     </>

@@ -9,10 +9,10 @@ const testimonials = [
   {
     quote:
       "Kehinde delivered the entire Glore platform in record time. Clean architecture, real-time WebSocket pricing, and a polished UI that impressed every stakeholder. He thinks like an engineer and a product person at the same time.",
-    name: "Bolwarinwa Dolapo",
-    role: "Co-founder",
-    company: "Rexta Technologies",
-    initials: "TA",
+    name: "Oreoluwa Israel",
+    role: "Founder",
+    company: "Glore",
+    initials: "OI",
   },
   {
     quote:
@@ -20,7 +20,7 @@ const testimonials = [
     name: "Tunbosun Afolayan",
     role: "Managing Director",
     company: "PRO ALLY",
-    initials: "CO",
+    initials: "TA",
   },
   {
     quote:
@@ -28,7 +28,7 @@ const testimonials = [
     name: "Josh Finlay",
     role: "Engineering Lead",
     company: "Athena Networks",
-    initials: "JH",
+    initials: "JF",
   },
   {
     quote:
@@ -36,7 +36,7 @@ const testimonials = [
     name: "Ayobami Olu",
     role: "CEO/Founder",
     company: "Ren Power Limited",
-    initials: "SM",
+    initials: "AO",
   },
 ];
 

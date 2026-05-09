@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "Oyedokun Kehinde — Software Engineer",
     description:
       "Staff-level Software Engineer. Full-stack development, backend architecture, and scalable systems.",
-    images: ["https://oyedokun.dev/og.png"],
+    images: ["https://oyedokunken.vercel.app/og.png"],
   },
   icons: {
     icon: "/favicon.svg",

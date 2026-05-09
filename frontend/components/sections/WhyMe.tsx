@@ -32,7 +32,7 @@ const usps = [
     icon: Globe,
     number: "05",
     title: "Cross-Industry Range",
-    desc: "13+ projects across fintech, energy, healthcare, mining, and e-commerce. Different domains, same quality bar. Adaptability is a technical skill.",
+    desc: "Projects across fintech, energy, healthcare, mining, and e-commerce. Different domains, same quality bar. Adaptability is a technical skill.",
   },
   {
     icon: MessageCircle,
@@ -75,9 +75,9 @@ export default function WhyMe() {
             transition={{ delay: 0.2 }}
             className="text-[var(--text-secondary)] text-[15px] leading-relaxed lg:text-right max-w-xs"
           >
-            Not promises. Patterns from three years
+            Not promises. Patterns built across
             <br className="hidden lg:block" />
-            and 13+ shipped projects.
+            multiple industries and real production systems.
           </motion.p>
         </div>
 
@@ -99,7 +99,7 @@ export default function WhyMe() {
                 >
                   <usp.icon size={18} className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors duration-300" />
                 </motion.div>
-                <span className="text-[10px] tracking-[2px] font-mono text-[var(--text-muted)]">
+                <span className="text-[10px] tracking-[2px] tabular-nums text-[var(--text-muted)]">
                   {usp.number}
                 </span>
               </div>

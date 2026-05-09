@@ -6,7 +6,7 @@ export function useSiteReady() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const handle = () => setReady(true);
+    const handle = () => setTimeout(() => setReady(true), 900);
     document.addEventListener("siteReady", handle);
     const fallback = setTimeout(() => setReady(true), 4000);
     return () => {

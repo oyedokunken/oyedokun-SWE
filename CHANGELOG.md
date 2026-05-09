@@ -6,6 +6,37 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.1.0] - 2026-05-09
+
+### Added
+- "Why Me" (Value Proposition) section between Services and Projects with 6 USP cards, Framer Motion stagger animations, and gap-px grid layout
+- WordPress project category filter with Glory Fashion and Noble Land Africa
+- Icon boxes beside all four About detail items (Based in, Stack, Focus, Education)
+- Icons above philosophy cards (Clean Architecture, Performance First, Ship It)
+- Dark mode avatar support in Testimonials (switches between avatar.png and avatar-dark.png)
+- Hero section entrance animations gated on preloader exit via `siteReady` event
+- Animated vertical progress line in Experience section visible on mobile and desktop
+- Testimonials section with real client quotes
+- `useSiteReady` hook for coordinated post-preloader animation sequencing
+
+### Changed
+- Footer after-logo is now large typographic brand mark constrained to `max-w-7xl` content width, left-aligned
+- Contact form modal now uses same dark-themed design and `inset-0` positioning as Resume modal
+- Phone input uses `limitMaxLength` to cap digits at country-code-adjusted length
+- Backend HTML email templates inlined as TypeScript string constants (eliminates all Vercel file system errors)
+- Resume PDF path uses fallback candidate chain for serverless reliability
+- `app.set("trust proxy", 1)` added to Express for correct rate-limit behavior on Vercel
+- `siteReady` event fires 900ms before hero animations start, ensuring clean post-preloader reveal
+- GITHUB.md updated to reflect current stack and projects
+
+### Fixed
+- Backend 500 on contact form submission (ENOENT: template file not found)
+- Backend 500 on resume request (ERR_ERL_UNEXPECTED_X_FORWARDED_FOR)
+- Contact modal misaligned on desktop and mobile
+- WhyMe section numbers rendering in monospace instead of system font
+
+---
+
 ## [1.0.0] - 2025-05-09
 
 ### Added

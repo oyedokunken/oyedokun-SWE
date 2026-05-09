@@ -42,6 +42,42 @@ CSS custom properties drive both light and dark modes. The `ThemeContext` expose
 
 All animations use Framer Motion. Scroll-driven effects use `useScroll` + `useTransform`. Entry animations use `whileInView` with viewport detection.
 
+### Post-Preloader Sequencing
+
+The `useSiteReady` hook (`frontend/lib/useSiteReady.ts`) listens for the `siteReady` CustomEvent dispatched by `Preloader.tsx` when its exit animation begins. A 900ms delay is applied before setting `ready = true`, ensuring the preloader's 850ms `clipPath` exit animation fully completes before Hero entrance animations fire. A 4000ms fallback handles cases where the event never fires.
+
+## Page Sections (in order)
+
+| Section | ID | Notes |
+|---|---|---|
+| Hero | `#hero` | Entrance animations gated on `siteReady` |
+| Marquee | - | Infinite horizontal scroll |
+| About | `#about` | Scroll-driven word reveal, icon detail items, philosophy cards |
+| Skills | `#skills` | Tool icon grid |
+| Services | `#services` | Stacking scroll-driven cards |
+| Why Me | `#why-me` | 6 USP cards in gap-px grid |
+| Projects | `#projects` | Filterable cards with abstract covers |
+| Experience | `#experience` | Timeline with animated progress line |
+| Testimonials | `#testimonials` | Client quotes with theme-aware avatar |
+| Photo Scroll | - | Infinite marquee photos |
+| Contact | `#contact` | Form with phone input + modal feedback |
+| Footer + Brand | - | Large typographic brand mark back-to-top |
+
+## Backend Email System
+
+HTML templates are inlined as TypeScript string constants in `backend/src/services/mailer.ts`. No file I/O is performed at runtime, making the email system fully compatible with Vercel's serverless read-only file system. The `resume.pdf` attachment uses a fallback path chain (`__dirname`-based, `process.cwd()/backend`, `process.cwd()`) to resolve correctly across local and Vercel environments.
+
 ## Deployment Notes
 
 Both sub-projects deploy independently on Vercel. Set environment variables in each Vercel project dashboard.
+
+### Required Backend Environment Variables
+
+| Variable | Description |
+|---|---|
+| `SMTP_HOST` | SMTP server host |
+| `SMTP_PORT` | SMTP server port |
+| `SMTP_USER` | SMTP authentication email |
+| `SMTP_PASS` | SMTP authentication password |
+| `OWNER_EMAIL` | Destination for contact/resume notifications |
+| `FRONTEND_URL` | Frontend origin for CORS (e.g. `https://oyedokunken.vercel.app`) |

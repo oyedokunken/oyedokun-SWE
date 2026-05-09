@@ -348,7 +348,7 @@ export default function Projects() {
             viewport={{ once: true }}
             className="flex flex-wrap gap-2"
           >
-            {["All", "SaaS", "SaaS / AI", "Blockchain", "Healthcare", "EdTech", "Agency"].map((cat) => (
+            {["All", "Platform", "SaaS", "SaaS / AI", "Blockchain", "Healthcare", "EdTech", "E-commerce", "Agency", "WordPress"].map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}

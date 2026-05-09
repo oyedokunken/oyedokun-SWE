@@ -1,14 +1,12 @@
-# Hey, I'm Kehinde
+# Hey, my name is Kenny :)
 
-Building production systems and full-stack products across fintech, energy, healthcare, and mining. TypeScript, Node.js, React. Real code, real users, global clients.
+Software engineer based in Nigeria, building full-stack products and backend systems that actually work in production. I enjoy the full stack but live closer to the backend, mostly because that is where the interesting problems are.
 
-<!--  GitHub Profile Bio (copy to github.com/settings/profile → Bio):  "Building production systems and full-stack products across fintech, energy, healthcare, and mining. TypeScript, Node.js, React. Real code, real users, global clients."  -->
-
-I live closer to the backend because that is where the interesting problems are. I have shipped 13+ projects for teams in Australia, the US, the UK, and Nigeria, keeping full ownership from architecture through deployment.
+I have shipped 13+ projects across fintech, energy, healthcare, mining, e-commerce, and EdTech. I work across time zones with international teams while keeping things moving fast locally.
 
 ---
 
-## What I work with
+## What I work with:
 
 **Languages and Frameworks**
 
@@ -73,7 +71,7 @@ I live closer to the backend because that is where the interesting problems are.
 
 ## Right now
 
-- Building production systems at Athena Networks (Australia), Rexta, Ren Power, Ascentor BI, and PRO ALLY simultaneously
+- Building production systems at Athena Networks, Rexta, Ren Power, Ascentor BI, and PRO ALLY simultaneously
 - Open to interesting contracts and full-time remote roles
 - Learning more about distributed systems and cloud architecture
 
@@ -81,7 +79,7 @@ I live closer to the backend because that is where the interesting problems are.
 
 ## Find me
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-oyedokun.dev-000000?style=flat-square&logo=vercel&logoColor=white)](https://oyedokun.dev)
+[![Portfolio](https://img.shields.io/badge/Portfolio-oyedokun.dev-000000?style=flat-square&logo=vercel&logoColor=white)](https://oyedokunken.vercel.app/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-oyedokunken-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/oyedokunken)
 [![Email](https://img.shields.io/badge/Email-oyedokunken@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:oyedokunken@gmail.com)
 
