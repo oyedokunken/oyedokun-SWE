@@ -6,7 +6,9 @@ Live at [oyedokun.dev](https://oyedokun.dev)
 
 ---
 
-## Repository Structure
+## Repository
+
+[github.com/oyedokunken/oyedokun-SWE](https://github.com/oyedokunken/oyedokun-SWE)
 
 ```
 oyedokun/
@@ -176,4 +178,4 @@ See `frontend/DEPLOY.md` and `backend/DEPLOY.md` for step-by-step Vercel deploym
 
 Email: oyedokunken@gmail.com  
 LinkedIn: linkedin.com/in/oyedokunken  
-GitHub: github.com/oyedokunken
+GitHub: github.com/oyedokunken/oyedokun-SWE
