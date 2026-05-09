@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext";
 
 const testimonials = [
   {
@@ -40,6 +41,8 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const { theme } = useTheme();
+  const avatarSrc = theme === "dark" ? "/avatar-dark.png" : "/avatar.png";
   return (
     <section id="testimonials" className="py-28 bg-[var(--bg)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -85,7 +88,7 @@ export default function Testimonials() {
 
               <div className="flex items-center gap-3 pt-2 border-t border-[var(--border-color)]">
                 <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10 flex-shrink-0 bg-white/5">
-                  <Image src="/avatar.png" alt={t.name} width={40} height={40} className="w-full h-full object-cover" />
+                  <Image src={avatarSrc} alt={t.name} width={40} height={40} className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-[var(--text-primary)] leading-tight">{t.name}</p>

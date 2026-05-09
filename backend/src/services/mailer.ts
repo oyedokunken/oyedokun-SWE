@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 });
 
 function loadTemplate(name: string): string {
-  const file = path.join(process.cwd(), "src", "templates", `${name}.html`);
+  const file = path.join(__dirname, "..", "templates", `${name}.html`);
   return fs.readFileSync(file, "utf-8");
 }
 

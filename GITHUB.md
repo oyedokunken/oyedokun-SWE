@@ -1,8 +1,10 @@
 # Hey, I'm Kehinde
 
-Software engineer based in Nigeria, building full-stack products and backend systems that actually work in production. I enjoy the full stack but live closer to the backend, mostly because that is where the interesting problems are.
+Building production systems and full-stack products across fintech, energy, healthcare, and mining. TypeScript, Node.js, React. Real code, real users, global clients.
 
-I have shipped 13+ projects across fintech, energy, healthcare, mining, e-commerce, and EdTech. I work across time zones with teams in Australia, the US, and the UK while keeping things moving fast locally.
+<!--  GitHub Profile Bio (copy to github.com/settings/profile → Bio):  "Building production systems and full-stack products across fintech, energy, healthcare, and mining. TypeScript, Node.js, React. Real code, real users, global clients."  -->
+
+I live closer to the backend because that is where the interesting problems are. I have shipped 13+ projects for teams in Australia, the US, the UK, and Nigeria, keeping full ownership from architecture through deployment.
 
 ---
 

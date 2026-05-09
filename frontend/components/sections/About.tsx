@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { MapPin, Layers, Target, GraduationCap, Building2, Gauge, Rocket } from "lucide-react";
 
 const philosophyWords =
   "I write code the way architects design buildings. Every function has a reason, every system has a blueprint, every decision has a consequence. I don't just build features. I build the foundations that features live on.";
@@ -81,16 +82,19 @@ export default function About() {
               className="mt-10 grid grid-cols-2 gap-6"
             >
               {[
-                { label: "Based in", value: "Akure, Nigeria" },
-                { label: "Stack", value: "Full-Stack" },
-                { label: "Focus", value: "Backend Systems" },
-                { label: "Education", value: "B.Tech, FUTA" },
+                { label: "Based in", value: "Akure, Nigeria", icon: MapPin },
+                { label: "Stack", value: "Full-Stack", icon: Layers },
+                { label: "Focus", value: "Backend Systems", icon: Target },
+                { label: "Education", value: "B.Tech, FUTA", icon: GraduationCap },
               ].map((item) => (
-                <div key={item.label} className="space-y-1">
-                  <p className="text-[10px] tracking-[2px] uppercase text-[var(--text-muted)]">
-                    {item.label}
-                  </p>
-                  <p className="text-sm font-medium text-[var(--text-primary)]">{item.value}</p>
+                <div key={item.label} className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg border border-[var(--border-color)] bg-[var(--bg-elevated)] flex items-center justify-center flex-shrink-0">
+                    <item.icon size={15} className="text-[var(--text-secondary)]" />
+                  </div>
+                  <div className="space-y-0.5">
+                    <p className="text-[10px] tracking-[2px] uppercase text-[var(--text-muted)]">{item.label}</p>
+                    <p className="text-sm font-medium text-[var(--text-primary)]">{item.value}</p>
+                  </div>
                 </div>
               ))}
             </motion.div>
@@ -120,14 +124,17 @@ export default function About() {
                 {
                   title: "Clean Architecture",
                   desc: "Systems that are easy to extend, impossible to misuse.",
+                  icon: Building2,
                 },
                 {
                   title: "Performance First",
                   desc: "Speed and reliability aren't features. They are baseline requirements.",
+                  icon: Gauge,
                 },
                 {
                   title: "Ship It",
                   desc: "From concept to production. No endless refactors, no analysis paralysis.",
+                  icon: Rocket,
                 },
               ].map((card, i) => (
                 <motion.div
@@ -136,8 +143,11 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="glass rounded-xl p-5 space-y-2"
+                  className="glass rounded-xl p-5 space-y-3"
                 >
+                  <div className="w-8 h-8 rounded-lg bg-white/5 border border-[var(--border-color)] flex items-center justify-center">
+                    <card.icon size={14} className="text-[var(--text-secondary)]" />
+                  </div>
                   <p className="text-sm font-semibold text-[var(--text-primary)]">{card.title}</p>
                   <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{card.desc}</p>
                 </motion.div>

@@ -25,13 +25,13 @@ export default function Modal({ isOpen, onClose, type, title, message }: ModalPr
             onClick={onClose}
           />
           <motion.div
-            initial={{ opacity: 0, scale: 0.92, y: 20 }}
+            initial={{ opacity: 0, scale: 0.9, y: 24 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.92, y: 20 }}
+            exit={{ opacity: 0, scale: 0.92, y: 16 }}
             transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[1001] w-[90vw] max-w-md"
+            className="fixed inset-0 z-[1001] flex items-center justify-center p-4 pointer-events-none"
           >
-            <div className="glass rounded-2xl p-8 border border-[var(--border-color)]">
+            <div className="bg-[#0d0d0d] border border-white/10 rounded-2xl p-8 shadow-2xl w-full max-w-[420px] pointer-events-auto overflow-y-auto max-h-[90vh] relative">
               <button
                 onClick={onClose}
                 className="absolute top-5 right-5 p-2 rounded-full hover:bg-white/10 transition-colors"

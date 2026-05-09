@@ -161,6 +161,7 @@ export default function Contact() {
                   <div>
                     <PhoneInput
                       international
+                      limitMaxLength
                       defaultCountry="NG"
                       placeholder="Phone number"
                       value={form.phone}

@@ -5,7 +5,7 @@
       "src": "src/index.ts",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["resume.pdf", "src/templates/**"]
+        "includeFiles": ["backend/resume.pdf", "backend/src/templates/**"]
       }
     }
   ],

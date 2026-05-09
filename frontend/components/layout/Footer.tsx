@@ -178,14 +178,39 @@ export default function Footer() {
           className="relative z-10 w-full group py-12 sm:py-16 flex items-center justify-center"
         >
           <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ scale: 1.04 }}
-            className="transition-all duration-300"
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ scale: 1.01 }}
+            className="flex items-center gap-4 sm:gap-6"
           >
-            <Logo size={44} />
+            <svg
+              width="clamp(52px, 9vw, 88px)"
+              height="clamp(52px, 9vw, 88px)"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="text-[var(--text-primary)] flex-shrink-0"
+              aria-hidden="true"
+            >
+              <rect width="40" height="40" rx="6" fill="currentColor" fillOpacity="0.06" stroke="currentColor" strokeOpacity="0.15" strokeWidth="1" />
+              <circle cx="20" cy="20" r="7" stroke="currentColor" strokeWidth="1.5" fill="none" />
+              <path d="M25 15 L32 15 L32 22 L26 28" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <circle cx="20" cy="20" r="2.5" fill="currentColor" />
+            </svg>
+            <span
+              style={{
+                fontFamily: "'Urbanist', sans-serif",
+                fontWeight: 800,
+                letterSpacing: "-0.04em",
+                fontSize: "clamp(2.4rem, 8vw, 6rem)",
+                lineHeight: 1,
+              }}
+              className="text-[var(--text-primary)]"
+            >
+              oyedokun<span style={{ opacity: 0.25 }}>.dev</span>
+            </span>
           </motion.div>
         </button>
       </div>
