@@ -41,7 +41,7 @@ In the Vercel project settings under **Environment Variables**, add:
 | Variable | Value |
 |---|---|
 | `PORT` | `4000` |
-| `FRONTEND_URL` | `https://oyedokun.dev` |
+| `FRONTEND_URL` | `https://oyedokunken.vercel.app` |
 | `SMTP_HOST` | `smtp.gmail.com` |
 | `SMTP_PORT` | `587` |
 | `SMTP_USER` | `oyedokunkehinde21@gmail.com` |
@@ -71,7 +71,7 @@ Set this as `NEXT_PUBLIC_API_URL` in your frontend Vercel project environment va
 Make sure the backend `.env` (and Vercel env vars) has:
 
 ```
-FRONTEND_URL=https://oyedokun.dev
+FRONTEND_URL=https://oyedokunken.vercel.app
 ```
 
 This controls which origin the Express CORS policy allows.

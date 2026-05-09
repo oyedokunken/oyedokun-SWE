@@ -40,7 +40,7 @@ router.post("/", async (req: Request, res: Response) => {
       sendContactOwner({ name, email, phone, subject, message }),
       sendContactUser({ name, email }),
     ]);
-    appendLog({ name, email, phone, subject, message });
+    try { appendLog({ name, email, phone, subject, message }); } catch { /* read-only fs on Vercel */ }
     res.json({ ok: true });
   } catch (err) {
     console.error(err);

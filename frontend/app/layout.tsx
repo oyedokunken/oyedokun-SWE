@@ -25,18 +25,18 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Oyedokun Kehinde" }],
   creator: "Oyedokun Kehinde",
-  metadataBase: new URL("https://oyedokun.dev"),
+  metadataBase: new URL("https://oyedokunken.vercel.app"),
   openGraph: {
     title: "Oyedokun Kehinde — Software Engineer",
     description:
       "Staff-level Software Engineer. Full-stack development, backend architecture, and scalable systems. Based in Nigeria, working globally.",
-    url: "https://oyedokun.dev",
+    url: "https://oyedokunken.vercel.app",
     siteName: "oyedokun.dev",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "https://oyedokun.dev/og.png",
+        url: "https://oyedokunken.vercel.app/og.png",
         width: 1200,
         height: 630,
         alt: "Oyedokun Kehinde — Software Engineer",

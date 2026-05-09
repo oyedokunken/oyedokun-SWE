@@ -6,6 +6,25 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.1.1] - 2026-05-09
+
+### Added
+- LinkedIn, GitHub, and Portfolio social buttons in all email template footers
+- `ok` logo box (dark rounded square) in all email template headers
+
+### Changed
+- After-footer brand logo re-centered (reverted from left-aligned)
+- Email templates completely redesigned: dark card layout, logo box, social links, `oyedokun.dev` branding
+- All `https://oyedokun.dev` URLs replaced with `https://oyedokunken.vercel.app/` across codebase (domain pending purchase; display text preserved)
+- `BASE_STYLES` + `SOCIALS` constants extracted for DRY template composition in `mailer.ts`
+
+### Fixed
+- Resume 500: `vercel.json` `includeFiles` path was `backend/resume.pdf` (wrong) → `resume.pdf` (correct, relative to `backend/`)
+- Resume 500: `resume.ts` used `process.cwd()` for PDF path → removed early file check, delegated entirely to `getResumePath()` in mailer
+- Contact and resume routes: `appendLog` file write (EROFS on Vercel) now silently swallowed so successful email send always returns 200
+
+---
+
 ## [1.1.0] - 2026-05-09
 
 ### Added

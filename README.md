@@ -2,7 +2,7 @@
 
 Personal portfolio and API backend for **Oyedokun Kehinde** — Software Engineer. Built with Next.js 14 on the frontend and Express.js on the backend, deployed as serverless functions on Vercel.
 
-**Live:** [oyedokun.dev](https://oyedokun.dev)  
+**Live:** [oyedokun.dev](https://oyedokunken.vercel.app/)  
 **Repository:** [github.com/oyedokunken/oyedokun-SWE](https://github.com/oyedokunken/oyedokun-SWE)
 
 ---
@@ -346,4 +346,4 @@ MIT. See [LICENSE](./LICENSE).
 
 Email: [oyedokunken@gmail.com](mailto:oyedokunken@gmail.com)  
 LinkedIn: [linkedin.com/in/oyedokunken](https://linkedin.com/in/oyedokunken)  
-Portfolio: [oyedokun.dev](https://oyedokun.dev)
+Portfolio: [oyedokun.dev](https://oyedokunken.vercel.app/)

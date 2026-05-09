@@ -175,9 +175,8 @@ export default function Footer() {
         <button
           onClick={() => scrollTo("#hero")}
           aria-label="Back to top"
-          className="relative z-10 w-full group py-10 sm:py-14"
+          className="relative z-10 w-full group py-10 sm:py-14 flex items-center justify-center"
         >
-          <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -213,7 +212,6 @@ export default function Footer() {
               oyedokun<span style={{ opacity: 0.25 }}>.dev</span>
             </span>
           </motion.div>
-          </div>
         </button>
       </div>
     </>
