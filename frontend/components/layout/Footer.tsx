@@ -1,0 +1,217 @@
+"use client";
+
+import { Linkedin, Github, Instagram, Facebook, Mail, Phone } from "lucide-react";
+import Logo from "@/components/Logo";
+import { useTheme } from "@/context/ThemeContext";
+import { motion } from "framer-motion";
+
+function BehanceIcon({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 1.202.73 1.542 1.878 1.542.604 0 1.107-.231 1.404-.583L23.726 17zm-7.73-3.35h3.979c-.088-1.226-.795-1.825-1.934-1.825-1.201 0-1.875.615-2.045 1.825zM3.512 7.5h3.765c2.098 0 3.242 1.001 3.242 2.747 0 .928-.487 1.73-1.348 2.115.981.31 1.576 1.128 1.576 2.25 0 2.097-1.257 3.138-3.756 3.138H3.512V7.5zm2.36 4.038h1.206c.859 0 1.293-.44 1.293-1.13 0-.73-.469-1.13-1.293-1.13H5.872v2.26zm0 4.5h1.335c1.014 0 1.547-.485 1.547-1.287 0-.77-.565-1.287-1.547-1.287H5.872v2.574z"/>
+    </svg>
+  );
+}
+
+function WhatsAppIcon({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  );
+}
+
+const socials = [
+  { icon: Linkedin, href: "https://www.linkedin.com/in/oyedokunken/", label: "LinkedIn" },
+  { icon: Github, href: "https://github.com/oyedokunken/oyedokun.dev", label: "GitHub" },
+  { icon: Instagram, href: "https://www.instagram.com/oyedokunken", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/oyedokunken/", label: "Facebook" },
+  { icon: BehanceIcon, href: "https://www.behance.net/oyedokun", label: "Behance" },
+];
+
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
+];
+
+const contactLinks = [
+  { icon: Mail, label: "Email", value: "oyedokunken@gmail.com", href: "mailto:oyedokunken@gmail.com" },
+  { icon: Phone, label: "Phone", value: "+234 802 813 4942", href: "tel:+2348028134942" },
+  { icon: WhatsAppIcon, label: "WhatsApp", value: "Chat on WhatsApp", href: "https://wa.link/nv875h" },
+];
+
+export default function Footer() {
+  const { theme } = useTheme();
+  const scrollTo = (href: string) => {
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+  const isDark = theme === "dark";
+
+  return (
+    <>
+      <footer className="bg-[var(--bg-secondary)] border-t border-[var(--border-color)] pt-16 pb-8">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-[var(--border-color)]">
+            <div className="space-y-5">
+              <Logo />
+              <p className="text-sm text-[var(--text-secondary)] leading-relaxed max-w-[260px]">
+                Building systems that scale. Based in Nigeria, working globally.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {socials.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] transition-all duration-200"
+                  >
+                    <s.icon size={14} />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-1 gap-8 md:gap-0 col-span-1 md:col-span-2 md:grid md:grid-cols-2">
+              <div>
+                <p className="text-[10px] tracking-[3px] uppercase text-[var(--text-muted)] mb-5">Navigation</p>
+                <ul className="space-y-3">
+                  {navLinks.map((link) => (
+                    <li key={link.label}>
+                      <button
+                        onClick={() => scrollTo(link.href)}
+                        className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                      >
+                        {link.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <p className="text-[10px] tracking-[3px] uppercase text-[var(--text-muted)] mb-5">Contact</p>
+                <ul className="space-y-4">
+                  {contactLinks.map((c) => (
+                    <li key={c.label}>
+                      <a
+                        href={c.href}
+                        target={c.href.startsWith("http") ? "_blank" : undefined}
+                        rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                        className="flex items-center gap-2.5 group"
+                      >
+                        <span className="w-7 h-7 flex items-center justify-center rounded-lg border border-[var(--border-color)] text-[var(--text-muted)] group-hover:text-[var(--text-primary)] group-hover:border-[var(--text-primary)] transition-all duration-200 flex-shrink-0">
+                          <c.icon size={12} />
+                        </span>
+                        <div>
+                          <p className="text-[9px] tracking-[2px] uppercase text-[var(--text-muted)] leading-none mb-0.5">{c.label}</p>
+                          <p className="text-xs text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">{c.value}</p>
+                        </div>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-[var(--text-muted)]">
+              &copy; {new Date().getFullYear()} Oyedokun Kehinde Joshua. All rights reserved.
+            </p>
+            <p className="text-xs text-[var(--text-muted)]">
+              Engineered by{" "}
+              <a
+                href="https://wa.link/nv875h"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              >
+                @oyedokunken
+              </a>
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      <div
+        className="relative overflow-hidden border-t"
+        style={{
+          background: isDark ? "#000000" : "#ffffff",
+          borderColor: isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)",
+        }}
+      >
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ opacity: isDark ? 0.04 : 0.06 }}
+        >
+          <defs>
+            <pattern id="footer-grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#footer-grid)" />
+        </svg>
+
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          className="absolute -right-40 -top-40 w-[500px] h-[500px] rounded-full border pointer-events-none"
+          style={{ borderColor: isDark ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.04)" }}
+        />
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          className="absolute -left-60 -bottom-60 w-[700px] h-[700px] rounded-full border pointer-events-none"
+          style={{ borderColor: isDark ? "rgba(255,255,255,0.02)" : "rgba(0,0,0,0.03)" }}
+        />
+
+        <button
+          onClick={() => scrollTo("#hero")}
+          aria-label="Back to top"
+          className="relative z-10 w-full group py-20 sm:py-28 flex flex-col items-center justify-center gap-6"
+        >
+          <motion.span
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              fontFamily: "'Urbanist', sans-serif",
+              fontWeight: 800,
+              fontSize: "clamp(3.5rem, 14vw, 11rem)",
+              letterSpacing: "-0.05em",
+              lineHeight: 1,
+              color: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)",
+              transition: "color 0.4s ease",
+            }}
+            className="group-hover:!opacity-100 select-none"
+          >
+            oyedokun
+          </motion.span>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="flex flex-col items-center gap-1.5"
+          >
+            <Logo size={28} showText={false} />
+            <span
+              className="text-[10px] tracking-[4px] uppercase"
+              style={{ color: isDark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.25)" }}
+            >
+              Back to top
+            </span>
+          </motion.div>
+        </button>
+      </div>
+    </>
+  );
+}

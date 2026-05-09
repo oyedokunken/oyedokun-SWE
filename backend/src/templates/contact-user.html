@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Got your message</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #e0e0e0; }
+  .wrap { max-width: 600px; margin: 0 auto; padding: 40px 20px; }
+  .logo-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .logo-text { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; color: #fff; }
+  .tag { display: inline-block; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #888; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; margin-bottom: 24px; }
+  h1 { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 16px; letter-spacing: -0.5px; }
+  p { color: #888; font-size: 15px; line-height: 1.7; margin-bottom: 16px; }
+  .divider { height: 1px; background: rgba(255,255,255,0.06); margin: 32px 0; }
+  .footer { font-size: 12px; color: #444; }
+  a { color: #888; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo-bar">
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="36" height="36" rx="4" fill="rgba(255,255,255,0.05)"/>
+      <text x="18" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="white" font-family="sans-serif">ok</text>
+    </svg>
+    <span class="logo-text">oyedokun.dev</span>
+  </div>
+
+  <div class="tag">Acknowledged</div>
+  <h1>Your message landed, {{name}}.</h1>
+  <p>Thanks for reaching out. I read every message personally and will get back to you within 24 to 48 hours.</p>
+  <p>In the meantime, feel free to explore my work or connect on LinkedIn.</p>
+
+  <div class="divider"></div>
+
+  <div class="footer">
+    Kehinde Oyedokun &middot; <a href="https://oyedokun.dev">oyedokun.dev</a> &middot; <a href="mailto:oyedokunken@gmail.com">oyedokunken@gmail.com</a>
+  </div>
+</div>
+</body>
+</html>
