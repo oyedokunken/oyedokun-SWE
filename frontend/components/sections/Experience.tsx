@@ -103,7 +103,7 @@ export default function Experience() {
         </div>
 
         <div className="relative" ref={sectionRef}>
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-[var(--border-color)] hidden lg:block overflow-hidden">
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-[var(--border-color)] block overflow-hidden">
             <motion.div
               style={{ scaleY: lineScaleY, originY: 0 }}
               className="absolute inset-0 bg-[var(--text-primary)] opacity-60"
@@ -118,14 +118,14 @@ export default function Experience() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="lg:pl-12 relative group"
+                className="pl-6 lg:pl-12 relative group"
               >
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 + 0.2, type: "spring", stiffness: 300 }}
-                  className="absolute -left-1.5 top-8 w-3 h-3 rounded-full border-2 border-[var(--text-muted)] bg-[var(--bg)] hidden lg:block group-hover:border-[var(--text-primary)] transition-colors"
+                  className="absolute -left-1.5 top-8 w-3 h-3 rounded-full border-2 border-[var(--text-muted)] bg-[var(--bg)] group-hover:border-[var(--text-primary)] transition-colors"
                 />
 
                 <div className="py-10 border-b border-[var(--border-color)] last:border-0">

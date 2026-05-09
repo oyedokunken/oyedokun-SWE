@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { ArrowDown, MapPin } from "lucide-react";
+import { useSiteReady } from "@/lib/useSiteReady";
 
 function Counter({ target, suffix = "+" }: { target: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -35,12 +36,12 @@ function GreenDot() {
 
 const titleWords = ["Architecting", "systems.", "Shipping", "at", "scale."];
 
-function Word({ word, i, total }: { word: string; i: number; total: number }) {
+function Word({ word, i, total, ready }: { word: string; i: number; total: number; ready: boolean }) {
   return (
     <motion.span
       initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
-      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      transition={{ duration: 0.7, delay: 0.8 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      animate={ready ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 40, filter: "blur(8px)" }}
+      transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className={`inline-block mr-[0.25em] ${i >= total - 2 ? "text-[var(--text-secondary)]" : ""}`}
     >
       {word}
@@ -49,6 +50,7 @@ function Word({ word, i, total }: { word: string; i: number; total: number }) {
 }
 
 export default function Hero() {
+  const ready = useSiteReady();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
@@ -73,8 +75,8 @@ export default function Hero() {
           <motion.div
             style={{ y: imageY }}
             initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            animate={ready ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative block lg:hidden order-first"
           >
             <div className="relative w-full aspect-square">
@@ -102,8 +104,8 @@ export default function Hero() {
           <motion.div style={{ y: textY }} className="space-y-8">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              animate={ready ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="flex items-center gap-3"
             >
               <span className="section-label">Available for work</span>
@@ -114,14 +116,14 @@ export default function Hero() {
 
             <h1 className="text-[clamp(2.8rem,6vw,5rem)] font-bold leading-[1.05] tracking-[-0.03em]">
               {titleWords.map((w, i) => (
-                <Word key={i} word={w} i={i} total={titleWords.length} />
+                <Word key={i} word={w} i={i} total={titleWords.length} ready={ready} />
               ))}
             </h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.4 }}
+              animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
               className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-md"
             >
               Staff-level engineer. Full-stack, backend-first, systems-minded.
@@ -130,8 +132,8 @@ export default function Hero() {
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.6 }}
+              animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
               className="flex flex-wrap gap-4"
             >
               <button
@@ -156,8 +158,8 @@ export default function Hero() {
 
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2 }}
+              animate={ready ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ delay: 1.1 }}
               className="flex items-center gap-8 pt-4"
             >
               {[
@@ -178,8 +180,8 @@ export default function Hero() {
           <motion.div
             style={{ y: imageY }}
             initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            animate={ready ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="relative hidden lg:block order-last"
           >
             <div className="relative mx-auto w-full max-w-[420px] aspect-[3/4]">

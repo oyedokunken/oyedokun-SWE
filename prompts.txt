@@ -227,7 +227,7 @@ Development of a Blockchain System for Verifying Academic Credentials in Nigeria
 
 A comprehensive blockchain-powered academic credential verification platform designed to eliminate certificate fraud and streamline verification processes in Nigerian higher education institutions.
 
-Author: Oyedokun Kehinde Joshua
+Author: Oyedokun Kehinde
 Matric Number: Private (Contact: oyedokunkjifs2020@futa.edu.ng)
 Email: oyedokunkjifs2020@futa.edu.ng
 Department: Information Systems, School of Computing, FUTA

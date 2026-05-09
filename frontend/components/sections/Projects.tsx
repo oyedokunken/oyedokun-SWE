@@ -143,7 +143,7 @@ const projects = [
     category: "Agency",
     desc: "Production-ready business website for Queensland's premier gaming and technology specialists. Interactive hero slider, animated counters, local SEO, and a smart email system.",
     tags: ["React 18", "TypeScript", "Vite", "Bootstrap", "Express"],
-    live: null,
+    live: "https://cgs-web.vercel.app/",
     github: "https://github.com/oyedokunken/cgs-web",
     gradient: "from-[#0a0a10] via-[#0a0f1a] to-[#000d1f]",
     pattern: "grid",

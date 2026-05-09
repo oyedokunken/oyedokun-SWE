@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 
@@ -7,23 +8,23 @@ const testimonials = [
   {
     quote:
       "Kehinde delivered the entire Glore platform in record time. Clean architecture, real-time WebSocket pricing, and a polished UI that impressed every stakeholder. He thinks like an engineer and a product person at the same time.",
-    name: "Tunde Adeyemi",
-    role: "CEO",
+    name: "Bolwarinwa Dolapo",
+    role: "Co-founder",
     company: "Rexta Technologies",
     initials: "TA",
   },
   {
     quote:
       "The RIOS platform is exactly what we needed. Multi-tenant ESG reporting with GRI and TCFD frameworks, all working out of the box. Kehinde understood the compliance requirements better than most engineers I have worked with.",
-    name: "Chukwuemeka Obi",
-    role: "CTO",
+    name: "Tunbosun Afolayan",
+    role: "Managing Director",
     company: "PRO ALLY",
     initials: "CO",
   },
   {
     quote:
       "Working with Kehinde on our customer portal and onboarding system was seamless. He built secure, scalable APIs and integrated everything we needed without cutting corners on performance or security.",
-    name: "James Hartley",
+    name: "Josh Finlay",
     role: "Engineering Lead",
     company: "Athena Networks",
     initials: "JH",
@@ -31,8 +32,8 @@ const testimonials = [
   {
     quote:
       "Kehinde built the Ren Power marketplace from scratch. The quote workflow, role-based dashboards, and the AI chatbot all work flawlessly in production. He is the kind of engineer you want owning the entire backend.",
-    name: "Sarah Mitchell",
-    role: "Product Manager",
+    name: "Ayobami Olu",
+    role: "CEO/Founder",
     company: "Ren Power Limited",
     initials: "SM",
   },
@@ -83,8 +84,8 @@ export default function Testimonials() {
               </p>
 
               <div className="flex items-center gap-3 pt-2 border-t border-[var(--border-color)]">
-                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/10 flex items-center justify-center flex-shrink-0">
-                  <span className="text-xs font-semibold text-white/70">{t.initials}</span>
+                <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10 flex-shrink-0 bg-white/5">
+                  <Image src="/avatar.png" alt={t.name} width={40} height={40} className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-[var(--text-primary)] leading-tight">{t.name}</p>

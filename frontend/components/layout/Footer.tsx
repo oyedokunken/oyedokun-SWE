@@ -122,7 +122,7 @@ export default function Footer() {
 
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-[var(--text-muted)]">
-              &copy; {new Date().getFullYear()} Oyedokun Kehinde Joshua. All rights reserved.
+              &copy; {new Date().getFullYear()} Oyedokun Kehinde. All rights reserved.
             </p>
             <p className="text-xs text-[var(--text-muted)]">
               Engineered by{" "}
@@ -175,40 +175,17 @@ export default function Footer() {
         <button
           onClick={() => scrollTo("#hero")}
           aria-label="Back to top"
-          className="relative z-10 w-full group py-20 sm:py-28 flex flex-col items-center justify-center gap-6"
+          className="relative z-10 w-full group py-12 sm:py-16 flex items-center justify-center"
         >
-          <motion.span
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            style={{
-              fontFamily: "'Urbanist', sans-serif",
-              fontWeight: 800,
-              fontSize: "clamp(3.5rem, 14vw, 11rem)",
-              letterSpacing: "-0.05em",
-              lineHeight: 1,
-              color: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.07)",
-              transition: "color 0.4s ease",
-            }}
-            className="group-hover:!opacity-100 select-none"
-          >
-            oyedokun
-          </motion.span>
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, scale: 0.92 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="flex flex-col items-center gap-1.5"
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ scale: 1.04 }}
+            className="transition-all duration-300"
           >
-            <Logo size={28} showText={false} />
-            <span
-              className="text-[10px] tracking-[4px] uppercase"
-              style={{ color: isDark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.25)" }}
-            >
-              Back to top
-            </span>
+            <Logo size={44} />
           </motion.div>
         </button>
       </div>

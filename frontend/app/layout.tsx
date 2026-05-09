@@ -23,8 +23,8 @@ export const metadata: Metadata = {
     "Oyedokun Kehinde",
     "oyedokun.dev",
   ],
-  authors: [{ name: "Oyedokun Kehinde Joshua" }],
-  creator: "Oyedokun Kehinde Joshua",
+  authors: [{ name: "Oyedokun Kehinde" }],
+  creator: "Oyedokun Kehinde",
   metadataBase: new URL("https://oyedokun.dev"),
   openGraph: {
     title: "Oyedokun Kehinde — Software Engineer",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og.png",
+        url: "https://oyedokun.dev/og.png",
         width: 1200,
         height: 630,
         alt: "Oyedokun Kehinde — Software Engineer",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "Oyedokun Kehinde — Software Engineer",
     description:
       "Staff-level Software Engineer. Full-stack development, backend architecture, and scalable systems.",
-    images: ["/og.png"],
+    images: ["https://oyedokun.dev/og.png"],
   },
   icons: {
     icon: "/favicon.svg",

@@ -19,6 +19,7 @@ export default function Preloader() {
           clearInterval(timer);
           setTimeout(() => {
             setExiting(true);
+            document.dispatchEvent(new CustomEvent("siteReady"));
             setTimeout(() => setVisible(false), 900);
           }, 400);
         }

@@ -28,6 +28,7 @@ app.use("/api", limiter);
 app.use("/api/contact", contactRouter);
 app.use("/api/resume", resumeRouter);
 
+app.get("/", (_req, res) => res.json({ status: "ok", service: "oyedokun.dev API" }));
 app.get("/health", (_req, res) => res.json({ status: "ok" }));
 
 const PORT = Number(process.env.PORT) || 4000;

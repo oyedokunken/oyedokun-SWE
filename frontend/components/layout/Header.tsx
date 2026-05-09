@@ -7,6 +7,7 @@ import Logo from "@/components/Logo";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import MobileMenu from "@/components/layout/MobileMenu";
 import { useResumeModal } from "@/context/ResumeModalContext";
+import { useSiteReady } from "@/lib/useSiteReady";
 
 const navItems = [
   { label: "Home", href: "#hero" },
@@ -14,6 +15,7 @@ const navItems = [
   { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -22,6 +24,7 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState("hero");
   const [menuOpen, setMenuOpen] = useState(false);
   const { openModal: openResumeModal } = useResumeModal();
+  const ready = useSiteReady();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -30,7 +33,7 @@ export default function Header() {
   }, []);
 
   const updateActive = useCallback(() => {
-    const sections = ["hero", "about", "services", "projects", "experience", "contact"];
+    const sections = ["hero", "about", "services", "projects", "experience", "testimonials", "contact"];
     for (const id of [...sections].reverse()) {
       const el = document.getElementById(id);
       if (el && window.scrollY >= el.offsetTop - 120) {
@@ -54,8 +57,8 @@ export default function Header() {
     <>
       <motion.header
         initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        animate={ready ? { y: 0, opacity: 1 } : { y: -20, opacity: 0 }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-[70] transition-all duration-500 ${
           scrolled
             ? "py-3 backdrop-blur-xl bg-[var(--bg)]/80 border-b border-[var(--border-color)]"
@@ -93,20 +96,20 @@ export default function Header() {
             })}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <ThemeToggle />
+            <button
+              onClick={openResumeModal}
+              className="btn-outline text-[11px] py-2 px-4"
+            >
+              Resume
+            </button>
             <button
               onClick={() => setMenuOpen(true)}
               className="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
               aria-label="Open menu"
             >
               <Menu size={16} />
-            </button>
-            <button
-              onClick={openResumeModal}
-              className="hidden md:flex btn-outline text-[11px] py-2 px-5"
-            >
-              Resume
             </button>
           </div>
         </div>
