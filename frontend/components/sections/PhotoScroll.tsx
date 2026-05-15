@@ -25,8 +25,10 @@ const photos = [
   "/shoot/oyedokun-slide-4.jpg",
 ];
 
-const row1 = [...photos.slice(0, 7), ...photos.slice(0, 7), ...photos.slice(0, 7)];
-const row2 = [...photos.slice(7), ...photos.slice(7), ...photos.slice(7)];
+const evens = photos.filter((_, i) => i % 2 === 0);
+const odds  = photos.filter((_, i) => i % 2 === 1);
+const row1 = [...evens, ...evens, ...evens];
+const row2 = [...odds,  ...odds,  ...odds];
 
 function PhotoStrip({ items, reverse }: { items: string[]; reverse?: boolean }) {
   return (
