@@ -181,6 +181,39 @@ const projects = [
     gradient: "from-[#0f0f0f] via-[#1a0f1a] to-[#1a001a]",
     pattern: "blockchain",
   },
+  {
+    id: "nextstars",
+    title: "NextStars",
+    category: "WordPress",
+    desc: "Career placement hub empowering STEM talents with power skills, early peer collaboration, real-world exposure, and upward social mobility opportunities for building purposeful careers.",
+    tags: ["WordPress", "PHP", "CSS"],
+    live: "https://nexstars.org/",
+    github: null,
+    gradient: "from-[#0a0a0a] via-[#0d1a07] to-[#051a00]",
+    pattern: "network",
+  },
+  {
+    id: "wime-awards",
+    title: "WIME Awards",
+    category: "WordPress",
+    desc: "Awards platform celebrating women in maritime and energy sectors across Africa. Features award categories, nominee profiles, honoree highlights, event registration, and sponsorship.",
+    tags: ["WordPress", "PHP", "CSS"],
+    live: "https://wimeawards.org/",
+    github: null,
+    gradient: "from-[#0f0a14] via-[#1a0d1f] to-[#140020]",
+    pattern: "luxury",
+  },
+  {
+    id: "minuteman",
+    title: "Minuteman",
+    category: "E-commerce",
+    desc: "Full-featured multi-category WooCommerce storefront for a Nigerian e-commerce brand. Flash deals, category browsing, product search, wishlists, and full customer account management.",
+    tags: ["WordPress", "WooCommerce", "PHP"],
+    live: "https://minuteman.com.ng/",
+    github: null,
+    gradient: "from-[#0f0a0a] via-[#1a0d07] to-[#1f0a00]",
+    pattern: "dots",
+  },
 ];
 
 const categories = ["All", "Platform", "SaaS", "SaaS / AI", "Blockchain", "Healthcare", "EdTech", "E-commerce", "Agency", "WordPress"];
@@ -416,7 +449,7 @@ export default function Projects() {
                     </p>
                     <div className="flex flex-wrap gap-1.5 pt-1">
                       {project.tags.slice(0, 3).map((tag) => (
-                        <span key={tag} className="text-[9px] tracking-wide uppercase px-2 py-1 rounded bg-white text-black">
+                        <span key={tag} className="text-[9px] tracking-wide uppercase px-2 py-1 rounded border border-[var(--text-primary)]/25 text-[var(--text-primary)]/65">
                           {tag}
                         </span>
                       ))}

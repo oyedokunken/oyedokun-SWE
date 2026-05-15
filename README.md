@@ -190,17 +190,17 @@ Browser loads page
 - About: animated philosophy statement, personal details grid
 - Skills: 30+ technologies in grouped icon grid
 - Services: 9 cards with equalized descriptions, no em dashes
-- Projects: 16 projects filterable by category (Platform, SaaS, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress) with category pills inside cards (filled white bg/black text, fixed across themes) and tag pills (filled white bg/black text, fixed across themes)
+- Projects: 19 projects filterable by category (Platform, SaaS, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress) with filled white category pills (per-card) and outline theme-responsive stack/tag pills
 - Experience: animated scroll-driven timeline line, spring-pop dots, impact-focused bullet points
-- Education: FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab) in card grid
+- Education: FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab) in card grid (currently hidden)
 - WhyMe: 6 USP cards with alternating elevated backgrounds (cards 2/4/6 elevated at rest)
 - Testimonials: quote cards with avatar images
 - Photo scroll: infinite bidirectional marquee in two rows
 - Contact: form with field icons, Zod validation, rate-limited API, success/error modal
-- Resume modal: name and email form, PDF delivery via Nodemailer
+- CV modal: name and email form, PDF delivery via Nodemailer
 - Open Graph and Twitter card metadata with custom 1200x630 OG image
 - Sitemap and robots.txt for search engine indexing
-- WhatsApp float button and scroll-to-top button
+- WhatsApp float button with "Let's chat" sticky label, scroll-to-top button
 - Responsive across mobile, tablet, and desktop
 
 ---

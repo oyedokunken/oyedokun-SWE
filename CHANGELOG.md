@@ -6,6 +6,28 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.5.0] - 2026-05-15
+
+### Added
+- Projects: NextStars (WordPress) — STEM career placement hub
+- Projects: WIME Awards (WordPress) — women in maritime & energy awards platform
+- Projects: Minuteman (E-commerce) — multi-category WooCommerce storefront
+- Photo scroll: 4 new slide images added (oyedokun-slide-1 through slide-4)
+- Email icons: LinkedIn, GitHub, Instagram, Behance, Facebook PNG assets added to `public/email-icons/`
+
+### Changed
+- Projects: tag/stack pills changed from filled white to outline style (theme-responsive border + text)
+- Projects: Education section temporarily commented out from page
+- Header CTA button: changed from outline to filled background (theme-responsive), label changed Resume → CV
+- Contact section: "Download Resume" button relabelled to "Download CV"
+- CV modal: title and submit button text updated to CV
+- Email templates: removed SVG icon beside "oyedokun.dev" in header (text-only now)
+- Email templates: social footer replaced with PNG icons (LinkedIn, GitHub, Instagram, Behance, Facebook); WhatsApp and Portfolio removed
+- Email templates: all "Resume" references updated to "CV" (subject lines, attachment filename, template tags)
+- WhatsApp float button: added "Let's chat" sticky text label beside the button
+
+---
+
 ## [1.4.0] - 2026-05-09
 
 ### Changed

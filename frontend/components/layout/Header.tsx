@@ -100,9 +100,9 @@ export default function Header() {
             <ThemeToggle />
             <button
               onClick={openResumeModal}
-              className="btn-outline text-[11px] py-2 px-4"
+              className="bg-[var(--text-primary)] text-[var(--bg)] text-[11px] py-2 px-4 rounded-full font-medium tracking-wide hover:opacity-85 transition-opacity duration-200"
             >
-              Resume
+              CV
             </button>
             <button
               onClick={() => setMenuOpen(true)}

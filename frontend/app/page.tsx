@@ -25,7 +25,7 @@ export default function Home() {
       <WhyMe />
       <Projects />
       <Experience />
-      <Education />
+      {/* <Education /> */}
       <Testimonials />
       <PhotoScroll />
       <Contact />
