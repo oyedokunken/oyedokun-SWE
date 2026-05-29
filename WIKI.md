@@ -56,7 +56,7 @@ The `useSiteReady` hook (`frontend/lib/useSiteReady.ts`) listens for the `siteRe
 | Skills | `#skills` | Tool icon grid |
 | Services | `#services` | Equal-height cards (min-h-[380px]) in responsive grid |
 | Why Me | `#why-me` | 6 USP cards with alternating elevated backgrounds (2/4/6 elevated at rest) |
-| Projects | `#projects` | 19 filterable cards with abstract covers; category pills inside cards (filled white bg/black text); stack/tag pills use outline style (theme-responsive) |
+| Projects | `#projects` | 20 filterable cards with real cover images (h-44 top section); category pill + GitHub/live icons overlay on image (black bg only, no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive |
 | Experience | `#experience` | Timeline with animated progress line, impact-focused bullets |
 | Education | `#education` | FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab) in card grid — **currently commented out** |
 | Testimonials | `#testimonials` | Client quotes with theme-aware avatar |
@@ -66,7 +66,7 @@ The `useSiteReady` hook (`frontend/lib/useSiteReady.ts`) listens for the `siteRe
 
 ## Backend Email System
 
-HTML templates are inlined as TypeScript string constants in `backend/src/services/mailer.ts`. No file I/O is performed at runtime, making the email system fully compatible with Vercel's serverless read-only file system. The `resume.pdf` attachment uses a fallback path chain (`__dirname`-based, `process.cwd()/backend`, `process.cwd()`) to resolve correctly across local and Vercel environments. All 4 email templates (contact-owner, contact-user, cv-delivery, cv-request) show `oyedokun.dev` text-only in the header (no SVG icon), explicit horizontal dividers, and PNG-based social footer links (LinkedIn, GitHub, Instagram, Behance, Facebook) hosted at `public/email-icons/`. CV delivery email subject and attachment filename use "CV" (not "Resume").
+HTML templates are inlined as TypeScript string constants in `backend/src/services/mailer.ts`. No file I/O is performed at runtime, making the email system fully compatible with Vercel's serverless read-only file system. The `CV - Oyedokun Kehinde Joshua.pdf` attachment uses a fallback path chain (`__dirname`-based, `process.cwd()/backend`, `process.cwd()`) to resolve correctly across local and Vercel environments. All 4 email templates (contact-owner, contact-user, cv-delivery, cv-request) show `oyedokun.dev` text-only in the header (no SVG icon), explicit horizontal dividers, and PNG-based social footer links (LinkedIn, GitHub, Instagram, Behance, Facebook) hosted at `public/email-icons/`. CV delivery email subject and attachment filename use "CV" (not "Resume").
 
 ## Deployment Notes
 

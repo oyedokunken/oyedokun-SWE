@@ -190,7 +190,7 @@ Browser loads page
 - About: animated philosophy statement, personal details grid
 - Skills: 30+ technologies in grouped icon grid
 - Services: 9 cards with equalized descriptions, no em dashes
-- Projects: 19 projects filterable by category (Platform, SaaS, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress) with filled white category pills (per-card) and outline theme-responsive stack/tag pills
+- Projects: 20 projects filterable by category (Platform, SaaS, SaaS/AI, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress); real cover image per card; category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
 - Experience: animated scroll-driven timeline line, spring-pop dots, impact-focused bullet points
 - Education: FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab) in card grid (currently hidden)
 - WhyMe: 6 USP cards with alternating elevated backgrounds (cards 2/4/6 elevated at rest)
@@ -212,7 +212,7 @@ Browser loads page
 | Credence | Blockchain | [credencely.vercel.app](https://credencely.vercel.app) |
 | Glore | Platform | [gloreenergy.com](https://gloreenergy.com) |
 | Ren Power | Platform | [renpowerltd.com](https://renpowerltd.com) |
-| RIOS | SaaS | GitHub only |
+| RIOS | SaaS | [rios-web.vercel.app](https://rios-web.vercel.app) |
 | TitanBid | SaaS / AI | [titan-bid-frontend.vercel.app](https://titan-bid-frontend.vercel.app) |
 | Traqify | SaaS | [traqify.vercel.app](https://traqify.vercel.app) |
 | GramOne | Platform | [gramone.vercel.app](https://gramone.vercel.app) |
@@ -225,6 +225,10 @@ Browser loads page
 | Rexta | Agency | [rexta.vercel.app](https://rexta.vercel.app) |
 | Glory Fashion | WordPress | [glorybyjes.com](https://glorybyjes.com) |
 | Noble Land Africa | WordPress | [noblelandafrica.com](https://noblelandafrica.com) |
+| NextStars | WordPress | [nexstars.org](https://nexstars.org) |
+| WIME Awards | WordPress | [wimeawards.org](https://wimeawards.org) |
+| Minuteman | E-commerce | [minuteman.com.ng](https://minuteman.com.ng) |
+| Kwiker | Platform | [kwiker-main.vercel.app](https://kwiker-main.vercel.app) |
 
 ---
 

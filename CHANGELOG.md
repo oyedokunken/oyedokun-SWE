@@ -6,6 +6,37 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.6.1] - 2026-05-29
+
+### Added
+- Projects: FUTA HMS cover image added (all 20 projects now have covers)
+- PWA: web manifest added at `public/manifest.json` with theme color, icons, and standalone display
+
+### Changed
+- Projects: Category pill and GitHub/live icon buttons now use black bg only (no theme toggle) — always black/white
+- Projects: Bottom section (bg, title, description, tags) fully theme-responsive (uses CSS variables)
+- Projects: Glore cover image replaced with updated version
+- Projects: Removed fallback gradient (all projects have covers)
+
+---
+
+## [1.6.0] - 2026-05-29
+
+### Added
+- Projects: Kwiker (Platform) — Commerce OS for African SMBs; waitlist site with Next.js 16 frontend and Express/Supabase backend
+- Projects: 20 real cover images added to `public/covers/` replacing all SVG abstract backgrounds
+- Backend: `CV - Oyedokun Kehinde Joshua.pdf` added as the CV attachment (replaces `resume.pdf`)
+
+### Changed
+- Projects: RIOS live link updated to `https://rios-web.vercel.app/`
+- Projects: Card redesign — image cover on top (h-44), dark text section below; category pill and icon buttons theme-responsive (black/white in light, white/black in dark)
+- Projects: All project descriptions standardised to equal length (~145–155 chars, 2-line display)
+- Projects: AbstractCover SVG component removed entirely; FUTA HMS uses CSS gradient fallback
+- Backend: `getResumePath()` updated to resolve `CV - Oyedokun Kehinde Joshua.pdf`; email attachment filename updated to match
+- Backend: Old `resume.pdf` deleted
+
+---
+
 ## [1.5.0] - 2026-05-15
 
 ### Added
