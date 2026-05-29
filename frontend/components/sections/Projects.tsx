@@ -318,7 +318,7 @@ export default function Projects() {
                 {/* Text section — theme-responsive bg and text */}
                 <div className="p-5 flex flex-col gap-2 flex-1 bg-[var(--bg-elevated)]">
                   <h3 className="text-base font-bold text-[var(--text-primary)] tracking-tight leading-snug">{project.title}</h3>
-                  <p className="text-[var(--text-secondary)] text-xs leading-relaxed line-clamp-2 flex-1">
+                  <p className="text-[var(--text-secondary)] text-xs leading-relaxed flex-1">
                     {project.desc}
                   </p>
                   <div className="flex flex-wrap gap-1.5 pt-1">
