@@ -209,14 +209,14 @@ Browser loads page
 
 | Project | Category | Live URL |
 |---|---|---|
-| Credence | Blockchain | [credencely.vercel.app](https://credencely.vercel.app) |
+| Glore | Platform | [gloreenergy.com](https://gloreenergy.com) |
 | Ren Power | Platform | [renpowerltd.com](https://renpowerltd.com) |
 | RIOS | SaaS | [rios-web.vercel.app](https://rios-web.vercel.app) |
-| Glore | Platform | [gloreenergy.com](https://gloreenergy.com) |
-| EduPilot | EdTech | [edupilotly.vercel.app](https://edupilotly.vercel.app) |
-| Kwiker | Platform | [kwiker-main.vercel.app](https://kwiker-main.vercel.app) |
+| Credence | Blockchain | [credencely.vercel.app](https://credencely.vercel.app) |
 | Traqify | SaaS | [traqify.vercel.app](https://traqify.vercel.app) |
 | Storebook | SaaS | [storebook-production.up.railway.app](https://storebook-production.up.railway.app) |
+| EduPilot | EdTech | [edupilotly.vercel.app](https://edupilotly.vercel.app) |
+| Kwiker | Platform | [kwiker-main.vercel.app](https://kwiker-main.vercel.app) |
 | TitanBid | SaaS / AI | [titan-bid-frontend.vercel.app](https://titan-bid-frontend.vercel.app) |
 | GramOne | Platform | [gramone.vercel.app](https://gramone.vercel.app) |
 | Dubai Avenue Scents | E-commerce | [dubaiavenuescent.com](https://dubaiavenuescent.com) |

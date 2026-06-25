@@ -14,7 +14,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 - Projects: Cover images now render in greyscale by default; colour reveals on card hover via Tailwind `grayscale` / `group-hover:grayscale-0` — consistent with the B/W site palette
-- Projects: Display order updated — Ren Power 2nd, RIOS 3rd, Glore 4th, EduPilot 5th, Kwiker 6th, Traqify 7th, Storebook 8th (beside Traqify as twin store-management projects), TitanBid 9th
+- Projects: Display order updated — Glore 1st, Ren Power 2nd, RIOS 3rd, Credence 4th, Traqify 5th, Storebook 6th, EduPilot 7th, Kwiker 8th, TitanBid 9th
 - Projects: Total project count is now 21
 
 ---
