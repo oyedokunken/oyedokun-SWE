@@ -6,6 +6,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.7.0] - 2026-06-25
+
+### Added
+- Projects: Storebook (SaaS) — Laravel 11 store management system with POS, multi-branch inventory, role-based access (Admin / Manager / Cashier / Staff), PDF & email reports, public storefront, guest checkout, debtor tracking, supplier management, OTP authentication, and full audit logging; deployed on Railway
+- Projects: `storebook-cover.png` added to `public/covers/`
+
+### Changed
+- Projects: Cover images now render in greyscale by default; colour reveals on card hover via Tailwind `grayscale` / `group-hover:grayscale-0` — consistent with the B/W site palette
+- Projects: Display order updated — Ren Power 2nd, RIOS 3rd, Glore 4th, EduPilot 5th, Kwiker 6th, Traqify 7th, Storebook 8th (beside Traqify as twin store-management projects), TitanBid 9th
+- Projects: Total project count is now 21
+
+---
+
 ## [1.6.1] - 2026-05-29
 
 ### Added

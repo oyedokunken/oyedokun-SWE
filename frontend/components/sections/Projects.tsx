@@ -17,16 +17,6 @@ const projects = [
     github: "https://github.com/oyedokunken/credence-app",
   },
   {
-    id: "glore",
-    title: "Glore",
-    category: "Platform",
-    cover: "/covers/glore-cover.png",
-    desc: "Critical mineral trading platform connecting Africa's mining sector to global markets, with real-time pricing, live WebSocket charts, and investor decks.",
-    tags: ["React", "Express", "PostgreSQL", "Socket.io", "Redis"],
-    live: "https://www.gloreenergy.com/",
-    github: "https://github.com/oyedokunken/glore",
-  },
-  {
     id: "renpower",
     title: "Ren Power",
     category: "Platform",
@@ -47,14 +37,34 @@ const projects = [
     github: "https://github.com/oyedokunken/RIOS-app",
   },
   {
-    id: "titanbid",
-    title: "TitanBid",
-    category: "SaaS / AI",
-    cover: "/covers/titanbid-cover.png",
-    desc: "AI-powered construction cost estimating platform where builders upload blueprints and receive accurate project estimates within 24 to 48 hours.",
-    tags: ["Next.js", "TypeScript", "Supabase", "Stripe", "AI"],
-    live: "https://titan-bid-frontend.vercel.app/",
-    github: "https://github.com/oyedokunken/titan-bids",
+    id: "glore",
+    title: "Glore",
+    category: "Platform",
+    cover: "/covers/glore-cover.png",
+    desc: "Critical mineral trading platform connecting Africa's mining sector to global markets, with real-time pricing, live WebSocket charts, and investor decks.",
+    tags: ["React", "Express", "PostgreSQL", "Socket.io", "Redis"],
+    live: "https://www.gloreenergy.com/",
+    github: "https://github.com/oyedokunken/glore",
+  },
+  {
+    id: "edupilot",
+    title: "EduPilot",
+    category: "EdTech",
+    cover: "/covers/edupilot-cover.png",
+    desc: "Student workflow platform using Critical Path Method to automate scheduling and monitor cognitive load in real time across academic semesters.",
+    tags: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "CPM"],
+    live: "https://edupilotly.vercel.app/",
+    github: "https://github.com/oyedokunken/edupilot",
+  },
+  {
+    id: "kwiker",
+    title: "Kwiker",
+    category: "Platform",
+    cover: "/covers/kwiker-cover.png",
+    desc: "Commerce operating system for African SMBs turning WhatsApp selling into structured digital business with AI storefront, order management, and payments.",
+    tags: ["Next.js 16", "Supabase", "Prisma", "Nodemailer", "Express"],
+    live: "https://kwiker-main.vercel.app/",
+    github: null,
   },
   {
     id: "traqify",
@@ -65,6 +75,26 @@ const projects = [
     tags: ["Next.js", "Express", "Prisma", "PostgreSQL", "Recharts"],
     live: "https://traqify.vercel.app/",
     github: "https://github.com/oyedokunken/traqify",
+  },
+  {
+    id: "storebook",
+    title: "Storebook",
+    category: "SaaS",
+    cover: "/covers/storebook-cover.png",
+    desc: "Laravel-based store management system for retail businesses with POS, multi-branch inventory, role-based access, PDF reports, and a public storefront.",
+    tags: ["Laravel 11", "PHP 8.2", "MySQL", "Tailwind CSS", "Alpine.js"],
+    live: "https://storebook-production.up.railway.app/",
+    github: "https://github.com/oyedokunken/storebook",
+  },
+  {
+    id: "titanbid",
+    title: "TitanBid",
+    category: "SaaS / AI",
+    cover: "/covers/titanbid-cover.png",
+    desc: "AI-powered construction cost estimating platform where builders upload blueprints and receive accurate project estimates within 24 to 48 hours.",
+    tags: ["Next.js", "TypeScript", "Supabase", "Stripe", "AI"],
+    live: "https://titan-bid-frontend.vercel.app/",
+    github: "https://github.com/oyedokunken/titan-bids",
   },
   {
     id: "gramone",
@@ -105,16 +135,6 @@ const projects = [
     tags: ["Next.js", "Node.js", "WebSockets", "PostgreSQL", "PPSA"],
     live: "https://futahms.vercel.app/",
     github: "https://github.com/oyedokunken/FUTA-HMS",
-  },
-  {
-    id: "edupilot",
-    title: "EduPilot",
-    category: "EdTech",
-    cover: "/covers/edupilot-cover.png",
-    desc: "Student workflow platform using Critical Path Method to automate scheduling and monitor cognitive load in real time across academic semesters.",
-    tags: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "CPM"],
-    live: "https://edupilotly.vercel.app/",
-    github: "https://github.com/oyedokunken/edupilot",
   },
   {
     id: "ascentor",
@@ -196,16 +216,6 @@ const projects = [
     live: "https://minuteman.com.ng/",
     github: null,
   },
-  {
-    id: "kwiker",
-    title: "Kwiker",
-    category: "Platform",
-    cover: "/covers/kwiker-cover.png",
-    desc: "Commerce operating system for African SMBs turning WhatsApp selling into structured digital business with AI storefront, order management, and payments.",
-    tags: ["Next.js 16", "Supabase", "Prisma", "Nodemailer", "Express"],
-    live: "https://kwiker-main.vercel.app/",
-    github: null,
-  },
 ];
 
 export default function Projects() {
@@ -279,7 +289,7 @@ export default function Projects() {
                     src={project.cover}
                     alt={project.title}
                     fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
 

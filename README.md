@@ -190,7 +190,7 @@ Browser loads page
 - About: animated philosophy statement, personal details grid
 - Skills: 30+ technologies in grouped icon grid
 - Services: 9 cards with equalized descriptions, no em dashes
-- Projects: 20 projects filterable by category (Platform, SaaS, SaaS/AI, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress); real cover image per card; category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
+- Projects: 21 projects filterable by category (Platform, SaaS, SaaS/AI, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress); real cover image per card rendered in greyscale (colour reveals on hover); category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
 - Experience: animated scroll-driven timeline line, spring-pop dots, impact-focused bullet points
 - Education: FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab) in card grid (currently hidden)
 - WhyMe: 6 USP cards with alternating elevated backgrounds (cards 2/4/6 elevated at rest)
@@ -210,25 +210,26 @@ Browser loads page
 | Project | Category | Live URL |
 |---|---|---|
 | Credence | Blockchain | [credencely.vercel.app](https://credencely.vercel.app) |
-| Glore | Platform | [gloreenergy.com](https://gloreenergy.com) |
 | Ren Power | Platform | [renpowerltd.com](https://renpowerltd.com) |
 | RIOS | SaaS | [rios-web.vercel.app](https://rios-web.vercel.app) |
-| TitanBid | SaaS / AI | [titan-bid-frontend.vercel.app](https://titan-bid-frontend.vercel.app) |
+| Glore | Platform | [gloreenergy.com](https://gloreenergy.com) |
+| EduPilot | EdTech | [edupilotly.vercel.app](https://edupilotly.vercel.app) |
+| Kwiker | Platform | [kwiker-main.vercel.app](https://kwiker-main.vercel.app) |
 | Traqify | SaaS | [traqify.vercel.app](https://traqify.vercel.app) |
+| Storebook | SaaS | [storebook-production.up.railway.app](https://storebook-production.up.railway.app) |
+| TitanBid | SaaS / AI | [titan-bid-frontend.vercel.app](https://titan-bid-frontend.vercel.app) |
 | GramOne | Platform | [gramone.vercel.app](https://gramone.vercel.app) |
 | Dubai Avenue Scents | E-commerce | [dubaiavenuescent.com](https://dubaiavenuescent.com) |
 | DPA Summit | Platform | [digitalprocurement.africa](https://digitalprocurement.africa) |
 | FUTA HMS | Healthcare | [futahms.vercel.app](https://futahms.vercel.app) |
-| EduPilot | EdTech | [edupilotly.vercel.app](https://edupilotly.vercel.app) |
 | Ascentor LDP | Platform | [ascentorbi.com](https://ascentorbi.com) |
 | Cooper Gaming Services | Agency | [cgs-web.vercel.app](https://cgs-web.vercel.app) |
-| Rexta | Agency | [rexta.vercel.app](https://rexta.vercel.app) |
 | Glory Fashion | WordPress | [glorybyjes.com](https://glorybyjes.com) |
 | Noble Land Africa | WordPress | [noblelandafrica.com](https://noblelandafrica.com) |
+| Rexta | Agency | [rexta.vercel.app](https://rexta.vercel.app) |
 | NextStars | WordPress | [nexstars.org](https://nexstars.org) |
 | WIME Awards | WordPress | [wimeawards.org](https://wimeawards.org) |
 | Minuteman | E-commerce | [minuteman.com.ng](https://minuteman.com.ng) |
-| Kwiker | Platform | [kwiker-main.vercel.app](https://kwiker-main.vercel.app) |
 
 ---
 
