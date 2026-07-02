@@ -7,10 +7,10 @@ import { useTheme } from "@/context/ThemeContext";
 const education = [
   {
     icon: GraduationCap,
-    institution: "Federal University of Technology, Akure",
+    institution: "Federal University of Technology, Lagos",
     credential: "Bachelor of Technology (B.Tech)",
     field: "Information Systems",
-    period: "Expected August 2026",
+    period: "Oct. 2021 - Aug. 2026",
     meta: "GPA: 4.75 / 5.00",
     location: "Akure, Nigeria",
     type: "Degree",
@@ -22,7 +22,7 @@ const education = [
     field: "Full Stack Web Development",
     period: "May – October 2025",
     meta: null,
-    location: "Akure, Nigeria",
+    location: "Lagos, Nigeria",
     type: "Certificate",
   },
   {

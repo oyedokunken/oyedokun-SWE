@@ -82,7 +82,7 @@ export default function About() {
               className="mt-10 grid grid-cols-2 gap-6"
             >
               {[
-                { label: "Based in", value: "Akure, Nigeria", icon: MapPin },
+                { label: "Based in", value: "Lagos, Nigeria", icon: MapPin },
                 { label: "Stack", value: "Full-Stack", icon: Layers },
                 { label: "Focus", value: "Backend Systems", icon: Target },
                 { label: "Education", value: "B.Tech, FUTA", icon: GraduationCap },

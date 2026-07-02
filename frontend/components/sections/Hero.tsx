@@ -82,7 +82,7 @@ export default function Hero() {
             <div className="relative w-full aspect-[3/4]">
               <div className="absolute inset-0 rounded-2xl border border-[var(--border-color)] overflow-hidden">
                 <Image
-                  src="/oyedokunken.jpg"
+                  src="/oyedokunken-new.jpg"
                   alt="Oyedokun Kehinde"
                   fill
                   className="object-cover object-center grayscale"
@@ -110,7 +110,7 @@ export default function Hero() {
             >
               <span className="section-label">Available for work</span>
               <span className="flex items-center gap-1.5 text-xs text-white/70">
-                <MapPin size={11} /> Akure, Nigeria
+                <MapPin size={11} /> Lagos, Nigeria
               </span>
             </motion.div>
 
@@ -187,7 +187,7 @@ export default function Hero() {
             <div className="relative mx-auto w-full max-w-[420px] aspect-[3/4]">
               <div className="absolute inset-0 rounded-2xl border border-[var(--border-color)] overflow-hidden">
                 <Image
-                  src="/oyedokunken.jpg"
+                  src="/oyedokunken-new.jpg"
                   alt="Oyedokun Kehinde"
                   fill
                   className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-700"

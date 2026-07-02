@@ -21,7 +21,7 @@ const experiences = [
     company: "Rexta Technologies",
     role: "Software Engineer",
     period: "June 2025 to Present",
-    location: "Akure, Nigeria (Hybrid)",
+    location: "Lagos, Nigeria (Hybrid)",
     type: "Full-time",
     highlights: [
       "Building production-grade platforms that handle real trading workflows and live financial data",

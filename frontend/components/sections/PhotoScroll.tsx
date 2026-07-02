@@ -23,6 +23,9 @@ const photos = [
   "/shoot/oyedokun-slide-2.jpg",
   "/shoot/oyedokun-slide-3.jpg",
   "/shoot/oyedokun-slide-4.jpg",
+  "/shoot/oyedokun-slide-5.png",
+  "/shoot/oyedokun-slide-6.jpg",
+  "/oyedokun.jpg",
 ];
 
 const evens = photos.filter((_, i) => i % 2 === 0);
