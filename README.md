@@ -209,9 +209,9 @@ Browser loads page
 
 | Project | Category | Live URL |
 |---|---|---|
-| Glore | Platform | [gloreenergy.com](https://gloreenergy.com) |
 | Ren Power | Platform | [renpowerltd.com](https://renpowerltd.com) |
 | RIOS | SaaS | [rios-web.vercel.app](https://rios-web.vercel.app) |
+| Glore | Platform | [gloreenergy.com](https://gloreenergy.com) |
 | Credence | Blockchain | [credencely.vercel.app](https://credencely.vercel.app) |
 | Traqify | SaaS | [traqify.vercel.app](https://traqify.vercel.app) |
 | Storebook | SaaS | [storebook-production.up.railway.app](https://storebook-production.up.railway.app) |

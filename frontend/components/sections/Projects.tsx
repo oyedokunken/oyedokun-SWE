@@ -7,16 +7,6 @@ import { ArrowUpRight, Github } from "lucide-react";
 
 const projects = [
   {
-    id: "glore",
-    title: "Glore",
-    category: "Platform",
-    cover: "/covers/glore-cover.png",
-    desc: "Critical mineral trading platform connecting Africa's mining sector to global markets, with real-time pricing, live WebSocket charts, and investor decks.",
-    tags: ["React", "Express", "PostgreSQL", "Socket.io", "Redis"],
-    live: "https://www.gloreenergy.com/",
-    github: "https://github.com/oyedokunken/glore",
-  },
-  {
     id: "renpower",
     title: "Ren Power",
     category: "Platform",
@@ -35,6 +25,16 @@ const projects = [
     tags: ["Next.js", "Express", "Prisma", "PostgreSQL", "pdf-lib"],
     live: "https://rios-web.vercel.app/",
     github: "https://github.com/oyedokunken/RIOS-app",
+  },
+  {
+    id: "glore",
+    title: "Glore",
+    category: "Platform",
+    cover: "/covers/glore-cover.png",
+    desc: "Critical mineral trading platform connecting Africa's mining sector to global markets, with real-time pricing, live WebSocket charts, and investor decks.",
+    tags: ["React", "Express", "PostgreSQL", "Socket.io", "Redis"],
+    live: "https://www.gloreenergy.com/",
+    github: "https://github.com/oyedokunken/glore",
   },
   {
     id: "credence",

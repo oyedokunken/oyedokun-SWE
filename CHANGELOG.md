@@ -12,10 +12,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Hero: New hero image `oyedokun-new.jpg` (replaces `oyedokun.jpg`)
 - Photo marquee: Added `oyedokun.jpg` to marquee slides
 - Photo marquee: Added new slides `oyedokun-slide-5.png` and `oyedokun-slide-6.jpg`
+- Photo marquee: Added `oyedokunken.jpg` to both marquee rows (appears twice for even/odd distribution)
+- Skills: Added Python (Languages), FastAPI (Backend), Vue.js (Frontend), MySQL (Data), AWS (DevOps), Postman (Tools)
 
 ### Changed
 - Location: Updated all location references from Akure to Lagos across Hero, About, Experience, and Education sections
 - Education: FUTA institution name updated to "Federal University of Technology, Lagos"
+- Projects: Display order updated — Ren Power 1st, RIOS 2nd, Glore 3rd
+- Photo marquee: Fixed alt text to use actual filename instead of array index (resolves "Oyedokun 11" display issue)
 
 ---
 

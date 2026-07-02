@@ -24,8 +24,10 @@ const photos = [
   "/shoot/oyedokun-slide-3.jpg",
   "/shoot/oyedokun-slide-4.jpg",
   "/shoot/oyedokun-slide-5.png",
+  "/shoot/oyedokunken.jpg",
   "/shoot/oyedokun-slide-6.jpg",
-  "/oyedokun.jpg",
+  "/shoot/oyedokun-2.png",
+  "/shoot/oyedokunken.jpg",
 ];
 
 const evens = photos.filter((_, i) => i % 2 === 0);
@@ -49,7 +51,7 @@ function PhotoStrip({ items, reverse }: { items: string[]; reverse?: boolean }) 
           >
             <Image
               src={src}
-              alt={`Oyedokun ${i + 1}`}
+              alt={src.split('/').pop() || 'Oyedokun'}
               fill
               className="object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
               sizes="200px"
