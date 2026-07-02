@@ -6,6 +6,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.8.0] - 2026-07-02
+
+### Added
+- Hero: New hero image `oyedokun-new.jpg` (replaces `oyedokun.jpg`)
+- Photo marquee: Added `oyedokun.jpg` to marquee slides
+- Photo marquee: Added new slides `oyedokun-slide-5.png` and `oyedokun-slide-6.jpg`
+
+### Changed
+- Location: Updated all location references from Akure to Lagos across Hero, About, Experience, and Education sections
+- Education: FUTA institution name updated to "Federal University of Technology, Lagos"
+
+---
+
 ## [1.7.0] - 2026-06-25
 
 ### Added

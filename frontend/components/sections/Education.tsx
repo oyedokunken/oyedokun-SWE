@@ -12,7 +12,7 @@ const education = [
     field: "Information Systems",
     period: "Oct. 2021 - Aug. 2026",
     meta: "GPA: 4.75 / 5.00",
-    location: "Akure, Nigeria",
+    location: "Lagos, Nigeria",
     type: "Degree",
   },
   {
