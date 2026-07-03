@@ -84,7 +84,7 @@ const projects = [
     desc: "Commerce operating system for African SMBs turning WhatsApp selling into structured digital business with AI storefront, order management, and payments.",
     tags: ["Next.js 16", "Supabase", "Prisma", "Nodemailer", "Express"],
     live: "https://kwiker-main.vercel.app/",
-    github: null,
+    github: "https://github.com/oyedokunken/kwiker-main",
   },
   {
     id: "titanbid",
