@@ -63,7 +63,7 @@ const projects = [
     cover: "/covers/storebook-cover.png",
     desc: "Laravel-based store management system for retail businesses with POS, multi-branch inventory, role-based access, PDF reports, and a public storefront.",
     tags: ["Laravel 11", "PHP 8.2", "MySQL", "Tailwind CSS", "Alpine.js"],
-    live: "https://storebook-production.up.railway.app/",
+    live: "https://storebookpro.com/",
     github: "https://github.com/oyedokunken/storebook",
   },
   {

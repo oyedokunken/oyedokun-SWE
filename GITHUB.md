@@ -63,7 +63,7 @@ I have shipped production-grade systems across fintech, energy, healthcare, mini
 | [GramOne](https://gramone.vercel.app) | Critical minerals company platform across three verticals | Next.js 16, Express 5, Supabase |
 | [TitanBid](https://titan-bid-frontend.vercel.app) | AI construction estimating platform with blueprint uploads | Next.js, Supabase, Stripe |
 | [Traqify](https://traqify.vercel.app) | Multi-tenant store management with real-time analytics | Next.js, Express, Recharts |
-| [Storebook](https://storebook-production.up.railway.app) | Laravel store management with POS, multi-branch inventory, and role-based access | Laravel 11, PHP, MySQL |
+| [Storebook](https://storebookpro.com) | Laravel store management with POS, multi-branch inventory, and role-based access | Laravel 11, PHP, MySQL |
 | [Kwiker](https://kwiker-main.vercel.app) | Commerce operating system for African SMBs with AI storefront and order management | Next.js 16, Supabase, Prisma |
 | [FUTA HMS](https://futahms.vercel.app) | University health management with PPSA queue algorithm | Next.js, Node.js, WebSockets |
 | [EduPilot](https://edupilotly.vercel.app) | Student workflow management using Critical Path Method | Next.js, TypeScript, Node.js |
