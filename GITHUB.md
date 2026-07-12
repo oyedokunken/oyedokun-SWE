@@ -72,7 +72,7 @@ I have shipped production-grade systems across fintech, energy, healthcare, mini
 | [DPA Summit](https://digitalprocurement.africa) | Event platform for C-suite executives with secure registration | Laravel, TailwindCSS, MySQL |
 | [Ascentor LDP](https://ascentorbi.com) | Leadership development platform with social auth and mentorship circles | React 19, TypeScript, Firebase |
 | [Cooper Gaming Services](https://cgs-web.vercel.app) | Business website for a Queensland gaming company with local SEO | React 18, Vite, Bootstrap, Express |
-| [Rexta](https://rexta.vercel.app) | Full digital agency site with 10 service pages | Next.js 16, Supabase, Nodemailer |
+| [Rexta](https://rextatech.com) | Full digital agency site with 10 service pages | Next.js 16, Supabase, Nodemailer |
 | [Glory Fashion](https://glorybyjes.com) | Luxury inclusive fashion brand with WooCommerce storefront | WordPress, WooCommerce |
 | [Noble Land Africa](https://noblelandafrica.com) | Real estate platform for Nigerian property listings | WordPress, PHP |
 | [NextStars](https://nexstars.org) | STEM career placement hub empowering young talents with power skills | WordPress, PHP |

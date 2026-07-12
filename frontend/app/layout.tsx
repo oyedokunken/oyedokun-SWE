@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     images: ["https://www.oyedokun.dev/og.png"],
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "/favicon.svg",
+    shortcut: "/favicon.png",
     apple: "/apple-touch-icon.png",
   },
   robots: {

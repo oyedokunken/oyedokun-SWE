@@ -87,6 +87,16 @@ const projects = [
     github: "https://github.com/oyedokunken/edupilot",
   },
   {
+    id: "rexta",
+    title: "Rexta",
+    category: "Web App",
+    cover: "/covers/rexta-cover.png",
+    desc: "Digital agency website with contact, quote, and consultation flows, ten service pages, a dynamic project showcase, and Nodemailer email delivery.",
+    tags: ["Next.js 16", "Supabase", "Express", "Nodemailer", "SEO"],
+    live: "https://rextatech.com/",
+    github: "https://github.com/oyedokunken/rexta",
+  },
+  {
     id: "kwiker",
     title: "Kwiker",
     category: "Platform",
@@ -185,16 +195,6 @@ const projects = [
     tags: ["WordPress", "PHP", "CSS", "Real Estate"],
     live: "https://noblelandafrica.com/",
     github: null,
-  },
-  {
-    id: "rexta",
-    title: "Rexta",
-    category: "Agency",
-    cover: "/covers/rexta-cover.png",
-    desc: "Digital agency website with contact, quote, and consultation flows, ten service pages, a dynamic project showcase, and Nodemailer email delivery.",
-    tags: ["Next.js 16", "Supabase", "Express", "Nodemailer", "SEO"],
-    live: "https://rexta.vercel.app/",
-    github: "https://github.com/oyedokunken/rexta",
   },
   {
     id: "nextstars",

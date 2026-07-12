@@ -217,6 +217,7 @@ Browser loads page
 | Traqify | SaaS | [traqify.vercel.app](https://traqify.vercel.app) |
 | Storebook | SaaS | [storebookpro.com](https://storebookpro.com) |
 | EduPilot | EdTech | [edupilotly.vercel.app](https://edupilotly.vercel.app) |
+| Rexta | Web App | [rextatech.com](https://rextatech.com) |
 | Kwiker | Platform | [kwiker-main.vercel.app](https://kwiker-main.vercel.app) |
 | TitanBid | SaaS / AI | [titan-bid-frontend.vercel.app](https://titan-bid-frontend.vercel.app) |
 | GramOne | Platform | [gramone.vercel.app](https://gramone.vercel.app) |
@@ -227,7 +228,6 @@ Browser loads page
 | Cooper Gaming Services | Agency | [cgs-web.vercel.app](https://cgs-web.vercel.app) |
 | Glory Fashion | WordPress | [glorybyjes.com](https://glorybyjes.com) |
 | Noble Land Africa | WordPress | [noblelandafrica.com](https://noblelandafrica.com) |
-| Rexta | Agency | [rexta.vercel.app](https://rexta.vercel.app) |
 | NextStars | WordPress | [nexstars.org](https://nexstars.org) |
 | WIME Awards | WordPress | [wimeawards.org](https://wimeawards.org) |
 | Minuteman | E-commerce | [minuteman.com.ng](https://minuteman.com.ng) |
