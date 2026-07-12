@@ -34,7 +34,7 @@ const projects = [
     desc: "Automated white-label reporting for MSPs. Pulls data from 20+ tools including Autotask, Datto, and BitDefender into branded client reports with AI-generated executive summaries and multi-tenant isolation.",
     tags: ["Laravel 12", "React 19", "PostgreSQL", "TimescaleDB", "AI"],
     live: "https://mspreports.com.au/",
-    github: null,
+    github: "https://github.com/oyedokunken/MSP-reports",
   },
   {
     id: "glore",

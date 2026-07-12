@@ -6,6 +6,23 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.9.0] - 2026-07-12
+
+### Added
+- Projects: MSP Reports (SaaS) — automated white-label reporting for MSPs pulling data from 20+ tools into branded reports with AI-generated executive summaries and multi-tenant isolation
+- Projects: `MSP-cover.png` added to `frontend/public/covers/`
+- Frontend: 301 redirect from `oyedokunken.vercel.app` to `https://www.oyedokun.dev/`
+- Frontend: `favicon.ico` and `apple-touch-icon.png` generated from `favicon.png`
+
+### Changed
+- SEO: Updated metadata description from "Based in Nigeria" to "Building globally from Lagos to enterprise teams"
+- SEO: Updated `metadataBase`, Open Graph, and Twitter card URLs to `https://www.oyedokun.dev`
+- Projects: Display order updated — Ren Power 1st, RIOS 2nd, MSP Reports 3rd, Glore 4th, Credence 5th
+- Projects: Total project count is now 22
+- README/WIKI: Project list and count updated to reflect MSP Reports and new Storebook link
+
+---
+
 ## [1.8.0] - 2026-07-02
 
 ### Added

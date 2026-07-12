@@ -190,7 +190,7 @@ Browser loads page
 - About: animated philosophy statement, personal details grid
 - Skills: 30+ technologies in grouped icon grid
 - Services: 9 cards with equalized descriptions, no em dashes
-- Projects: 21 projects filterable by category (Platform, SaaS, SaaS/AI, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress); real cover image per card rendered in greyscale (colour reveals on hover); category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
+- Projects: 22 projects filterable by category (Platform, SaaS, SaaS/AI, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress); real cover image per card rendered in greyscale (colour reveals on hover); category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
 - Experience: animated scroll-driven timeline line, spring-pop dots, impact-focused bullet points
 - Education: FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab) in card grid (currently hidden)
 - WhyMe: 6 USP cards with alternating elevated backgrounds (cards 2/4/6 elevated at rest)
@@ -211,10 +211,11 @@ Browser loads page
 |---|---|---|
 | Ren Power | Platform | [renpowerltd.com](https://renpowerltd.com) |
 | RIOS | SaaS | [rios-web.vercel.app](https://rios-web.vercel.app) |
+| MSP Reports | SaaS | [mspreports.com.au](https://mspreports.com.au) |
 | Glore | Platform | [gloreenergy.com](https://gloreenergy.com) |
 | Credence | Blockchain | [credencely.vercel.app](https://credencely.vercel.app) |
 | Traqify | SaaS | [traqify.vercel.app](https://traqify.vercel.app) |
-| Storebook | SaaS | [storebook-production.up.railway.app](https://storebook-production.up.railway.app) |
+| Storebook | SaaS | [storebookpro.com](https://storebookpro.com) |
 | EduPilot | EdTech | [edupilotly.vercel.app](https://edupilotly.vercel.app) |
 | Kwiker | Platform | [kwiker-main.vercel.app](https://kwiker-main.vercel.app) |
 | TitanBid | SaaS / AI | [titan-bid-frontend.vercel.app](https://titan-bid-frontend.vercel.app) |
