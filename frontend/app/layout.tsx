@@ -10,7 +10,7 @@ import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
 export const metadata: Metadata = {
   title: "oyedokun.dev | Kehinde Oyedokun — Software Engineer",
   description:
-    "Staff-level Software Engineer. Full-stack development, backend architecture, and scalable systems. Based in Nigeria, working globally.",
+    "Staff-level Software Engineer. Full-stack development, backend architecture, and scalable systems. Turning complex problems into clean, functional code.",
   keywords: [
     "Software Engineer",
     "Full Stack Developer",
@@ -25,18 +25,18 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Oyedokun Kehinde" }],
   creator: "Oyedokun Kehinde",
-  metadataBase: new URL("https://oyedokunken.vercel.app"),
+  metadataBase: new URL("https://www.oyedokun.dev"),
   openGraph: {
     title: "Oyedokun Kehinde — Software Engineer",
     description:
-      "Staff-level Software Engineer. Full-stack development, backend architecture, and scalable systems. Based in Nigeria, working globally.",
-    url: "https://oyedokunken.vercel.app",
+      "Staff-level Software Engineer. Full-stack development, backend architecture, and scalable systems. Turning complex problems into clean, functional code.",
+    url: "https://www.oyedokun.dev/",
     siteName: "oyedokun.dev",
     type: "website",
     locale: "en_US",
     images: [
       {
-        url: "https://oyedokunken.vercel.app/og.png",
+        url: "https://www.oyedokun.dev/og.png",
         width: 1200,
         height: 630,
         alt: "Oyedokun Kehinde — Software Engineer",
@@ -47,8 +47,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Oyedokun Kehinde — Software Engineer",
     description:
-      "Staff-level Software Engineer. Full-stack development, backend architecture, and scalable systems.",
-    images: ["https://oyedokunken.vercel.app/og.png"],
+      "Staff-level Software Engineer. Full-stack development, backend architecture, and scalable systems. Turning complex problems into clean, functional code.",
+    images: ["https://www.oyedokun.dev/og.png"],
   },
   icons: {
     icon: "/favicon.svg",

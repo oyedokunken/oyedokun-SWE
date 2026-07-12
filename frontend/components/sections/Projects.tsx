@@ -27,6 +27,16 @@ const projects = [
     github: "https://github.com/oyedokunken/RIOS-app",
   },
   {
+    id: "msp-reports",
+    title: "MSP Reports",
+    category: "SaaS",
+    cover: "/covers/MSP-cover.png",
+    desc: "Automated white-label reporting for MSPs. Pulls data from 20+ tools including Autotask, Datto, and BitDefender into branded client reports with AI-generated executive summaries and multi-tenant isolation.",
+    tags: ["Laravel 12", "React 19", "PostgreSQL", "TimescaleDB", "AI"],
+    live: "https://mspreports.com.au/",
+    github: null,
+  },
+  {
     id: "glore",
     title: "Glore",
     category: "Platform",
