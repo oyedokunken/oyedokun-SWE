@@ -225,7 +225,7 @@ Browser loads page
 | DPA Summit | Platform | [digitalprocurement.africa](https://digitalprocurement.africa) |
 | FUTA HMS | Healthcare | [futahms.vercel.app](https://futahms.vercel.app) |
 | Ascentor LDP | Platform | [ascentorbi.com](https://ascentorbi.com) |
-| Cooper Gaming Services | Agency | [cgs-web.vercel.app](https://cgs-web.vercel.app) |
+| Cooper Gaming Services | Agency | [coopergamingservices.com](https://coopergamingservices.com) |
 | Glory Fashion | WordPress | [glorybyjes.com](https://glorybyjes.com) |
 | Noble Land Africa | WordPress | [noblelandafrica.com](https://noblelandafrica.com) |
 | NextStars | WordPress | [nexstars.org](https://nexstars.org) |

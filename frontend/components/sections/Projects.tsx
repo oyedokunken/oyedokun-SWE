@@ -173,7 +173,7 @@ const projects = [
     cover: "/covers/cooper-cover.png",
     desc: "Business website for Queensland's premier gaming and technology specialists, featuring an interactive hero slider, counters, local SEO, and email flows.",
     tags: ["React 18", "TypeScript", "Vite", "Bootstrap", "Express"],
-    live: "https://cgs-web.vercel.app/",
+    live: "https://coopergamingservices.com/",
     github: "https://github.com/oyedokunken/cgs-web",
   },
   {
