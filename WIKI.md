@@ -66,7 +66,7 @@ The `useSiteReady` hook (`frontend/lib/useSiteReady.ts`) listens for the `siteRe
 
 ## Backend Email System
 
-HTML templates are inlined as TypeScript string constants in `backend/src/services/mailer.ts`. No file I/O is performed at runtime, making the email system fully compatible with Vercel's serverless read-only file system. The `CV - Oyedokun Kehinde Joshua.pdf` attachment uses a fallback path chain (`__dirname`-based, `process.cwd()/backend`, `process.cwd()`) to resolve correctly across local and Vercel environments. All 4 email templates (contact-owner, contact-user, cv-delivery, cv-request) show `oyedokun.dev` text-only in the header (no SVG icon), explicit horizontal dividers, and PNG-based social footer links (LinkedIn, GitHub, Instagram, Behance, Facebook) hosted at `public/email-icons/`. CV delivery email subject and attachment filename use "CV" (not "Resume").
+HTML templates are inlined as TypeScript string constants in `backend/src/services/mailer.ts`. No file I/O is performed at runtime, making the email system fully compatible with Vercel's serverless read-only file system. The `CV - Oyedokun Kehinde Joshua.pdf` attachment uses a fallback path chain (`__dirname`-based, `process.cwd()/backend`, `process.cwd()`) to resolve correctly across local and Vercel environments. All 4 email templates (contact-owner, contact-user, cv-delivery, cv-request) show `oyedokun.dev` text-only in the header (no SVG icon), explicit horizontal dividers, and PNG-based social footer links (LinkedIn, GitHub, Instagram, Behance, Facebook) hosted at `public/email-icons/`. Resume delivery email subject and attachment filename use "CV" (file name preserved for backward compatibility).
 
 ## Deployment Notes
 
@@ -81,4 +81,4 @@ Both sub-projects deploy independently on Vercel. Set environment variables in e
 | `SMTP_USER` | SMTP authentication email |
 | `SMTP_PASS` | SMTP authentication password |
 | `OWNER_EMAIL` | Destination for contact/resume notifications |
-| `FRONTEND_URL` | Frontend origin for CORS (e.g. `https://oyedokunken.vercel.app`) |
+| `FRONTEND_URL` | Frontend origin for CORS (e.g. `https://www.oyedokun.dev`) |

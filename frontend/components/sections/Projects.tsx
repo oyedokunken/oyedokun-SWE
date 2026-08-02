@@ -23,7 +23,7 @@ const projects = [
     cover: "/covers/rios-cover.png",
     desc: "Multi-tenant ESG reporting SaaS for Nigerian corporates, covering GRI, TCFD, and IFRS benchmarks with branded, auto-generated PDF report delivery.",
     tags: ["Next.js", "Express", "Prisma", "PostgreSQL", "pdf-lib"],
-    live: "https://rios-web.vercel.app/",
+    live: "https://www.riosintell.com/",
     github: "https://github.com/oyedokunken/RIOS-app",
   },
   {

@@ -117,7 +117,7 @@ export default function Contact() {
                   className="btn-outline flex items-center gap-2"
                 >
                   <FileText size={14} />
-                Download CV
+                Download Resume
                 </button>
               </motion.div>
             </div>

@@ -102,7 +102,7 @@ export default function Header() {
               onClick={openResumeModal}
               className="bg-[var(--text-primary)] text-[var(--bg)] text-[11px] py-2 px-4 rounded-full font-medium tracking-wide hover:opacity-85 transition-opacity duration-200"
             >
-             My CV
+             Resume
             </button>
             <button
               onClick={() => setMenuOpen(true)}

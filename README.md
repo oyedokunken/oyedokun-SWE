@@ -210,7 +210,7 @@ Browser loads page
 | Project | Category | Live URL |
 |---|---|---|
 | Ren Power | Platform | [renpowerltd.com](https://renpowerltd.com) |
-| RIOS | SaaS | [rios-web.vercel.app](https://rios-web.vercel.app) |
+| RIOS | SaaS | [www.riosintell.com](https://www.riosintell.com) |
 | MSP Reports | SaaS | [mspreports.com.au](https://mspreports.com.au) |
 | Glore | Platform | [gloreenergy.com](https://gloreenergy.com) |
 | Credence | Blockchain | [credencely.vercel.app](https://credencely.vercel.app) |

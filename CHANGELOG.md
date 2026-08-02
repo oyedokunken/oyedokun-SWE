@@ -6,6 +6,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.10.0] - 2026-08-02
+
+### Changed
+- Projects: RIOS URL updated from `rios-web.vercel.app` to `https://www.riosintell.com/`
+- Projects: Rexta moved up in display order (after EduPilot), URL updated to `https://rextatech.com/`, category changed from Agency to Web App
+- Hero: Projects Shipped count updated from 13 to 20
+- UI: All "CV" references changed to "Resume" (Header button, Contact section, Resume modal)
+- Frontend: Favicon reverted to original SVG with PNG fallback (favicon.png, apple-touch-icon.png)
+
+---
+
 ## [1.9.0] - 2026-07-12
 
 ### Added
