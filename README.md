@@ -353,5 +353,5 @@ MIT. See [LICENSE](./LICENSE).
 ## Contact
 
 Email: [oyedokunken@gmail.com](mailto:oyedokunken@gmail.com)  
-LinkedIn: [linkedin.com/in/oyedokunken](https://linkedin.com/in/oyedokunken)  
+LinkedIn: [linkedin.com/in/oyedokun](https://www.linkedin.com/in/oyedokun)  
 Portfolio: [oyedokun.dev](https://oyedokunken.vercel.app/)
