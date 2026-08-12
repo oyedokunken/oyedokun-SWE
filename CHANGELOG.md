@@ -6,6 +6,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.11.0] - 2026-08-12
+
+### Added
+- UI: WhatsApp chat modal replacing the direct link on float button and footer contact link; shows avatar, "Typically replies instantly" status, a message bubble, and an "Open WhatsApp to chat" CTA
+- UI: `WhatsAppChatContext` provider to manage modal state globally across Footer and float button
+- UI: Scroll-to-top button redesigned with a circular SVG progress ring that fills as the user scrolls down the page
+
+### Changed
+- About: Added subtext under "Thinking in systems." heading to balance left column height with right column
+- Social: Behance replaced with Twitter/X (`https://x.com/oyedokunken_`) in Footer, MobileMenu, and email templates
+- Contact: Footer WhatsApp link now opens the chat modal instead of navigating directly to WhatsApp
+
+---
+
 ## [1.10.0] - 2026-08-02
 
 ### Changed

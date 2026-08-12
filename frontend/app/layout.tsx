@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { ResumeModalProvider } from "@/context/ResumeModalContext";
+import { WhatsAppChatProvider } from "@/context/WhatsAppChatContext";
 import Preloader from "@/components/ui/Preloader";
 import ResumeModal from "@/components/ui/ResumeModal";
 import ScrollToTop from "@/components/ui/ScrollToTop";
@@ -81,11 +82,13 @@ export default function RootLayout({
       <body className="bg-[var(--bg)] text-[var(--text-primary)] overflow-x-hidden">
         <ThemeProvider>
           <ResumeModalProvider>
-            <Preloader />
-            {children}
-            <ResumeModal />
-            <ScrollToTop />
-            <WhatsAppFloat />
+            <WhatsAppChatProvider>
+              <Preloader />
+              {children}
+              <ResumeModal />
+              <ScrollToTop />
+              <WhatsAppFloat />
+            </WhatsAppChatProvider>
           </ResumeModalProvider>
         </ThemeProvider>
       </body>

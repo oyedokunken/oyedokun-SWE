@@ -14,10 +14,10 @@ const navItems = [
   { label: "Contact", href: "#contact" },
 ];
 
-function BehanceIcon({ size = 15 }: { size?: number }) {
+function XIcon({ size = 15 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 1.202.73 1.542 1.878 1.542.604 0 1.107-.231 1.404-.583L23.726 17zm-7.73-3.35h3.979c-.088-1.226-.795-1.825-1.934-1.825-1.201 0-1.875.615-2.045 1.825zM3.512 7.5h3.765c2.098 0 3.242 1.001 3.242 2.747 0 .928-.487 1.73-1.348 2.115.981.31 1.576 1.128 1.576 2.25 0 2.097-1.257 3.138-3.756 3.138H3.512V7.5zm2.36 4.038h1.206c.859 0 1.293-.44 1.293-1.13 0-.73-.469-1.13-1.293-1.13H5.872v2.26zm0 4.5h1.335c1.014 0 1.547-.485 1.547-1.287 0-.77-.565-1.287-1.547-1.287H5.872v2.574z"/>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
     </svg>
   );
 }
@@ -27,7 +27,7 @@ const socials = [
   { icon: Github, href: "https://github.com/oyedokunken/oyedokun.dev", label: "GitHub" },
   { icon: Instagram, href: "https://www.instagram.com/oyedokunken", label: "Instagram" },
   { icon: Facebook, href: "https://www.facebook.com/oyedokunken/", label: "Facebook" },
-  { icon: BehanceIcon, href: "https://www.behance.net/oyedokun", label: "Behance" },
+  { icon: XIcon, href: "https://x.com/oyedokunken_", label: "X" },
 ];
 
 interface MobileMenuProps {

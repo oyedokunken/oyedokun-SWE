@@ -74,12 +74,22 @@ export default function About() {
               in systems.
             </motion.h2>
 
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.18 }}
+              className="mt-5 text-[15px] text-[var(--text-secondary)] leading-relaxed"
+            >
+              Good systems are designed before a single line is written. I prioritize architecture, clarity, and long-term maintainability in every project I take on.
+            </motion.p>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-10 grid grid-cols-2 gap-6"
+              transition={{ duration: 0.6, delay: 0.28 }}
+              className="mt-12 grid grid-cols-2 gap-6"
             >
               {[
                 { label: "Based in", value: "Lagos, Nigeria", icon: MapPin },
