@@ -50,9 +50,9 @@ The `useSiteReady` hook (`frontend/lib/useSiteReady.ts`) listens for the `siteRe
 
 | Section | ID | Notes |
 |---|---|---|
-| Hero | `#hero` | Entrance animations gated on `siteReady` |
+| Hero | `#hero` | Entrance animations gated on `siteReady`; animated green dot + "Available for work" (no location tag); "Get in Touch" button uses 2px border; WhatsApp float button opens a chat modal (WhatsAppChatContext) with avatar, status, message bubble, and CTA instead of navigating directly; scroll-to-top button has circular SVG progress ring |
 | Marquee | - | Infinite horizontal scroll |
-| About | `#about` | Scroll-driven word reveal, icon detail items, philosophy cards |
+| About | `#about` | Scroll-driven word reveal, icon detail items, philosophy cards; subtext paragraph added under heading (15px, full-width responsive) |
 | Skills | `#skills` | Tool icon grid |
 | Services | `#services` | Equal-height cards (min-h-[380px]) in responsive grid |
 | Why Me | `#why-me` | 6 USP cards with alternating elevated backgrounds (2/4/6 elevated at rest) |
@@ -62,11 +62,11 @@ The `useSiteReady` hook (`frontend/lib/useSiteReady.ts`) listens for the `siteRe
 | Testimonials | `#testimonials` | Client quotes with theme-aware avatar |
 | Photo Scroll | - | Infinite marquee photos |
 | Contact | `#contact` | Form with phone input + modal feedback |
-| Footer + Brand | - | Large typographic brand mark back-to-top |
+| Footer + Brand | - | Large typographic brand mark back-to-top; WhatsApp contact link opens chat modal instead of navigating directly |
 
 ## Backend Email System
 
-HTML templates are inlined as TypeScript string constants in `backend/src/services/mailer.ts`. No file I/O is performed at runtime, making the email system fully compatible with Vercel's serverless read-only file system. The `CV - Oyedokun Kehinde Joshua.pdf` attachment uses a fallback path chain (`__dirname`-based, `process.cwd()/backend`, `process.cwd()`) to resolve correctly across local and Vercel environments. All 4 email templates (contact-owner, contact-user, cv-delivery, cv-request) show `oyedokun.dev` text-only in the header (no SVG icon), explicit horizontal dividers, and PNG-based social footer links (LinkedIn, GitHub, Instagram, Behance, Facebook) hosted at `public/email-icons/`. Resume delivery email subject and attachment filename use "CV" (file name preserved for backward compatibility). LinkedIn profile URL is `https://www.linkedin.com/in/oyedokun`.
+HTML templates are inlined as TypeScript string constants in `backend/src/services/mailer.ts`. No file I/O is performed at runtime, making the email system fully compatible with Vercel's serverless read-only file system. The `CV - Oyedokun Kehinde Joshua.pdf` attachment uses a fallback path chain (`__dirname`-based, `process.cwd()/backend`, `process.cwd()`) to resolve correctly across local and Vercel environments. All 4 email templates (contact-owner, contact-user, cv-delivery, cv-request) show `oyedokun.dev` text-only in the header (no SVG icon), explicit horizontal dividers, and PNG-based social footer links (LinkedIn, GitHub, Instagram, X/Twitter, Facebook) hosted at `public/email-icons/`. Behance replaced by X/Twitter (`x.com/oyedokunken_`) across all social link surfaces (Footer, MobileMenu, email templates). Resume delivery email subject and attachment filename use "CV" (file name preserved for backward compatibility). LinkedIn profile URL is `https://www.linkedin.com/in/oyedokun`.
 
 ## Deployment Notes
 

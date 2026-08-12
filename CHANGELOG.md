@@ -6,6 +6,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.12.0] - 2026-08-12
+
+### Changed
+- Hero: Removed "Lagos, Nigeria" location tag from Available for work line; replaced with animated green status dot only (signals worldwide availability)
+- Hero: "Get in Touch" outline button border increased from 1px to 2px for better visibility
+- About: Subtext updated to be longer, more personal, and specific to shipped work across fintech, health, and climate platforms
+- About: Subtext font size increased from 14px to 15px; removed fixed width cap so text is fully responsive on mobile
+- Projects: Cover image container made explicitly full-width to ensure consistent height across all screen sizes
+- WhatsApp modal: Display name changed from full name to oyedokunken; modal always uses WhatsApp light theme regardless of site theme; message rewritten to be more conversational; green status dot moved outside overflow-hidden container to be fully visible; z-index corrected
+
+---
+
 ## [1.11.0] - 2026-08-12
 
 ### Added

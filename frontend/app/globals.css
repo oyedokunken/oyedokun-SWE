@@ -136,7 +136,7 @@ body {
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--text-primary);
   cursor: pointer;
   transition: all 0.3s ease;
 }

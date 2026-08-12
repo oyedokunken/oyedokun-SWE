@@ -122,9 +122,17 @@ export default function WhatsAppFloat() {
                       style={{ color: "#111B21" }}
                     >
                       Working on a product or have an idea you want to bring to life?
-                      
-                      Send a message and let's figure it out together! 🙂
-                    </p>
+
+                      </p>
+                      <p className="text-[13px] leading-relaxed"
+                      style={{ color: "#111B21" }}> 
+                        
+                      </p>
+                     
+                      <p className="text-[13px] leading-relaxed"
+                      style={{ color: "#111B21" }}> 
+                        Send a message and let's build together! 🙂
+                      </p>
                     <p
                       className="text-[10px] mt-1.5 text-right"
                       style={{ color: "#667781" }}

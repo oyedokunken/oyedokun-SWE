@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { ArrowDown, MapPin } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { useSiteReady } from "@/lib/useSiteReady";
 
 function Counter({ target, suffix = "+", ready }: { target: number; suffix?: string; ready: boolean }) {
@@ -108,9 +108,9 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="flex items-center gap-3"
             >
-              <span className="section-label">Available for work</span>
-              <span className="flex items-center gap-1.5 text-xs text-white/70">
-                <MapPin size={11} /> Lagos, Nigeria
+              <span className="section-label">
+                <GreenDot />
+                Available for work
               </span>
             </motion.div>
 

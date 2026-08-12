@@ -294,7 +294,7 @@ export default function Projects() {
                 className="group overflow-hidden rounded-2xl border border-[var(--border-color)] flex flex-col cursor-default"
               >
                 {/* Cover image */}
-                <div className="relative h-44 flex-shrink-0 overflow-hidden">
+                <div className="relative w-full aspect-video flex-shrink-0 overflow-hidden">
                   <Image
                     src={project.cover}
                     alt={project.title}

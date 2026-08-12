@@ -81,7 +81,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.18 }}
               className="mt-5 text-[15px] text-[var(--text-secondary)] leading-relaxed"
             >
-              Good systems are designed before a single line is written. I prioritize architecture, clarity, and long-term maintainability in every project I take on.
+              Good architecture is not about being clever. It is about making the next decision obvious. The best system I can design is one that does not demand attention, holds its shape under pressure, and leaves the next engineer better off than it found them. That standard shapes every build.
             </motion.p>
 
             <motion.div
