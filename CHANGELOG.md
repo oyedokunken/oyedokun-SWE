@@ -6,15 +6,25 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [1.12.0] - 2026-08-12
+## [1.13.0] - 2026-08-12
+
+### Added
+- UI: WhatsApp chat modal replacing the direct link on float button and footer contact link; shows avatar, "Typically replies instantly" status, a message bubble with two lines, and an "Open WhatsApp to chat" CTA
+- UI: `WhatsAppChatContext` provider to manage modal state globally across Footer and float button
+- UI: Scroll-to-top button redesigned with a circular SVG progress ring that fills as the user scrolls down the page
+- CSS: `declarations.d.ts` added to resolve TypeScript lint error for CSS imports
 
 ### Changed
-- Hero: Removed "Lagos, Nigeria" location tag from Available for work line; replaced with animated green status dot only (signals worldwide availability)
-- Hero: "Get in Touch" outline button border increased from 1px to 2px for better visibility
-- About: Subtext updated to be longer, more personal, and specific to shipped work across fintech, health, and climate platforms
-- About: Subtext font size increased from 14px to 15px; removed fixed width cap so text is fully responsive on mobile
-- Projects: Cover image container made explicitly full-width to ensure consistent height across all screen sizes
-- WhatsApp modal: Display name changed from full name to oyedokunken; modal always uses WhatsApp light theme regardless of site theme; message rewritten to be more conversational; green status dot moved outside overflow-hidden container to be fully visible; z-index corrected
+- Hero: Removed "Lagos, Nigeria" location tag from Available for work line; animated green status dot now appears inside section-label (after dash, before text) to signal worldwide availability
+- Hero: Mobile layout spacing increased (mt-10) for clearer separation between image and text content
+- About: Added subtext paragraph under "Thinking in systems." heading to balance left column height with right column
+- About: Subtext font size increased to 15px; removed fixed width cap so text is fully responsive on mobile
+- About: Subtext rewritten to focus on delivery over impressing: "I don't code to impress, I code to deliver. I value quality code, performance and scalability over clever tricks and quick fixes. The code that survives is the code that was built to last."
+- Projects: Cover image container changed from fixed h-44 to aspect-video (16:9) for consistent proportional height across all screen sizes
+- Social: Behance replaced with Twitter/X (`https://x.com/oyedokunken_`) in Footer, MobileMenu, and email templates
+- Contact: Footer WhatsApp link now opens the chat modal instead of navigating directly to WhatsApp
+- WhatsApp modal: Display name changed from full name to oyedokunken; modal always uses WhatsApp light theme regardless of site theme; message rewritten to two-line conversation style; green status dot moved outside overflow-hidden container to be fully visible; z-index corrected
+- SEO: Expanded keywords in layout.tsx to 28 terms including Nigeria-specific and hiring-related phrases for better Google discoverability
 
 ---
 

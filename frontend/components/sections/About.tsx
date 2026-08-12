@@ -81,7 +81,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.18 }}
               className="mt-5 text-[15px] text-[var(--text-secondary)] leading-relaxed"
             >
-              Good architecture is not about being clever. It is about making the next decision obvious. The best system I can design is one that does not demand attention, holds its shape under pressure, and leaves the next engineer better off than it found them. That standard shapes every build.
+              I don't code to impress, I code to deliver. I value quality code, performance and scalability over clever tricks and quick fixes. The code that survives is the code that was built to last.
             </motion.p>
 
             <motion.div

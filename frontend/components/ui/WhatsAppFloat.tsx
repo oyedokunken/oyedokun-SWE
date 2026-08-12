@@ -114,31 +114,16 @@ export default function WhatsAppFloat() {
                     />
                   </div>
                   <div
-                    className="rounded-xl rounded-bl-none px-3.5 py-2.5 max-w-[calc(100%-44px)] shadow-sm"
-                    style={{ background: "#FFFFFF" }}
+                    className="rounded-xl rounded-bl-none px-3.5 py-2.5 shadow-sm"
+                    style={{ background: "#FFFFFF", maxWidth: "calc(100% - 44px)" }}
                   >
-                    <p
-                      className="text-[13px] leading-relaxed"
-                      style={{ color: "#111B21" }}
-                    >
-                      Working on a product or have an idea you want to bring to life?
-
-                      </p>
-                      <p className="text-[13px] leading-relaxed"
-                      style={{ color: "#111B21" }}> 
-                        
-                      </p>
-                     
-                      <p className="text-[13px] leading-relaxed"
-                      style={{ color: "#111B21" }}> 
-                        Send a message and let's build together! 🙂
-                      </p>
-                    <p
-                      className="text-[10px] mt-1.5 text-right"
-                      style={{ color: "#667781" }}
-                    >
-                      Now
+                    <p className="text-[13px] leading-snug" style={{ color: "#111B21" }}>
+                      Are you working on a project or sitting on an idea?
                     </p>
+                    <p className="text-[13px] leading-snug mt-3" style={{ color: "#111B21" }}>
+                      Send a message. Let us talk.
+                    </p>
+                    <p className="text-[10px] mt-1.5 text-right" style={{ color: "#667781" }}>Now</p>
                   </div>
                 </div>
               </div>

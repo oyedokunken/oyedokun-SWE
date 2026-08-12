@@ -71,7 +71,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--bg)] pointer-events-none z-10" />
 
       <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-10 w-full pt-28 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           <motion.div
             style={{ y: imageY }}
             initial={{ opacity: 0, scale: 0.95 }}
@@ -87,7 +87,7 @@ export default function Hero() {
                   fill
                   className="object-cover object-center grayscale"
                   priority
-                  sizes="320px"
+                  sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               </div>
@@ -101,7 +101,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          <motion.div style={{ y: textY }} className="space-y-8">
+          <motion.div style={{ y: textY }} className="space-y-8 mt-10 lg:mt-0">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={ready ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
@@ -198,7 +198,6 @@ export default function Hero() {
               </div>
               <div className="absolute -top-4 -right-4 w-24 h-24 border border-[var(--border-color)] rounded-xl opacity-40" />
               <div className="absolute -bottom-4 -left-4 w-16 h-16 border border-[var(--border-color)] rounded-lg opacity-30" />
-
               <div className="absolute bottom-5 left-5 right-5">
                 <div className="glass rounded-xl p-4">
                   <p className="text-sm text-white font-bold tracking-tight">Oyedokun Kehinde</p>

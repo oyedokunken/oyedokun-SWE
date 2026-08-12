@@ -50,13 +50,13 @@ The `useSiteReady` hook (`frontend/lib/useSiteReady.ts`) listens for the `siteRe
 
 | Section | ID | Notes |
 |---|---|---|
-| Hero | `#hero` | Entrance animations gated on `siteReady`; animated green dot + "Available for work" (no location tag); "Get in Touch" button uses 2px border; WhatsApp float button opens a chat modal (WhatsAppChatContext) with avatar, status, message bubble, and CTA instead of navigating directly; scroll-to-top button has circular SVG progress ring |
+| Hero | `#hero` | Entrance animations gated on `siteReady`; animated green dot inside section-label (after dash, before text) + "Available for work" (no location tag); mobile layout has increased spacing (mt-10) for clear separation; WhatsApp float button opens a chat modal (WhatsAppChatContext) with avatar, status, two-line message bubble, and CTA instead of navigating directly; scroll-to-top button has circular SVG progress ring |
 | Marquee | - | Infinite horizontal scroll |
-| About | `#about` | Scroll-driven word reveal, icon detail items, philosophy cards; subtext paragraph added under heading (15px, full-width responsive) |
+| About | `#about` | Scroll-driven word reveal, icon detail items, philosophy cards; subtext paragraph under heading (15px, full-width responsive) focusing on delivery over impressing: "I don't code to impress, I code to deliver. I value quality code, performance and scalability over clever tricks and quick fixes." |
 | Skills | `#skills` | Tool icon grid |
 | Services | `#services` | Equal-height cards (min-h-[380px]) in responsive grid |
 | Why Me | `#why-me` | 6 USP cards with alternating elevated backgrounds (2/4/6 elevated at rest) |
-| Projects | `#projects` | 22 filterable cards with real cover images (h-44 top section) rendered greyscale by default, colour-on-hover via Tailwind `grayscale`/`grayscale-0`; category pill + GitHub/live icons overlay on image (black bg only, no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive |
+| Projects | `#projects` | 22 filterable cards with real cover images (aspect-video 16:9 top section) rendered greyscale by default, colour-on-hover via Tailwind `grayscale`/`grayscale-0`; category pill + GitHub/live icons overlay on image (black bg only, no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive |
 | Experience | `#experience` | Timeline with animated progress line, impact-focused bullets |
 | Education | `#education` | FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab) in card grid — **currently commented out** |
 | Testimonials | `#testimonials` | Client quotes with theme-aware avatar |
