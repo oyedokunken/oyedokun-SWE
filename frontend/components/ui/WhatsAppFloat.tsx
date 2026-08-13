@@ -87,7 +87,7 @@ export default function WhatsAppFloat() {
                     oyedokunken
                   </p>
                   <p className="text-[#B2DFDB] text-[11px] leading-tight mt-0.5">
-                    Typically replies instantly
+                    Active Now
                   </p>
                 </div>
                 <button
@@ -118,10 +118,13 @@ export default function WhatsAppFloat() {
                     style={{ background: "#FFFFFF", maxWidth: "calc(100% - 44px)" }}
                   >
                     <p className="text-[13px] leading-snug" style={{ color: "#111B21" }}>
+                      Hello, Welcome to my space!
+                    </p>
+                    <p className="text-[13px] leading-snug mt-3" style={{ color: "#111B21" }}>
                       Are you working on a project or got an idea?
                     </p>
                     <p className="text-[13px] leading-snug mt-3" style={{ color: "#111B21" }}>
-                      Send a message. Let us talk.
+                      Reach out today. Let's build together! 🙂
                     </p>
                     <p className="text-[10px] mt-1.5 text-right" style={{ color: "#667781" }}>Now</p>
                   </div>
