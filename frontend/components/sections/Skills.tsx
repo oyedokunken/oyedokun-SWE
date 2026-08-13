@@ -11,6 +11,7 @@ const skillGroups = [
     skills: [
       { name: "TypeScript", icon: `${CDN}/typescript/typescript-original.svg` },
       { name: "JavaScript", icon: `${CDN}/javascript/javascript-original.svg` },
+      { name: "Java", icon: `${CDN}/java/java-original.svg` },
       { name: "PHP", icon: `${CDN}/php/php-original.svg` },
       { name: "Python", icon: `${CDN}/python/python-original.svg` },
     ],
@@ -22,6 +23,7 @@ const skillGroups = [
       { name: "Next.js", icon: `${CDN}/nextjs/nextjs-original.svg` },
       { name: "Tailwind CSS", icon: `${CDN}/tailwindcss/tailwindcss-original.svg` },
       { name: "Vue.js", icon: `${CDN}/vuejs/vuejs-original.svg` },
+      { name: "Svelte", icon: `${CDN}/svelte/svelte-original.svg` },
     ],
   },
   {
@@ -31,6 +33,7 @@ const skillGroups = [
       { name: "Express", icon: `${CDN}/express/express-original.svg` },
       { name: "Laravel", icon: `${CDN}/laravel/laravel-original.svg` },
       { name: "FastAPI", icon: `${CDN}/fastapi/fastapi-original.svg` },
+      { name: "C#", icon: `${CDN}/csharp/csharp-original.svg` },
     ],
   },
   {
@@ -40,6 +43,7 @@ const skillGroups = [
       { name: "MongoDB", icon: `${CDN}/mongodb/mongodb-original.svg` },
       { name: "MySQL", icon: `${CDN}/mysql/mysql-original.svg` },
       { name: "Prisma", icon: `${CDN}/prisma/prisma-original.svg` },
+      { name: "Firebase", icon: `${CDN}/firebase/firebase-original.svg` },
     ],
   },
   {
@@ -49,6 +53,7 @@ const skillGroups = [
       { name: "GitHub Actions", icon: `${CDN}/githubactions/githubactions-original.svg` },
       { name: "Linux", icon: `${CDN}/linux/linux-original.svg` },
       { name: "AWS", icon: `${CDN}/amazonwebservices/amazonwebservices-plain-wordmark.svg` },
+      { name: "Kubernetes", icon: `${CDN}/kubernetes/kubernetes-original.svg` },
     ],
   },
   {
@@ -58,6 +63,7 @@ const skillGroups = [
       { name: "VS Code", icon: `${CDN}/vscode/vscode-original.svg` },
       { name: "Supabase", icon: `${CDN}/supabase/supabase-original.svg` },
       { name: "Postman", icon: `${CDN}/postman/postman-original.svg` },
+      { name: "WordPress", icon: `${CDN}/wordpress/wordpress-plain.svg` },
     ],
   },
 ];

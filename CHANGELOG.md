@@ -6,6 +6,28 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.14.0] - 2026-08-14
+
+### Added
+- Services: WordPress Development service (custom themes, plugins, headless, performance) added after DevOps (service 09)
+- Services: Consultation service (technical advisory, architecture reviews, tech stack decisions) added as service 10
+- Services: Technical Leadership renumbered to service 11 with distinct horizontal line SVG pattern
+- Skills: Java added to Languages
+- Skills: Svelte added to Frontend
+- Skills: C# added to Backend
+- Skills: Firebase added to Data
+- Skills: Kubernetes added to DevOps
+- Skills: WordPress added to Tools
+
+### Changed
+- WhatsApp modal: Status text changed from "Typically replies instantly" to "Active Now"
+- WhatsApp modal: Message rewritten to three lines: "Howdy, welcome to my space!" / "Are you working on a project or got an idea?" / "Reach out today. Let's build together! 🙂"
+- Services: New services (WordPress, Consultation, Technical Leadership) have distinct SVG patterns (squares, diamonds, lines) to differentiate from existing circle pattern
+- Marquee: Updated with 15 selected skills from expanded Skills section including new additions (Kubernetes, WordPress, Java, C#, Firebase, Svelte)
+- README: All ASCII diagrams converted to Mermaid flowcharts for better rendering in GitHub and Markdown viewers; API endpoint paths quoted to fix Mermaid lexical parsing error
+
+---
+
 ## [1.13.0] - 2026-08-12
 
 ### Added

@@ -118,7 +118,7 @@ export default function WhatsAppFloat() {
                     style={{ background: "#FFFFFF", maxWidth: "calc(100% - 44px)" }}
                   >
                     <p className="text-[13px] leading-snug" style={{ color: "#111B21" }}>
-                      Hello, Welcome to my space!
+                      Howdy, welcome to my space!
                     </p>
                     <p className="text-[13px] leading-snug mt-3" style={{ color: "#111B21" }}>
                       Are you working on a project or got an idea?

@@ -50,11 +50,11 @@ oyedokun/
       globals.css         CSS variables, Tailwind base, utility classes
     components/
       layout/             Header, Footer, MobileMenu
-      sections/           Hero, About, Skills, Services, WhyMe, Projects,
+      sections/           Hero, MarqueeSection, About, Skills, Services, WhyMe, Projects,
                           Experience, Education, Testimonials, PhotoScroll, Contact
       ui/                 Preloader, ResumeModal, Modal, ThemeToggle,
                           ScrollToTop, WhatsAppFloat
-    context/              ThemeContext, ResumeModalContext
+    context/              ThemeContext, ResumeModalContext, WhatsAppChatContext
     lib/                  utils.ts, useSiteReady.ts
     public/               Images, fonts, og.png, robots.txt
 
@@ -77,24 +77,21 @@ oyedokun/
 
 ## Architecture
 
-```text
-                   Browser
-                      |
-          +-----------+-----------+
-          |                       |
-     Next.js 14              Express.js API
-   (Vercel CDN)           (Vercel Serverless)
-          |                       |
-    Static Pages          /api/contact
-    Client Components     /api/resume
-    Framer Motion         /health
-    ThemeContext          /
-    useSiteReady               |
-                        Nodemailer
-                               |
-                          Gmail SMTP
-                               |
-                    Owner + Sender Inbox
+```mermaid
+flowchart TD
+    A[Browser] --> B[Next.js 14<br/>Vercel CDN]
+    A --> C[Express.js API<br/>Vercel Serverless]
+    B --> D[Static Pages]
+    B --> E[Client Components]
+    B --> F[Framer Motion]
+    B --> G[ThemeContext]
+    B --> H[useSiteReady]
+    C --> I["/api/contact"]
+    C --> J["/api/resume"]
+    C --> K["/health"]
+    I --> L[Nodemailer]
+    L --> M[Gmail SMTP]
+    M --> N[Owner + Sender Inbox]
 ```
 
 The frontend and backend are separate Vercel projects with independent deployment pipelines. The frontend calls the backend API using the `NEXT_PUBLIC_API_URL` environment variable. Both are stateless and horizontally scalable.
@@ -134,48 +131,49 @@ The frontend and backend are separate Vercel projects with independent deploymen
 
 ### Contact form submission
 
-```text
-User fills form
-  -> Zod validates on client (name, email, phone, subject, message)
-  -> POST /api/contact with JSON body
-  -> Zod re-validates on server
-  -> Nodemailer sends two emails:
-       1. Notification email to owner (oyedokunken@gmail.com)
-       2. Confirmation email to sender with message summary
-  -> 200 OK returned
-  -> Frontend shows success modal
+```mermaid
+flowchart TD
+    A[User fills form] --> B[Zod validates on client<br/>name, email, phone, subject, message]
+    B --> C[POST /api/contact<br/>JSON body]
+    C --> D[Zod re-validates on server]
+    D --> E[Nodemailer sends two emails]
+    E --> F[1. Notification to owner<br/>oyedokunken@gmail.com]
+    E --> G[2. Confirmation to sender<br/>with message summary]
+    F --> H[200 OK returned]
+    G --> H
+    H --> I[Frontend shows success modal]
 ```
 
 ### Resume request
 
-```text
-User opens Resume modal
-  -> Fills name and email
-  -> Zod validates on client
-  -> POST /api/resume
-  -> Zod validates on server
-  -> Log entry written to resume-log.txt
-  -> Nodemailer sends email with resume.pdf attached
-  -> 200 OK returned
-  -> Frontend shows success state
+```mermaid
+flowchart TD
+    A[User opens Resume modal] --> B[Fills name and email]
+    B --> C[Zod validates on client]
+    C --> D[POST /api/resume]
+    D --> E[Zod validates on server]
+    E --> F[Log entry written<br/>resume-log.txt]
+    F --> G[Nodemailer sends email<br/>resume.pdf attached]
+    G --> H[200 OK returned]
+    H --> I[Frontend shows success state]
 ```
 
 ### Page load and animation sequence
 
-```text
-Browser loads page
-  -> Preloader renders with circular SVG progress ring
-  -> Random progress increments over ~1.5s
-  -> At 100%, 400ms delay, then:
-       -> document.dispatchEvent('siteReady')
-       -> Preloader starts clip-path exit animation (0.85s)
-  -> useSiteReady hook fires in Header and Hero
-       -> Header slides down: y:-20 to y:0, opacity 0 to 1
-       -> Hero words animate in word by word with blur removal
-       -> Hero image fades in
-       -> CTA buttons and stats reveal sequentially
-  -> Preloader fully unmounts after 900ms
-  -> Remaining sections use whileInView for scroll-triggered entrance
+```mermaid
+flowchart TD
+    A[Browser loads page] --> B[Preloader renders<br/>circular SVG progress ring]
+    B --> C[Random progress increments<br/>~1.5s]
+    C --> D[At 100%, 400ms delay]
+    D --> E[document.dispatchEvent<br/>'siteReady']
+    D --> F[Preloader starts<br/>clip-path exit animation<br/>0.85s]
+    E --> G[useSiteReady hook fires<br/>in Header and Hero]
+    G --> H[Header slides down<br/>y:-20 to y:0<br/>opacity 0 to 1]
+    G --> I[Hero words animate in<br/>word by word<br/>blur removal]
+    G --> J[Hero image fades in]
+    G --> K[CTA buttons and stats<br/>reveal sequentially]
+    F --> L[Preloader unmounts<br/>after 900ms]
+    L --> M[Remaining sections use<br/>whileInView for<br/>scroll-triggered entrance]
 ```
 
 ---
@@ -187,9 +185,9 @@ Browser loads page
 - Scroll-spy navigation with active section indicator dot
 - Header entrance animation gated on preloader exit
 - Hero: animated word-by-word heading, parallax image, counting stats, green availability dot
-- About: animated philosophy statement, personal details grid
-- Skills: 30+ technologies in grouped icon grid
-- Services: 9 cards with equalized descriptions, no em dashes
+- About: animated philosophy statement, subtext paragraph under heading, personal details grid
+- Skills: 30 technologies in 6 grouped icon categories (Languages, Frontend, Backend, Data, DevOps, Tools)
+- Services: 11 cards with equalized descriptions, distinct SVG patterns (circles, squares, diamonds, lines), no em dashes
 - Projects: 22 projects filterable by category (Platform, SaaS, SaaS/AI, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress); real cover image per card rendered in greyscale (colour reveals on hover); category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
 - Experience: animated scroll-driven timeline line, spring-pop dots, impact-focused bullet points
 - Education: FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab) in card grid (currently hidden)
@@ -200,7 +198,9 @@ Browser loads page
 - CV modal: name and email form, PDF delivery via Nodemailer
 - Open Graph and Twitter card metadata with custom 1200x630 OG image
 - Sitemap and robots.txt for search engine indexing
-- WhatsApp float button with "Let's chat" sticky label, scroll-to-top button
+- WhatsApp float button with "Let's chat" sticky label; opens chat modal with avatar, "Active Now" status, and conversation-style message bubble
+- Scroll-to-top button with circular SVG progress ring that fills as user scrolls
+- Marquee: infinite horizontal scroll of 15 selected skills after Hero section
 - Responsive across mobile, tablet, and desktop
 
 ---
@@ -354,4 +354,5 @@ MIT. See [LICENSE](./LICENSE).
 
 Email: [oyedokunken@gmail.com](mailto:oyedokunken@gmail.com)  
 LinkedIn: [linkedin.com/in/oyedokun](https://www.linkedin.com/in/oyedokun)  
-Portfolio: [oyedokun.dev](https://oyedokunken.vercel.app/)
+Twitter/X: [x.com/oyedokunken_](https://x.com/oyedokunken_)  
+Portfolio: [oyedokun.dev](https://oyedokun.vercel.app/)

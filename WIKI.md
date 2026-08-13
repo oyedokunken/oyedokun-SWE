@@ -8,6 +8,8 @@ oyedokun.dev
 └── backend/    (Express.js Serverless API)
 ```
 
+Architecture and data flow diagrams in README use Mermaid flowcharts for better rendering in GitHub and Markdown viewers. API endpoint paths are quoted to avoid Mermaid lexical parsing errors.
+
 ### Frontend Routes
 | Route | Description |
 |---|---|
@@ -50,11 +52,11 @@ The `useSiteReady` hook (`frontend/lib/useSiteReady.ts`) listens for the `siteRe
 
 | Section | ID | Notes |
 |---|---|---|
-| Hero | `#hero` | Entrance animations gated on `siteReady`; animated green dot inside section-label (after dash, before text) + "Available for work" (no location tag); mobile layout has increased spacing (mt-10) for clear separation; WhatsApp float button opens a chat modal (WhatsAppChatContext) with avatar, status, two-line message bubble, and CTA instead of navigating directly; scroll-to-top button has circular SVG progress ring |
-| Marquee | - | Infinite horizontal scroll |
+| Hero | `#hero` | Entrance animations gated on `siteReady`; animated green dot inside section-label (after dash, before text) + "Available for work" (no location tag); mobile layout has increased spacing (mt-10) for clear separation; WhatsApp float button opens a chat modal (WhatsAppChatContext) with avatar, "Active Now" status, three-line message bubble ("Howdy, welcome to my space!" / "Are you working on a project or got an idea?" / "Reach out today. Let's build together! 🙂"), and CTA instead of navigating directly; scroll-to-top button has circular SVG progress ring |
+| Marquee | - | Infinite horizontal scroll of 15 selected skills (React, TypeScript, Node.js, Next.js, PostgreSQL, Docker, Kubernetes, Tailwind CSS, WordPress, Java, C#, Firebase, Svelte, MongoDB, Prisma) |
 | About | `#about` | Scroll-driven word reveal, icon detail items, philosophy cards; subtext paragraph under heading (15px, full-width responsive) focusing on delivery over impressing: "I don't code to impress, I code to deliver. I value quality code, performance and scalability over clever tricks and quick fixes." |
-| Skills | `#skills` | Tool icon grid |
-| Services | `#services` | Equal-height cards (min-h-[380px]) in responsive grid |
+| Skills | `#skills` | Tool icon grid (6 categories: Languages [TypeScript, JavaScript, Java, PHP, Python], Frontend [React, Next.js, Tailwind CSS, Vue.js, Svelte], Backend [Node.js, Express, Laravel, FastAPI, C#], Data [PostgreSQL, MongoDB, MySQL, Prisma, Firebase], DevOps [Docker, GitHub Actions, Linux, AWS, Kubernetes], Tools [Git, VS Code, Supabase, Postman, WordPress]) |
+| Services | `#services` | 11 equal-height cards (min-h-[380px]) in responsive grid with distinct SVG patterns; new services: WordPress Development (09, square pattern), Consultation (10, diamond pattern), Technical Leadership (11, line pattern) |
 | Why Me | `#why-me` | 6 USP cards with alternating elevated backgrounds (2/4/6 elevated at rest) |
 | Projects | `#projects` | 22 filterable cards with real cover images (aspect-video 16:9 top section) rendered greyscale by default, colour-on-hover via Tailwind `grayscale`/`grayscale-0`; category pill + GitHub/live icons overlay on image (black bg only, no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive |
 | Experience | `#experience` | Timeline with animated progress line, impact-focused bullets |

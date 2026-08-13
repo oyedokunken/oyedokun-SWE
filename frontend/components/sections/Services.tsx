@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Layers, Server, Code2, Network, Cpu, ShieldCheck, Plug, Lock, Package } from "lucide-react";
+import { Layers, Server, Code2, Network, Cpu, ShieldCheck, Plug, Lock, Package, Globe, MessageSquare } from "lucide-react";
 
 const services = [
   {
@@ -78,12 +78,30 @@ const services = [
   },
   {
     num: "09",
+    icon: Globe,
+    title: "WordPress Development",
+    desc: "Custom themes, plugin development, performance optimization, and headless WordPress setups. From simple blogs to complex content management systems.",
+    tags: ["Themes", "Plugins", "Headless", "Performance"],
+    bg: "#0f0f0f",
+    accent: "#0f1a1a",
+  },
+  {
+    num: "10",
+    icon: MessageSquare,
+    title: "Consultation",
+    desc: "Technical advisory for founders and product teams. Architecture reviews, technology stack decisions, and implementation planning before the first line of code.",
+    tags: ["Advisory", "Architecture", "Tech Stack", "Planning"],
+    bg: "#0f0f0f",
+    accent: "#1a0f1a",
+  },
+  {
+    num: "11",
     icon: ShieldCheck,
     title: "Technical Leadership",
     desc: "CTO-level direction. Architecture decisions, team guidance, product strategy, and technical roadmaps for startups and growing engineering teams.",
     tags: ["Strategy", "Architecture", "Mentorship", "Roadmapping"],
     bg: "#0f0f0f",
-    accent: "#1a0f1a",
+    accent: "#1a1a1a",
   },
 ];
 
@@ -105,7 +123,15 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" className="opacity-10">
           <defs>
             <pattern id={`svc-${service.num}`} width="32" height="32" patternUnits="userSpaceOnUse">
-              <circle cx="16" cy="16" r="0.8" fill="white"/>
+              {service.num === "09" ? (
+                <rect x="15.2" y="15.2" width="1.6" height="1.6" fill="white"/>
+              ) : service.num === "10" ? (
+                <path d="M16 15 L17 16 L16 17 L15 16 Z" fill="white"/>
+              ) : service.num === "11" ? (
+                <line x1="15" y1="16" x2="17" y2="16" stroke="white" strokeWidth="0.5"/>
+              ) : (
+                <circle cx="16" cy="16" r="0.8" fill="white"/>
+              )}
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill={`url(#svc-${service.num})`}/>

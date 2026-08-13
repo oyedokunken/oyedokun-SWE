@@ -2,8 +2,8 @@
 
 const items = [
   "React", "TypeScript", "Node.js", "Next.js", "PostgreSQL",
-  "Express", "Prisma", "Supabase", "Docker", "GraphQL",
-  "REST APIs", "System Design", "MongoDB", "Redis", "Tailwind CSS",
+  "Docker", "Kubernetes", "Tailwind CSS", "WordPress", "Java",
+  "C#", "Firebase", "Svelte", "MongoDB", "Prisma",
 ];
 
 function StarSep() {
