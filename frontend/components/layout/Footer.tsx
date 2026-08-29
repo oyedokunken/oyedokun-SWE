@@ -23,7 +23,7 @@ function WhatsAppIcon({ size = 14 }: { size?: number }) {
 }
 
 const socials = [
-  { icon: Linkedin, href: "https://www.linkedin.com/in/oyedokun", label: "LinkedIn" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/oyedokunken/", label: "LinkedIn" },
   { icon: Github, href: "https://github.com/oyedokunken/oyedokun.dev", label: "GitHub" },
   { icon: Instagram, href: "https://www.instagram.com/oyedokunken", label: "Instagram" },
   { icon: Facebook, href: "https://www.facebook.com/oyedokunken/", label: "Facebook" },

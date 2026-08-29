@@ -353,6 +353,6 @@ MIT. See [LICENSE](./LICENSE).
 ## Contact
 
 Email: [oyedokunken@gmail.com](mailto:oyedokunken@gmail.com)  
-LinkedIn: [linkedin.com/in/oyedokun](https://www.linkedin.com/in/oyedokun)  
+LinkedIn: [linkedin.com/in/oyedokun](https://www.linkedin.com/in/oyedokunken/)  
 Twitter/X: [x.com/oyedokunken_](https://x.com/oyedokunken_)  
 Portfolio: [oyedokun.dev](https://oyedokun.vercel.app/)

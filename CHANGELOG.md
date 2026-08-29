@@ -72,7 +72,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Projects: CGS Web URL updated from `cgs-web.vercel.app` to `https://coopergamingservices.com/`
 - Hero: Projects Shipped count updated from 13 to 20
 - UI: All "CV" references changed to "Resume" (Header button, Contact section, Resume modal)
-- Social: LinkedIn URL updated from `linkedin.com/in/oyedokunken` to `https://www.linkedin.com/in/oyedokun` (across Footer, MobileMenu, email templates, GITHUB.md, README.md)
+- Social: LinkedIn URL updated from `linkedin.com/in/oyedokunken` to `https://www.linkedin.com/in/oyedokunken/` (across Footer, MobileMenu, email templates, GITHUB.md, README.md)
 - Frontend: Favicon reverted to original SVG with PNG fallback (favicon.png, apple-touch-icon.png)
 
 ---

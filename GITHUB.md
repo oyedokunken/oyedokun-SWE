@@ -93,7 +93,7 @@ I have shipped production-grade systems across fintech, energy, healthcare, mini
 ## Find me
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-oyedokun.dev-000000?style=flat-square&logo=vercel&logoColor=white)](https://www.oyedokun.dev/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-oyedokun-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/oyedokun)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-oyedokun-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/oyedokunken/)
 [![Email](https://img.shields.io/badge/Email-oyedokunken@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:oyedokunken@gmail.com)
 
 ---
