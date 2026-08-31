@@ -1,8 +1,10 @@
 # Hey, my name is Kenny :)
 
-Software engineer based in Lagos, Nigeria, building full-stack products and backend systems that actually work in production. I enjoy the full stack but live closer to the backend, mostly because that is where the interesting problems are.
+Software engineer based in Lagos, NG, building full-stack products and backend systems that actually work in production. I enjoy the full stack but live closer to the backend, mostly because that's where the interesting problems are.
 
-I have shipped production-grade systems across fintech, energy, healthcare, mining, e-commerce, and EdTech. I work across time zones with international teams while keeping things moving fast locally.
+I've shipped production-grade systems across fintech, energy, healthcare, mining, e-commerce, and EdTech. I work with international teams in different time zones while keeping things moving fast locally.
+
+I regard myself as a systems thinker. I don't write clever tricks, I own the system end to end. I want to understand before I build, clarify before I commit, and design things that hold up beyond the happy path. I prioritize clean code, scalable architecture, performance, and thinking through the edge cases that separate a working demo from a system that can be trusted.
 
 ---
 
@@ -106,4 +108,4 @@ I have shipped production-grade systems across fintech, energy, healthcare, mini
 
 ---
 
-*Building things that scale. Based in Nigeria, working globally.*
+Architecting systems. Shipping at scale.
