@@ -10,6 +10,10 @@ oyedokun.dev
 
 Architecture and data flow diagrams in README use Mermaid flowcharts for better rendering in GitHub and Markdown viewers. API endpoint paths are quoted to avoid Mermaid lexical parsing errors.
 
+## GitHub Profile
+
+`GITHUB.md` is the repository's GitHub-facing profile README. It mirrors the portfolio's project table and skills, and carries the personal intro and tagline. It is kept in sync with the SPA portfolio so the public GitHub profile reflects the same information as the site.
+
 ### Frontend Routes
 | Route | Description |
 |---|---|

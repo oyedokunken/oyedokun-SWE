@@ -6,6 +6,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.14.1] - 2026-08-31
+
+### Changed
+- GitHub profile README (GITHUB.md): Synced project table with SPA portfolio; added missing MSP Reports, WIME Awards, and Minuteman; fixed outdated live URLs for RIOS, Cooper Gaming Services, and Rexta
+- GitHub profile README (GITHUB.md): Updated skill badges to include Java, Svelte, C#, Firebase, Kubernetes, and WordPress
+- GitHub profile README (GITHUB.md): Rewrote intro to reflect systems thinking, end-to-end ownership, and edge-case-first design; updated location to Lagos, NG
+- GitHub profile README (GITHUB.md): Changed bottom tagline to "Architecting systems. Shipping at scale."
+
+---
+
 ## [1.14.0] - 2026-08-14
 
 ### Added
