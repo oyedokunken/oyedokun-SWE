@@ -6,6 +6,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.14.2] - 2026-09-04
+
+### Added
+- Photo marquee: 16 new photos added to the "Behind the Screen" section (oyedokun-17 through oyedokun-32), bringing the total to 39 images across both scrolling rows
+
+---
+
 ## [1.14.1] - 2026-08-31
 
 ### Changed
