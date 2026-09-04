@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -52,13 +53,19 @@ const row1 = [...evens, ...evens, ...evens];
 const row2 = [...odds,  ...odds,  ...odds];
 
 function PhotoStrip({ items, reverse }: { items: string[]; reverse?: boolean }) {
+  const [paused, setPaused] = useState(false);
   return (
     <div className="flex overflow-hidden">
-      <motion.div
-        animate={{ x: reverse ? ["-33.333%", "0%"] : ["0%", "-33.333%"] }}
-        transition={{ duration: 35, repeat: Infinity, ease: "linear", repeatType: "loop" }}
+      <div
         className="flex gap-3 flex-shrink-0"
-        style={{ width: "max-content" }}
+        onPointerEnter={() => setPaused(true)}
+        onPointerLeave={() => setPaused(false)}
+        onPointerCancel={() => setPaused(false)}
+        style={{
+          width: "max-content",
+          animation: `${reverse ? "marquee-scroll-reverse" : "marquee-scroll"} 35s linear infinite`,
+          animationPlayState: paused ? "paused" : "running",
+        }}
       >
         {items.map((src, i) => (
           <div
@@ -75,7 +82,7 @@ function PhotoStrip({ items, reverse }: { items: string[]; reverse?: boolean }) 
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-60" />
           </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }

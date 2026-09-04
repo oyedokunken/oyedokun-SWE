@@ -11,6 +11,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - Photo marquee: 16 new photos added to the "Behind the Screen" section (oyedokun-17 through oyedokun-32), bringing the total to 39 images across both scrolling rows
 
+### Changed
+- Photo marquee: Switched scroll animation from Framer Motion to CSS keyframes (`marquee-scroll` / `marquee-scroll-reverse` in globals.css) so the marquee pauses on any pointer interaction (hover, touch, pen) via `animationPlayState`
+
 ---
 
 ## [1.14.1] - 2026-08-31

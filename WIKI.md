@@ -46,7 +46,7 @@ CSS custom properties drive both light and dark modes. The `ThemeContext` expose
 
 ## Animation System
 
-All animations use Framer Motion. Scroll-driven effects use `useScroll` + `useTransform`. Entry animations use `whileInView` with viewport detection.
+All animations use Framer Motion, except the Photo Scroll marquee which uses CSS keyframes so it can be paused via `animation-play-state`. Scroll-driven effects use `useScroll` + `useTransform`. Entry animations use `whileInView` with viewport detection.
 
 ### Post-Preloader Sequencing
 
@@ -66,7 +66,7 @@ The `useSiteReady` hook (`frontend/lib/useSiteReady.ts`) listens for the `siteRe
 | Experience | `#experience` | Timeline with animated progress line, impact-focused bullets |
 | Education | `#education` | FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab) in card grid — **currently commented out** |
 | Testimonials | `#testimonials` | Client quotes with theme-aware avatar |
-| Photo Scroll | - | Infinite marquee photos |
+| Photo Scroll | - | Infinite two-row marquee of 39 photos driven by CSS keyframes (`marquee-scroll` / `marquee-scroll-reverse`); pauses on any pointer interaction (hover, touch, pen) via `animationPlayState` toggled by `onPointerEnter`/`onPointerLeave`/`onPointerCancel` |
 | Contact | `#contact` | Form with phone input + modal feedback |
 | Footer + Brand | - | Large typographic brand mark back-to-top; WhatsApp contact link opens chat modal instead of navigating directly |
 
