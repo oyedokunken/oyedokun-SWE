@@ -24,7 +24,7 @@ function XIcon({ size = 15 }: { size?: number }) {
 
 const socials = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/oyedokunken/", label: "LinkedIn" },
-  { icon: Github, href: "https://github.com/oyedokunken/oyedokun.dev", label: "GitHub" },
+  { icon: Github, href: "https://github.com/oyedokunken/", label: "GitHub" },
   { icon: Instagram, href: "https://www.instagram.com/oyedokunken", label: "Instagram" },
   { icon: Facebook, href: "https://www.facebook.com/oyedokunken/", label: "Facebook" },
   { icon: XIcon, href: "https://x.com/oyedokunken_", label: "X" },
