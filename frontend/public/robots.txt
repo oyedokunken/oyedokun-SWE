@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://oyedokunken.vercel.app/sitemap.xml
+Sitemap: https://www.oyedokun.dev/sitemap.xml
