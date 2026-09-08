@@ -11,7 +11,7 @@ Oyedokun Kehinde (oyedokunken) is a staff-level software engineer and CTO specia
 - Focus: Backend architecture, distributed systems, full-stack development, SaaS products
 - Stacks: MERN, PERN, Next.js, Node.js, TypeScript, PostgreSQL, Prisma
 - Availability: Remote and hybrid SWE roles, freelance and contract work worldwide
-- Location: Lagos, igeria (works globally)
+- Location: Lagos, Nigeria (works globally)
 
 ## Contact & Profiles
 
