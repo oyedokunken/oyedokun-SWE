@@ -22,7 +22,7 @@ export default function WhatsAppFloat() {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 2, duration: 0.4, ease: "backOut" }}
-        className="fixed bottom-8 left-8 z-[60] flex items-center gap-2.5"
+        className="whatsapp-float fixed bottom-8 left-8 z-[60] flex items-center gap-2.5"
       >
         <button
           onClick={openChat}
