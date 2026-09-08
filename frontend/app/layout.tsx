@@ -9,9 +9,9 @@ import ScrollToTop from "@/components/ui/ScrollToTop";
 import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
 
 export const metadata: Metadata = {
-  title: "Oyedokun Kehinde | Software Engineer — Backend, Full-Stack & Systems",
+  title: "Oyedokun Kehinde - Staff-level Software Engineer and CTO",
   description:
-    "Oyedokun Kehinde (oyedokunken) is a staff-level software engineer specializing in backend architecture, full-stack development, and scalable systems. Available for freelance and contract work worldwide.",
+    "Software Engineer. Full-stack focus, SaaS products, distributed systems, MERN and PERN stacks. Architecting systems. Shipping at scale.",
   keywords: [
     "Oyedokun Kehinde",
     "oyedokunken",
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   creator: "Oyedokun Kehinde",
   metadataBase: new URL("https://www.oyedokun.dev"),
   openGraph: {
-    title: "Oyedokun Kehinde — Software Engineer | Backend & Full-Stack",
+    title: "Oyedokun Kehinde - Staff-level Software Engineer and CTO",
     description:
-      "Oyedokun Kehinde (oyedokunken) is a staff-level software engineer specializing in backend architecture, full-stack development, and scalable systems. Available worldwide.",
+      "Software Engineer. Full-stack focus, SaaS products, distributed systems, MERN and PERN stacks. Architecting systems. Shipping at scale.",
     url: "https://www.oyedokun.dev/",
     siteName: "oyedokun.dev",
     type: "website",
@@ -58,15 +58,15 @@ export const metadata: Metadata = {
         url: "https://www.oyedokun.dev/og.png",
         width: 1200,
         height: 630,
-        alt: "Oyedokun Kehinde — Software Engineer",
+        alt: "Oyedokun Kehinde - Staff-level Software Engineer and CTO",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oyedokun Kehinde — Software Engineer | Backend & Full-Stack",
+    title: "Oyedokun Kehinde - Staff-level Software Engineer and CTO",
     description:
-      "Oyedokun Kehinde (oyedokunken) is a staff-level software engineer specializing in backend architecture, full-stack development, and scalable systems. Available worldwide.",
+      "Software Engineer. Full-stack focus, SaaS products, distributed systems, MERN and PERN stacks. Architecting systems. Shipping at scale.",
     images: ["https://www.oyedokun.dev/og.png"],
   },
   icons: {
