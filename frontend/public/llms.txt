@@ -1,0 +1,32 @@
+# Oyedokun Kehinde — oyedokun.dev
+
+> Staff-level Software Engineer and CTO. Backend architecture, distributed systems, SaaS products, MERN and PERN stacks. Architecting systems. Shipping at scale.
+
+Oyedokun Kehinde (oyedokunken) is a staff-level software engineer and CTO specializing in backend architecture, distributed systems, and modern frontend engineering. He builds reliable, scalable products from concept to deployment and is available for remote and hybrid SWE roles worldwide.
+
+## About
+
+- Name: Oyedokun Kehinde
+- Role: Staff-level Software Engineer and CTO
+- Focus: Backend architecture, distributed systems, full-stack development, SaaS products
+- Stacks: MERN, PERN, Next.js, Node.js, TypeScript, PostgreSQL, Prisma
+- Availability: Remote and hybrid SWE roles, freelance and contract work worldwide
+- Location: Lagos, igeria (works globally)
+
+## Contact & Profiles
+
+- Website: https://www.oyedokun.dev/
+- Email: hello@oyedokun.dev
+- GitHub: https://github.com/oyedokunken/
+- LinkedIn: https://www.linkedin.com/in/oyedokunken/
+- X/Twitter: https://x.com/oyedokunken_
+- Instagram: https://www.instagram.com/oyedokunken
+
+## Key Pages
+
+- [Home](https://www.oyedokun.dev/): Portfolio homepage — about, services, projects, experience, contact
+- [Sitemap](https://www.oyedokun.dev/sitemap.xml): XML sitemap
+
+## Services
+
+Backend engineering, full-stack development, SaaS product development, API development, systems architecture, WordPress development, and technical consultation.

@@ -96,6 +96,57 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  "@id": "https://www.oyedokun.dev/#person",
+                  name: "Oyedokun Kehinde",
+                  alternateName: "oyedokunken",
+                  url: "https://www.oyedokun.dev/",
+                  image: "https://www.oyedokun.dev/oyedokunken-new.jpg",
+                  jobTitle: "Staff-level Software Engineer and CTO",
+                  description:
+                    "Software Engineer. Full-stack focus, SaaS products, distributed systems, MERN and PERN stacks. Architecting systems. Shipping at scale.",
+                  email: "mailto:hello@oyedokun.dev",
+                  nationality: "Nigerian",
+                  knowsAbout: [
+                    "Backend Architecture",
+                    "Distributed Systems",
+                    "Full-Stack Development",
+                    "SaaS Products",
+                    "MERN Stack",
+                    "PERN Stack",
+                    "Next.js",
+                    "Node.js",
+                    "TypeScript",
+                    "PostgreSQL",
+                  ],
+                  sameAs: [
+                    "https://github.com/oyedokunken/",
+                    "https://www.linkedin.com/in/oyedokunken/",
+                    "https://x.com/oyedokunken_",
+                    "https://www.instagram.com/oyedokunken",
+                    "https://www.facebook.com/oyedokunken/",
+                  ],
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.oyedokun.dev/#website",
+                  url: "https://www.oyedokun.dev/",
+                  name: "Oyedokun Kehinde - Staff-level Software Engineer and CTO",
+                  description:
+                    "Software Engineer. Full-stack focus, SaaS products, distributed systems, MERN and PERN stacks. Architecting systems. Shipping at scale.",
+                  publisher: { "@id": "https://www.oyedokun.dev/#person" },
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body className="bg-[var(--bg)] text-[var(--text-primary)] overflow-x-hidden">
         <ThemeProvider>
