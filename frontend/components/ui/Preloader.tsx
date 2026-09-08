@@ -41,7 +41,7 @@ export default function Preloader() {
           animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
           exit={{ clipPath: "inset(0% 0% 100% 0%)" }}
           transition={{ duration: 0.85, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[9999] bg-[#000] flex flex-col items-center justify-center gap-6"
+          className="fixed inset-0 z-[9999] bg-[var(--bg)] flex flex-col items-center justify-center gap-6"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -61,7 +61,7 @@ export default function Preloader() {
                 cx="70"
                 cy="70"
                 r={RADIUS}
-                stroke="rgba(255,255,255,0.07)"
+                stroke="var(--border-color)"
                 strokeWidth="1.5"
                 fill="none"
               />
@@ -69,7 +69,7 @@ export default function Preloader() {
                 cx="70"
                 cy="70"
                 r={RADIUS}
-                stroke="white"
+                stroke="var(--text-primary)"
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 fill="none"
@@ -82,10 +82,10 @@ export default function Preloader() {
                 }}
               />
               <g transform="translate(46, 46)">
-                <rect width="48" height="48" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)" strokeWidth="1"/>
-                <circle cx="24" cy="24" r="9" stroke="white" strokeWidth="1.5" fill="none"/>
-                <path d="M30 18 L38 18 L38 26 L32 32" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                <circle cx="24" cy="24" r="3" fill="white"/>
+                <rect width="48" height="48" rx="8" fill="var(--glass-bg)" stroke="var(--glass-border)" strokeWidth="1"/>
+                <circle cx="24" cy="24" r="9" stroke="var(--text-primary)" strokeWidth="1.5" fill="none"/>
+                <path d="M30 18 L38 18 L38 26 L32 32" stroke="var(--text-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                <circle cx="24" cy="24" r="3" fill="var(--text-primary)"/>
               </g>
             </svg>
 
@@ -96,13 +96,13 @@ export default function Preloader() {
               className="flex flex-col items-center gap-1"
             >
               <span
-                className="text-white font-bold tabular-nums"
+                className="text-[var(--text-primary)] font-bold tabular-nums"
                 style={{ fontSize: "clamp(1.5rem,4vw,2rem)", letterSpacing: "-0.04em" }}
               >
                 {displayProgress}
-                <span className="text-white/40 text-base font-normal">%</span>
+                <span className="text-[var(--text-muted)] text-base font-normal">%</span>
               </span>
-              <span className="text-[10px] tracking-[3px] uppercase text-white/25">
+              <span className="text-[10px] tracking-[3px] uppercase text-[var(--text-muted)]">
                 {exiting ? "Ready" : "Loading"}
               </span>
             </motion.div>
