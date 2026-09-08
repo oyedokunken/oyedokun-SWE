@@ -8,6 +8,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [1.14.3] - 2026-09-08
 
+### Changed
+- Resume delivery: CV attachment now resolves and sends `CV - Oyedokun Kehinde.pdf` (previously `CV - Oyedokun Kehinde Joshua.pdf`); old file removed from backend
+
 ### Fixed
 - Social links: GitHub icon in Footer and MobileMenu now links to the GitHub profile (`github.com/oyedokunken/`) instead of the private portfolio repo URL which returned a 404 for visitors; email template footer GitHub link normalized with trailing slash
 
