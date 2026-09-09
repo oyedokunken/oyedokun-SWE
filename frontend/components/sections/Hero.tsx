@@ -126,8 +126,9 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-md"
             >
-              Staff-level engineer. Full-stack, backend-first, systems-minded.
-              Turning complex problems into clean, scalable code.
+              Full-stack software engineer. Comfortable with complexity, always
+              thinking ahead. I build software for the happy path, the edge
+              cases, and everything in between.
             </motion.p>
 
             <motion.div
