@@ -11,7 +11,7 @@ import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
 export const metadata: Metadata = {
   title: "Oyedokun Kehinde - Staff-level Software Engineer and CTO",
   description:
-    "Software Engineer. Full-stack focus, SaaS products, distributed systems, MERN and PERN stacks. Architecting systems. Shipping at scale.",
+    "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
   keywords: [
     "Oyedokun Kehinde",
     "oyedokunken",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Oyedokun Kehinde - Staff-level Software Engineer and CTO",
     description:
-      "Software Engineer. Full-stack focus, SaaS products, distributed systems, MERN and PERN stacks. Architecting systems. Shipping at scale.",
+      "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
     url: "https://www.oyedokun.dev/",
     siteName: "oyedokun.dev",
     type: "website",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Oyedokun Kehinde - Staff-level Software Engineer and CTO",
     description:
-      "Software Engineer. Full-stack focus, SaaS products, distributed systems, MERN and PERN stacks. Architecting systems. Shipping at scale.",
+      "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
     images: ["https://www.oyedokun.dev/og.png"],
   },
   icons: {
@@ -111,7 +111,7 @@ export default function RootLayout({
                   image: "https://www.oyedokun.dev/oyedokunken-new.jpg",
                   jobTitle: "Staff-level Software Engineer and CTO",
                   description:
-                    "Software Engineer. Full-stack focus, SaaS products, distributed systems, MERN and PERN stacks. Architecting systems. Shipping at scale.",
+                    "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
                   email: "mailto:hello@oyedokun.dev",
                   nationality: "Nigerian",
                   knowsAbout: [
@@ -140,7 +140,7 @@ export default function RootLayout({
                   url: "https://www.oyedokun.dev/",
                   name: "Oyedokun Kehinde - Staff-level Software Engineer and CTO",
                   description:
-                    "Software Engineer. Full-stack focus, SaaS products, distributed systems, MERN and PERN stacks. Architecting systems. Shipping at scale.",
+                    "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
                   publisher: { "@id": "https://www.oyedokun.dev/#person" },
                 },
               ],
