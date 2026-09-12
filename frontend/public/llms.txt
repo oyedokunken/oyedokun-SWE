@@ -2,7 +2,7 @@
 
 > Staff-level Software Engineer and CTO. Backend architecture, distributed systems, SaaS products, MERN and PERN stacks. Architecting systems. Shipping at scale.
 
-Oyedokun Kehinde (oyedokunken) is a staff-level software engineer and CTO specializing in backend architecture, distributed systems, and modern frontend engineering. He builds reliable, scalable products from concept to deployment and is available for remote and hybrid SWE roles worldwide.
+Oyedokun Kehinde (oyedokunken) is a staff-level software engineer and CTO specializing in backend architecture, distributed systems, and modern frontend engineering. He builds reliable, scalable products from concept to deployment and is open to remote and hybrid SWE roles worldwide.
 
 ## About
 

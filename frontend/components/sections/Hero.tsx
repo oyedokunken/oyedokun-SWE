@@ -95,7 +95,7 @@ export default function Hero() {
                 <div className="glass rounded-xl p-3">
                   <p className="text-sm text-white font-bold tracking-tight">Oyedokun Kehinde</p>
                   <p className="text-xs text-white/60 mt-0.5">Software Engineer</p>
-                  <p className="text-[10px] text-white/35 mt-0.5 tracking-wide flex items-center gap-1.5"><GreenDot /> Available for remote and hybrid SWE roles</p>
+                  <p className="text-[10px] text-white/35 mt-0.5 tracking-wide flex items-center gap-1.5"><GreenDot /> Open to remote and hybrid SWE roles</p>
                 </div>
               </div>
             </div>
@@ -126,7 +126,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-md"
             >
-              Full-stack software engineer. Comfortable with complexity, always
+              Full-stack software engineer. Comfortable managing complexity. Always
               thinking ahead. I build software for the happy path, the edge
               cases, and everything in between.
             </motion.p>
@@ -203,7 +203,7 @@ export default function Hero() {
                 <div className="glass rounded-xl p-4">
                   <p className="text-sm text-white font-bold tracking-tight">Oyedokun Kehinde</p>
                   <p className="text-xs text-white/60 mt-0.5">Software Engineer</p>
-                  <p className="text-[10px] text-white/35 mt-1 tracking-wide flex items-center gap-1.5"><GreenDot /> Available for remote and hybrid SWE roles</p>
+                  <p className="text-[10px] text-white/35 mt-1 tracking-wide flex items-center gap-1.5"><GreenDot /> Open to remote and hybrid SWE roles</p>
                 </div>
               </div>
             </div>

@@ -33,24 +33,15 @@ const services = [
   },
   {
     num: "04",
-    icon: Lock,
-    title: "Security and Identity",
-    desc: "Authentication systems, RBAC, OAuth 2.0, JWT, rate limiting, input validation, and OWASP-aligned patterns to protect every endpoint.",
-    tags: ["JWT", "OAuth", "RBAC", "OWASP"],
+    icon: Package,
+    title: "SaaS Product Development",
+    desc: "Multi-tenant platforms from zero to production. Subscriptions, onboarding flows, role-based dashboards, and data models that scale with you.",
+    tags: ["Multi-tenancy", "Stripe", "Supabase", "Prisma"],
     bg: "#0f0f0f",
-    accent: "#1a100f",
+    accent: "#0f0f1a",
   },
   {
     num: "05",
-    icon: Network,
-    title: "System Design",
-    desc: "Architecture reviews, technical blueprints, microservices strategy, and service-oriented patterns that scale before the first line is written.",
-    tags: ["Microservices", "SOA", "API Design", "DDD"],
-    bg: "#0f0f0f",
-    accent: "#0f1a0f",
-  },
-  {
-    num: "06",
     icon: Code2,
     title: "Frontend Engineering",
     desc: "Performant, accessible, and animated interfaces built with Framer Motion, Tailwind, and shadcn/ui, with the same rigor as the backend.",
@@ -59,13 +50,22 @@ const services = [
     accent: "#1a0f0f",
   },
   {
-    num: "07",
-    icon: Package,
-    title: "SaaS Product Development",
-    desc: "Multi-tenant platforms from zero to production. Subscriptions, onboarding flows, role-based dashboards, and data models that scale with you.",
-    tags: ["Multi-tenancy", "Stripe", "Supabase", "Prisma"],
+    num: "06",
+    icon: Lock,
+    title: "Security and Identity",
+    desc: "Authentication systems, RBAC, OAuth 2.0, JWT, rate limiting, input validation, and OWASP-aligned patterns to protect every endpoint.",
+    tags: ["JWT", "OAuth", "RBAC", "OWASP"],
     bg: "#0f0f0f",
-    accent: "#0f0f1a",
+    accent: "#1a100f",
+  },
+  {
+    num: "07",
+    icon: Network,
+    title: "System Design",
+    desc: "Architecture reviews, technical blueprints, microservices strategy, and service-oriented patterns that scale before the first line is written.",
+    tags: ["Microservices", "SOA", "API Design", "DDD"],
+    bg: "#0f0f0f",
+    accent: "#0f1a0f",
   },
   {
     num: "08",
@@ -78,12 +78,12 @@ const services = [
   },
   {
     num: "09",
-    icon: Globe,
-    title: "WordPress Development",
-    desc: "Custom themes, plugin development, performance optimization, and headless WordPress setups. From simple blogs to complex content management systems.",
-    tags: ["Themes", "Plugins", "Headless", "Performance"],
+    icon: ShieldCheck,
+    title: "Technical Leadership",
+    desc: "CTO-level direction. Architecture decisions, team guidance, product strategy, and technical roadmaps for startups and growing engineering teams.",
+    tags: ["Strategy", "Architecture", "Mentorship", "Roadmapping"],
     bg: "#0f0f0f",
-    accent: "#0f1a1a",
+    accent: "#1a1a1a",
   },
   {
     num: "10",
@@ -96,12 +96,12 @@ const services = [
   },
   {
     num: "11",
-    icon: ShieldCheck,
-    title: "Technical Leadership",
-    desc: "CTO-level direction. Architecture decisions, team guidance, product strategy, and technical roadmaps for startups and growing engineering teams.",
-    tags: ["Strategy", "Architecture", "Mentorship", "Roadmapping"],
+    icon: Globe,
+    title: "WordPress Development",
+    desc: "Custom WordPress websites built for performance and scale. From business sites and portfolios to complex content-driven platforms, delivered with clean, maintainable setups.",
+    tags: ["Custom Websites", "Business Sites", "CMS", "Performance"],
     bg: "#0f0f0f",
-    accent: "#1a1a1a",
+    accent: "#0f1a1a",
   },
 ];
 
@@ -142,7 +142,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
         <div className="w-12 h-12 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center">
           <service.icon size={22} className="text-white" />
         </div>
-        <span className="text-[11px] tracking-[3px] text-white/30 font-mono">{service.num}</span>
+        <span className="text-[11px] tracking-[3px] text-white/30 font-sans">{service.num}</span>
       </div>
 
       <div className="space-y-4">

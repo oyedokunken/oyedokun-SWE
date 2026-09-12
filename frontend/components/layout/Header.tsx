@@ -6,7 +6,6 @@ import { Menu } from "lucide-react";
 import Logo from "@/components/Logo";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import MobileMenu from "@/components/layout/MobileMenu";
-import { useResumeModal } from "@/context/ResumeModalContext";
 import { useSiteReady } from "@/lib/useSiteReady";
 
 const navItems = [
@@ -23,7 +22,6 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
   const [menuOpen, setMenuOpen] = useState(false);
-  const { openModal: openResumeModal } = useResumeModal();
   const ready = useSiteReady();
 
   useEffect(() => {
@@ -98,12 +96,14 @@ export default function Header() {
 
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <button
-              onClick={openResumeModal}
+            <a
+              href="https://wa.link/nv875h"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[var(--text-primary)] text-[var(--bg)] text-[11px] py-2 px-4 rounded-full font-medium tracking-wide hover:opacity-85 transition-opacity duration-200"
             >
-             Resume
-            </button>
+              Hire Me 👋
+            </a>
             <button
               onClick={() => setMenuOpen(true)}
               className="lg:hidden w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"

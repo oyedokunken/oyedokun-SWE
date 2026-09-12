@@ -41,7 +41,7 @@ export default function WhatsAppFloat() {
               onClick={openChat}
               className="bg-[#25D366] text-white text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-[0_4px_16px_rgba(37,211,102,0.3)] whitespace-nowrap"
             >
-              Let&apos;s chat
+              Let&apos;s chat! 🙂
             </motion.button>
           )}
         </AnimatePresence>
