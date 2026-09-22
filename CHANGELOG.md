@@ -6,6 +6,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.16.0] - 2026-09-22
+
+### Added
+- Projects: three new entries - Digital Hub Africa (editorial magazine platform), Salmired Properties (real estate platform), and Mailly (AI inbox waitlist) with cover images
+- Projects: "New" pill shown beside the project title for any entry with an `addedOn` date, auto-expiring after 30 days; red in light mode, white in dark mode
+- WhatsApp chat widget: mobile-only message input bar with emoji and sticker icons, "Type a message" field, paperclip, and a mic/send button that deep-links to WhatsApp
+
+### Changed
+- Services: reordered to Full-Stack, SaaS Product Development, Backend Architecture, API Design, DevOps and Infrastructure, Technical Leadership, Frontend Engineering, Security, System Design, Consultation, WordPress
+- Projects: Rexta moved above Storebook and EduPilot
+- WhatsApp chat widget: mic/send button now uses the deep green (#075E54) instead of bright green
+
+---
+
 ## [1.15.0] - 2026-09-22
 
 ### Added

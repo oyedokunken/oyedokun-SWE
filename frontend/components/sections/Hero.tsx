@@ -164,7 +164,7 @@ export default function Hero() {
               className="flex items-center gap-8 pt-4"
             >
               {[
-                { target: 20, label: "Projects Shipped" },
+                { target: 25, label: "Projects Shipped" },
                 { target: 5, label: "Companies" },
                 { target: 3, label: "Years Building" },
               ].map((stat) => (

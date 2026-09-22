@@ -5,6 +5,13 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
 
+const NEW_PROJECT_MS = 30 * 24 * 60 * 60 * 1000;
+
+function isNewProject(addedOn?: string) {
+  if (!addedOn) return false;
+  return Date.now() - new Date(addedOn).getTime() < NEW_PROJECT_MS;
+}
+
 const projects = [
   {
     id: "renpower",
@@ -67,6 +74,27 @@ const projects = [
     github: "https://github.com/oyedokunken/traqify",
   },
   {
+    id: "rexta",
+    title: "Rexta",
+    category: "Web App",
+    cover: "/covers/rexta-cover.png",
+    desc: "Digital agency website with contact, quote, and consultation flows, ten service pages, a dynamic project showcase, and Nodemailer email delivery.",
+    tags: ["Next.js 16", "Supabase", "Express", "Nodemailer", "SEO"],
+    live: "https://rextatech.com/",
+    github: "https://github.com/oyedokunken/rexta",
+  },
+  {
+    id: "mailly",
+    title: "Mailly",
+    addedOn: "2026-09-22",
+    category: "SaaS / AI",
+    cover: "/covers/mailly-cover.png",
+    desc: "Marketing site and waitlist for an AI inbox assistant, with a rate-limited signup flow, branded transactional emails, and a full admin portal with PDF reports and audit log.",
+    tags: ["Next.js 16", "Supabase", "Prisma", "Nodemailer", "shadcn/ui"],
+    live: "https://usemailly.com/",
+    github: "https://github.com/oyedokunken/usemailly-v1",
+  },
+  {
     id: "storebook",
     title: "Storebook",
     category: "SaaS",
@@ -85,16 +113,6 @@ const projects = [
     tags: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "CPM"],
     live: "https://edupilotly.vercel.app/",
     github: "https://github.com/oyedokunken/edupilot",
-  },
-  {
-    id: "rexta",
-    title: "Rexta",
-    category: "Web App",
-    cover: "/covers/rexta-cover.png",
-    desc: "Digital agency website with contact, quote, and consultation flows, ten service pages, a dynamic project showcase, and Nodemailer email delivery.",
-    tags: ["Next.js 16", "Supabase", "Express", "Nodemailer", "SEO"],
-    live: "https://rextatech.com/",
-    github: "https://github.com/oyedokunken/rexta",
   },
   {
     id: "kwiker",
@@ -145,6 +163,28 @@ const projects = [
     tags: ["Laravel", "TailwindCSS", "MySQL", "Nodemailer"],
     live: "https://digitalprocurement.africa/",
     github: "https://github.com/oyedokunken/dpa-landing",
+  },
+  {
+    id: "dha",
+    title: "Digital Hub Africa",
+    addedOn: "2026-09-22",
+    category: "Platform",
+    cover: "/covers/dha-cover.png",
+    desc: "Editorial magazine helping Africans learn, work, and build with technology, featuring TipTap rich-text publishing, a role-based admin panel, ISR-driven SEO, and newsletter flows.",
+    tags: ["Next.js 16", "TypeScript", "Prisma", "Supabase", "TipTap"],
+    live: "https://www.digitalhubafrica.org/",
+    github: "https://github.com/oyedokunken/dha-blog",
+  },
+  {
+    id: "salmired",
+    title: "Salmired Properties",
+    addedOn: "2026-09-22",
+    category: "Platform",
+    cover: "/covers/salmired-cover.png",
+    desc: "Premium real estate platform for an Ibadan property developer with live listing filters, gallery lightboxes, multi-step application forms, and a JWT-protected admin dashboard.",
+    tags: ["Next.js 16", "TypeScript", "Prisma", "Supabase", "Tailwind CSS"],
+    live: "https://www.salmiredproperties.com/",
+    github: "https://github.com/oyedokunken/salmired-properties",
   },
   {
     id: "futahms",
@@ -337,7 +377,14 @@ export default function Projects() {
 
                 {/* Text section — theme-responsive bg and text */}
                 <div className="p-5 flex flex-col gap-2 flex-1 bg-[var(--bg-elevated)]">
-                  <h3 className="text-base font-bold text-[var(--text-primary)] tracking-tight leading-snug">{project.title}</h3>
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className="text-base font-bold text-[var(--text-primary)] tracking-tight leading-snug">{project.title}</h3>
+                    {"addedOn" in project && isNewProject(project.addedOn) && (
+                      <span className="text-[9px] tracking-[1.5px] uppercase font-bold px-2.5 py-1 rounded-full bg-red-600 text-white dark:bg-white dark:text-black flex-shrink-0 mt-0.5">
+                        New
+                      </span>
+                    )}
+                  </div>
                   <p className="text-[var(--text-secondary)] text-xs leading-relaxed flex-1">
                     {project.desc}
                   </p>

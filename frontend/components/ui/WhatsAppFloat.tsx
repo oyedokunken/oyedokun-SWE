@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, Video, Phone, Lock } from "lucide-react";
+import { X, Video, Phone, Lock, Smile, Sticker, Paperclip, Mic, SendHorizontal } from "lucide-react";
 import { useWhatsAppChat } from "@/context/WhatsAppChatContext";
 
 function WhatsAppIcon({ size = 22, color = "white" }: { size?: number; color?: string }) {
@@ -53,6 +53,7 @@ function MessageTime() {
 
 export default function WhatsAppFloat() {
   const { isOpen, openChat, closeChat } = useWhatsAppChat();
+  const [draft, setDraft] = useState("");
 
   return (
     <>
@@ -205,6 +206,34 @@ export default function WhatsAppFloat() {
                     <p className="text-[10px] mt-1.5 text-right" style={{ color: "#667781" }}><MessageTime /></p>
                   </div>
                 </div>
+              </div>
+
+              <div
+                className="flex md:hidden items-center gap-2 px-2.5 py-2"
+                style={{ background: "#F0F2F5" }}
+              >
+                <div className="flex-1 flex items-center gap-2.5 bg-white rounded-full pl-3 pr-2.5 py-2 shadow-sm">
+                  <Smile size={20} style={{ color: "#8696A0" }} className="flex-shrink-0" />
+                  <Sticker size={19} style={{ color: "#8696A0" }} className="flex-shrink-0" />
+                  <input
+                    type="text"
+                    value={draft}
+                    onChange={(e) => setDraft(e.target.value)}
+                    placeholder="Type a message"
+                    className="flex-1 min-w-0 bg-transparent text-[13px] outline-none placeholder:text-[#8696A0]"
+                    style={{ color: "#111B21" }}
+                  />
+                  <Paperclip size={18} style={{ color: "#8696A0" }} className="flex-shrink-0 rotate-45" />
+                </div>
+                <a
+                  href="https://wa.link/nv875h"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={draft ? "Send on WhatsApp" : "Voice note on WhatsApp"}
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-[#075E54] hover:bg-[#054b44] transition-colors duration-200 flex-shrink-0"
+                >
+                  {draft ? <SendHorizontal size={17} color="white" /> : <Mic size={18} color="white" />}
+                </a>
               </div>
 
               <a
