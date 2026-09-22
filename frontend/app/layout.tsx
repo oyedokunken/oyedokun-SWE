@@ -14,6 +14,10 @@ export const metadata: Metadata = {
     "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
   keywords: [
     "Oyedokun Kehinde",
+    "Oyedokun Kehinde Joshua",
+    "oyedokunken",
+    "Oyedokun Kehinde FUTA",
+    "Oyedokun Kehinde Rexta Technologies",
     "oyedokunken",
     "oyedokun.dev",
     "Software Engineer Nigeria",
@@ -34,7 +38,7 @@ export const metadata: Metadata = {
     "Freelance Software Engineer",
     "Remote Software Engineer",
     "Lagos Developer",
-    "Nigeria Tech",
+    "Nigeria Tech in Lagos",
     "PostgreSQL",
     "Prisma",
     "Express.js",
@@ -108,7 +112,7 @@ export default function RootLayout({
                   name: "Oyedokun Kehinde",
                   alternateName: "oyedokunken",
                   url: "https://www.oyedokun.dev/",
-                  image: "https://www.oyedokun.dev/oyedokunken-new.jpg",
+                  image: "https://www.oyedokun.dev/shoot/oyedokun-50.jpg",
                   jobTitle: "Staff-level Software Engineer and CTO",
                   description:
                     "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",

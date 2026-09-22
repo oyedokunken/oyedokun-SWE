@@ -6,6 +6,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.15.0] - 2026-09-22
+
+### Added
+- Photo marquee: 8 new photos added to the "Behind the Screen" section (oyedokun-43 through oyedokun-50), bringing the total to 58 images across both scrolling rows
+- WhatsApp chat widget: video and voice call icons in the chat header (both linking to the wa.link chat), matching the real WhatsApp header layout
+- WhatsApp chat widget: centered date pill showing the live full date (e.g. "Tuesday 22nd September 2026") and a centered end-to-end encryption notice bubble with lock icon
+- WhatsApp chat widget: live timestamp on the welcome message showing the visitor's real current time (e.g. "3:46 am"), updating every 30 seconds
+
+### Changed
+- Hero image switched to `/shoot/oyedokun-47.jpg` on both mobile and desktop variants; the previous hero image moved into the photo marquee as `oyedokun-50.jpg`
+- WhatsApp chat widget: header and message avatars now use the hero image (`oyedokun-47.jpg`)
+- Photo marquee: new photos redistributed throughout the array so same-event shots sit 8-9 images apart instead of adjacent
+- SEO: JSON-LD `image` URL updated to `/shoot/oyedokun-50.jpg` after the hero file move; metadata keywords expanded with name variants, FUTA, and Rexta Technologies
+
+---
+
 ## [1.14.3] - 2026-09-08
 
 ### Changed
