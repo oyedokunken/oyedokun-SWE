@@ -1,9 +1,14 @@
 "use client";
 
+import { useState } from "react";
+
 const items = [
-  "React", "TypeScript", "Node.js", "Next.js", "PostgreSQL",
-  "Docker", "Kubernetes", "Tailwind CSS", "WordPress", "Java",
-  "C#", "Firebase", "Svelte", "MongoDB", "Prisma",
+  "TypeScript", "JavaScript", "Java", "PHP", "Python",
+  "React", "Next.js", "Tailwind CSS", "Vue.js", "Svelte",
+  "Node.js", "Express", "Laravel", "FastAPI", "C#",
+  "PostgreSQL", "MongoDB", "MySQL", "Prisma", "Firebase",
+  "Docker", "GitHub Actions", "Linux", "AWS", "Kubernetes",
+  "Git", "VS Code", "Supabase", "Postman", "WordPress",
 ];
 
 function StarSep() {
@@ -21,11 +26,18 @@ function StarSep() {
 }
 
 export default function MarqueeSection() {
+  const [paused, setPaused] = useState(false);
   const repeated = [...items, ...items, ...items, ...items];
 
   return (
     <div className="py-7 border-y border-[var(--border-color)] overflow-hidden bg-[var(--bg-secondary)] relative">
-      <div className="flex whitespace-nowrap animate-marquee will-change-transform">
+      <div
+        className="flex whitespace-nowrap animate-marquee will-change-transform"
+        onPointerEnter={() => setPaused(true)}
+        onPointerLeave={() => setPaused(false)}
+        onPointerCancel={() => setPaused(false)}
+        style={{ animationPlayState: paused ? "paused" : "running" }}
+      >
         {repeated.map((item, i) => (
           <span key={i} className="inline-flex items-center">
             <span className="text-[13px] font-semibold tracking-[2px] uppercase text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors cursor-default select-none">

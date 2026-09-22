@@ -1,29 +1,10 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { useSiteReady } from "@/lib/useSiteReady";
-
-function Counter({ target, suffix = "+", ready }: { target: number; suffix?: string; ready: boolean }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!ready || !inView) return;
-    let current = 0;
-    const steps = 40;
-    const increment = Math.ceil(target / steps);
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) { setCount(target); clearInterval(timer); }
-      else setCount(current);
-    }, 35);
-    return () => clearInterval(timer);
-  }, [ready, inView, target]);
-  return <span ref={ref}>{count}{suffix}</span>;
-}
 
 function GreenDot() {
   return (
@@ -144,38 +125,20 @@ export default function Hero() {
                 }}
                 className="btn-primary"
               >
-                View Work
+                View Projects
               </button>
               <button
                 onClick={() => {
-                  const el = document.getElementById("contact");
+                  const el = document.getElementById("services");
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                 }}
                 className="btn-outline"
               >
-                Get in Touch
+                My Services
+                <ArrowRight size={14} />
               </button>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={ready ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ delay: 1.1 }}
-              className="flex items-center gap-8 pt-4"
-            >
-              {[
-                { target: 25, label: "Projects Shipped" },
-                { target: 5, label: "Companies" },
-                { target: 3, label: "Years Building" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-2xl font-bold tracking-tight">
-                    <Counter target={stat.target} ready={ready} />
-                  </p>
-                  <p className="text-xs text-[var(--text-muted)] tracking-wide mt-0.5">{stat.label}</p>
-                </div>
-              ))}
-            </motion.div>
           </motion.div>
 
           <motion.div
