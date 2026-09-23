@@ -6,6 +6,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.16.1] - 2026-09-23
+
+### Added
+- Marquee (tech strip after hero): pauses on pointer interaction (hover, touch, pen) via animationPlayState, matching the photo marquee behavior
+- WhatsApp chat widget: sticker icon beside the emoji icon in the mobile input bar
+
+### Changed
+- Hero: stats row (Projects Shipped / Companies / Years Building) removed on all breakpoints
+- Hero: primary button renamed to "View Projects"; secondary button renamed to "My Services" with an arrow icon and now scrolls to the Services section instead of Contact
+- Marquee (tech strip): item list synced with the full "Tools of the trade" set - now 30 technologies including JavaScript, PHP, Python, Vue.js, Express, Laravel, FastAPI, MySQL, GitHub Actions, Linux, AWS, Git, VS Code, Supabase, and Postman
+
+---
+
 ## [1.16.0] - 2026-09-22
 
 ### Added
