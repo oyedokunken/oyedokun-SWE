@@ -6,6 +6,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.16.3] - 2026-09-29
+
+### Added
+- Header: wave emoji in the "Hire Me" CTA wiggles on page load (after header entrance), repeating every ~7s via rotate keyframes pivoting at the wrist
+- WhatsApp float: smile emoji in the "Let's chat!" pill uses the same periodic wiggle
+
+### Changed
+- Skills/tools: Languages reordered to TypeScript, JavaScript, PHP, Python, Java (Java last) across the Skills grid, hero marquee, and GitHub profile docs
+
+---
+
 ## [1.16.2] - 2026-09-29
 
 ### Added

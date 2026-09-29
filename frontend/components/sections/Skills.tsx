@@ -11,9 +11,9 @@ const skillGroups = [
     skills: [
       { name: "TypeScript", icon: `${CDN}/typescript/typescript-original.svg` },
       { name: "JavaScript", icon: `${CDN}/javascript/javascript-original.svg` },
-      { name: "Java", icon: `${CDN}/java/java-original.svg` },
       { name: "PHP", icon: `${CDN}/php/php-original.svg` },
       { name: "Python", icon: `${CDN}/python/python-original.svg` },
+      { name: "Java", icon: `${CDN}/java/java-original.svg` },
     ],
   },
   {

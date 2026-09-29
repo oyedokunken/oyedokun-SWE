@@ -102,7 +102,14 @@ export default function Header() {
               rel="noopener noreferrer"
               className="bg-[var(--text-primary)] text-[var(--bg)] text-[11px] py-2 px-4 rounded-full font-medium tracking-wide hover:opacity-85 transition-opacity duration-200"
             >
-              Hire Me 👋
+              Hire Me{" "}
+              <motion.span
+                className="inline-block origin-[70%_70%]"
+                animate={ready ? { rotate: [0, 14, -8, 10, -4, 0] } : {}}
+                transition={{ delay: 1, duration: 0.6, repeat: Infinity, repeatDelay: 6 }}
+              >
+                👋
+              </motion.span>
             </a>
             <button
               onClick={() => setMenuOpen(true)}

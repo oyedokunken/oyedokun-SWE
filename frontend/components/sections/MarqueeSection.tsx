@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const items = [
-  "TypeScript", "JavaScript", "Java", "PHP", "Python",
+  "TypeScript", "JavaScript", "PHP", "Python", "Java",
   "React", "Next.js", "Tailwind CSS", "Vue.js", "Svelte",
   "Node.js", "Express", "Laravel", "FastAPI", "C#",
   "PostgreSQL", "MongoDB", "MySQL", "Prisma", "Firebase",
