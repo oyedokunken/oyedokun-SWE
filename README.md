@@ -43,34 +43,37 @@ Key design decisions:
 
 ```text
 oyedokun/
-  frontend/               Next.js 14 portfolio (deployed to Vercel)
-    app/
-      layout.tsx          Root layout with metadata, providers
-      page.tsx            Main page assembling all sections
-      globals.css         CSS variables, Tailwind base, utility classes
-    components/
-      layout/             Header, Footer, MobileMenu
-      sections/           Hero, MarqueeSection, About, Skills, Services, WhyMe, Projects,
-                          Experience, Education, Testimonials, PhotoScroll, Contact
-      ui/                 Preloader, ResumeModal, Modal, ThemeToggle,
-                          ScrollToTop, WhatsAppFloat
-    context/              ThemeContext, ResumeModalContext, WhatsAppChatContext
-    lib/                  utils.ts, useSiteReady.ts
-    public/               Images, fonts, og.png, robots.txt
-
-  backend/                Express.js API (deployed as Vercel Serverless)
-    src/
-      index.ts            App entry, CORS, Helmet, rate limiting
-      routes/
-        contact.ts        POST /api/contact
-        resume.ts         POST /api/resume
-      services/
-        mailer.ts         Nodemailer SMTP transport
-      templates/
-        contact.html      Email template for contact confirmation
-        resume-delivery.html  Email template for resume delivery
-    resume.pdf            Attached to resume delivery emails
-    vercel.json           Serverless function config
+├── frontend/                       # Next.js 14 portfolio (deployed to Vercel)
+│   ├── app/
+│   │   ├── layout.tsx              # Root layout: metadata, providers, theme
+│   │   ├── page.tsx                # Main page assembling all sections
+│   │   ├── globals.css             # CSS variables, Tailwind base, utilities
+│   │   └── sitemap.ts              # Dynamic sitemap
+│   ├── components/
+│   │   ├── layout/                 # Header, Footer, MobileMenu
+│   │   ├── sections/               # Hero, MarqueeSection, About, Skills, Services,
+│   │   │                           # WhyMe, Projects, Experience, Education,
+│   │   │                           # Testimonials, PhotoScroll, Contact
+│   │   └── ui/                     # Preloader, ResumeModal, Modal, ThemeToggle,
+│   │                               # ScrollToTop, WhatsAppFloat
+│   ├── context/                    # ThemeContext, ResumeModalContext,
+│   │                               # WhatsAppChatContext
+│   ├── lib/                        # utils.ts, useSiteReady.ts
+│   └── public/                     # covers/, shoot/, fonts, og.png, robots.txt
+│
+└── backend/                        # Express.js API (Vercel Serverless)
+    ├── src/
+    │   ├── index.ts                # App entry: CORS, Helmet, rate limiting
+    │   ├── routes/
+    │   │   ├── contact.ts          # POST /api/contact
+    │   │   └── resume.ts           # POST /api/resume
+    │   ├── services/
+    │   │   └── mailer.ts           # Nodemailer SMTP transport
+    │   └── templates/
+    │       ├── contact.html        # Contact confirmation email
+    │       └── resume-delivery.html  # Resume delivery email
+    ├── resume.pdf                  # Attached to resume delivery emails
+    └── vercel.json                 # Serverless function config
 ```
 
 ---

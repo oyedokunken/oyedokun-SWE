@@ -1,6 +1,6 @@
 # Hey, my name is Kenny :)
 
-Software engineer based in Lagos, NG, building full-stack products and backend systems that actually work in production. I enjoy the full stack but live closer to the backend, mostly because that's where the interesting problems are.
+Full-stack software engineer based in Lagos, NG. Comfortable managing complexity. Always thinking ahead. I build software for the happy path, the edge cases, and everything in between.
 
 I've shipped production-grade systems across fintech, energy, healthcare, mining, e-commerce, and EdTech. I work with international teams in different time zones while keeping things moving fast locally.
 
@@ -70,9 +70,13 @@ I regard myself as a systems thinker. I don't write clever tricks, I own the sys
 | [Glore](https://gloreenergy.com) | Critical mineral trading platform connecting Africa's mining sector to global markets, with real-time pricing, live WebSocket charts, and investor decks | React, Express, PostgreSQL, Socket.io, Redis |
 | [Credence](https://credencely.vercel.app) | Blockchain credential verification for Nigerian universities, eliminating certificate fraud with Hyperledger Fabric, QR attestations, and instant lookup | Hyperledger Fabric, Next.js, Node.js, QR Verification |
 | [Traqify](https://traqify.vercel.app) | Multi-tenant store management SaaS featuring real-time analytics, role-based access control, public storefronts, and integrated Paystack checkout | Next.js, Express, Prisma, PostgreSQL, Recharts |
-| [Storebook](https://storebookpro.com) | Laravel-based store management system for retail businesses with POS, multi-branch inventory, role-based access, PDF reports, and a public storefront | Laravel 11, PHP 8.2, MySQL, Tailwind CSS, Alpine.js |
-| [EduPilot](https://edupilotly.vercel.app) | Student workflow platform using Critical Path Method to automate scheduling and monitor cognitive load in real time across academic semesters | Next.js, TypeScript, Node.js, PostgreSQL, CPM |
+| [Prompt AI](https://prompt-swe.vercel.app) | Chat-based prompt builder that turns vague intent into structured, scored prompts for coding assistants and generative models, powered by a Python ML layer for intent classification | Next.js, FastAPI, Prisma, Supabase, BullMQ |
 | [Rexta](https://rextatech.com/) | Digital agency website with contact, quote, and consultation flows, ten service pages, a dynamic project showcase, and Nodemailer email delivery | Next.js 16, Supabase, Express, Nodemailer, SEO |
+| [Mailly](https://usemailly.com/) | Marketing site and waitlist for an AI inbox assistant, with a rate-limited signup flow, branded transactional emails, and a full admin portal with PDF reports and audit log | Next.js 16, Supabase, Prisma, Nodemailer, shadcn/ui |
+| [Storebook](https://storebookpro.com) | Laravel-based store management system for retail businesses with POS, multi-branch inventory, role-based access, PDF reports, and a public storefront | Laravel 11, PHP 8.2, MySQL, Tailwind CSS, Alpine.js |
+| [Digital Hub Africa](https://www.digitalhubafrica.org/) | Editorial magazine helping Africans learn, work, and build with technology, featuring TipTap rich-text publishing, a role-based admin panel, ISR-driven SEO, and newsletter flows | Next.js 16, TypeScript, Prisma, Supabase, TipTap |
+| [Salmired Properties](https://www.salmiredproperties.com/) | Premium real estate platform for an Ibadan property developer with live listing filters, gallery lightboxes, multi-step application forms, and a JWT-protected admin dashboard | Next.js 16, TypeScript, Prisma, Supabase, Tailwind CSS |
+| [EduPilot](https://edupilotly.vercel.app) | Student workflow platform using Critical Path Method to automate scheduling and monitor cognitive load in real time across academic semesters | Next.js, TypeScript, Node.js, PostgreSQL, CPM |
 | [Kwiker](https://kwiker-main.vercel.app) | Commerce operating system for African SMBs turning WhatsApp selling into structured digital business with AI storefront, order management, and payments | Next.js 16, Supabase, Prisma, Nodemailer, Express |
 | [TitanBid](https://titan-bid-frontend.vercel.app) | AI-powered construction cost estimating platform where builders upload blueprints and receive accurate project estimates within 24 to 48 hours | Next.js, TypeScript, Supabase, Stripe, AI |
 | [GramOne](https://gramone.vercel.app) | Full-stack platform for a critical minerals company spanning three verticals: mineral extraction, refining and processing, and deep-sea exploration | Next.js 16, Express 5, Prisma, Supabase, Framer Motion |
