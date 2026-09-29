@@ -228,6 +228,16 @@ const projects = [
     github: "https://github.com/oyedokunken/cgs-web",
   },
   {
+    id: "minuteman",
+    title: "Minuteman",
+    category: "E-commerce",
+    cover: "/covers/minuteman-cover.png",
+    desc: "Multi-category WooCommerce storefront for a Nigerian e-commerce brand, with flash deals, product search, wishlist management, and full account features.",
+    tags: ["WordPress", "WooCommerce", "PHP"],
+    live: "https://minuteman.com.ng/",
+    github: null,
+  },
+  {
     id: "glory",
     title: "Glory Fashion",
     category: "WordPress",
@@ -265,16 +275,6 @@ const projects = [
     desc: "Awards platform celebrating women in maritime and energy across Africa, with nominee profiles, event categories, registration flows, and sponsorship tiers.",
     tags: ["WordPress", "PHP", "CSS"],
     live: "https://wimeawards.org/",
-    github: null,
-  },
-  {
-    id: "minuteman",
-    title: "Minuteman",
-    category: "E-commerce",
-    cover: "/covers/minuteman-cover.png",
-    desc: "Multi-category WooCommerce storefront for a Nigerian e-commerce brand, with flash deals, product search, wishlist management, and full account features.",
-    tags: ["WordPress", "WooCommerce", "PHP"],
-    live: "https://minuteman.com.ng/",
     github: null,
   },
 ];

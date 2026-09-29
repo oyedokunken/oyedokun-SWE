@@ -85,12 +85,11 @@ I regard myself as a systems thinker. I don't write clever tricks, I own the sys
 | [FUTA HMS](https://futahms.vercel.app) | University health management system with a PPSA queue algorithm, in-browser video consultations, real-time analytics, and end-to-end appointment flows | Next.js, Node.js, WebSockets, PostgreSQL, PPSA |
 | [Ascentor LDP](https://ascentorbi.com) | Leadership development platform with social authentication, mentorship circles, role-based dashboards, and experiential learning programs for professionals | React 19, TypeScript, Express, Firebase, TailwindCSS |
 | [Cooper Gaming Services](https://coopergamingservices.com/) | Business website for Queensland's premier gaming and technology specialists, featuring an interactive hero slider, counters, local SEO, and email flows | React 18, TypeScript, Vite, Bootstrap, Express |
+| [Minuteman](https://minuteman.com.ng/) | Multi-category WooCommerce storefront for a Nigerian e-commerce brand, with flash deals, product search, wishlist management, and full account features | WordPress, WooCommerce, PHP |
 | [Glory Fashion](https://glorybyjes.com) | Luxury fashion brand celebrating inclusive design for all women, with WooCommerce storefront, curated collections, and a New York Fashion Week showcase | WordPress, WooCommerce, PHP, CSS |
 | [Noble Land Africa](https://noblelandafrica.com) | Real estate platform connecting property buyers and sellers across Nigeria, with search, featured listings, and contact flows for land and apartments | WordPress, PHP, CSS, Real Estate |
 | [NextStars](https://nexstars.org) | STEM career placement hub empowering young talents with power skills, peer collaboration, real-world exposure, and upward social mobility pathways | WordPress, PHP, CSS |
 | [WIME Awards](https://wimeawards.org/) | Awards platform celebrating women in maritime and energy across Africa, with nominee profiles, event categories, registration flows, and sponsorship tiers | WordPress, PHP, CSS |
-| [Minuteman](https://minuteman.com.ng/) | Multi-category WooCommerce storefront for a Nigerian e-commerce brand, with flash deals, product search, wishlist management, and full account features | WordPress, WooCommerce, PHP |
-
 ---
 
 ## Right now
