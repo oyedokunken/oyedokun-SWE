@@ -171,7 +171,7 @@ flowchart TD
     G --> H[Header slides down<br/>y:-20 to y:0<br/>opacity 0 to 1]
     G --> I[Hero words animate in<br/>word by word<br/>blur removal]
     G --> J[Hero image fades in]
-    G --> K[CTA buttons and stats<br/>reveal sequentially]
+    G --> K[CTA buttons<br/>reveal sequentially]
     F --> L[Preloader unmounts<br/>after 900ms]
     L --> M[Remaining sections use<br/>whileInView for<br/>scroll-triggered entrance]
 ```
@@ -184,23 +184,24 @@ flowchart TD
 - Dark mode default with persistent light mode toggle via ThemeContext
 - Scroll-spy navigation with active section indicator dot
 - Header entrance animation gated on preloader exit
-- Hero: animated word-by-word heading, parallax image, counting stats, green availability dot
+- Hero: animated word-by-word heading, parallax image, green availability dot
 - About: animated philosophy statement, subtext paragraph under heading, personal details grid
 - Skills: 30 technologies in 6 grouped icon categories (Languages, Frontend, Backend, Data, DevOps, Tools)
 - Services: 11 cards with equalized descriptions, distinct SVG patterns (circles, squares, diamonds, lines), no em dashes
-- Projects: 22 projects filterable by category (Platform, SaaS, SaaS/AI, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress); real cover image per card rendered in greyscale (colour reveals on hover); category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
+- Projects: 26 projects filterable by category (Platform, SaaS, SaaS/AI, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress); real cover image per card rendered in greyscale (colour reveals on hover); category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
 - Experience: animated scroll-driven timeline line, spring-pop dots, impact-focused bullet points
 - Education: FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab) in card grid (currently hidden)
 - WhyMe: 6 USP cards with alternating elevated backgrounds (cards 2/4/6 elevated at rest)
 - Testimonials: quote cards with avatar images
-- Photo scroll: infinite bidirectional marquee in two rows
+- Projects: theme-aware "New" pill beside the title for entries carrying an `addedOn` date, auto-expiring after 30 days
+- Photo scroll: infinite bidirectional marquee of 58 photos in two rows
 - Contact: form with field icons, Zod validation, rate-limited API, success/error modal
 - CV modal: name and email form, PDF delivery via Nodemailer
 - Open Graph and Twitter card metadata with custom 1200x630 OG image
 - Sitemap and robots.txt for search engine indexing
-- WhatsApp float button with "Let's chat" sticky label; opens chat modal with avatar, "Active Now" status, and conversation-style message bubble
+- WhatsApp float button with "Let's chat" sticky label; opens an authentic chat modal with avatar and "Active Now" status, video/voice call icons, a live date pill, an end-to-end encryption notice, a welcome bubble with a live timestamp, and a mobile-only input bar (emoji, sticker, paperclip, mic/send)
 - Scroll-to-top button with circular SVG progress ring that fills as user scrolls
-- Marquee: infinite horizontal scroll of 15 selected skills after Hero section
+- Marquee: infinite horizontal scroll of all 30 tools-of-the-trade after the Hero section; pauses on pointer interaction
 - Responsive across mobile, tablet, and desktop
 
 ---
@@ -215,9 +216,13 @@ flowchart TD
 | Glore | Platform | [gloreenergy.com](https://gloreenergy.com) |
 | Credence | Blockchain | [credencely.vercel.app](https://credencely.vercel.app) |
 | Traqify | SaaS | [traqify.vercel.app](https://traqify.vercel.app) |
-| Storebook | SaaS | [storebookpro.com](https://storebookpro.com) |
-| EduPilot | EdTech | [edupilotly.vercel.app](https://edupilotly.vercel.app) |
+| Prompt AI | SaaS / AI | [prompt-swe.vercel.app](https://prompt-swe.vercel.app) |
 | Rexta | Web App | [rextatech.com](https://rextatech.com) |
+| Mailly | SaaS / AI | [usemailly.com](https://usemailly.com) |
+| Storebook | SaaS | [storebookpro.com](https://storebookpro.com) |
+| Digital Hub Africa | Platform | [digitalhubafrica.org](https://www.digitalhubafrica.org) |
+| Salmired Properties | Platform | [salmiredproperties.com](https://www.salmiredproperties.com) |
+| EduPilot | EdTech | [edupilotly.vercel.app](https://edupilotly.vercel.app) |
 | Kwiker | Platform | [kwiker-main.vercel.app](https://kwiker-main.vercel.app) |
 | TitanBid | SaaS / AI | [titan-bid-frontend.vercel.app](https://titan-bid-frontend.vercel.app) |
 | GramOne | Platform | [gramone.vercel.app](https://gramone.vercel.app) |

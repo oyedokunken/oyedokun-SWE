@@ -6,6 +6,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.16.2] - 2026-09-29
+
+### Added
+- Projects: Prompt AI (SaaS/AI) added immediately after Traqify - chat-based prompt builder with a Python ML intent layer; carries the auto-expiring "New" pill
+
+### Changed
+- Projects: Digital Hub Africa and Salmired Properties moved to immediately after Storebook
+
+---
+
 ## [1.16.1] - 2026-09-23
 
 ### Added
