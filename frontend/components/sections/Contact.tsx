@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, FileText, User, Mail, Tag, MessageSquare } from "lucide-react";
+import { Send, /* FileText, */ User, Mail, Tag, MessageSquare } from "lucide-react";
 import { z } from "zod";
 import axios from "axios";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import Modal from "@/components/ui/Modal";
-import { useResumeModal } from "@/context/ResumeModalContext";
+// import { useResumeModal } from "@/context/ResumeModalContext";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 
@@ -30,7 +30,7 @@ interface ModalState {
 }
 
 export default function Contact() {
-  const { openModal: openResumeModal } = useResumeModal();
+  // const { openModal: openResumeModal } = useResumeModal();
   const [form, setForm] = useState<ContactForm>({
     name: "", email: "", phone: "", subject: "", message: "",
   });
@@ -112,13 +112,21 @@ export default function Contact() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.25 }}
               >
-                <button
+                {/* <button
                   onClick={openResumeModal}
                   className="btn-outline flex items-center gap-2"
                 >
                   <FileText size={14} />
                 Download Resume
-                </button>
+                </button> */}
+                <a
+                  href="https://wa.link/nv875h"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline inline-flex items-center gap-2"
+                >
+                  Hire Me
+                </a>
               </motion.div>
             </div>
 
