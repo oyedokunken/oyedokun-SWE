@@ -5,19 +5,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const experiences = [
   {
-    company: "Athena Networks",
-    role: "Software Engineer",
-    period: "October 2025 to Present",
-    location: "Australia (Remote)",
-    type: "Full-time",
-    highlights: [
-      "Building scalable customer portals and onboarding flows that reduce ISP support overhead",
-      "Designing and delivering business-critical API integrations that power core service operations",
-      "Hardening platform security with robust authentication, rate limiting, and access controls",
-      "Collaborating across teams to consistently hit delivery timelines on high-stakes features",
-    ],
-  },
-  {
     company: "Rexta Technologies",
     role: "Software Engineer",
     period: "June 2025 to Present",
@@ -31,9 +18,35 @@ const experiences = [
     ],
   },
   {
+    company: "Ascentor BI",
+    role: "Software Engineer",
+    period: "January 2024 to Present",
+    location: "Lagos, Nigeria",
+    type: "Contract",
+    highlights: [
+      "Building a responsive multi-role mentorship platform used across institutions and cohorts",
+      "Implementing seamless social authentication flows to reduce signup friction for new users",
+      "Improving platform performance, SEO, and accessibility to expand reach and discoverability",
+      "Delivering a unified component library and design system that accelerates feature development",
+    ],
+  },
+  {
+    company: "Athena Networks",
+    role: "Software Engineer",
+    period: "October 2025 to September 2026",
+    location: "Australia (Remote)",
+    type: "Full-time",
+    highlights: [
+      "Building scalable customer portals and onboarding flows that reduce ISP support overhead",
+      "Designing and delivering business-critical API integrations that power core service operations",
+      "Hardening platform security with robust authentication, rate limiting, and access controls",
+      "Collaborating across teams to consistently hit delivery timelines on high-stakes features",
+    ],
+  },
+  {
     company: "PRO ALLY",
     role: "Chief Technology Officer",
-    period: "May 2025 to Present",
+    period: "May 2025 to September 2026",
     location: "Lagos, Nigeria (Part-time)",
     type: "Part-time",
     highlights: [
@@ -46,7 +59,7 @@ const experiences = [
   {
     company: "Ren Power Limited",
     role: "Software Engineer",
-    period: "July 2025 to Present",
+    period: "January 2025 to July 2026",
     location: "Florida, USA (Remote)",
     type: "Contract",
     highlights: [
@@ -54,19 +67,6 @@ const experiences = [
       "Designed the core platform architecture to support marketplace growth from day one",
       "Stabilised production systems and resolved critical authentication issues affecting user access",
       "Shipped an AI chatbot and guided onboarding flow that reduced new user drop-off significantly",
-    ],
-  },
-  {
-    company: "Ascentor BI",
-    role: "Frontend Engineer",
-    period: "June 2025 to Present",
-    location: "Lagos, Nigeria",
-    type: "Full-time",
-    highlights: [
-      "Building a responsive multi-role mentorship platform used across institutions and cohorts",
-      "Implementing seamless social authentication flows to reduce signup friction for new users",
-      "Improving platform performance, SEO, and accessibility to expand reach and discoverability",
-      "Delivering a unified component library and design system that accelerates feature development",
     ],
   },
 ];

@@ -9,10 +9,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [1.16.4] - 2026-10-09
 
 ### Added
-- Projects: Job Central (SaaS) added after Prompt AI - free two-sided hiring platform with auto-parsed resumes, employer form builder, and AI-ranked shortlists; carries the auto-expiring "New" pill
+- Projects: Job Central (SaaS) added immediately after Traqify - free two-sided hiring platform with auto-parsed resumes, employer form builder, and AI-ranked shortlists; carries the auto-expiring "New" pill
 
 ### Changed
 - Contact: "Download Resume" button commented out and replaced with a "Hire Me" CTA linking to WhatsApp (resume modal/context and /api/resume backend route remain in place but unreachable)
+- Projects: Job Central moved to immediately after Traqify (before Prompt AI)
+- Experience: reordered to Rexta, Ascentor, Athena, PRO ALLY, Ren Power; closed out Athena Networks (Oct 2025 - Sep 2026), PRO ALLY (May 2025 - Sep 2026), and Ren Power (Jan 2025 - Jul 2026); Ascentor corrected to Software Engineer, Contract, January 2024 - Present
 
 ---
 

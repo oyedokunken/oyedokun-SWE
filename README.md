@@ -219,8 +219,8 @@ flowchart TD
 | Glore | Platform | [gloreenergy.com](https://gloreenergy.com) |
 | Credence | Blockchain | [credencely.vercel.app](https://credencely.vercel.app) |
 | Traqify | SaaS | [traqify.vercel.app](https://traqify.vercel.app) |
-| Prompt AI | SaaS / AI | [prompt-swe.vercel.app](https://prompt-swe.vercel.app) |
 | Job Central | SaaS | [jobcentrall.vercel.app](https://jobcentrall.vercel.app) |
+| Prompt AI | SaaS / AI | [prompt-swe.vercel.app](https://prompt-swe.vercel.app) |
 | Rexta | Web App | [rextatech.com](https://rextatech.com) |
 | Mailly | SaaS / AI | [usemailly.com](https://usemailly.com) |
 | Storebook | SaaS | [storebookpro.com](https://storebookpro.com) |
