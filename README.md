@@ -191,7 +191,7 @@ flowchart TD
 - About: animated philosophy statement, subtext paragraph under heading, personal details grid
 - Skills: 30 technologies in 6 grouped icon categories (Languages, Frontend, Backend, Data, DevOps, Tools)
 - Services: 11 cards with equalized descriptions, distinct SVG patterns (circles, squares, diamonds, lines), no em dashes
-- Projects: 26 projects filterable by category (Platform, SaaS, SaaS/AI, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress); real cover image per card rendered in greyscale (colour reveals on hover); category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
+- Projects: 27 projects filterable by category (Platform, SaaS, SaaS/AI, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress); real cover image per card rendered in greyscale (colour reveals on hover); category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
 - Experience: animated scroll-driven timeline line, spring-pop dots, impact-focused bullet points
 - Education: FUTA B.Tech, Cipher Software cert, Aspire Leaders Program (Harvard collab) in card grid (currently hidden)
 - WhyMe: 6 USP cards with alternating elevated backgrounds (cards 2/4/6 elevated at rest)
@@ -220,6 +220,7 @@ flowchart TD
 | Credence | Blockchain | [credencely.vercel.app](https://credencely.vercel.app) |
 | Traqify | SaaS | [traqify.vercel.app](https://traqify.vercel.app) |
 | Prompt AI | SaaS / AI | [prompt-swe.vercel.app](https://prompt-swe.vercel.app) |
+| Job Central | SaaS | [jobcentrall.vercel.app](https://jobcentrall.vercel.app) |
 | Rexta | Web App | [rextatech.com](https://rextatech.com) |
 | Mailly | SaaS / AI | [usemailly.com](https://usemailly.com) |
 | Storebook | SaaS | [storebookpro.com](https://storebookpro.com) |

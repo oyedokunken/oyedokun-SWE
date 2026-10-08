@@ -6,6 +6,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.16.4] - 2026-10-09
+
+### Added
+- Projects: Job Central (SaaS) added after Prompt AI - free two-sided hiring platform with auto-parsed resumes, employer form builder, and AI-ranked shortlists; carries the auto-expiring "New" pill
+
+### Changed
+- Contact: "Download Resume" button commented out and replaced with a "Hire Me" CTA linking to WhatsApp (resume modal/context and /api/resume backend route remain in place but unreachable)
+
+---
+
 ## [1.16.3] - 2026-09-29
 
 ### Added
