@@ -11,10 +11,10 @@ const experiences = [
     location: "Lagos, Nigeria (Hybrid)",
     type: "Full-time",
     highlights: [
-      "Building production-grade platforms that handle real trading workflows and live financial data",
-      "Delivering real-time data systems that enable instant visibility into market activity",
-      "Owning payment and media integrations that directly support revenue-generating features",
-      "Architecting multi-tenant data models that scale cleanly across multiple product lines",
+      "Building production-grade platforms that process real-time data streams for trading and verification systems",
+      "Cut latency in live trading updates by 30% through advanced caching and WebSocket integrations",
+      "Orchestrating payment gateway, media, and third-party API integrations into a unified transaction ecosystem",
+      "Optimizing performance with asynchronous background jobs, memory management, and structured system design",
     ],
   },
   {
@@ -37,10 +37,10 @@ const experiences = [
     location: "Australia (Remote)",
     type: "Full-time",
     highlights: [
-      "Building scalable customer portals and onboarding flows that reduce ISP support overhead",
-      "Designing and delivering business-critical API integrations that power core service operations",
-      "Hardening platform security with robust authentication, rate limiting, and access controls",
-      "Collaborating across teams to consistently hit delivery timelines on high-stakes features",
+      "Maintained production applications handling high-volume traffic at 99.9% uptime",
+      "Reduced page load times by 40% and improved server response rates under heavy load",
+      "Delivered customer portals and admin platforms that streamlined onboarding for thousands of users",
+      "Fortified security posture with input validation, rate limiting, and API protection mechanisms",
     ],
   },
   {
@@ -63,10 +63,10 @@ const experiences = [
     location: "Florida, USA (Remote)",
     type: "Contract",
     highlights: [
-      "Built a full-stack solar energy marketplace enabling end-to-end product discovery, quoting, and recycling",
-      "Designed the core platform architecture to support marketplace growth from day one",
-      "Stabilised production systems and resolved critical authentication issues affecting user access",
-      "Shipped an AI chatbot and guided onboarding flow that reduced new user drop-off significantly",
+      "Built a full-stack solar energy marketplace on Next.js, Node.js, PostgreSQL, Prisma, and Supabase",
+      "Designed RBAC, quote request workflows, and recycling network features for multiple stakeholder roles",
+      "Integrated authentication, notifications, file uploads, and third-party services for production operations",
+      "Stabilized production systems through continuous debugging, reducing downtime and resolving critical login issues",
     ],
   },
 ];

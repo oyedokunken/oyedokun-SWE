@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Layers, Rocket, Shield, Zap, Globe, MessageCircle } from "lucide-react";
+import { Layers, Rocket, Shield, Globe, MessageCircle, Sparkles } from "lucide-react";
 
 const usps = [
   {
@@ -23,10 +23,10 @@ const usps = [
     desc: "From DB schema to UI. One engineer with complete context means no handoffs, no communication gaps, and nothing slipping through the cracks.",
   },
   {
-    icon: Zap,
+    icon: Sparkles,
     number: "04",
-    title: "Speed Without Shortcuts",
-    desc: "Fast delivery is not an excuse for bad code. I move quickly because I plan well, not by cutting corners you will pay for six months later.",
+    title: "AI-Augmented Delivery",
+    desc: "Agentic tools like Devin and Antigravity accelerate my research, implementation, and debugging — while I own every technical decision and the quality of what ships.",
   },
   {
     icon: Globe,

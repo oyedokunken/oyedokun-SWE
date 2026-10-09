@@ -6,6 +6,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.16.5] - 2026-10-09
+
+### Added
+- Education section re-enabled with corrected data: FUTA Akure B.Tech (Computer Information Systems, CGPA 4.72/5.00, Jul 2026), plus new cards for Amazon Professional Software Development Certification (Coursera, Sep 2026) and NACOSS FUTA Hackathon Emerging Award Winner (Sep 2025)
+
+### Changed
+- Experience: highlights rewritten with real metrics - Rexta (30% latency reduction via caching/WebSockets), Athena (99.9% uptime, 40% faster page loads, thousands onboarded), Ren Power (stack and production-stability focus)
+- WhyMe: "Speed Without Shortcuts" (04) replaced by "AI-Augmented Delivery" (agentic tools: Devin, Antigravity)
+
+---
+
 ## [1.16.4] - 2026-10-09
 
 ### Added

@@ -1,28 +1,48 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Award, Users } from "lucide-react";
+import { GraduationCap, Award, Trophy, Users } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
 const education = [
   {
     icon: GraduationCap,
-    institution: "Federal University of Technology, Lagos",
+    institution: "Federal University of Technology, Akure",
     credential: "Bachelor of Technology (B.Tech)",
-    field: "Information Systems",
-    period: "Oct. 2021 - Aug. 2026",
-    meta: "GPA: 4.75 / 5.00",
-    location: "Lagos, Nigeria",
+    field: "Computer Information Systems",
+    period: "Oct. 2021 - Jul. 2026",
+    meta: "CGPA: 4.77 / 5.00",
+    location: "Akure, Nigeria",
     type: "Degree",
   },
   {
     icon: Award,
-    institution: "Cipher Software Limited",
+    institution: "Amazon (via Coursera)",
+    credential: "Professional Software Development Certification",
+    field: "Software Development",
+    period: "September 2026",
+    meta: null,
+    location: "Online",
+    type: "Certificate",
+  },
+  {
+    icon: Trophy,
+    institution: "NACOSS, FUTA Chapter",
+    credential: "Emerging Award Winner",
+    field: "2025 Annual Hackathon",
+    period: "September 2025",
+    meta: null,
+    location: "Akure, Nigeria",
+    type: "Award",
+  },
+  {
+    icon: Award,
+    institution: "Cipher Training and Software Development",
     credential: "Certificate of Completion",
     field: "Full Stack Web Development",
-    period: "May – October 2025",
+    period: "November 2025",
     meta: null,
-    location: "Lagos, Nigeria",
+    location: "Akure, Nigeria",
     type: "Certificate",
   },
   {
@@ -30,7 +50,7 @@ const education = [
     institution: "Aspire Institute",
     credential: "Aspire Leaders Program",
     field: "Organizational Leadership",
-    period: "January 2025 – August 2025",
+    period: "August 2025",
     meta: "In collaboration with Harvard Business School",
     location: "Global (Online)",
     type: "Program",
