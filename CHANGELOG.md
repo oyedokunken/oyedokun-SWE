@@ -6,6 +6,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.16.6] - 2026-10-09
+
+### Added
+- Education: dashed "More on the way" placeholder card fills the sixth grid cell, keeping the 3x2 layout balanced
+
+### Changed
+- Education: card order now FUTA, Amazon (Coursera), Aspire (Harvard) on row one; Cipher, NACOSS, placeholder on row two
+- WhyMe: AI-Augmented Delivery copy no longer names specific tools; FUTA CGPA corrected to 4.77
+
+---
+
 ## [1.16.5] - 2026-10-09
 
 ### Added

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Award, Trophy, Users } from "lucide-react";
+import { GraduationCap, Award, Trophy, Users, Plus } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
 const education = [
@@ -26,14 +26,14 @@ const education = [
     type: "Certificate",
   },
   {
-    icon: Trophy,
-    institution: "NACOSS, FUTA Chapter",
-    credential: "Emerging Award Winner",
-    field: "2025 Annual Hackathon",
-    period: "September 2025",
-    meta: null,
-    location: "Akure, Nigeria",
-    type: "Award",
+    icon: Users,
+    institution: "Aspire Institute",
+    credential: "Aspire Leaders Program",
+    field: "Organizational Leadership",
+    period: "August 2025",
+    meta: "In collaboration with Harvard Business School",
+    location: "Global (Online)",
+    type: "Program",
   },
   {
     icon: Award,
@@ -46,14 +46,14 @@ const education = [
     type: "Certificate",
   },
   {
-    icon: Users,
-    institution: "Aspire Institute",
-    credential: "Aspire Leaders Program",
-    field: "Organizational Leadership",
-    period: "August 2025",
-    meta: "In collaboration with Harvard Business School",
-    location: "Global (Online)",
-    type: "Program",
+    icon: Trophy,
+    institution: "NACOSS, FUTA Chapter",
+    credential: "Emerging Award Winner",
+    field: "2025 Annual Hackathon",
+    period: "September 2025",
+    meta: null,
+    location: "Akure, Nigeria",
+    type: "Award",
   },
 ];
 
@@ -135,6 +135,21 @@ export default function Education() {
               </div>
             </motion.div>
           ))}
+
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6, delay: education.length * 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="group relative rounded-2xl border border-dashed border-[var(--border-color)] bg-[var(--bg)] p-7 flex flex-col items-center justify-center gap-4 hover:border-[var(--text-muted)] transition-colors duration-300"
+          >
+            <div className="w-11 h-11 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--text-muted)] transition-colors duration-300">
+              <Plus size={18} className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors duration-300" />
+            </div>
+            <p className="text-sm text-[var(--text-muted)] text-center leading-relaxed">
+              More on the way
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>
