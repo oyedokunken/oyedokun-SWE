@@ -26,7 +26,7 @@ const usps = [
     icon: Sparkles,
     number: "04",
     title: "AI-Augmented Delivery",
-    desc: "Agentic tools like Devin and Antigravity accelerate my research, implementation, and debugging — while I own every technical decision and the quality of what ships.",
+    desc: "Agentic AI tools accelerate my research, implementation, and debugging while I own every technical decision and the quality of what ships.",
   },
   {
     icon: Globe,

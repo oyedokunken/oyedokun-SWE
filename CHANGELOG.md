@@ -13,7 +13,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 - Experience: highlights rewritten with real metrics - Rexta (30% latency reduction via caching/WebSockets), Athena (99.9% uptime, 40% faster page loads, thousands onboarded), Ren Power (stack and production-stability focus)
-- WhyMe: "Speed Without Shortcuts" (04) replaced by "AI-Augmented Delivery" (agentic tools: Devin, Antigravity)
+- WhyMe: "Speed Without Shortcuts" (04) replaced by "AI-Augmented Delivery" (agentic AI tooling)
 
 ---
 
