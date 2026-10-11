@@ -25,6 +25,17 @@ const projects = [
     github: "https://github.com/oyedokunken/jobcentral",
   },
   {
+    id: "gistroom",
+    title: "Gistroom",
+    addedOn: "2026-10-11",
+    category: "Platform",
+    cover: "/covers/gistroom-cover.png",
+    desc: "Progressive web app for Nigerians to talk live about local topics. Find friends, chat, call one to one, or join audio rooms for up to 32 people with moderation and invite links. Audio first, data aware, PWA with offline support.",
+    tags: ["Next.js", "TypeScript", "Socket.IO", "LiveKit", "Prisma", "Supabase"],
+    live: "https://gistroom.vercel.app/",
+    github: "https://github.com/oyedokunken/gistroom",
+  },
+  {
     id: "renpower",
     title: "Ren Power",
     category: "Platform",

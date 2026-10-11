@@ -191,7 +191,7 @@ flowchart TD
 - About: animated philosophy statement, subtext paragraph under heading, personal details grid
 - Skills: 30 technologies in 6 grouped icon categories (Languages, Frontend, Backend, Data, DevOps, Tools)
 - Services: 11 cards with equalized descriptions, distinct SVG patterns (circles, squares, diamonds, lines), no em dashes
-- Projects: 27 projects filterable by category (Platform, SaaS, SaaS/AI, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress); real cover image per card rendered in greyscale (colour reveals on hover); category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
+- Projects: 28 projects filterable by category (Platform, SaaS, SaaS/AI, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress); real cover image per card rendered in greyscale (colour reveals on hover); category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
 - Experience: animated scroll-driven timeline line, spring-pop dots, impact-focused bullet points
 - Education: 5 cards - FUTA Akure B.Tech (Computer Information Systems, CGPA 4.77/5.00), Amazon Professional Software Development Certification, NACOSS FUTA Hackathon Emerging Award, Cipher Full Stack cert, Aspire Leaders Program (Harvard collab)
 - WhyMe: 6 USP cards with alternating elevated backgrounds (cards 2/4/6 elevated at rest); card 04 is "AI-Augmented Delivery"
@@ -214,6 +214,7 @@ flowchart TD
 | Project | Category | Live URL |
 |---|---|---|
 | Job Central | SaaS | [jobcentrall.vercel.app](https://jobcentrall.vercel.app) |
+| Gistroom | Platform | [gistroom.vercel.app](https://gistroom.vercel.app) |
 | Ren Power | Platform | [renpowerltd.com](https://renpowerltd.com) |
 | RIOS | SaaS | [www.riosintell.com](https://www.riosintell.com) |
 | MSP Reports | SaaS | [mspreports.com.au](https://mspreports.com.au) |

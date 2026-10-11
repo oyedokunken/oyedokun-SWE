@@ -6,6 +6,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.16.8] - 2026-10-11
+
+### Added
+- Projects: Gistroom (Platform) added as the second project, right after Job Central. A progressive web app for Nigerians to talk live about local topics with friends, chats, one to one calls, and audio rooms for up to 32 people. Built with Next.js, Socket.IO, LiveKit, Prisma, and Supabase. Carries the auto-expiring "New" pill.
+
+### Changed
+- Projects: Job Central moved to first position in the project grid, GITHUB.md, and README.md
+
+---
+
 ## [1.16.7] - 2026-10-11
 
 ### Changed

@@ -65,6 +65,7 @@ I regard myself as a systems thinker. I don't write clever tricks, I own the sys
 | Project | Description | Stack |
 |---|---|---|
 | [Job Central](https://jobcentrall.vercel.app) | Free two-sided hiring platform where candidates build portable profiles with auto-parsed resumes and track applications end-to-end, while organizations post roles via a drag-and-drop form builder and review AI-ranked shortlists | Next.js, TypeScript, Prisma, Supabase, FastAPI |
+| [Gistroom](https://gistroom.vercel.app) | Progressive web app for Nigerians to talk live about local topics. Find friends, chat, call one to one, or join audio rooms for up to 32 people with moderation and invite links. Audio first, data aware, PWA with offline support | Next.js, TypeScript, Socket.IO, LiveKit, Prisma, Supabase |
 | [Ren Power](https://renpowerltd.com) | Solar energy marketplace linking manufacturers, distributors, recyclers, and customers with quote-based pricing, RBAC, AI chatbot, and onboarding tours | Next.js, Node.js, PostgreSQL, Prisma, Supabase |
 | [RIOS](https://www.riosintell.com/) | Multi-tenant ESG reporting SaaS for Nigerian corporates, covering GRI, TCFD, and IFRS benchmarks with branded, auto-generated PDF report delivery | Next.js, Express, Prisma, PostgreSQL, pdf-lib |
 | [MSP Reports](https://mspreports.com.au/) | Automated white-label reporting for MSPs pulling data from 20+ tools into branded client reports with AI-generated executive summaries and multi-tenant isolation | Laravel 12, React 19, PostgreSQL, TimescaleDB, AI |
