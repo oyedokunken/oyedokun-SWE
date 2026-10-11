@@ -14,6 +14,17 @@ function isNewProject(addedOn?: string) {
 
 const projects = [
   {
+    id: "jobcentral",
+    title: "Job Central",
+    addedOn: "2026-10-09",
+    category: "SaaS",
+    cover: "/covers/jobcentral-cover.png",
+    desc: "Free two-sided hiring platform where candidates build portable profiles with auto-parsed resumes and track applications end-to-end, while organizations post roles via a drag-and-drop form builder and review AI-ranked shortlists.",
+    tags: ["Next.js", "TypeScript", "Prisma", "Supabase", "FastAPI"],
+    live: "https://jobcentrall.vercel.app/",
+    github: "https://github.com/oyedokunken/jobcentral",
+  },
+  {
     id: "renpower",
     title: "Ren Power",
     category: "Platform",
@@ -72,17 +83,6 @@ const projects = [
     tags: ["Next.js", "Express", "Prisma", "PostgreSQL", "Recharts"],
     live: "https://traqify.vercel.app/",
     github: "https://github.com/oyedokunken/traqify",
-  },
-  {
-    id: "jobcentral",
-    title: "Job Central",
-    addedOn: "2026-10-09",
-    category: "SaaS",
-    cover: "/covers/jobcentral-cover.png",
-    desc: "Free two-sided hiring platform where candidates build portable profiles with auto-parsed resumes and track applications end-to-end, while organizations post roles via a drag-and-drop form builder and review AI-ranked shortlists.",
-    tags: ["Next.js", "TypeScript", "Prisma", "Supabase", "FastAPI"],
-    live: "https://jobcentrall.vercel.app/",
-    github: "https://github.com/oyedokunken/jobcentral",
   },
   {
     id: "prompt-ai",

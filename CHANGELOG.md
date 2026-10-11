@@ -6,6 +6,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.16.7] - 2026-10-11
+
+### Changed
+- Projects: Job Central moved to first position in the project grid, GITHUB.md, and README.md
+
+---
+
 ## [1.16.6] - 2026-10-09
 
 ### Added
