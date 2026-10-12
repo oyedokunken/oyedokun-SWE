@@ -218,7 +218,7 @@ export default function Footer() {
             </svg>
             <span
               style={{
-                fontFamily: "'Urbanist', sans-serif",
+                fontFamily: "var(--font-urbanist), sans-serif",
                 fontWeight: 800,
                 letterSpacing: "-0.04em",
                 fontSize: "clamp(2.4rem, 8vw, 6rem)",

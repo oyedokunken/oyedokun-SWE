@@ -14,6 +14,9 @@ Please do not open public GitHub issues for security vulnerabilities. Provide a 
 - Rate limiting is applied to all API endpoints
 - Input validation is enforced with Zod on both client and server
 - User-supplied values are HTML-escaped before being placed in outgoing emails
-- CORS is configured via the `FRONTEND_URL` environment variable
+- CORS is an explicit origin allowlist (`FRONTEND_URL` accepts a comma-separated list); there is no wildcard
 - Helmet.js security headers applied on all Express responses
-- Contact and CV-request submissions (name, email, phone, message) may be written to `backend/data/*.json` when running locally. These files contain personal data, are gitignored, and are not persisted on Vercel's read-only filesystem
+- Submissions are not stored by the server; they are only emailed
+- Honeypot field, per-recipient hourly cap, 10 KB body limit and field length limits on both endpoints
+- Frontend sends CSP, HSTS, X-Frame-Options, Permissions-Policy and Referrer-Policy headers
+- CI runs typecheck, lint, `npm audit` and gitleaks secret scanning

@@ -205,10 +205,10 @@ export default function WhatsAppFloat() {
                       Howdy, welcome to my space!
                     </p>
                     <p className="text-[13px] leading-snug mt-3" style={{ color: "#111B21" }}>
-                      Are you working on a project or you've got an idea you'd like to discuss?
+                      Are you working on a project or you&apos;ve got an idea you&apos;d like to discuss?
                     </p>
                     <p className="text-[13px] leading-snug mt-3" style={{ color: "#111B21" }}>
-                      Reach out today. Let's build together! 🙂
+                      Reach out today. Let&apos;s build together! 🙂
                     </p>
                     <p className="text-[10px] mt-1.5 text-right" style={{ color: "#667781" }}><MessageTime /></p>
                   </div>

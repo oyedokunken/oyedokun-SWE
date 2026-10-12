@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { Urbanist } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import MotionProvider from "@/components/MotionProvider";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { ResumeModalProvider } from "@/context/ResumeModalContext";
 import { WhatsAppChatProvider } from "@/context/WhatsAppChatContext";
@@ -8,8 +11,14 @@ import ResumeModal from "@/components/ui/ResumeModal";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
 
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-urbanist",
+});
+
 export const metadata: Metadata = {
-  title: "Oyedokun Kehinde - Staff-level Software Engineer and CTO",
+  title: "Oyedokun Kehinde - Full-stack Software Engineer and CTO",
   description:
     "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
   keywords: [
@@ -18,7 +27,6 @@ export const metadata: Metadata = {
     "oyedokunken",
     "Oyedokun Kehinde FUTA",
     "Oyedokun Kehinde Rexta Technologies",
-    "oyedokunken",
     "oyedokun.dev",
     "Software Engineer Nigeria",
     "Full Stack Developer Nigeria",
@@ -50,7 +58,7 @@ export const metadata: Metadata = {
   creator: "Oyedokun Kehinde",
   metadataBase: new URL("https://www.oyedokun.dev"),
   openGraph: {
-    title: "Oyedokun Kehinde - Staff-level Software Engineer and CTO",
+    title: "Oyedokun Kehinde - Full-stack Software Engineer and CTO",
     description:
       "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
     url: "https://www.oyedokun.dev/",
@@ -62,13 +70,13 @@ export const metadata: Metadata = {
         url: "https://www.oyedokun.dev/og.png",
         width: 1200,
         height: 630,
-        alt: "Oyedokun Kehinde - Staff-level Software Engineer and CTO",
+        alt: "Oyedokun Kehinde - Full-stack Software Engineer and CTO",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oyedokun Kehinde - Staff-level Software Engineer and CTO",
+    title: "Oyedokun Kehinde - Full-stack Software Engineer and CTO",
     description:
       "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
     images: ["https://www.oyedokun.dev/og.png"],
@@ -91,15 +99,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" className={`dark ${urbanist.variable}`} suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
-          rel="stylesheet"
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var t=localStorage.getItem('theme');document.documentElement.classList.toggle('dark',t?t==='dark':true)}catch(e){}",
+          }}
         />
+        <noscript>
+          <style>{"#preloader{display:none!important}"}</style>
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -113,7 +124,7 @@ export default function RootLayout({
                   alternateName: "oyedokunken",
                   url: "https://www.oyedokun.dev/",
                   image: "https://www.oyedokun.dev/shoot/oyedokun-50.jpg",
-                  jobTitle: "Staff-level Software Engineer and CTO",
+                  jobTitle: "Full-stack Software Engineer and CTO",
                   description:
                     "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
                   email: "mailto:hello@oyedokun.dev",
@@ -142,7 +153,7 @@ export default function RootLayout({
                   "@type": "WebSite",
                   "@id": "https://www.oyedokun.dev/#website",
                   url: "https://www.oyedokun.dev/",
-                  name: "Oyedokun Kehinde - Staff-level Software Engineer and CTO",
+                  name: "Oyedokun Kehinde - Full-stack Software Engineer and CTO",
                   description:
                     "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
                   publisher: { "@id": "https://www.oyedokun.dev/#person" },
@@ -153,6 +164,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[var(--bg)] text-[var(--text-primary)] overflow-x-hidden">
+        <MotionProvider>
         <ThemeProvider>
           <ResumeModalProvider>
             <WhatsAppChatProvider>
@@ -164,6 +176,8 @@ export default function RootLayout({
             </WhatsAppChatProvider>
           </ResumeModalProvider>
         </ThemeProvider>
+        </MotionProvider>
+        <Analytics />
       </body>
     </html>
   );

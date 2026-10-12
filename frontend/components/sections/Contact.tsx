@@ -2,22 +2,19 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, /* FileText, */ User, Mail, Tag, MessageSquare } from "lucide-react";
+import { Send, User, Mail, Tag, MessageSquare } from "lucide-react";
 import { z } from "zod";
-import axios from "axios";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import Modal from "@/components/ui/Modal";
-// import { useResumeModal } from "@/context/ResumeModalContext";
-
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+import { postJson } from "@/lib/api";
 
 const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email"),
+  name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name is too long"),
+  email: z.string().trim().email("Please enter a valid email").max(254, "Email is too long"),
   phone: z.string().min(1, "Phone number is required").refine((v) => isValidPhoneNumber(v), "Enter a valid phone number"),
-  subject: z.string().min(3, "Subject is required"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  subject: z.string().trim().min(3, "Subject is required").max(150, "Subject is too long"),
+  message: z.string().trim().min(10, "Message must be at least 10 characters").max(5000, "Message is too long"),
 });
 
 type ContactForm = z.infer<typeof contactSchema>;
@@ -30,11 +27,11 @@ interface ModalState {
 }
 
 export default function Contact() {
-  // const { openModal: openResumeModal } = useResumeModal();
   const [form, setForm] = useState<ContactForm>({
     name: "", email: "", phone: "", subject: "", message: "",
   });
   const [errors, setErrors] = useState<Partial<Record<keyof ContactForm, string>>>({});
+  const [website, setWebsite] = useState("");
   const [sending, setSending] = useState(false);
   const [modal, setModal] = useState<ModalState>({ open: false, type: "success", title: "", message: "" });
 
@@ -53,7 +50,7 @@ export default function Contact() {
     setErrors({});
     setSending(true);
     try {
-      await axios.post(`${API}/api/contact`, parsed.data);
+      await postJson("/api/contact", { ...parsed.data, website });
       showModal("success", "Message sent.", "I'll get back to you within 24-48 hours. Check your inbox for a confirmation.");
       setForm({ name: "", email: "", phone: "", subject: "", message: "" });
     } catch {
@@ -112,13 +109,6 @@ export default function Contact() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.25 }}
               >
-                {/* <button
-                  onClick={openResumeModal}
-                  className="btn-outline flex items-center gap-2"
-                >
-                  <FileText size={14} />
-                Download Resume
-                </button> */}
                 <a
                   href="https://wa.link/nv875h"
                   target="_blank"
@@ -138,18 +128,31 @@ export default function Contact() {
               className="h-full"
             >
               <form onSubmit={handleContact} className="space-y-4 h-full flex flex-col">
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                  className="absolute -left-[9999px] h-0 w-0 opacity-0"
+                />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <div className="relative">
                       <User size={13} className={iconCls} />
                       <input
                         placeholder="Your name"
+                        aria-label="Your name"
+                        autoComplete="name"
+                        maxLength={100}
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                         className={inputCls(errors.name, true)}
                       />
                     </div>
-                    {errors.name && <p className="text-xs text-red-400 mt-1">{errors.name}</p>}
+                    {errors.name && <p role="alert" className="text-xs text-red-400 mt-1">{errors.name}</p>}
                   </div>
                   <div>
                     <div className="relative">
@@ -157,12 +160,15 @@ export default function Contact() {
                       <input
                         type="email"
                         placeholder="Email address"
+                        aria-label="Email address"
+                        autoComplete="email"
+                        maxLength={254}
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
                         className={inputCls(errors.email, true)}
                       />
                     </div>
-                    {errors.email && <p className="text-xs text-red-400 mt-1">{errors.email}</p>}
+                    {errors.email && <p role="alert" className="text-xs text-red-400 mt-1">{errors.email}</p>}
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -172,23 +178,26 @@ export default function Contact() {
                       limitMaxLength
                       defaultCountry="NG"
                       placeholder="Phone number"
+                      aria-label="Phone number"
                       value={form.phone}
                       onChange={(v) => setForm({ ...form, phone: v || "" })}
                       className={`phone-input-wrapper${errors.phone ? " phone-input-error" : ""}`}
                     />
-                    {errors.phone && <p className="text-xs text-red-400 mt-1">{errors.phone}</p>}
+                    {errors.phone && <p role="alert" className="text-xs text-red-400 mt-1">{errors.phone}</p>}
                   </div>
                   <div>
                     <div className="relative">
                       <Tag size={13} className={iconCls} />
                       <input
                         placeholder="Subject"
+                        aria-label="Subject"
+                        maxLength={150}
                         value={form.subject}
                         onChange={(e) => setForm({ ...form, subject: e.target.value })}
                         className={inputCls(errors.subject, true)}
                       />
                     </div>
-                    {errors.subject && <p className="text-xs text-red-400 mt-1">{errors.subject}</p>}
+                    {errors.subject && <p role="alert" className="text-xs text-red-400 mt-1">{errors.subject}</p>}
                   </div>
                 </div>
                 <div>
@@ -196,13 +205,15 @@ export default function Contact() {
                     <MessageSquare size={13} className="absolute left-3.5 top-3.5 text-[var(--text-muted)] pointer-events-none" />
                     <textarea
                       placeholder="Tell me about your project or what you need..."
+                      aria-label="Message"
+                      maxLength={5000}
                       rows={6}
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       className={`${inputCls(errors.message, true)} resize-none`}
                     />
                   </div>
-                  {errors.message && <p className="text-xs text-red-400 mt-1">{errors.message}</p>}
+                  {errors.message && <p role="alert" className="text-xs text-red-400 mt-1">{errors.message}</p>}
                 </div>
                 <button type="submit" disabled={sending} className="btn-primary w-full justify-center disabled:opacity-60 mt-auto">
                   {sending ? (

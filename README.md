@@ -28,13 +28,15 @@ Personal portfolio and API backend for **Oyedokun Kehinde** — Software Enginee
 
 This is a production-grade portfolio site built to reflect the same quality standards applied to client work. It is not a template. Every component, animation, and API route was written from scratch.
 
-The frontend is a statically exported Next.js app with App Router, Tailwind CSS, and Framer Motion. The backend is an Express.js serverless API that handles contact form submissions and resume delivery via SMTP.
+The frontend is a Next.js 16 app (App Router, prerendered pages) with Tailwind CSS and Framer Motion, Tailwind CSS, and Framer Motion. The backend is an Express.js serverless API that handles contact form submissions and resume delivery via SMTP.
 
 Key design decisions:
 - Preloader with progress ring that gates all entrance animations via a custom `siteReady` event
 - Dark and light themes using CSS variables and a React context
 - Scroll-spy navigation with active section highlighting
-- Rate-limited API with Helmet security headers
+- Rate-limited API with Helmet security headers, strict CORS allowlist, honeypot and per-recipient limits
+- Frontend security headers (CSP, HSTS, X-Frame-Options, Permissions-Policy) set in `next.config.mjs`
+- User input is HTML-escaped before it reaches any outgoing email
 - Email templates with HTML/CSS layout for professional delivery
 
 ---
@@ -58,21 +60,21 @@ oyedokun/
 │   │                               # ScrollToTop, WhatsAppFloat
 │   ├── context/                    # ThemeContext, ResumeModalContext,
 │   │                               # WhatsAppChatContext
-│   ├── lib/                        # utils.ts, useSiteReady.ts
+│   ├── data/                       # projects.ts (portfolio project list)
+│   ├── lib/                        # api.ts, utils.ts, useSiteReady.ts
 │   └── public/                     # covers/, shoot/, fonts, og.png, robots.txt
 │
 └── backend/                        # Express.js API (Vercel Serverless)
     ├── src/
-    │   ├── index.ts                # App entry: CORS, Helmet, rate limiting
+    │   ├── index.ts                # App entry: CORS allowlist, Helmet, rate limiting
+    │   ├── validation.ts           # Zod schemas (length limits, honeypot)
+    │   ├── recipientLimit.ts       # Per-recipient email cap
     │   ├── routes/
     │   │   ├── contact.ts          # POST /api/contact
     │   │   └── resume.ts           # POST /api/resume
-    │   ├── services/
-    │   │   └── mailer.ts           # Nodemailer SMTP transport
-    │   └── templates/
-    │       ├── contact.html        # Contact confirmation email
-    │       └── resume-delivery.html  # Resume delivery email
-    ├── resume.pdf                  # Attached to resume delivery emails
+    │   └── services/
+    │       └── mailer.ts           # Nodemailer transport + inline HTML email templates
+    ├── CV - Oyedokun Kehinde.pdf   # Attached to resume delivery emails
     └── vercel.json                 # Serverless function config
 ```
 
@@ -82,7 +84,7 @@ oyedokun/
 
 ```mermaid
 flowchart TD
-    A[Browser] --> B[Next.js 14<br/>Vercel CDN]
+    A[Browser] --> B[Next.js 16<br/>Vercel CDN]
     A --> C[Express.js API<br/>Vercel Serverless]
     B --> D[Static Pages]
     B --> E[Client Components]
@@ -107,14 +109,14 @@ The frontend and backend are separate Vercel projects with independent deploymen
 
 | Technology | Version | Purpose |
 |---|---|---|
-| Next.js | 14 (App Router) | React framework, SSG, metadata |
+| Next.js | 16 (App Router) | React framework, prerendering, metadata, security headers |
+| React | 19 | UI library |
 | TypeScript | 5 | Type safety |
 | Tailwind CSS | 3 | Utility-first styling |
-| Framer Motion | 11 | Animations, scroll-driven effects |
+| Framer Motion | 14 | Animations, scroll-driven effects |
 | Lucide React | Latest | Icon system |
 | react-phone-number-input | 3 | International phone field |
 | Zod | 3 | Form schema validation |
-| Axios | 1 | HTTP client |
 
 ### Backend
 
@@ -122,7 +124,7 @@ The frontend and backend are separate Vercel projects with independent deploymen
 |---|---|---|
 | Express.js | 4 | HTTP server |
 | TypeScript | 5 | Type safety |
-| Nodemailer | 6 | SMTP email transport |
+| Nodemailer | 10 | SMTP email transport |
 | Zod | 3 | Request body validation |
 | Helmet | 7 | Security headers |
 | express-rate-limit | 7 | Rate limiting (20 req / 15 min) |
@@ -156,7 +158,7 @@ flowchart TD
     C --> D[POST /api/resume]
     D --> E[Zod validates on server]
     E --> F[Log entry written<br/>resume-log.txt]
-    F --> G[Nodemailer sends email<br/>resume.pdf attached]
+    F --> G[Nodemailer sends email<br/>CV PDF attached]
     G --> H[200 OK returned]
     H --> I[Frontend shows success state]
 ```
@@ -215,6 +217,8 @@ flowchart TD
 |---|---|---|
 | Job Central | SaaS | [jobcentrall.vercel.app](https://jobcentrall.vercel.app) |
 | Gistroom | Platform | [gistroom.vercel.app](https://gistroom.vercel.app) |
+| Credence | Blockchain | [credencely.vercel.app](https://credencely.vercel.app) |
+| Traqify | SaaS | [traqify.vercel.app](https://traqify.vercel.app) |
 | Ren Power | Platform | [renpowerltd.com](https://renpowerltd.com) |
 | RIOS | SaaS | [www.riosintell.com](https://www.riosintell.com) |
 | MSP Reports | SaaS | [mspreports.com.au](https://mspreports.com.au) |
@@ -300,7 +304,7 @@ Gmail requires an App Password, not your account password. Generate one at `myac
 
 ### Resume PDF
 
-Place your resume at `backend/resume.pdf`. It is attached automatically to every resume delivery email.
+Place your resume at `backend/CV - Oyedokun Kehinde.pdf`. It is attached automatically to every resume delivery email.
 
 ---
 
@@ -319,11 +323,12 @@ Body:
 
 ```json
 {
-  "name": "string (min 2)",
-  "email": "string (valid email)",
-  "phone": "string (E.164 format)",
-  "subject": "string (min 3)",
-  "message": "string (min 10)"
+  "name": "string (2-100)",
+  "email": "string (valid email, max 254)",
+  "phone": "string (E.164 format, max 30, optional)",
+  "subject": "string (3-150)",
+  "message": "string (10-5000)",
+  "website": "honeypot, must be left empty"
 }
 ```
 
@@ -335,16 +340,21 @@ Body:
 
 ```json
 {
-  "name": "string (min 2)",
-  "email": "string (valid email)"
+  "name": "string (2-100)",
+  "email": "string (valid email, max 254)",
+  "website": "honeypot, must be left empty"
 }
 ```
 
-Logs the request and delivers `resume.pdf` via SMTP.
+Delivers the CV PDF via SMTP and notifies the owner.
 
 ### Rate Limiting
 
-All `/api/*` routes are limited to 20 requests per 15 minutes per IP.
+All `/api/*` routes are limited to 20 requests per 15 minutes per IP. Each recipient email is additionally capped at 3 requests per hour (best-effort, in-memory). Request bodies are capped at 10 KB.
+
+### CORS
+
+Only `https://www.oyedokun.dev`, `https://oyedokun.dev`, `https://oyedokunken.vercel.app` and any origins listed in `FRONTEND_URL` (comma-separated) are allowed. `http://localhost:3000` is allowed outside production. There is no wildcard fallback.
 
 ---
 

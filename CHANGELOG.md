@@ -6,6 +6,37 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.17.0] - 2026-10-12
+
+### Security
+- Removed committed SMTP credentials and env files from git; placeholders only in `.env.example` and docs. Rotate the Gmail app password.
+- HTML-escape all user input placed into outgoing emails; strip CR/LF from subjects.
+- CORS is now an explicit allowlist (no wildcard fallback, no credentials). `FRONTEND_URL` accepts a comma-separated list.
+- Added length limits, 10 KB body cap, honeypot field and a per-recipient hourly limit to the contact and resume endpoints.
+- Frontend security headers: CSP, HSTS, X-Frame-Options, Permissions-Policy, Referrer-Policy, nosniff.
+- Upgraded Next.js 14 to 16, React 19, Framer Motion 14, Nodemailer 10; `npm audit` is clean for production dependencies.
+- Removed unused dependencies (axios, next-themes, Radix, class-variance-authority).
+
+### Changed
+- Removed the JSON file logging of contact and resume submissions (dead on Vercel, stored personal data).
+- Backend only calls `listen()` outside Vercel; added JSON 404/error handlers and port-aware SMTP TLS.
+- Email assets now load from `www.oyedokun.dev`; added the missing `x.png` icon.
+- Urbanist is self-hosted via `next/font`; theme is applied before first paint (no flash).
+- Preloader plays once per session and is hidden without JavaScript; motion respects `prefers-reduced-motion`.
+- Muted text colours raised to meet contrast; greyscale images are shown in colour on touch devices.
+- Projects data moved to `frontend/data/projects.ts`; removed the duplicate Traqify entry (28 unique projects).
+- Forms use `fetch`, have accessible labels, input limits, and Escape-to-close dialogs.
+- Docs: removed the overlapping `WIKI.md`; README updated.
+
+### Added
+- GitHub Actions CI (typecheck, lint, audit, build, gitleaks), `.nvmrc`, `engines`, pre-commit gitleaks config.
+- Vercel Analytics.
+
+### Removed
+- Tracked build output (`frontend/.next`, `backend/dist`) and unused email template HTML files.
+
+---
+
 ## [1.16.8] - 2026-10-11
 
 ### Added

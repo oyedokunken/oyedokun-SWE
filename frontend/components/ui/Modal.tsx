@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle, XCircle } from "lucide-react";
 
@@ -12,6 +13,15 @@ interface ModalProps {
 }
 
 export default function Modal({ isOpen, onClose, type, title, message }: ModalProps) {
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [isOpen, onClose]);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -31,7 +41,7 @@ export default function Modal({ isOpen, onClose, type, title, message }: ModalPr
             transition={{ duration: 0.4, ease: [0.34, 1.56, 0.64, 1] }}
             className="fixed inset-0 z-[1001] flex items-center justify-center p-4 pointer-events-none"
           >
-            <div className="bg-[#0d0d0d] border border-white/10 rounded-2xl p-8 shadow-2xl w-full max-w-[420px] pointer-events-auto overflow-y-auto max-h-[90vh] relative">
+            <div role="dialog" aria-modal="true" aria-label={title} className="bg-[#0d0d0d] border border-white/10 rounded-2xl p-8 shadow-2xl w-full max-w-[420px] pointer-events-auto overflow-y-auto max-h-[90vh] relative">
               <button
                 onClick={onClose}
                 className="absolute top-5 right-5 p-2 rounded-full hover:bg-white/10 transition-colors"

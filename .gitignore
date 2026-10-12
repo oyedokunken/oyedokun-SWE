@@ -36,3 +36,6 @@ Thumbs.db
 prompts.txt
 # Visitor PII logs
 backend/data/*.json
+
+# TypeScript incremental build info
+*.tsbuildinfo

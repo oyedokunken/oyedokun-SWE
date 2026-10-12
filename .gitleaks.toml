@@ -1,0 +1,10 @@
+title = "oyedokun gitleaks config"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "gmail-app-password-assignment"
+description = "SMTP_PASS assigned a real-looking value"
+regex = '''(?i)SMTP_PASS\s*[=:]\s*['"]?[a-z0-9]{16}['"]?\b'''
+tags = ["smtp", "password"]

@@ -33,7 +33,7 @@ export default function Logo({ className, size = 36, showText = true }: LogoProp
       </svg>
       {showText && (
         <span
-          style={{ fontFamily: "'Urbanist', sans-serif", letterSpacing: "-0.5px" }}
+          style={{ fontFamily: "var(--font-urbanist), sans-serif", letterSpacing: "-0.5px" }}
           className="text-[15px] font-bold text-[var(--text-primary)]"
         >
           oyedokun<span className="opacity-40">.dev</span>

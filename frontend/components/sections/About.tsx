@@ -81,7 +81,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.18 }}
               className="mt-5 text-[15px] text-[var(--text-secondary)] leading-relaxed"
             >
-              I don't code to impress, I code to deliver. I value quality code, performance and scalability over clever tricks and quick fixes. The code that survives is the code that was built to last.
+              I don&apos;t code to impress, I code to deliver. I value quality code, performance and scalability over clever tricks and quick fixes. The code that survives is the code that was built to last.
             </motion.p>
 
             <motion.div

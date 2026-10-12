@@ -12,6 +12,19 @@ export default function Preloader() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    // Only play the intro once per browser session.
+    let seen = false;
+    try {
+      seen = sessionStorage.getItem("preloaded") === "1";
+      sessionStorage.setItem("preloaded", "1");
+    } catch {}
+    if (seen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-off sync with sessionStorage
+      setVisible(false);
+      const t = setTimeout(() => document.dispatchEvent(new CustomEvent("siteReady")), 50);
+      return () => clearTimeout(t);
+    }
+
     const timer = setInterval(() => {
       setProgress((p) => {
         const next = Math.min(p + Math.random() * 12 + 3, 100);
@@ -37,6 +50,7 @@ export default function Preloader() {
       {visible && (
         <motion.div
           key="preloader"
+          id="preloader"
           initial={{ clipPath: "inset(0% 0% 0% 0%)" }}
           animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
           exit={{ clipPath: "inset(0% 0% 100% 0%)" }}

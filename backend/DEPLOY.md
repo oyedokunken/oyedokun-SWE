@@ -41,7 +41,7 @@ In the Vercel project settings under **Environment Variables**, add:
 | Variable | Value |
 |---|---|
 | `PORT` | `4000` |
-| `FRONTEND_URL` | `https://oyedokunken.vercel.app` |
+| `FRONTEND_URL` | `https://www.oyedokun.dev` (comma-separate extra origins) |
 | `SMTP_HOST` | `smtp.gmail.com` |
 | `SMTP_PORT` | `587` |
 | `SMTP_USER` | `<smtp-gmail-address>` |
