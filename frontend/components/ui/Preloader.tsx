@@ -12,33 +12,44 @@ export default function Preloader() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Only play the intro once per browser session.
-    let seen = false;
-    try {
-      seen = sessionStorage.getItem("preloaded") === "1";
-      sessionStorage.setItem("preloaded", "1");
-    } catch {}
-    if (seen) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-off sync with sessionStorage
-      setVisible(false);
-      const t = setTimeout(() => document.dispatchEvent(new CustomEvent("siteReady")), 50);
-      return () => clearTimeout(t);
-    }
+    // Progress reflects what has actually loaded: fonts, the document and its
+    // eager images. A short minimum keeps the ring from flashing, and a hard
+    // cap guarantees the site never stays hidden on a slow connection.
+    const MIN_MS = 700;
+    const MAX_MS = 6000;
+    const start = performance.now();
+    let fontsReady = false;
+    let finished = false;
+    let shown = 0;
+
+    document.fonts?.ready.then(() => {
+      fontsReady = true;
+    });
+    if (!document.fonts) fontsReady = true;
 
     const timer = setInterval(() => {
-      setProgress((p) => {
-        const next = Math.min(p + Math.random() * 12 + 3, 100);
-        if (next >= 100) {
-          clearInterval(timer);
-          setTimeout(() => {
-            setExiting(true);
-            document.dispatchEvent(new CustomEvent("siteReady"));
-            setTimeout(() => setVisible(false), 900);
-          }, 400);
-        }
-        return next;
-      });
-    }, 80);
+      const elapsed = performance.now() - start;
+      const loaded = document.readyState === "complete";
+      const interactive = document.readyState !== "loading";
+      const allReady = loaded && fontsReady && elapsed >= MIN_MS;
+
+      let target = (fontsReady ? 35 : 0) + (loaded ? 55 : interactive ? 25 : 0) + Math.min(elapsed / MIN_MS, 1) * 10;
+      target = allReady || elapsed >= MAX_MS ? 100 : Math.min(target, 99);
+
+      shown = Math.min(shown + Math.max((target - shown) * 0.2, target > shown ? 0.6 : 0), 100);
+      setProgress(shown);
+
+      if (shown >= 99.5 && target >= 100 && !finished) {
+        finished = true;
+        clearInterval(timer);
+        setProgress(100);
+        setTimeout(() => {
+          setExiting(true);
+          document.dispatchEvent(new CustomEvent("siteReady"));
+          setTimeout(() => setVisible(false), 900);
+        }, 300);
+      }
+    }, 60);
     return () => clearInterval(timer);
   }, []);
 

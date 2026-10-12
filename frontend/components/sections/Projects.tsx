@@ -135,7 +135,7 @@ export default function Projects() {
                     {project.desc}
                   </p>
                   <div className="flex flex-wrap gap-1.5 pt-1">
-                    {project.tags.slice(0, 3).map((tag) => (
+                    {project.tags.slice(0, 5).map((tag) => (
                       <span key={tag} className="text-[9px] tracking-wide uppercase px-2 py-1 rounded-full border border-[var(--text-primary)]/20 text-[var(--text-primary)]/65">
                         {tag}
                       </span>

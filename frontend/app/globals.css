@@ -260,10 +260,3 @@ body:has(.not-found-page) .whatsapp-float {
     transition-duration: 0.01ms !important;
   }
 }
-
-/* Touch devices never hover, so don't leave covers/photos permanently greyscale. */
-@media (hover: none) {
-  .grayscale {
-    filter: none !important;
-  }
-}

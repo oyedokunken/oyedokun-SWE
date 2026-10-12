@@ -123,7 +123,7 @@ export default function RootLayout({
                   name: "Oyedokun Kehinde",
                   alternateName: "oyedokunken",
                   url: "https://www.oyedokun.dev/",
-                  image: "https://www.oyedokun.dev/shoot/oyedokun-50.jpg",
+                  image: "https://www.oyedokun.dev/shoot/oyedokun-50.webp",
                   jobTitle: "Full-stack Software Engineer and CTO",
                   description:
                     "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",

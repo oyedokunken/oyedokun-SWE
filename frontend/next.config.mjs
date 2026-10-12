@@ -12,11 +12,11 @@ const apiOrigin = (() => {
 // without a nonce-based setup. Everything else is locked to same-origin.
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://cdn.jsdelivr.net https://avatars.githubusercontent.com",
+  "img-src 'self' data: blob: https://cdn.jsdelivr.net https://avatars.githubusercontent.com https://purecatamphetamine.github.io",
   "font-src 'self' data:",
-  `connect-src 'self' ${apiOrigin} ${isDev ? "http://localhost:4000 ws:" : ""}`.trim(),
+  `connect-src 'self' https://va.vercel-scripts.com ${apiOrigin} ${isDev ? "http://localhost:4000 ws:" : ""}`.trim(),
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -37,6 +37,7 @@ const nextConfig = {
   trailingSlash: true,
   poweredByHeader: false,
   images: {
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       { protocol: "https", hostname: "cdn.jsdelivr.net" },
       { protocol: "https", hostname: "avatars.githubusercontent.com" },

@@ -61,6 +61,8 @@ export default function Education() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
+  const ghostItem = education[education.length - 1];
+
   return (
     <section id="education" className="py-28 bg-[var(--bg-secondary)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -143,12 +145,31 @@ export default function Education() {
             transition={{ duration: 0.6, delay: education.length * 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="group relative rounded-2xl border border-dashed border-[var(--border-color)] bg-[var(--bg)] p-7 flex flex-col items-center justify-center gap-4 hover:border-[var(--text-muted)] transition-colors duration-300"
           >
-            <div className="w-11 h-11 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--text-muted)] transition-colors duration-300">
-              <Plus size={18} className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors duration-300" />
+            {/* Invisible copy of the last card: gives this placeholder the same height as a real card on mobile (single column). On desktop the grid row already stretches it. */}
+            <div aria-hidden="true" className="invisible md:hidden w-full flex flex-col gap-5">
+              <div className="flex items-start justify-between">
+                <div className="w-11 h-11" />
+                <span className="text-[10px] tracking-[1.5px] uppercase px-2.5 py-1 border">{ghostItem.type}</span>
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-base font-bold tracking-tight leading-snug">{ghostItem.institution}</h3>
+                <p className="text-sm font-semibold">{ghostItem.credential}</p>
+                <p className="text-sm">{ghostItem.field}</p>
+              </div>
+              <div className="border-t pt-4 space-y-1.5">
+                <p className="text-[11px] tracking-wide">{ghostItem.period}</p>
+                <p className="text-[11px]">{ghostItem.location}</p>
+                {ghostItem.meta && <p className="text-[11px] leading-relaxed">{ghostItem.meta}</p>}
+              </div>
             </div>
-            <p className="text-sm text-[var(--text-muted)] text-center leading-relaxed">
-              More on the way
-            </p>
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+              <div className="w-11 h-11 rounded-xl bg-[var(--bg-elevated)] border border-[var(--border-color)] flex items-center justify-center group-hover:border-[var(--text-muted)] transition-colors duration-300">
+                <Plus size={18} className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors duration-300" />
+              </div>
+              <p className="text-sm text-[var(--text-muted)] text-center leading-relaxed">
+                More on the way
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>

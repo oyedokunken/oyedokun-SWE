@@ -51,9 +51,58 @@ function MessageTime() {
   return <>{now ? formatTime(now) : "Now"}</>;
 }
 
+type Presence = "connecting" | "connected" | "active";
+
+const PRESENCE_LABEL: Record<Presence, string> = {
+  connecting: "Connecting...",
+  connected: "Connected",
+  active: "Active Now",
+};
+
+// Each time the chat opens it "connects" for a moment, so the conversation
+// feels live. The reply only arrives once the status reaches "Active Now".
+function usePresence(isOpen: boolean): Presence {
+  const [presence, setPresence] = useState<Presence>("connecting");
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const timers = [
+      setTimeout(() => setPresence("connecting"), 0),
+      setTimeout(() => setPresence("connected"), 1600),
+      setTimeout(() => setPresence("active"), 2800),
+    ];
+    return () => timers.forEach(clearTimeout);
+  }, [isOpen]);
+
+  return presence;
+}
+
+function TypingBubble() {
+  return (
+    <div
+      className="rounded-xl rounded-bl-none px-4 py-3 shadow-sm inline-flex items-center gap-1"
+      style={{ background: "#FFFFFF" }}
+      role="status"
+      aria-label="Typing"
+    >
+      {[0, 1, 2].map((i) => (
+        <motion.span
+          key={i}
+          className="block w-1.5 h-1.5 rounded-full"
+          style={{ background: "#8696A0" }}
+          animate={{ y: [0, -4, 0], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 0.9, repeat: Infinity, delay: i * 0.15, ease: "easeInOut" }}
+        />
+      ))}
+    </div>
+  );
+}
+
 export default function WhatsAppFloat() {
   const { isOpen, openChat, closeChat } = useWhatsAppChat();
   const [draft, setDraft] = useState("");
+  const presence = usePresence(isOpen);
+  const isActive = presence === "active";
 
   return (
     <>
@@ -119,22 +168,37 @@ export default function WhatsAppFloat() {
                 <div className="relative flex-shrink-0">
                   <div className="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-white/20">
                     <Image
-                      src="/shoot/oyedokun-47.jpg"
+                      src="/shoot/oyedokun-47.webp"
                       alt="oyedokunken"
                       fill
                       className="object-cover object-center"
                       sizes="40px"
                     />
                   </div>
-                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-[#25D366] rounded-full border-2 border-[#075E54] z-10" />
+                  <span
+                    className={`absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full border-2 border-[#075E54] z-10 transition-colors duration-500 ${
+                      isActive ? "bg-[#25D366]" : "bg-[#8696A0]"
+                    }`}
+                  />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-white text-[13px] font-semibold leading-tight truncate">
                     oyedokunken
                   </p>
-                  <p className="text-[#B2DFDB] text-[11px] leading-tight mt-0.5">
-                    Active Now
-                  </p>
+                  <div className="relative h-[14px] mt-0.5 overflow-hidden" aria-live="polite">
+                    <AnimatePresence mode="wait" initial={false}>
+                      <motion.p
+                        key={presence}
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -6 }}
+                        transition={{ duration: 0.2 }}
+                        className="text-[#B2DFDB] text-[11px] leading-[14px] absolute inset-0"
+                      >
+                        {PRESENCE_LABEL[presence]}
+                      </motion.p>
+                    </AnimatePresence>
+                  </div>
                 </div>
                 <a
                   href="https://wa.link/nv875h"
@@ -187,31 +251,50 @@ export default function WhatsAppFloat() {
                   </p>
                 </div>
 
-                <div className="flex items-end gap-2">
+                <div className="flex items-end gap-2 min-h-[64px]">
                   <div className="relative w-7 h-7 rounded-full overflow-hidden flex-shrink-0 mb-0.5">
                     <Image
-                      src="/shoot/oyedokun-47.jpg"
+                      src="/shoot/oyedokun-47.webp"
                       alt="oyedokunken"
                       fill
                       className="object-cover object-center"
                       sizes="28px"
                     />
                   </div>
-                  <div
-                    className="rounded-xl rounded-bl-none px-3.5 py-2.5 shadow-sm"
-                    style={{ background: "#FFFFFF", maxWidth: "calc(100% - 44px)" }}
-                  >
-                    <p className="text-[13px] leading-snug" style={{ color: "#111B21" }}>
-                      Howdy, welcome to my space!
-                    </p>
-                    <p className="text-[13px] leading-snug mt-3" style={{ color: "#111B21" }}>
-                      Are you working on a project or you&apos;ve got an idea you&apos;d like to discuss?
-                    </p>
-                    <p className="text-[13px] leading-snug mt-3" style={{ color: "#111B21" }}>
-                      Reach out today. Let&apos;s build together! 🙂
-                    </p>
-                    <p className="text-[10px] mt-1.5 text-right" style={{ color: "#667781" }}><MessageTime /></p>
-                  </div>
+                  <AnimatePresence mode="wait" initial={false}>
+                    {!isActive ? (
+                      <motion.div
+                        key="typing"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 0.2 }}
+                        style={{ transformOrigin: "bottom left" }}
+                      >
+                        <TypingBubble />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="message"
+                        initial={{ opacity: 0, scale: 0.85, y: 8 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        transition={{ duration: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
+                        style={{ transformOrigin: "bottom left", maxWidth: "calc(100% - 44px)" }}
+                        className="rounded-xl rounded-bl-none px-3.5 py-2.5 shadow-sm bg-white"
+                      >
+                        <p className="text-[13px] leading-snug" style={{ color: "#111B21" }}>
+                          Howdy, welcome to my space!
+                        </p>
+                        <p className="text-[13px] leading-snug mt-3" style={{ color: "#111B21" }}>
+                          Are you working on a project or you&apos;ve got an idea you&apos;d like to discuss?
+                        </p>
+                        <p className="text-[13px] leading-snug mt-3" style={{ color: "#111B21" }}>
+                          Reach out today. Let&apos;s build together! 🙂
+                        </p>
+                        <p className="text-[10px] mt-1.5 text-right" style={{ color: "#667781" }}><MessageTime /></p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               </div>
 
