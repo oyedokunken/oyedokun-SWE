@@ -73,7 +73,7 @@ Nodemailer SMTP details are:
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=oyedokunkehinde21@gmail.com
-SMTP_PASS=gzeafihoeekcbyvs
+SMTP_PASS=<your-gmail-app-password>
 
 - There is no database, I just want the nodemailer to send the contacts of those who either requests my CV or submit my contact form sent to my email. They will also get an email acknowledgement. Also, we can create two JSON file in the backend, one logs the people who requested my resume/CV while the other logs those who sent me a conatct form. That will act as my database. 
 

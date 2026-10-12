@@ -34,3 +34,5 @@ Thumbs.db
 
 #Prompts
 prompts.txt
+# Visitor PII logs
+backend/data/*.json

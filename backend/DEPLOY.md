@@ -44,8 +44,8 @@ In the Vercel project settings under **Environment Variables**, add:
 | `FRONTEND_URL` | `https://oyedokunken.vercel.app` |
 | `SMTP_HOST` | `smtp.gmail.com` |
 | `SMTP_PORT` | `587` |
-| `SMTP_USER` | `oyedokunkehinde21@gmail.com` |
-| `SMTP_PASS` | `gzeafihoeekcbyvs` |
+| `SMTP_USER` | `<smtp-gmail-address>` |
+| `SMTP_PASS` | `<your-gmail-app-password>` |
 | `OWNER_EMAIL` | `oyedokunken@gmail.com` |
 
 ---

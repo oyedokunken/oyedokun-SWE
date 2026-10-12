@@ -1,4 +1,4 @@
-﻿import nodemailer from "nodemailer";
+import nodemailer from "nodemailer";
 import path from "path";
 import fs from "fs";
 
@@ -12,11 +12,26 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+// Single-pass substitution with escaped values, so user input can neither
+// inject markup nor smuggle in another {{placeholder}}.
 function fill(template: string, vars: Record<string, string>): string {
-  return Object.entries(vars).reduce(
-    (t, [k, v]) => t.split(`{{${k}}}`).join(v),
-    template
+  return template.replace(/\{\{(\w+)\}\}/g, (match, key: string) =>
+    key in vars ? escapeHtml(vars[key]) : match
   );
+}
+
+// Strip CR/LF so user input can never inject mail headers.
+function oneLine(value: string): string {
+  return value.replace(/[\r\n]+/g, " ").trim();
 }
 
 const LOGO_SVG = `<svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;flex-shrink:0"><rect width="40" height="40" rx="6" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/><circle cx="20" cy="20" r="7" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" fill="none"/><path d="M25 15 L32 15 L32 22 L26 28" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="20" cy="20" r="2.5" fill="rgba(255,255,255,0.85)"/></svg>`;
@@ -54,7 +69,7 @@ export async function sendContactOwner(data: {
   await transporter.sendMail({
     from: `"oyedokun.dev" <${process.env.SMTP_USER}>`,
     to: process.env.OWNER_EMAIL,
-    subject: `New message: ${data.subject}`,
+    subject: `New message: ${oneLine(data.subject)}`,
     html,
   });
 }
