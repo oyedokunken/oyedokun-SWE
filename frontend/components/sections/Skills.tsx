@@ -5,7 +5,10 @@ import Image from "next/image";
 
 const CDN = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
 
-const skillGroups = [
+const SI = "https://cdn.jsdelivr.net/npm/simple-icons@13/icons";
+
+// mono: single-colour black icons that need inverting on the dark theme.
+const skillGroups: { label: string; skills: { name: string; icon: string; mono?: boolean }[] }[] = [
   {
     label: "Languages",
     skills: [
@@ -13,7 +16,6 @@ const skillGroups = [
       { name: "JavaScript", icon: `${CDN}/javascript/javascript-original.svg` },
       { name: "PHP", icon: `${CDN}/php/php-original.svg` },
       { name: "Python", icon: `${CDN}/python/python-original.svg` },
-      { name: "Java", icon: `${CDN}/java/java-original.svg` },
     ],
   },
   {
@@ -22,27 +24,28 @@ const skillGroups = [
       { name: "React", icon: `${CDN}/react/react-original.svg` },
       { name: "Next.js", icon: `${CDN}/nextjs/nextjs-original.svg` },
       { name: "Tailwind CSS", icon: `${CDN}/tailwindcss/tailwindcss-original.svg` },
-      { name: "Vue.js", icon: `${CDN}/vuejs/vuejs-original.svg` },
-      { name: "Svelte", icon: `${CDN}/svelte/svelte-original.svg` },
+      { name: "Vite", icon: `${CDN}/vitejs/vitejs-original.svg` },
     ],
   },
   {
     label: "Backend",
     skills: [
       { name: "Node.js", icon: `${CDN}/nodejs/nodejs-original.svg` },
-      { name: "Express", icon: `${CDN}/express/express-original.svg` },
+      { name: "Express", icon: `${CDN}/express/express-original.svg`, mono: true },
       { name: "Laravel", icon: `${CDN}/laravel/laravel-original.svg` },
       { name: "FastAPI", icon: `${CDN}/fastapi/fastapi-original.svg` },
-      { name: "C#", icon: `${CDN}/csharp/csharp-original.svg` },
+      { name: "Socket.IO", icon: `${CDN}/socketio/socketio-original.svg`, mono: true },
+      { name: "LiveKit", icon: `${SI}/livekit.svg`, mono: true },
     ],
   },
   {
     label: "Data",
     skills: [
       { name: "PostgreSQL", icon: `${CDN}/postgresql/postgresql-original.svg` },
-      { name: "MongoDB", icon: `${CDN}/mongodb/mongodb-original.svg` },
       { name: "MySQL", icon: `${CDN}/mysql/mysql-original.svg` },
+      { name: "MongoDB", icon: `${CDN}/mongodb/mongodb-original.svg` },
       { name: "Prisma", icon: `${CDN}/prisma/prisma-original.svg` },
+      { name: "Redis", icon: `${CDN}/redis/redis-original.svg` },
       { name: "Firebase", icon: `${CDN}/firebase/firebase-original.svg` },
     ],
   },
@@ -52,17 +55,19 @@ const skillGroups = [
       { name: "Docker", icon: `${CDN}/docker/docker-original.svg` },
       { name: "GitHub Actions", icon: `${CDN}/githubactions/githubactions-original.svg` },
       { name: "Linux", icon: `${CDN}/linux/linux-original.svg` },
-      { name: "AWS", icon: `${CDN}/amazonwebservices/amazonwebservices-plain-wordmark.svg` },
-      { name: "Kubernetes", icon: `${CDN}/kubernetes/kubernetes-original.svg` },
+      { name: "Nginx", icon: `${CDN}/nginx/nginx-original.svg` },
+      { name: "Vercel", icon: `${CDN}/vercel/vercel-original.svg`, mono: true },
     ],
   },
   {
-    label: "Tools",
+    label: "Tools & AI",
     skills: [
       { name: "Git", icon: `${CDN}/git/git-original.svg` },
-      { name: "VS Code", icon: `${CDN}/vscode/vscode-original.svg` },
       { name: "Supabase", icon: `${CDN}/supabase/supabase-original.svg` },
       { name: "Postman", icon: `${CDN}/postman/postman-original.svg` },
+      { name: "Playwright", icon: `${CDN}/playwright/playwright-original.svg` },
+      { name: "OpenAI API", icon: `${SI}/openai.svg`, mono: true },
+      { name: "Claude API", icon: `${SI}/anthropic.svg`, mono: true },
       { name: "WordPress", icon: `${CDN}/wordpress/wordpress-plain.svg` },
     ],
   },
@@ -125,7 +130,7 @@ export default function Skills() {
                       alt={skill.name}
                       width={32}
                       height={32}
-                      className={`w-7 h-7 object-contain group-hover:scale-110 transition-transform duration-200 ${skill.name === "Express" ? "dark:invert" : "dark:invert-[0.05]"}`}
+                      className={`w-7 h-7 object-contain group-hover:scale-110 transition-transform duration-200 ${skill.mono ? "dark:invert" : "dark:invert-[0.05]"}`}
                     />
                   </div>
                   <span className="text-[10px] text-[var(--text-muted)] text-center leading-tight">

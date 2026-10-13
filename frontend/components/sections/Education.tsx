@@ -11,7 +11,7 @@ const education = [
     credential: "Bachelor of Technology (B.Tech)",
     field: "Computer Information Systems",
     period: "Oct. 2021 - Jul. 2026",
-    meta: "CGPA: 4.77 / 5.00",
+    meta: "CGPA: 4.72 / 5.00",
     location: "Akure, Nigeria",
     type: "Degree",
   },

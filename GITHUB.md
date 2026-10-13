@@ -2,7 +2,7 @@
 
 Full-stack software engineer based in Lagos, NG. Comfortable managing complexity. Always thinking ahead. I build software for the happy path, the edge cases, and everything in between.
 
-I've shipped production-grade systems across fintech, energy, healthcare, mining, e-commerce, and EdTech. I work with international teams in different time zones while keeping things moving fast locally.
+I've shipped production-grade systems across SaaS, critical minerals trading, renewable energy, blockchain, AI, e-commerce, healthcare, real estate, ESG compliance, education, and telecommunications. I work with international teams in different time zones while keeping things moving fast locally.
 
 I regard myself as a systems thinker. I don't write clever tricks, I own the system end to end. I want to understand before I build, clarify before I commit, and design things that hold up beyond the happy path. I prioritize clean code, scalable architecture, performance, and thinking through the edge cases that separate a working demo from a system that can be trusted.
 
@@ -16,15 +16,13 @@ I regard myself as a systems thinker. I don't write clever tricks, I own the sys
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Java](https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white)
 
 **Frontend**
 
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
-![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white)
-![Svelte](https://img.shields.io/badge/Svelte-FF3E00?style=flat-square&logo=svelte&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
 
 **Backend**
 
@@ -32,7 +30,8 @@ I regard myself as a systems thinker. I don't write clever tricks, I own the sys
 ![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
 ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![C#](https://img.shields.io/badge/C%23-512BD4?style=flat-square&logo=csharp&logoColor=white)
+![Socket.IO](https://img.shields.io/badge/Socket.IO-010101?style=flat-square&logo=socketdotio&logoColor=white)
+![LiveKit](https://img.shields.io/badge/LiveKit-1A1A1A?style=flat-square&logo=livekit&logoColor=white)
 
 **Data**
 
@@ -40,6 +39,7 @@ I regard myself as a systems thinker. I don't write clever tricks, I own the sys
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat-square&logo=prisma&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-DD2C00?style=flat-square&logo=firebase&logoColor=white)
 
 **DevOps**
@@ -47,8 +47,8 @@ I regard myself as a systems thinker. I don't write clever tricks, I own the sys
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx-009639?style=flat-square&logo=nginx&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
 
 **Tools**
 
@@ -56,6 +56,9 @@ I regard myself as a systems thinker. I don't write clever tricks, I own the sys
 ![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white)
+![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)
+![OpenAI API](https://img.shields.io/badge/OpenAI_API-412991?style=flat-square&logo=openai&logoColor=white)
+![Claude API](https://img.shields.io/badge/Claude_API-D97757?style=flat-square&logo=anthropic&logoColor=white)
 ![WordPress](https://img.shields.io/badge/WordPress-21759B?style=flat-square&logo=wordpress&logoColor=white)
 
 ---
@@ -64,29 +67,28 @@ I regard myself as a systems thinker. I don't write clever tricks, I own the sys
 
 | Project | Description | Stack |
 |---|---|---|
-| [Job Central](https://jobcentrall.vercel.app) | Free two-sided hiring platform where candidates build portable profiles with auto-parsed resumes and track applications end-to-end, while organizations post roles via a drag-and-drop form builder and review AI-ranked shortlists | Next.js, TypeScript, Prisma, Supabase, FastAPI |
-| [Gistroom](https://gistroom.vercel.app) | Progressive web app for Nigerians to talk live about local topics. Find friends, chat, call one to one, or join audio rooms for up to 32 people with moderation and invite links. Audio first, data aware, PWA with offline support | Next.js, TypeScript, Socket.IO, LiveKit, Prisma, Supabase |
-| [Credence](https://credencely.vercel.app) | Blockchain credential verification for Nigerian universities, eliminating certificate fraud with Hyperledger Fabric, QR attestations, and instant lookup | Hyperledger Fabric, Next.js, Node.js, QR Verification |
-| [Traqify](https://traqify.vercel.app) | Multi-tenant store management SaaS featuring real-time analytics, role-based access control, public storefronts, and integrated Paystack checkout | Next.js, Express, Prisma, PostgreSQL, Recharts |
-| [Ren Power](https://renpowerltd.com) | Solar energy marketplace linking manufacturers, distributors, recyclers, and customers with quote-based pricing, RBAC, AI chatbot, and onboarding tours | Next.js, Node.js, PostgreSQL, Prisma, Supabase |
-| [RIOS](https://www.riosintell.com/) | Multi-tenant ESG reporting SaaS for Nigerian corporates, covering GRI, TCFD, and IFRS benchmarks with branded, auto-generated PDF report delivery | Next.js, Express, Prisma, PostgreSQL, pdf-lib |
+| [Job Central](https://jobcentrall.vercel.app) | Free two-sided hiring platform where candidates build portable profiles with auto-parsed resumes and track applications end-to-end, while organizations post roles via a drag-and-drop form builder and review AI-ranked shortlists | Next.js, TypeScript, FastAPI, Supabase, Prisma |
+| [Gistroom](https://gistroom.vercel.app) | Progressive web app for Nigerians to talk live about local topics. Find friends, chat, call one to one, or join audio rooms for up to 32 people with moderation and invite links. Audio first, data aware, PWA with offline support | Next.js, Socket.IO, LiveKit, Supabase, Prisma |
+| [Credence](https://credencely.vercel.app) | Blockchain credential verification for Nigerian universities, eliminating certificate fraud with Hyperledger Fabric, QR attestations, and instant lookup | Hyperledger Fabric, Next.js, Express, QR Verification, Prisma |
+| [Traqify](https://traqify.vercel.app) | Multi-tenant store management SaaS featuring real-time analytics, role-based access control, public storefronts, and integrated Paystack checkout | Next.js, Express, PostgreSQL, Supabase, Prisma |
+| [Ren Power](https://renpowerltd.com) | Solar energy marketplace linking manufacturers, distributors, recyclers, and customers with quote-based pricing, RBAC, AI chatbot, and onboarding tours | Next.js, Express, PostgreSQL, Socket.IO, Prisma |
+| [RIOS](https://www.riosintell.com/) | Multi-tenant ESG reporting SaaS for Nigerian corporates, covering GRI, TCFD, and IFRS benchmarks with branded, auto-generated PDF report delivery | Next.js, Express, PostgreSQL, pdf-lib, Prisma |
 | [MSP Reports](https://mspreports.com.au/) | Automated white-label reporting for MSPs pulling data from 20+ tools into branded client reports with AI-generated executive summaries and multi-tenant isolation | Laravel 12, React 19, PostgreSQL, TimescaleDB, AI |
 | [Glore](https://gloreenergy.com) | Critical mineral trading platform connecting Africa's mining sector to global markets, with real-time pricing, live WebSocket charts, and investor decks | React, Express, PostgreSQL, Socket.io, Redis |
-| [Prompt AI](https://prompt-swe.vercel.app) | Chat-based prompt builder that turns vague intent into structured, scored prompts for coding assistants and generative models, powered by a Python ML layer for intent classification | Next.js, FastAPI, Prisma, Supabase, BullMQ |
-| [Prompt AI](https://prompt-swe.vercel.app) | Chat-based prompt builder that turns vague intent into structured, scored prompts for coding assistants and generative models, powered by a Python ML layer for intent classification | Next.js, FastAPI, Prisma, Supabase, BullMQ |
+| [Prompt AI](https://prompt-swe.vercel.app) | Chat-based prompt builder that turns vague intent into structured, scored prompts for coding assistants and generative models, powered by a Python ML layer for intent classification | Next.js, FastAPI, Supabase, OpenAI, Prisma |
 | [Rexta](https://rextatech.com/) | Digital agency website with contact, quote, and consultation flows, ten service pages, a dynamic project showcase, and Nodemailer email delivery | Next.js 16, Supabase, Express, Nodemailer, SEO |
-| [Mailly](https://usemailly.com/) | Marketing site and waitlist for an AI inbox assistant, with a rate-limited signup flow, branded transactional emails, and a full admin portal with PDF reports and audit log | Next.js 16, Supabase, Prisma, Nodemailer, shadcn/ui |
+| [Mailly](https://usemailly.com/) | Marketing site and waitlist for an AI inbox assistant, with a rate-limited signup flow, branded transactional emails, and a full admin portal with PDF reports and audit log | Next.js 16, Supabase, Nodemailer, shadcn/ui, Prisma |
 | [Storebook](https://storebookpro.com) | Laravel-based store management system for retail businesses with POS, multi-branch inventory, role-based access, PDF reports, and a public storefront | Laravel 11, PHP 8.2, MySQL, Tailwind CSS, Alpine.js |
-| [Digital Hub Africa](https://www.digitalhubafrica.org/) | Editorial magazine helping Africans learn, work, and build with technology, featuring TipTap rich-text publishing, a role-based admin panel, ISR-driven SEO, and newsletter flows | Next.js 16, TypeScript, Prisma, Supabase, TipTap |
-| [Salmired Properties](https://www.salmiredproperties.com/) | Premium real estate platform for an Ibadan property developer with live listing filters, gallery lightboxes, multi-step application forms, and a JWT-protected admin dashboard | Next.js 16, TypeScript, Prisma, Supabase, Tailwind CSS |
+| [Digital Hub Africa](https://www.digitalhubafrica.org/) | Editorial magazine helping Africans learn, work, and build with technology, featuring TipTap rich-text publishing, a role-based admin panel, ISR-driven SEO, and newsletter flows | Next.js 16, TypeScript, Supabase, TipTap, Prisma |
+| [Salmired Properties](https://www.salmiredproperties.com/) | Premium real estate platform for an Ibadan property developer with live listing filters, gallery lightboxes, multi-step application forms, and a JWT-protected admin dashboard | Next.js 16, TypeScript, Supabase, Tailwind CSS, Prisma |
 | [EduPilot](https://edupilotly.vercel.app) | Student workflow platform using Critical Path Method to automate scheduling and monitor cognitive load in real time across academic semesters | Next.js, TypeScript, Node.js, PostgreSQL, CPM |
-| [Kwiker](https://kwiker-main.vercel.app) | Commerce operating system for African SMBs turning WhatsApp selling into structured digital business with AI storefront, order management, and payments | Next.js 16, Supabase, Prisma, Nodemailer, Express |
+| [Kwiker](https://kwiker-main.vercel.app) | Commerce operating system for African SMBs turning WhatsApp selling into structured digital business with AI storefront, order management, and payments | Next.js 16, Supabase, Express, Nodemailer, Prisma |
 | [TitanBid](https://titan-bid-frontend.vercel.app) | AI-powered construction cost estimating platform where builders upload blueprints and receive accurate project estimates within 24 to 48 hours | Next.js, TypeScript, Supabase, Stripe, AI |
-| [GramOne](https://gramone.vercel.app) | Full-stack platform for a critical minerals company spanning three verticals: mineral extraction, refining and processing, and deep-sea exploration | Next.js 16, Express 5, Prisma, Supabase, Framer Motion |
-| [Dubai Avenue Scents](https://dubaiavenuescent.com) | Ultra-premium luxury fragrance storefront with WhatsApp-first ordering, Supabase persistence, transactional email delivery, and a separate admin panel | Next.js 14, Supabase, Nodemailer, TypeScript |
+| [GramOne](https://gramone.vercel.app) | Full-stack platform for a critical minerals company spanning three verticals: mineral extraction, refining and processing, and deep-sea exploration | Next.js 16, Express 5, Supabase, Framer Motion, Prisma |
+| [Dubai Avenue Scents](https://dubaiavenuescent.com) | Ultra-premium luxury fragrance storefront with WhatsApp-first ordering, Supabase persistence, transactional email delivery, and a separate admin panel | Next.js 14, Express, Supabase, Nodemailer, TypeScript |
 | [DPA Summit](https://digitalprocurement.africa) | Event platform for C-suite executives and procurement leaders with registration flows, an admin panel, confirmation emails, and security hardening | Laravel, TailwindCSS, MySQL, Nodemailer |
 | [FUTA HMS](https://futahms.vercel.app) | University health management system with a PPSA queue algorithm, in-browser video consultations, real-time analytics, and end-to-end appointment flows | Next.js, Node.js, WebSockets, PostgreSQL, PPSA |
-| [Ascentor LDP](https://ascentorbi.com) | Leadership development platform with social authentication, mentorship circles, role-based dashboards, and experiential learning programs for professionals | React 19, TypeScript, Express, Firebase, TailwindCSS |
+| [Ascentor LDP](https://joinascentor.com/) | Leadership development platform for African professionals with an AI coach, weekly accountability community, live expert sessions, event registration and ticketing, Paystack payments, and a white-label partner programme | Next.js 16, TypeScript, Supabase, Claude AI, Paystack |
 | [Cooper Gaming Services](https://coopergamingservices.com/) | Business website for Queensland's premier gaming and technology specialists, featuring an interactive hero slider, counters, local SEO, and email flows | React 18, TypeScript, Vite, Bootstrap, Express |
 | [Minuteman](https://minuteman.com.ng/) | Multi-category WooCommerce storefront for a Nigerian e-commerce brand, with flash deals, product search, wishlist management, and full account features | WordPress, WooCommerce, PHP |
 | [Glory Fashion](https://glorybyjes.com) | Luxury fashion brand celebrating inclusive design for all women, with WooCommerce storefront, curated collections, and a New York Fashion Week showcase | WordPress, WooCommerce, PHP, CSS |
@@ -100,7 +102,7 @@ I regard myself as a systems thinker. I don't write clever tricks, I own the sys
 - Open to interesting contracts and full-time remote roles where I can build impactful solutions
 - Architecting and scaling production systems across multiple industries
 - Exploring AI/ML integration patterns for intelligent automation and data-driven decision systems
-- Deepening expertise in distributed systems architecture and cloud-native design patterns
+- Deepening expertise in real-time systems, system design, and cloud deployment patterns
 - Balancing code with life by visiting new places and enjoying good music while quietly building
 
 

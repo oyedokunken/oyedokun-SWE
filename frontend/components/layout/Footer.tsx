@@ -61,7 +61,7 @@ export default function Footer() {
             <div className="space-y-5">
               <Logo />
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed max-w-[260px]">
-                Staff-level software engineer and CTO. I build scalable systems, backend architecture, and full-stack products for teams worldwide.
+                Full-stack software engineer. I build scalable systems, backend architecture, and full-stack products for teams worldwide.
               </p>
               <div className="flex flex-wrap gap-2">
                 {socials.map((s) => (

@@ -11,10 +11,11 @@ const experiences = [
     location: "Lagos, Nigeria (Hybrid)",
     type: "Full-time",
     highlights: [
-      "Building production-grade platforms that process real-time data streams for trading and verification systems",
-      "Cut latency in live trading updates by 30% through advanced caching and WebSocket integrations",
-      "Orchestrating payment gateway, media, and third-party API integrations into a unified transaction ecosystem",
-      "Optimizing performance with asynchronous background jobs, memory management, and structured system design",
+      "Delivering client platforms from architecture through deployment and production support, across critical minerals trading, ESG reporting, publishing, real estate, e-commerce, and events",
+      "Glore: owning the real-time layer of a critical minerals trading platform, streaming live prices to charts over WebSockets with Redis caching on an Express and PostgreSQL backend",
+      "RIOS: architecting a multi-tenant ESG reporting SaaS that benchmarks against GRI, TCFD, and IFRS and generates branded PDF reports automatically",
+      "Digital Hub Africa, Salmired, Dubai Avenue Scents, and DPA Summit: shipping a TipTap publishing magazine, a real estate listing platform, a WhatsApp-first storefront, and a Laravel event platform",
+      "Integrating payment gateways, email delivery, and third-party APIs, and moving slow work into background jobs so user-facing pages stay fast",
     ],
   },
   {
@@ -24,10 +25,11 @@ const experiences = [
     location: "Lagos, Nigeria",
     type: "Contract",
     highlights: [
-      "Building a responsive multi-role mentorship platform used across institutions and cohorts",
-      "Implementing seamless social authentication flows to reduce signup friction for new users",
-      "Improving platform performance, SEO, and accessibility to expand reach and discoverability",
-      "Delivering a unified component library and design system that accelerates feature development",
+      "Engineering Ascentor's member platform, which grew from a mentorship community into a full leadership-development product covering AI coaching, live events and ticketing, payments, and a white-label partner programme",
+      "Developing Sage, an AI leadership coach on the Anthropic Claude API, with retrieval over a mentor knowledge base in pgvector",
+      "Integrating Paystack for subscriptions, donations, event tickets, and partner billing, with idempotent settlement driven by signed webhooks and daily reconciliation",
+      "Delivering registration and ticketing for The Elevation Summit, with free and paid tickets, confirmation emails, and event-day access",
+      "Securing member data with Supabase Row Level Security, strict Zod validation, rate limiting, CAPTCHA, and optional two-factor authentication for staff",
     ],
   },
   {
@@ -37,10 +39,10 @@ const experiences = [
     location: "Australia (Remote)",
     type: "Full-time",
     highlights: [
-      "Maintained production applications handling high-volume traffic at 99.9% uptime",
-      "Reduced page load times by 40% and improved server response rates under heavy load",
-      "Delivered customer portals and admin platforms that streamlined onboarding for thousands of users",
-      "Fortified security posture with input validation, rate limiting, and API protection mechanisms",
+      "Built MSP Reports, a white-label reporting platform that pulls data from 20+ tools, including Autotask, Datto, and BitDefender, into branded client reports with AI-generated executive summaries and multi-tenant isolation",
+      "Delivered the Freedom Internet customer portal and the Crisp Wireless signup platform, streamlining customer onboarding",
+      "Designed RESTful integrations and backend workflows that synchronized business-critical operations across multiple third-party vendors",
+      "Hardened applications with input validation, rate limiting, and API protection, and improved page load speed and server response times",
     ],
   },
   {
@@ -63,10 +65,11 @@ const experiences = [
     location: "Florida, USA (Remote)",
     type: "Contract",
     highlights: [
-      "Built a full-stack solar energy marketplace on Next.js, Node.js, PostgreSQL, Prisma, and Supabase",
-      "Designed RBAC, quote request workflows, and recycling network features for multiple stakeholder roles",
-      "Integrated authentication, notifications, file uploads, and third-party services for production operations",
-      "Stabilized production systems through continuous debugging, reducing downtime and resolving critical login issues",
+      "Delivered a solar energy marketplace from scratch and supported it in production, connecting manufacturers, distributors, recyclers, and customers",
+      "Developed the full-stack platform on Next.js, Express, PostgreSQL, Prisma, and Supabase",
+      "Designed quote-based pricing and request workflows, role-based access for each stakeholder type, and a recycling network integration",
+      "Added an AI chatbot and guided onboarding tours to help new users find their way around the platform",
+      "Maintained the platform after launch, debugging and resolving production login issues",
     ],
   },
 ];

@@ -195,7 +195,7 @@ flowchart TD
 - Services: 11 cards with equalized descriptions, distinct SVG patterns (circles, squares, diamonds, lines), no em dashes
 - Projects: 28 projects filterable by category (Platform, SaaS, SaaS/AI, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress); real cover image per card rendered in greyscale (colour reveals on hover); category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
 - Experience: animated scroll-driven timeline line, spring-pop dots, impact-focused bullet points
-- Education: 5 cards - FUTA Akure B.Tech (Computer Information Systems, CGPA 4.77/5.00), Amazon Professional Software Development Certification, NACOSS FUTA Hackathon Emerging Award, Cipher Full Stack cert, Aspire Leaders Program (Harvard collab)
+- Education: 5 cards - FUTA Akure B.Tech (Computer Information Systems, CGPA 4.72/5.00), Amazon Professional Software Development Certification, NACOSS FUTA Hackathon Emerging Award, Cipher Full Stack cert, Aspire Leaders Program (Harvard collab)
 - WhyMe: 6 USP cards with alternating elevated backgrounds (cards 2/4/6 elevated at rest); card 04 is "AI-Augmented Delivery"
 - Testimonials: quote cards with avatar images
 - Projects: theme-aware "New" pill beside the title for entries carrying an `addedOn` date, auto-expiring after 30 days
@@ -238,7 +238,7 @@ flowchart TD
 | Dubai Avenue Scents | E-commerce | [dubaiavenuescent.com](https://dubaiavenuescent.com) |
 | DPA Summit | Platform | [digitalprocurement.africa](https://digitalprocurement.africa) |
 | FUTA HMS | Healthcare | [futahms.vercel.app](https://futahms.vercel.app) |
-| Ascentor LDP | Platform | [ascentorbi.com](https://ascentorbi.com) |
+| Ascentor LDP | Platform | [joinascentor.com](https://joinascentor.com/) |
 | Cooper Gaming Services | Agency | [coopergamingservices.com](https://coopergamingservices.com) |
 | Glory Fashion | WordPress | [glorybyjes.com](https://glorybyjes.com) |
 | Noble Land Africa | WordPress | [noblelandafrica.com](https://noblelandafrica.com) |

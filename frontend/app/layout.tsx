@@ -18,7 +18,7 @@ const urbanist = Urbanist({
 });
 
 export const metadata: Metadata = {
-  title: "Oyedokun Kehinde - Full-stack Software Engineer and CTO",
+  title: "Oyedokun Kehinde - Full-stack Software Engineer",
   description:
     "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
   keywords: [
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   creator: "Oyedokun Kehinde",
   metadataBase: new URL("https://www.oyedokun.dev"),
   openGraph: {
-    title: "Oyedokun Kehinde - Full-stack Software Engineer and CTO",
+    title: "Oyedokun Kehinde - Full-stack Software Engineer",
     description:
       "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
     url: "https://www.oyedokun.dev/",
@@ -70,13 +70,13 @@ export const metadata: Metadata = {
         url: "https://www.oyedokun.dev/og.png",
         width: 1200,
         height: 630,
-        alt: "Oyedokun Kehinde - Full-stack Software Engineer and CTO",
+        alt: "Oyedokun Kehinde - Full-stack Software Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oyedokun Kehinde - Full-stack Software Engineer and CTO",
+    title: "Oyedokun Kehinde - Full-stack Software Engineer",
     description:
       "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
     images: ["https://www.oyedokun.dev/og.png"],
@@ -124,7 +124,7 @@ export default function RootLayout({
                   alternateName: "oyedokunken",
                   url: "https://www.oyedokun.dev/",
                   image: "https://www.oyedokun.dev/shoot/oyedokun-50.webp",
-                  jobTitle: "Full-stack Software Engineer and CTO",
+                  jobTitle: "Full-stack Software Engineer",
                   description:
                     "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
                   email: "mailto:hello@oyedokun.dev",
@@ -153,7 +153,7 @@ export default function RootLayout({
                   "@type": "WebSite",
                   "@id": "https://www.oyedokun.dev/#website",
                   url: "https://www.oyedokun.dev/",
-                  name: "Oyedokun Kehinde - Full-stack Software Engineer and CTO",
+                  name: "Oyedokun Kehinde - Full-stack Software Engineer",
                   description:
                     "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
                   publisher: { "@id": "https://www.oyedokun.dev/#person" },

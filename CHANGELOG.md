@@ -6,6 +6,27 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.18.0] - 2026-10-13
+
+### Added
+- WhatsApp chat modal now "connects" on open (Connecting..., Connected, Active Now) and shows a typing bubble until the reply arrives.
+- Skills: Socket.IO, LiveKit, Redis, Nginx, Vercel, Vite, Playwright, OpenAI API and Claude API.
+- Services cards follow the light/dark theme; PNG logo in all email templates.
+
+### Changed
+- Positioning is now "Full-stack Software Engineer" everywhere (site title, SEO, structured data, footer, `llms.txt`); no CTO or staff-level wording.
+- Experience rewritten to match the CV (project-tied bullets, correct tense, Ascentor as a full platform, MSP Reports under Athena); unverifiable metrics removed.
+- CGPA corrected to 4.72; Services reordered; up to five tool tags per project with Prisma last; Ascentor moved to joinascentor.com.
+- Preloader always plays and tracks real loading (fonts and document).
+- Covers and shoot photos converted to WebP; AVIF/WebP enabled in `next.config.mjs`.
+- `GITHUB.md` skills, industries, project stacks and "Right now" brought in line with the portfolio.
+
+### Removed
+- Skills not backed by projects: Java, C#, Vue.js, Svelte, AWS, Kubernetes.
+- Scratch files (`prompts.txt`, `updates.txt`) and unused images.
+
+---
+
 ## [1.17.0] - 2026-10-12
 
 ### Security

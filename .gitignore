@@ -39,3 +39,7 @@ backend/data/*.json
 
 # TypeScript incremental build info
 *.tsbuildinfo
+
+# Local scratch and drafts
+updates.txt
+CV - Oyedokun Kehinde (new content).txt

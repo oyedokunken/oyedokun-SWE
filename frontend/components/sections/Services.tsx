@@ -81,7 +81,7 @@ const services = [
     num: "09",
     icon: ShieldCheck,
     title: "Technical Leadership",
-    desc: "CTO-level direction. Architecture decisions, team guidance, product strategy, and technical roadmaps for startups and growing engineering teams.",
+    desc: "Hands-on technical direction. Architecture decisions, team guidance, product strategy, and technical roadmaps for startups and growing engineering teams.",
     tags: ["Strategy", "Architecture", "Mentorship", "Roadmapping"],
     bg: "#0f0f0f",
     accent: "#1a1a1a",
