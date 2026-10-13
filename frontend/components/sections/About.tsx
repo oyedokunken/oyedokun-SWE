@@ -81,7 +81,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.18 }}
               className="mt-5 text-[15px] text-[var(--text-secondary)] leading-relaxed"
             >
-              I don&apos;t code to impress, I code to deliver. I value quality code, performance and scalability over clever tricks and quick fixes. The code that survives is the code that was built to last.
+              I start with the system, not the screen: how data flows, where each boundary sits, and what breaks first under real load. Get the structure right and the features follow, and the structure is what still stands years later.
             </motion.p>
 
             <motion.div

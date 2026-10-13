@@ -5,17 +5,19 @@ import Image from "next/image";
 
 const CDN = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
 
-const SI = "https://cdn.jsdelivr.net/npm/simple-icons@13/icons";
+const SI = "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons";
 
 // mono: single-colour black icons that need inverting on the dark theme.
+// Every group holds the same number of tools so the grid stays even.
 const skillGroups: { label: string; skills: { name: string; icon: string; mono?: boolean }[] }[] = [
   {
     label: "Languages",
     skills: [
       { name: "TypeScript", icon: `${CDN}/typescript/typescript-original.svg` },
       { name: "JavaScript", icon: `${CDN}/javascript/javascript-original.svg` },
-      { name: "PHP", icon: `${CDN}/php/php-original.svg` },
       { name: "Python", icon: `${CDN}/python/python-original.svg` },
+      { name: "PHP", icon: `${CDN}/php/php-original.svg` },
+      { name: "HTML5", icon: `${CDN}/html5/html5-original.svg` },
     ],
   },
   {
@@ -25,6 +27,7 @@ const skillGroups: { label: string; skills: { name: string; icon: string; mono?:
       { name: "Next.js", icon: `${CDN}/nextjs/nextjs-original.svg` },
       { name: "Tailwind CSS", icon: `${CDN}/tailwindcss/tailwindcss-original.svg` },
       { name: "Vite", icon: `${CDN}/vitejs/vitejs-original.svg` },
+      { name: "shadcn/ui", icon: `${SI}/shadcnui.svg`, mono: true },
     ],
   },
   {
@@ -34,8 +37,7 @@ const skillGroups: { label: string; skills: { name: string; icon: string; mono?:
       { name: "Express", icon: `${CDN}/express/express-original.svg`, mono: true },
       { name: "Laravel", icon: `${CDN}/laravel/laravel-original.svg` },
       { name: "FastAPI", icon: `${CDN}/fastapi/fastapi-original.svg` },
-      { name: "Socket.IO", icon: `${CDN}/socketio/socketio-original.svg`, mono: true },
-      { name: "LiveKit", icon: `${SI}/livekit.svg`, mono: true },
+      { name: "Supabase", icon: `${CDN}/supabase/supabase-original.svg` },
     ],
   },
   {
@@ -46,7 +48,6 @@ const skillGroups: { label: string; skills: { name: string; icon: string; mono?:
       { name: "MongoDB", icon: `${CDN}/mongodb/mongodb-original.svg` },
       { name: "Prisma", icon: `${CDN}/prisma/prisma-original.svg` },
       { name: "Redis", icon: `${CDN}/redis/redis-original.svg` },
-      { name: "Firebase", icon: `${CDN}/firebase/firebase-original.svg` },
     ],
   },
   {
@@ -60,14 +61,22 @@ const skillGroups: { label: string; skills: { name: string; icon: string; mono?:
     ],
   },
   {
-    label: "Tools & AI",
+    label: "AI & Real-time",
     skills: [
-      { name: "Git", icon: `${CDN}/git/git-original.svg` },
-      { name: "Supabase", icon: `${CDN}/supabase/supabase-original.svg` },
-      { name: "Postman", icon: `${CDN}/postman/postman-original.svg` },
-      { name: "Playwright", icon: `${CDN}/playwright/playwright-original.svg` },
       { name: "OpenAI API", icon: `${SI}/openai.svg`, mono: true },
       { name: "Claude API", icon: `${SI}/anthropic.svg`, mono: true },
+      { name: "LiveKit", icon: `${SI}/livekit.svg`, mono: true },
+      { name: "Socket.IO", icon: `${CDN}/socketio/socketio-original.svg`, mono: true },
+      { name: "WebRTC", icon: `${SI}/webrtc.svg`, mono: true },
+    ],
+  },
+  {
+    label: "Tools",
+    skills: [
+      { name: "Git", icon: `${CDN}/git/git-original.svg` },
+      { name: "Postman", icon: `${CDN}/postman/postman-original.svg` },
+      { name: "Playwright", icon: `${CDN}/playwright/playwright-original.svg` },
+      { name: "VS Code", icon: `${CDN}/vscode/vscode-original.svg` },
       { name: "WordPress", icon: `${CDN}/wordpress/wordpress-plain.svg` },
     ],
   },
@@ -108,7 +117,7 @@ export default function Skills() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3">
           {skillGroups.map((group, gi) => (
             <div key={group.label} className="space-y-2">
               <p className="text-[10px] tracking-[2px] uppercase text-[var(--text-muted)] px-2 mb-3">

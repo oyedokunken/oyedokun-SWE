@@ -3,12 +3,13 @@
 import { useState } from "react";
 
 const items = [
-  "TypeScript", "JavaScript", "PHP", "Python",
-  "React", "Next.js", "Tailwind CSS", "Vite",
-  "Node.js", "Express", "Laravel", "FastAPI", "Socket.IO", "LiveKit",
-  "PostgreSQL", "MySQL", "MongoDB", "Prisma", "Redis", "Firebase",
+  "TypeScript", "JavaScript", "Python", "PHP", "HTML5",
+  "React", "Next.js", "Tailwind CSS", "Vite", "shadcn/ui",
+  "Node.js", "Express", "Laravel", "FastAPI", "Supabase",
+  "PostgreSQL", "MySQL", "MongoDB", "Prisma", "Redis",
   "Docker", "GitHub Actions", "Linux", "Nginx", "Vercel",
-  "Git", "Supabase", "Postman", "Playwright", "OpenAI API", "Claude API", "WordPress",
+  "OpenAI API", "Claude API", "LiveKit", "Socket.IO", "WebRTC",
+  "Git", "Postman", "Playwright", "VS Code", "WordPress",
 ];
 
 function StarSep() {
