@@ -118,37 +118,53 @@ export default function Skills() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3">
-          {skillGroups.map((group, gi) => (
-            <div key={group.label} className="space-y-2">
-              <p className="text-[10px] tracking-[2px] uppercase text-[var(--text-muted)] px-2 mb-3">
-                {group.label}
-              </p>
-              {group.skills.map((skill, si) => (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: gi * 0.05 + si * 0.07, duration: 0.4 }}
-                  whileHover={{ scale: 1.03, y: -2 }}
-                  className="glass rounded-xl p-3 flex flex-col items-center gap-2 group cursor-default"
+          {skillGroups.map((group, gi) => {
+            // Below lg the last group spans the full width and lays its tools out as a row
+            // (3 then 2 on mobile) so the grid stays even instead of leaving a lone column.
+            const isLast = gi === skillGroups.length - 1;
+            return (
+              <div
+                key={group.label}
+                className={`space-y-2 ${isLast ? "col-span-2 sm:col-span-3 lg:col-span-1" : ""}`}
+              >
+                <p className="text-[10px] tracking-[2px] uppercase text-[var(--text-muted)] px-2 mb-3">
+                  {group.label}
+                </p>
+                <div
+                  className={
+                    isLast
+                      ? "grid grid-cols-3 sm:grid-cols-5 gap-2 lg:grid-cols-1 lg:space-y-0"
+                      : "space-y-2"
+                  }
                 >
-                  <div className="w-8 h-8 relative flex items-center justify-center">
-                    <Image
-                      src={skill.icon}
-                      alt={skill.name}
-                      width={32}
-                      height={32}
-                      className={`w-7 h-7 object-contain group-hover:scale-110 transition-transform duration-200 ${skill.mono ? "dark:invert" : "dark:invert-[0.05]"}`}
-                    />
-                  </div>
-                  <span className="text-[10px] text-[var(--text-muted)] text-center leading-tight">
-                    {skill.name}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          ))}
+                  {group.skills.map((skill, si) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: gi * 0.05 + si * 0.07, duration: 0.4 }}
+                      whileHover={{ scale: 1.03, y: -2 }}
+                      className="glass rounded-xl p-3 flex flex-col items-center gap-2 group cursor-default"
+                    >
+                      <div className="w-8 h-8 relative flex items-center justify-center">
+                        <Image
+                          src={skill.icon}
+                          alt={skill.name}
+                          width={32}
+                          height={32}
+                          className={`w-7 h-7 object-contain group-hover:scale-110 transition-transform duration-200 ${skill.mono ? "dark:invert" : "dark:invert-[0.05]"}`}
+                        />
+                      </div>
+                      <span className="text-[10px] text-[var(--text-muted)] text-center leading-tight">
+                        {skill.name}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
