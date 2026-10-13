@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTheme } from "@/context/ThemeContext";
 import { Layers, Server, Code2, Network, Cpu, ShieldCheck, Plug, Lock, Package, Globe, MessageSquare } from "lucide-react";
 
 const services = [
@@ -106,9 +107,17 @@ const services = [
 ];
 
 function ServiceCard({ service, index }: { service: (typeof services)[0]; index: number }) {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
+  // Dark: the original near-black gradient. Light: a pale surface with a faint tint of the card accent.
+  const gradient = isDark
+    ? `linear-gradient(135deg, ${service.bg} 0%, ${service.accent} 100%)`
+    : `linear-gradient(135deg, #fafafa 0%, color-mix(in srgb, ${service.accent} 9%, #ececec) 100%)`;
+
   return (
     <motion.div
-      className="relative rounded-2xl border border-white/10 p-8 md:p-10 min-h-[380px] h-full flex flex-col justify-between overflow-hidden"
+      className="relative rounded-2xl border border-[var(--border-color)] p-8 md:p-10 min-h-[380px] h-full flex flex-col justify-between overflow-hidden"
       initial={{ y: 50, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true, margin: "-60px" }}
@@ -117,20 +126,20 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
     >
       <div
         className="absolute inset-0 -z-10"
-        style={{ background: `linear-gradient(135deg, ${service.bg} 0%, ${service.accent} 100%)` }}
+        style={{ background: gradient }}
       />
       <div className="absolute inset-0 -z-10">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" className="opacity-10">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" className="opacity-10 text-[var(--text-primary)]">
           <defs>
             <pattern id={`svc-${service.num}`} width="32" height="32" patternUnits="userSpaceOnUse">
               {service.num === "09" ? (
-                <rect x="15.2" y="15.2" width="1.6" height="1.6" fill="white"/>
+                <rect x="15.2" y="15.2" width="1.6" height="1.6" fill="currentColor"/>
               ) : service.num === "10" ? (
-                <path d="M16 15 L17 16 L16 17 L15 16 Z" fill="white"/>
+                <path d="M16 15 L17 16 L16 17 L15 16 Z" fill="currentColor"/>
               ) : service.num === "11" ? (
-                <line x1="15" y1="16" x2="17" y2="16" stroke="white" strokeWidth="0.5"/>
+                <line x1="15" y1="16" x2="17" y2="16" stroke="currentColor" strokeWidth="0.5"/>
               ) : (
-                <circle cx="16" cy="16" r="0.8" fill="white"/>
+                <circle cx="16" cy="16" r="0.8" fill="currentColor"/>
               )}
             </pattern>
           </defs>
@@ -139,20 +148,20 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
       </div>
 
       <div className="flex items-start justify-between mb-8">
-        <div className="w-12 h-12 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center">
-          <service.icon size={22} className="text-white" />
+        <div className="w-12 h-12 rounded-xl border border-[var(--border-color)] bg-[var(--glass-bg)] flex items-center justify-center">
+          <service.icon size={22} className="text-[var(--text-primary)]" />
         </div>
-        <span className="text-[11px] tracking-[3px] text-white/30 font-sans">{service.num}</span>
+        <span className="text-[11px] tracking-[3px] text-[var(--text-muted)] font-sans">{service.num}</span>
       </div>
 
       <div className="space-y-4">
-        <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">{service.title}</h3>
-        <p className="text-white/55 leading-relaxed text-[15px]">{service.desc}</p>
+        <h3 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] tracking-tight">{service.title}</h3>
+        <p className="text-[var(--text-secondary)] leading-relaxed text-[15px]">{service.desc}</p>
         <div className="flex flex-wrap gap-2 pt-2">
           {service.tags.map((tag) => (
             <span
               key={tag}
-              className="text-[10px] tracking-[1.5px] uppercase px-3 py-1.5 rounded-full border border-white/10 text-white/50"
+              className="text-[10px] tracking-[1.5px] uppercase px-3 py-1.5 rounded-full border border-[var(--border-color)] text-[var(--text-secondary)]"
             >
               {tag}
             </span>
