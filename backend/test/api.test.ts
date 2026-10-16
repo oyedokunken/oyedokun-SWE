@@ -5,8 +5,6 @@ import request from "supertest";
 vi.mock("../src/services/mailer", () => ({
   sendContactOwner: vi.fn().mockResolvedValue(undefined),
   sendContactUser: vi.fn().mockResolvedValue(undefined),
-  sendResumeDelivery: vi.fn().mockResolvedValue(undefined),
-  sendResumeOwner: vi.fn().mockResolvedValue(undefined),
 }));
 
 const mailer = await import("../src/services/mailer");
@@ -111,17 +109,8 @@ describe("POST /api/contact", () => {
 });
 
 describe("POST /api/resume", () => {
-  it("delivers the resume for a valid request", async () => {
-    const res = await request(app)
-      .post("/api/resume")
-      .send({ name: "Ada Lovelace", email: uniqueEmail() });
-    expect(res.status).toBe(200);
-    expect(mailer.sendResumeDelivery).toHaveBeenCalledOnce();
-    expect(mailer.sendResumeOwner).toHaveBeenCalledOnce();
-  });
-
-  it("rejects a missing name", async () => {
-    const res = await request(app).post("/api/resume").send({ email: uniqueEmail() });
-    expect(res.status).toBe(400);
+  it("no longer exists", async () => {
+    const res = await request(app).post("/api/resume").send({ name: "Ada Lovelace", email: uniqueEmail() });
+    expect(res.status).toBe(404);
   });
 });

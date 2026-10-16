@@ -130,7 +130,7 @@ const privacyPage: InfoPage = {
   path: "/privacy/",
   label: "Privacy",
   title: "Privacy Policy",
-  description: "How oyedokun.dev collects, uses and stores information from visitors and from the contact and résumé forms.",
+  description: "How oyedokun.dev collects, uses and stores information from visitors and from the contact form.",
   intro:
     "This policy explains what information oyedokun.dev collects, why, and what happens to it. The site is a personal portfolio run by Oyedokun Kehinde. It has no user accounts, sells nothing, and does not use advertising or tracking cookies.",
   updated: "2026-10-16",
@@ -138,14 +138,14 @@ const privacyPage: InfoPage = {
     {
       heading: "Information you send me",
       paragraphs: [
-        "The contact form asks for your name, email address, an optional phone number, a subject and a message. The résumé request form asks for your name and email address. Both forms also contain a hidden field that only automated spam bots fill in.",
-        "When you submit a form, the details are emailed to me and, for résumé requests, my CV is emailed to the address you gave. The information is not written to a database. It stays in my email inbox, and is used only to reply to you or send the document you asked for.",
+        "The contact form asks for your name, email address, an optional phone number, a subject and a message. It also contains a hidden field that only automated spam bots fill in.",
+        "When you submit the form, your message is emailed to me and you receive a short confirmation email. The information is not written to a database. It stays in my email inbox and is used only to reply to you.",
       ],
     },
     {
       heading: "Abuse protection",
       paragraphs: [
-        "To stop the forms being used to send spam, the form API limits how many requests come from one IP address and how many messages go to one email address within an hour. These counters are kept in server memory only, are not linked to your identity, and are discarded automatically.",
+        "To stop the form being used to send spam, the form API limits how many requests come from one IP address and how many messages go to one email address within an hour. These counters are kept in server memory only, are not linked to your identity, and are discarded automatically.",
       ],
     },
     {
@@ -164,7 +164,7 @@ const privacyPage: InfoPage = {
       heading: "Third-party services",
       items: [
         "Vercel hosts the website and the form API, and processes requests to deliver the pages.",
-        "Google (Gmail SMTP) delivers form messages and résumé emails.",
+        "Google (Gmail SMTP) delivers contact form messages and confirmation emails.",
         "WhatsApp is only involved if you choose to open a WhatsApp chat link; WhatsApp's own privacy policy applies there.",
         "Country flag images in the phone number field load from purecatamphetamine.github.io, and GitHub serves some avatar images. These hosts receive standard request information such as your IP address.",
       ],

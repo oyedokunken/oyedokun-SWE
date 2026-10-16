@@ -21,8 +21,3 @@ export const contactSchema = z.object({
   website: honeypot,
 });
 
-export const resumeSchema = z.object({
-  name: text(2, 100, "Name"),
-  email,
-  website: honeypot,
-});

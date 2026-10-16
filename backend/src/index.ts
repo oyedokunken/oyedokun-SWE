@@ -4,7 +4,6 @@ import cors from "cors";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import contactRouter from "./routes/contact";
-import resumeRouter from "./routes/resume";
 
 const app = express();
 
@@ -51,7 +50,6 @@ const limiter = rateLimit({
 
 app.use("/api", limiter);
 app.use("/api/contact", contactRouter);
-app.use("/api/resume", resumeRouter);
 
 app.get("/", (_req, res) => res.json({ status: "ok", service: "oyedokun.dev API" }));
 app.get("/health", (_req, res) => res.json({ status: "ok" }));

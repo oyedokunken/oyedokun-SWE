@@ -28,7 +28,7 @@ Personal portfolio and contact API backend for Oyedokun Kehinde. Built with Next
 
 This is a production-grade portfolio site built to reflect the same quality standards applied to client work. It is not a template. Every component, animation, and API route was written from scratch.
 
-The frontend is a Next.js 16 app (App Router, prerendered pages) with Tailwind CSS and Framer Motion, Tailwind CSS, and Framer Motion. The backend is an Express.js serverless API that handles contact form submissions and resume delivery via SMTP.
+The frontend is a Next.js 16 app (App Router, prerendered pages) with Tailwind CSS and Framer Motion. The backend is an Express.js serverless API that handles contact form submissions via SMTP.
 
 Key design decisions:
 - Preloader with progress ring that gates all entrance animations via a custom `siteReady` event
@@ -56,10 +56,9 @@ oyedokun/
 │   │   ├── sections/               # Hero, MarqueeSection, About, Skills, Services,
 │   │   │                           # WhyMe, Projects, Experience, Education,
 │   │   │                           # Testimonials, PhotoScroll, Contact
-│   │   └── ui/                     # Preloader, ResumeModal, Modal, ThemeToggle,
+│   │   └── ui/                     # Preloader, Modal, ThemeToggle,
 │   │                               # ScrollToTop, WhatsAppFloat
-│   ├── context/                    # ThemeContext, ResumeModalContext,
-│   │                               # WhatsAppChatContext
+│   ├── context/                    # ThemeContext, WhatsAppChatContext
 │   ├── data/                       # projects.ts (portfolio project list)
 │   ├── lib/                        # api.ts, utils.ts, useSiteReady.ts
 │   └── public/                     # covers/, shoot/, fonts, og.png, robots.txt
@@ -70,11 +69,9 @@ oyedokun/
     │   ├── validation.ts           # Zod schemas (length limits, honeypot)
     │   ├── recipientLimit.ts       # Per-recipient email cap
     │   ├── routes/
-    │   │   ├── contact.ts          # POST /api/contact
-    │   │   └── resume.ts           # POST /api/resume
+    │   │   └── contact.ts          # POST /api/contact
     │   └── services/
     │       └── mailer.ts           # Nodemailer transport + inline HTML email templates
-    ├── CV - Oyedokun Kehinde.pdf   # Attached to resume delivery emails
     └── vercel.json                 # Serverless function config
 ```
 
@@ -92,7 +89,6 @@ flowchart TD
     B --> G[ThemeContext]
     B --> H[useSiteReady]
     C --> I["/api/contact"]
-    C --> J["/api/resume"]
     C --> K["/health"]
     I --> L[Nodemailer]
     L --> M[Gmail SMTP]
@@ -149,20 +145,6 @@ flowchart TD
     H --> I[Frontend shows success modal]
 ```
 
-### Resume request
-
-```mermaid
-flowchart TD
-    A[User opens Resume modal] --> B[Fills name and email]
-    B --> C[Zod validates on client]
-    C --> D[POST /api/resume]
-    D --> E[Zod validates on server]
-    E --> F[Log entry written<br/>resume-log.txt]
-    F --> G[Nodemailer sends email<br/>CV PDF attached]
-    G --> H[200 OK returned]
-    H --> I[Frontend shows success state]
-```
-
 ### Page load and animation sequence
 
 ```mermaid
@@ -201,7 +183,6 @@ flowchart TD
 - Projects: theme-aware "New" pill beside the title for entries carrying an `addedOn` date, auto-expiring after 30 days
 - Photo scroll: infinite bidirectional marquee of 58 photos in two rows
 - Contact: form with field icons, Zod validation, rate-limited API, success/error modal
-- CV modal: name and email form, PDF delivery via Nodemailer
 - Open Graph and Twitter card metadata with custom 1200x630 OG image
 - Sitemap and robots.txt for search engine indexing
 - WhatsApp float button with "Let's chat" sticky label; opens an authentic chat modal with avatar and "Active Now" status, video/voice call icons, a live date pill, an end-to-end encryption notice, a welcome bubble with a live timestamp, and a mobile-only input bar (emoji, sticker, paperclip, mic/send)
@@ -302,10 +283,6 @@ OWNER_EMAIL=your_email@gmail.com
 
 Gmail requires an App Password, not your account password. Generate one at `myaccount.google.com/apppasswords` with 2FA enabled.
 
-### Resume PDF
-
-Place your resume at `backend/CV - Oyedokun Kehinde.pdf`. It is attached automatically to every resume delivery email.
-
 ---
 
 ## API Endpoints
@@ -315,7 +292,6 @@ Place your resume at `backend/CV - Oyedokun Kehinde.pdf`. It is attached automat
 | GET | / | Health check |
 | GET | /health | Health check |
 | POST | /api/contact | Send contact message |
-| POST | /api/resume | Request resume delivery |
 
 ### POST /api/contact
 
@@ -333,20 +309,6 @@ Body:
 ```
 
 Sends a notification email to the owner and a confirmation to the sender.
-
-### POST /api/resume
-
-Body:
-
-```json
-{
-  "name": "string (2-100)",
-  "email": "string (valid email, max 254)",
-  "website": "honeypot, must be left empty"
-}
-```
-
-Delivers the CV PDF via SMTP and notifies the owner.
 
 ### Rate Limiting
 

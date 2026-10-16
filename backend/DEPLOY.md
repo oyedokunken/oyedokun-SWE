@@ -4,7 +4,6 @@
 
 - Vercel account at vercel.com
 - Gmail account with App Password enabled
-- `resume.pdf` placed in the `backend/` root directory
 
 ---
 
@@ -88,8 +87,3 @@ npm run dev
 
 Health check: `GET http://localhost:4000/health` returns `{ "status": "ok" }`
 
----
-
-## Resume PDF
-
-The file `backend/resume.pdf` is bundled into the Vercel deployment via `vercel.json` `includeFiles` config. Keep it in the `backend/` root. Replace it any time to update what gets emailed.

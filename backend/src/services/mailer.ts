@@ -1,6 +1,4 @@
 import nodemailer from "nodemailer";
-import path from "path";
-import fs from "fs";
 
 const SMTP_PORT = Number(process.env.SMTP_PORT) || 587;
 
@@ -48,8 +46,6 @@ const TEMPLATES = {
   "contact-user": `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>I got your message</title><style>${BASE_STYLES}</style></head><body><div class="outer"><div class="wrap"><div class="hdr"><a href="https://www.oyedokun.dev/" style="text-decoration:none;display:inline-block"><img src="https://www.oyedokun.dev/email-icons/logo.png" width="34" height="34" alt="oyedokun.dev" style="display:inline-block;vertical-align:middle;border:0"/><span class="logo-name" style="vertical-align:middle;margin-left:11px">oyedokun<span class="lo-fade">.dev</span></span></a></div><div class="divider"></div><div class="bp"><span class="tag">Acknowledged</span><h1>I got your message.</h1><p class="sub">Your message has been received, {{name}}.</p><p class="body-p">I read every message personally and will get back to you within 24 to 48 hours.</p></div><div class="divider"></div>${SOCIAL_FOOTER}</div></div></body></html>`,
 
 
-
-
 } as const;
 
 export async function sendContactOwner(data: {
@@ -86,5 +82,3 @@ export async function sendContactUser(data: { name: string; email: string }) {
     html,
   });
 }
-
-

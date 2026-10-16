@@ -6,6 +6,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [Unreleased]
+
+### Removed
+- CV/résumé request feature: the `/api/resume` route, its validation schema, the résumé delivery and request emails and their templates, the bundled CV PDF and its Vercel `includeFiles` entry, and the unused frontend modal and context. The privacy policy now covers only the contact form.
+
+---
+
 ## [1.18.0] - 2026-10-13
 
 ### Added

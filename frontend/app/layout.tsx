@@ -4,10 +4,8 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import MotionProvider from "@/components/MotionProvider";
 import { ThemeProvider } from "@/context/ThemeContext";
-import { ResumeModalProvider } from "@/context/ResumeModalContext";
 import { WhatsAppChatProvider } from "@/context/WhatsAppChatContext";
 import Preloader from "@/components/ui/Preloader";
-import ResumeModal from "@/components/ui/ResumeModal";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
 import { projects } from "@/data/projects";
@@ -177,15 +175,12 @@ export default function RootLayout({
       <body className="bg-[var(--bg)] text-[var(--text-primary)] overflow-x-hidden">
         <MotionProvider>
         <ThemeProvider>
-          <ResumeModalProvider>
-            <WhatsAppChatProvider>
-              <Preloader />
-              {children}
-              <ResumeModal />
-              <ScrollToTop />
-              <WhatsAppFloat />
-            </WhatsAppChatProvider>
-          </ResumeModalProvider>
+          <WhatsAppChatProvider>
+            <Preloader />
+            {children}
+            <ScrollToTop />
+            <WhatsAppFloat />
+          </WhatsAppChatProvider>
         </ThemeProvider>
         </MotionProvider>
         <Analytics />

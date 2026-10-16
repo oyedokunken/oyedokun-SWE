@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { contactSchema, resumeSchema } from "../src/validation";
+import { contactSchema } from "../src/validation";
 
 const validContact = {
   name: "Ada Lovelace",
@@ -39,13 +39,3 @@ describe("contactSchema", () => {
   });
 });
 
-describe("resumeSchema", () => {
-  it("accepts name and email", () => {
-    expect(resumeSchema.safeParse({ name: "Ada", email: "ada@example.com" }).success).toBe(true);
-  });
-
-  it("rejects an over-long email", () => {
-    const email = `${"a".repeat(250)}@x.io`;
-    expect(resumeSchema.safeParse({ name: "Ada", email }).success).toBe(false);
-  });
-});
