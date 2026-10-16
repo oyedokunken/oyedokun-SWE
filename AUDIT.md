@@ -37,14 +37,11 @@ Do this for **this repo and each pinned / linked project** on https://github.com
 
 ## 2. Lighthouse on production via Chrome DevTools MCP
 
-1. Install the MCP server in Claude Code (one-time):
-
-   ```bash
-   claude mcp add chrome-devtools --scope user -- npx -y chrome-devtools-mcp@latest
-   ```
-
+1. The MCP server is already configured for this project in `.mcp.json` (it runs
+   `npx -y chrome-devtools-mcp@latest`, with Google's usage statistics turned off).
    Docs: https://developer.chrome.com/docs/devtools/agents
-2. Restart Claude Code in this repo and ask:
+2. Start a **new** Claude Code session in this folder (the desktop app's Code tab works). Approve the
+   `chrome-devtools` server when asked, then ask:
 
    ```
    Use the chrome-devtools MCP to run a Lighthouse audit (mobile and desktop) on
