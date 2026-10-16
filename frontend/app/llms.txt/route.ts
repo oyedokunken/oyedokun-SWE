@@ -1,3 +1,11 @@
+import { projects } from "@/data/projects";
+import stack from "@/data/stack.json";
+
+// Served at /llms.txt (https://llmstxt.org). Generated from the same data as the
+// page so the project list an agent reads can never drift from what's on the site.
+export const dynamic = "force-static";
+
+const INTRO = `
 # Oyedokun Kehinde — oyedokun.dev
 
 > Full-stack Software Engineer. Backend architecture, distributed systems, SaaS products, MERN and PERN stacks. Architecting systems. Shipping at scale.
@@ -30,3 +38,22 @@ Oyedokun Kehinde (oyedokunken) is a full-stack software engineer specializing in
 ## Services
 
 Backend engineering, full-stack development, SaaS product development, API development, systems architecture, WordPress development, and technical consultation.
+`.trim();
+
+export function GET() {
+  const projectLines = projects.map((p) => {
+    const link = p.live ?? p.github;
+    const source = p.github && p.github !== link ? ` Source: ${p.github}` : "";
+    return `- [${p.title}](${link}): ${p.desc} Stack: ${p.tags.join(", ")}.${source}`;
+  });
+
+  const stackLines = stack.groups.map(
+    (g) => `- ${g.label}: ${g.skills.map((s) => s.name).join(", ")}`
+  );
+
+  const body = [INTRO, "## Projects", ...projectLines, "", "## Stack", ...stackLines, ""].join("\n");
+
+  return new Response(body, {
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  });
+}

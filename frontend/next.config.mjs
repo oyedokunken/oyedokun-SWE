@@ -14,7 +14,7 @@ const csp = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://cdn.jsdelivr.net https://avatars.githubusercontent.com https://purecatamphetamine.github.io",
+  "img-src 'self' data: blob: https://avatars.githubusercontent.com https://purecatamphetamine.github.io",
   "font-src 'self' data:",
   `connect-src 'self' https://va.vercel-scripts.com ${apiOrigin} ${isDev ? "http://localhost:4000 ws:" : ""}`.trim(),
   "frame-ancestors 'none'",
@@ -39,7 +39,6 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
-      { protocol: "https", hostname: "cdn.jsdelivr.net" },
       { protocol: "https", hostname: "avatars.githubusercontent.com" },
     ],
   },

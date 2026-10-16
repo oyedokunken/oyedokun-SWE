@@ -1,0 +1,227 @@
+{
+  "groups": [
+    {
+      "label": "Languages",
+      "skills": [
+        {
+          "name": "TypeScript",
+          "svgl": "TypeScript",
+          "icon": "/stack/typescript.svg"
+        },
+        {
+          "name": "JavaScript",
+          "svgl": "JavaScript",
+          "icon": "/stack/javascript.svg"
+        },
+        {
+          "name": "Python",
+          "svgl": "Python",
+          "icon": "/stack/python.svg"
+        },
+        {
+          "name": "PHP",
+          "svgl": "Php",
+          "icon": "/stack/php.svg",
+          "iconDark": "/stack/php-dark.svg"
+        },
+        {
+          "name": "HTML5",
+          "svgl": "HTML5",
+          "icon": "/stack/html5.svg"
+        }
+      ]
+    },
+    {
+      "label": "Frontend",
+      "skills": [
+        {
+          "name": "React",
+          "svgl": "React",
+          "icon": "/stack/react.svg",
+          "iconDark": "/stack/react-dark.svg"
+        },
+        {
+          "name": "Next.js",
+          "svgl": "Next.js",
+          "icon": "/stack/next-js.svg"
+        },
+        {
+          "name": "Tailwind CSS",
+          "svgl": "Tailwind CSS",
+          "icon": "/stack/tailwind-css.svg"
+        },
+        {
+          "name": "Vite",
+          "svgl": "Vite",
+          "icon": "/stack/vite.svg"
+        },
+        {
+          "name": "shadcn/ui",
+          "svgl": "shadcn/ui",
+          "icon": "/stack/shadcn-ui.svg",
+          "iconDark": "/stack/shadcn-ui-dark.svg"
+        }
+      ]
+    },
+    {
+      "label": "Backend",
+      "skills": [
+        {
+          "name": "Node.js",
+          "svgl": "Node.js",
+          "icon": "/stack/node-js.svg"
+        },
+        {
+          "name": "Express",
+          "svgl": "Express.js",
+          "icon": "/stack/express.svg",
+          "iconDark": "/stack/express-dark.svg"
+        },
+        {
+          "name": "Laravel",
+          "svgl": "Laravel",
+          "icon": "/stack/laravel.svg"
+        },
+        {
+          "name": "FastAPI",
+          "svgl": "FastAPI",
+          "icon": "/stack/fastapi.svg"
+        },
+        {
+          "name": "Supabase",
+          "svgl": "Supabase",
+          "icon": "/stack/supabase.svg"
+        }
+      ]
+    },
+    {
+      "label": "Data",
+      "skills": [
+        {
+          "name": "PostgreSQL",
+          "svgl": "PostgreSQL",
+          "icon": "/stack/postgresql.svg"
+        },
+        {
+          "name": "MySQL",
+          "svgl": "MySQL",
+          "icon": "/stack/mysql.svg",
+          "iconDark": "/stack/mysql-dark.svg"
+        },
+        {
+          "name": "MongoDB",
+          "svgl": "MongoDB",
+          "icon": "/stack/mongodb.svg",
+          "iconDark": "/stack/mongodb-dark.svg"
+        },
+        {
+          "name": "Prisma",
+          "svgl": "Prisma",
+          "icon": "/stack/prisma.svg",
+          "iconDark": "/stack/prisma-dark.svg"
+        },
+        {
+          "name": "Redis",
+          "svgl": "Redis",
+          "icon": "/stack/redis.svg"
+        }
+      ]
+    },
+    {
+      "label": "DevOps",
+      "skills": [
+        {
+          "name": "Docker",
+          "svgl": "Docker",
+          "icon": "/stack/docker.svg"
+        },
+        {
+          "name": "GitHub Actions",
+          "simpleIcons": "githubactions",
+          "icon": "/stack/github-actions.svg",
+          "iconDark": "/stack/github-actions-dark.svg"
+        },
+        {
+          "name": "Linux",
+          "svgl": "Linux",
+          "icon": "/stack/linux.svg"
+        },
+        {
+          "name": "Nginx",
+          "svgl": "Nginx",
+          "icon": "/stack/nginx.svg"
+        },
+        {
+          "name": "Vercel",
+          "svgl": "Vercel",
+          "icon": "/stack/vercel.svg",
+          "iconDark": "/stack/vercel-dark.svg"
+        }
+      ]
+    },
+    {
+      "label": "AI & Real-time",
+      "skills": [
+        {
+          "name": "OpenAI API",
+          "svgl": "OpenAI",
+          "icon": "/stack/openai-api.svg",
+          "iconDark": "/stack/openai-api-dark.svg"
+        },
+        {
+          "name": "Claude API",
+          "svgl": "Claude AI",
+          "icon": "/stack/claude-api.svg"
+        },
+        {
+          "name": "LiveKit",
+          "simpleIcons": "livekit",
+          "icon": "/stack/livekit.svg",
+          "iconDark": "/stack/livekit-dark.svg"
+        },
+        {
+          "name": "Socket.IO",
+          "svgl": "Socket.IO",
+          "icon": "/stack/socket-io.svg",
+          "iconDark": "/stack/socket-io-dark.svg"
+        },
+        {
+          "name": "WebRTC",
+          "simpleIcons": "webrtc",
+          "icon": "/stack/webrtc.svg",
+          "iconDark": "/stack/webrtc-dark.svg"
+        }
+      ]
+    },
+    {
+      "label": "Tools",
+      "skills": [
+        {
+          "name": "Git",
+          "svgl": "Git",
+          "icon": "/stack/git.svg"
+        },
+        {
+          "name": "Postman",
+          "svgl": "Postman",
+          "icon": "/stack/postman.svg"
+        },
+        {
+          "name": "Playwright",
+          "svgl": "Playwright",
+          "icon": "/stack/playwright.svg"
+        },
+        {
+          "name": "VS Code",
+          "svgl": "Visual Studio Code",
+          "icon": "/stack/vs-code.svg"
+        },
+        {
+          "name": "WordPress",
+          "svgl": "WordPress",
+          "icon": "/stack/wordpress.svg"
+        }
+      ]
+    }
+  ]
+}

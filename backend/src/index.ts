@@ -71,8 +71,8 @@ app.use((err: Error & { status?: number; type?: string }, _req: Request, res: Re
   res.status(500).json({ error: "Something went wrong." });
 });
 
-// Vercel invokes the exported app as a function; only listen when run directly.
-if (!process.env.VERCEL) {
+// Vercel invokes the exported app as a function, and tests import it; only listen when run directly.
+if (!process.env.VERCEL && require.main === module) {
   const PORT = Number(process.env.PORT) || 4000;
   app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
 }

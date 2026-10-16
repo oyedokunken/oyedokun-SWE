@@ -10,6 +10,7 @@ import Preloader from "@/components/ui/Preloader";
 import ResumeModal from "@/components/ui/ResumeModal";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
+import { projects } from "@/data/projects";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -158,6 +159,16 @@ export default function RootLayout({
                     "Full-stack software engineer. Comfortable with complexity. Forward-thinking. I build for the happy path, the edge cases, and everything in between.",
                   publisher: { "@id": "https://www.oyedokun.dev/#person" },
                 },
+                ...projects.map((p) => ({
+                  "@type": "SoftwareSourceCode",
+                  "@id": `https://www.oyedokun.dev/#project-${p.id}`,
+                  name: p.title,
+                  description: p.desc,
+                  url: p.live,
+                  codeRepository: p.github,
+                  keywords: p.tags.join(", "),
+                  author: { "@id": "https://www.oyedokun.dev/#person" },
+                })),
               ],
             }),
           }}

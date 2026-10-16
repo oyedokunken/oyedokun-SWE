@@ -2,85 +2,17 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import stack from "@/data/stack.json";
 
-const CDN = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
+type StackGroup = {
+  label: string;
+  skills: { name: string; icon: string; iconDark?: string }[];
+};
 
-const SI = "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons";
-
-// mono: single-colour black icons that need inverting on the dark theme.
+// Icons are synced from svgl (https://svgl.app) into public/stack by
+// `npm run icons`; edit data/stack.json, not this file.
 // Every group holds the same number of tools so the grid stays even.
-const skillGroups: { label: string; skills: { name: string; icon: string; mono?: boolean }[] }[] = [
-  {
-    label: "Languages",
-    skills: [
-      { name: "TypeScript", icon: `${CDN}/typescript/typescript-original.svg` },
-      { name: "JavaScript", icon: `${CDN}/javascript/javascript-original.svg` },
-      { name: "Python", icon: `${CDN}/python/python-original.svg` },
-      { name: "PHP", icon: `${CDN}/php/php-original.svg` },
-      { name: "HTML5", icon: `${CDN}/html5/html5-original.svg` },
-    ],
-  },
-  {
-    label: "Frontend",
-    skills: [
-      { name: "React", icon: `${CDN}/react/react-original.svg` },
-      { name: "Next.js", icon: `${CDN}/nextjs/nextjs-original.svg` },
-      { name: "Tailwind CSS", icon: `${CDN}/tailwindcss/tailwindcss-original.svg` },
-      { name: "Vite", icon: `${CDN}/vitejs/vitejs-original.svg` },
-      { name: "shadcn/ui", icon: `${SI}/shadcnui.svg`, mono: true },
-    ],
-  },
-  {
-    label: "Backend",
-    skills: [
-      { name: "Node.js", icon: `${CDN}/nodejs/nodejs-original.svg` },
-      { name: "Express", icon: `${CDN}/express/express-original.svg`, mono: true },
-      { name: "Laravel", icon: `${CDN}/laravel/laravel-original.svg` },
-      { name: "FastAPI", icon: `${CDN}/fastapi/fastapi-original.svg` },
-      { name: "Supabase", icon: `${CDN}/supabase/supabase-original.svg` },
-    ],
-  },
-  {
-    label: "Data",
-    skills: [
-      { name: "PostgreSQL", icon: `${CDN}/postgresql/postgresql-original.svg` },
-      { name: "MySQL", icon: `${CDN}/mysql/mysql-original.svg` },
-      { name: "MongoDB", icon: `${CDN}/mongodb/mongodb-original.svg` },
-      { name: "Prisma", icon: `${CDN}/prisma/prisma-original.svg` },
-      { name: "Redis", icon: `${CDN}/redis/redis-original.svg` },
-    ],
-  },
-  {
-    label: "DevOps",
-    skills: [
-      { name: "Docker", icon: `${CDN}/docker/docker-original.svg` },
-      { name: "GitHub Actions", icon: `${CDN}/githubactions/githubactions-original.svg` },
-      { name: "Linux", icon: `${CDN}/linux/linux-original.svg` },
-      { name: "Nginx", icon: `${CDN}/nginx/nginx-original.svg` },
-      { name: "Vercel", icon: `${CDN}/vercel/vercel-original.svg`, mono: true },
-    ],
-  },
-  {
-    label: "AI & Real-time",
-    skills: [
-      { name: "OpenAI API", icon: `${SI}/openai.svg`, mono: true },
-      { name: "Claude API", icon: `${SI}/anthropic.svg`, mono: true },
-      { name: "LiveKit", icon: `${SI}/livekit.svg`, mono: true },
-      { name: "Socket.IO", icon: `${CDN}/socketio/socketio-original.svg`, mono: true },
-      { name: "WebRTC", icon: `${SI}/webrtc.svg`, mono: true },
-    ],
-  },
-  {
-    label: "Tools",
-    skills: [
-      { name: "Git", icon: `${CDN}/git/git-original.svg` },
-      { name: "Postman", icon: `${CDN}/postman/postman-original.svg` },
-      { name: "Playwright", icon: `${CDN}/playwright/playwright-original.svg` },
-      { name: "VS Code", icon: `${CDN}/vscode/vscode-original.svg` },
-      { name: "WordPress", icon: `${CDN}/wordpress/wordpress-plain.svg` },
-    ],
-  },
-];
+const skillGroups: StackGroup[] = stack.groups;
 
 export default function Skills() {
   return (
@@ -153,8 +85,23 @@ export default function Skills() {
                           alt={skill.name}
                           width={32}
                           height={32}
-                          className={`w-7 h-7 object-contain group-hover:scale-110 transition-transform duration-200 ${skill.mono ? "dark:invert" : "dark:invert-[0.05]"}`}
+                          unoptimized
+                          // Themed pairs load eagerly so toggling the theme never shows a blank tile.
+                          loading={skill.iconDark ? "eager" : "lazy"}
+                          className={`w-7 h-7 object-contain group-hover:scale-110 transition-transform duration-200 ${skill.iconDark ? "dark:hidden" : ""}`}
                         />
+                        {skill.iconDark && (
+                          <Image
+                            src={skill.iconDark}
+                            alt=""
+                            aria-hidden
+                            width={32}
+                            height={32}
+                            unoptimized
+                            loading="eager"
+                            className="w-7 h-7 object-contain group-hover:scale-110 transition-transform duration-200 hidden dark:block"
+                          />
+                        )}
                       </div>
                       <span className="text-[10px] text-[var(--text-muted)] text-center leading-tight">
                         {skill.name}
