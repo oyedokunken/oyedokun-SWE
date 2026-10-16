@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useHydrated } from "@/lib/useHydrated";
 
 const items = [
   "TypeScript", "JavaScript", "Python", "PHP", "HTML5",
@@ -28,7 +29,10 @@ function StarSep() {
 
 export default function MarqueeSection() {
   const [paused, setPaused] = useState(false);
-  const repeated = [...items, ...items, ...items, ...items];
+  // Four copies make the loop seamless; only the first is server-rendered; the
+  // decorative repeats are added after hydration to keep the raw HTML lean.
+  const hydrated = useHydrated();
+  const repeated = hydrated ? [...items, ...items, ...items, ...items] : items;
 
   return (
     <div className="py-7 border-y border-[var(--border-color)] overflow-hidden bg-[var(--bg-secondary)] relative">
@@ -40,7 +44,7 @@ export default function MarqueeSection() {
         style={{ animationPlayState: paused ? "paused" : "running" }}
       >
         {repeated.map((item, i) => (
-          <span key={i} className="inline-flex items-center">
+          <span key={i} className="inline-flex items-center" aria-hidden={i >= items.length || undefined}>
             <span className="text-[13px] font-semibold tracking-[2px] uppercase text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors cursor-default select-none">
               {item}
             </span>

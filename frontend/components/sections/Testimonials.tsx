@@ -4,41 +4,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import { testimonials as testimonialsContent } from "@/data/content";
 
-const testimonials = [
-  {
-    quote:
-      "Kehinde delivered the entire Glore platform in record time. Clean architecture, real-time WebSocket pricing, and a polished UI that impressed every stakeholder. He thinks like an engineer and a product person at the same time.",
-    name: "Oreoluwa Israel",
-    role: "Founder",
-    company: "Glore",
-    initials: "OI",
-  },
-  {
-    quote:
-      "The RIOS platform is exactly what we needed. Multi-tenant ESG reporting with GRI and TCFD frameworks, all working out of the box. Kehinde understood the compliance requirements better than most engineers I have worked with.",
-    name: "Tunbosun Afolayan",
-    role: "Managing Director",
-    company: "PRO ALLY",
-    initials: "TA",
-  },
-  {
-    quote:
-      "Working with Kehinde on our customer portal and onboarding system was seamless. He built secure, scalable APIs and integrated everything we needed without cutting corners on performance or security.",
-    name: "Josh Finlay",
-    role: "Engineering Lead",
-    company: "Athena Networks",
-    initials: "JF",
-  },
-  {
-    quote:
-      "Kehinde built the Ren Power marketplace from scratch. The quote workflow, role-based dashboards, and the AI chatbot all work flawlessly in production. He is the kind of engineer you want owning the entire backend.",
-    name: "Ayobami Olu",
-    role: "CEO/Founder",
-    company: "Ren Power Limited",
-    initials: "AO",
-  },
-];
+const testimonials = testimonialsContent;
 
 export default function Testimonials() {
   const { theme } = useTheme();

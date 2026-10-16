@@ -3,9 +3,12 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MapPin, Layers, Target, GraduationCap, Building2, Gauge, Rocket } from "lucide-react";
+import { about } from "@/data/content";
 
-const philosophyWords =
-  "I write code the way architects design buildings. Every function has a reason, every system has a blueprint, every decision has a consequence. I don't just build features. I build the foundations that features live on.";
+const factIcons = [MapPin, Layers, Target, GraduationCap];
+const pillarIcons = [Building2, Gauge, Rocket];
+
+const philosophyWords = about.philosophy;
 
 function AnimatedWord({
   word,
@@ -81,7 +84,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.18 }}
               className="mt-5 text-[15px] text-[var(--text-secondary)] leading-relaxed"
             >
-              I start with the system, not the screen: how data flows, where each boundary sits, and what breaks first under real load. Get the structure right and the features follow, and the structure is what still stands years later.
+              {about.intro}
             </motion.p>
 
             <motion.div
@@ -91,12 +94,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.28 }}
               className="mt-12 grid grid-cols-2 gap-6"
             >
-              {[
-                { label: "Based in", value: "Lagos, Nigeria", icon: MapPin },
-                { label: "Stack", value: "Full-Stack", icon: Layers },
-                { label: "Focus", value: "Backend Systems", icon: Target },
-                { label: "Education", value: "B.Tech, FUTA", icon: GraduationCap },
-              ].map((item) => (
+              {about.facts.map((fact, i) => ({ ...fact, icon: factIcons[i] })).map((item) => (
                 <div key={item.label} className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg border border-[var(--border-color)] bg-[var(--bg-elevated)] flex items-center justify-center flex-shrink-0">
                     <item.icon size={15} className="text-[var(--text-secondary)]" />
@@ -130,23 +128,7 @@ export default function About() {
               transition={{ duration: 0.6 }}
               className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-4"
             >
-              {[
-                {
-                  title: "Clean Architecture",
-                  desc: "Systems that are easy to extend, impossible to misuse.",
-                  icon: Building2,
-                },
-                {
-                  title: "Performance First",
-                  desc: "Speed and reliability aren't features. They are baseline requirements.",
-                  icon: Gauge,
-                },
-                {
-                  title: "Ship It",
-                  desc: "From concept to production. No endless refactors, no analysis paralysis.",
-                  icon: Rocket,
-                },
-              ].map((card, i) => (
+              {about.pillars.map((pillar, i) => ({ ...pillar, icon: pillarIcons[i] })).map((card, i) => (
                 <motion.div
                   key={card.title}
                   initial={{ opacity: 0, y: 20 }}

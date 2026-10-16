@@ -2,77 +2,9 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { experiences as experiencesContent } from "@/data/content";
 
-const experiences = [
-  {
-    company: "Rexta Technologies",
-    role: "Software Engineer",
-    period: "June 2025 to Present",
-    location: "Lagos, Nigeria (Hybrid)",
-    type: "Full-time",
-    highlights: [
-      "Delivering client platforms from architecture through deployment and production support, across critical minerals trading, ESG reporting, publishing, real estate, e-commerce, and events",
-      "Glore: owning the real-time layer of a critical minerals trading platform, streaming live prices to charts over WebSockets with Redis caching on an Express and PostgreSQL backend",
-      "RIOS: architecting a multi-tenant ESG reporting SaaS that benchmarks against GRI, TCFD, and IFRS and generates branded PDF reports automatically",
-      "Digital Hub Africa, Salmired, Dubai Avenue Scents, and DPA Summit: shipping a TipTap publishing magazine, a real estate listing platform, a WhatsApp-first storefront, and a Laravel event platform",
-      "Integrating payment gateways, email delivery, and third-party APIs, and moving slow work into background jobs so user-facing pages stay fast",
-    ],
-  },
-  {
-    company: "Ascentor BI",
-    role: "Software Engineer",
-    period: "January 2024 to Present",
-    location: "Lagos, Nigeria",
-    type: "Contract",
-    highlights: [
-      "Engineering Ascentor's member platform, which grew from a mentorship community into a full leadership-development product covering AI coaching, live events and ticketing, payments, and a white-label partner programme",
-      "Developing Sage, an AI leadership coach on the Anthropic Claude API, with retrieval over a mentor knowledge base in pgvector",
-      "Integrating Paystack for subscriptions, donations, event tickets, and partner billing, with idempotent settlement driven by signed webhooks and daily reconciliation",
-      "Delivering registration and ticketing for The Elevation Summit, with free and paid tickets, confirmation emails, and event-day access",
-      "Securing member data with Supabase Row Level Security, strict Zod validation, rate limiting, CAPTCHA, and optional two-factor authentication for staff",
-    ],
-  },
-  {
-    company: "Athena Networks",
-    role: "Software Engineer",
-    period: "October 2025 to September 2026",
-    location: "Australia (Remote)",
-    type: "Full-time",
-    highlights: [
-      "Built MSP Reports, a white-label reporting platform that pulls data from 20+ tools, including Autotask, Datto, and BitDefender, into branded client reports with AI-generated executive summaries and multi-tenant isolation",
-      "Delivered the Freedom Internet customer portal and the Crisp Wireless signup platform, streamlining customer onboarding",
-      "Designed RESTful integrations and backend workflows that synchronized business-critical operations across multiple third-party vendors",
-      "Hardened applications with input validation, rate limiting, and API protection, and improved page load speed and server response times",
-    ],
-  },
-  {
-    company: "PRO ALLY",
-    role: "Chief Technology Officer",
-    period: "May 2025 to September 2026",
-    location: "Lagos, Nigeria (Part-time)",
-    type: "Part-time",
-    highlights: [
-      "Setting and executing technology strategy across ESG advisory and publishing platforms",
-      "Architecting RIOS, a multi-tenant ESG SaaS platform built to support global compliance reporting",
-      "Overseeing five live platforms simultaneously without degrading uptime or delivery speed",
-      "Building the engineering foundation: processes, standards, and pipelines that enable the team to scale",
-    ],
-  },
-  {
-    company: "Ren Power Limited",
-    role: "Software Engineer",
-    period: "January 2025 to July 2026",
-    location: "Florida, USA (Remote)",
-    type: "Contract",
-    highlights: [
-      "Delivered a solar energy marketplace from scratch and supported it in production, connecting manufacturers, distributors, recyclers, and customers",
-      "Developed the full-stack platform on Next.js, Express, PostgreSQL, Prisma, and Supabase",
-      "Designed quote-based pricing and request workflows, role-based access for each stakeholder type, and a recycling network integration",
-      "Added an AI chatbot and guided onboarding tours to help new users find their way around the platform",
-      "Maintained the platform after launch, debugging and resolving production login issues",
-    ],
-  },
-];
+const experiences = experiencesContent;
 
 export default function Experience() {
   const sectionRef = useRef<HTMLDivElement>(null);

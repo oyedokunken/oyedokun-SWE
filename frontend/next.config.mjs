@@ -43,7 +43,23 @@ const nextConfig = {
     ],
   },
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      // Pages are negotiated between HTML and Markdown on Accept (proxy.ts).
+      // Next's page runtime replaces any Vary set by the proxy, so the full
+      // value (Accept plus Next's own RSC headers) is declared here for the
+      // hosting layer to apply; dropping the RSC values would let a CDN serve
+      // a cached RSC payload for a full page load.
+      {
+        source: "/((?!_next/|.*\\..*).*)",
+        headers: [
+          {
+            key: "Vary",
+            value: "Accept, rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          },
+        ],
+      },
+    ];
   },
   async redirects() {
     return [

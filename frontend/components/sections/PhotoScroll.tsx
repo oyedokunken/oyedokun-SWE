@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useHydrated } from "@/lib/useHydrated";
 
-const photos = [
+export const photos = [
   "/shoot/oyedokun-1.webp",
   "/shoot/oyedokun-2.webp",
   "/shoot/oyedokun-3.webp",
@@ -67,11 +68,15 @@ const photos = [
 
 const evens = photos.filter((_, i) => i % 2 === 0);
 const odds  = photos.filter((_, i) => i % 2 === 1);
-const row1 = [...evens, ...evens, ...evens];
-const row2 = [...odds,  ...odds,  ...odds];
 
-function PhotoStrip({ items, reverse }: { items: string[]; reverse?: boolean }) {
+// The marquee loops by sliding three copies of each row by a third. Only the
+// first copy is server-rendered; the two repeats are decorative and added after
+// hydration, which keeps ~120 duplicate images out of the raw HTML.
+
+function PhotoStrip({ photos, reverse }: { photos: string[]; reverse?: boolean }) {
   const [paused, setPaused] = useState(false);
+  const hydrated = useHydrated();
+  const items = hydrated ? [...photos, ...photos, ...photos] : photos;
   return (
     <div className="flex overflow-hidden">
       <div
@@ -88,14 +93,16 @@ function PhotoStrip({ items, reverse }: { items: string[]; reverse?: boolean }) 
         {items.map((src, i) => (
           <div
             key={i}
+            aria-hidden={i >= photos.length || undefined}
             className="relative w-[200px] h-[200px] flex-shrink-0 rounded-xl overflow-hidden border border-[var(--border-color)] group"
           >
+            {/* Fixed 200px tile: width/height gives a 1x/2x srcset instead of every breakpoint. */}
             <Image
               src={src}
-              alt={src.split('/').pop() || 'Oyedokun'}
-              fill
-              className="object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-              sizes="200px"
+              alt={i >= photos.length ? "" : src.split('/').pop() || 'Oyedokun'}
+              width={200}
+              height={200}
+              className="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-60" />
           </div>
@@ -129,8 +136,8 @@ export default function PhotoScroll() {
       </div>
 
       <div className="space-y-3">
-        <PhotoStrip items={row1} />
-        <PhotoStrip items={row2} reverse />
+        <PhotoStrip photos={evens} />
+        <PhotoStrip photos={odds} reverse />
       </div>
     </section>
   );

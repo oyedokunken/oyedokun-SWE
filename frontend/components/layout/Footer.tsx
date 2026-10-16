@@ -38,6 +38,12 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+const legalLinks = [
+  { label: "About", href: "/about/" },
+  { label: "Contact", href: "/contact/" },
+  { label: "Privacy", href: "/privacy/" },
+];
+
 const contactLinks = [
   { icon: Mail, label: "Email", value: "oyedokunken@gmail.com", href: "mailto:oyedokunken@gmail.com" },
   { icon: Phone, label: "Phone", value: "+234 802 813 4942", href: "tel:+2348028134942" },
@@ -47,9 +53,12 @@ const contactLinks = [
 export default function Footer() {
   const { theme } = useTheme();
   const { openChat } = useWhatsAppChat();
-  const scrollTo = (href: string) => {
+  // On the homepage, scroll smoothly; on other pages the link navigates to /#section.
+  const scrollTo = (href: string, e?: React.MouseEvent) => {
     const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (!el) return;
+    e?.preventDefault();
+    el.scrollIntoView({ behavior: "smooth" });
   };
   const isDark = theme === "dark";
 
@@ -85,12 +94,13 @@ export default function Footer() {
                 <ul className="space-y-3">
                   {navLinks.map((link) => (
                     <li key={link.label}>
-                      <button
-                        onClick={() => scrollTo(link.href)}
+                      <a
+                        href={`/${link.href}`}
+                        onClick={(e) => scrollTo(link.href, e)}
                         className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                       >
                         {link.label}
-                      </button>
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -141,6 +151,17 @@ export default function Footer() {
             <p className="text-xs text-[var(--text-muted)]">
               &copy; {new Date().getFullYear()} Oyedokun Kehinde. All rights reserved.
             </p>
+            <nav aria-label="Site information" className="flex items-center gap-5">
+              {legalLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
             <p className="text-xs text-[var(--text-muted)]">
               Made with 🤍 by{" "}
               <a
@@ -190,7 +211,7 @@ export default function Footer() {
         />
 
         <button
-          onClick={() => scrollTo("#hero")}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Back to top"
           className="relative z-10 w-full group py-10 sm:py-14 flex items-center justify-center"
         >

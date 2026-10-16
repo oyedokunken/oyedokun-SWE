@@ -3,108 +3,25 @@
 import { motion } from "framer-motion";
 import { useTheme } from "@/context/ThemeContext";
 import { Layers, Server, Code2, Network, Cpu, ShieldCheck, Plug, Lock, Package, Globe, MessageSquare } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { services as servicesContent } from "@/data/content";
 
-const services = [
-  {
-    num: "01",
-    icon: Layers,
-    title: "Full-Stack Engineering",
-    desc: "End-to-end product development from database schema to pixel-perfect UI. React, Next.js, Node.js, and TypeScript, production-grade every time.",
-    tags: ["React", "Next.js", "Node.js", "TypeScript"],
-    bg: "#0f0f0f",
-    accent: "#1a1a2e",
-  },
-  {
-    num: "02",
-    icon: Server,
-    title: "Backend Architecture",
-    desc: "Scalable APIs, distributed systems, async processing, and background jobs. Systems designed to handle real production traffic without breaking.",
-    tags: ["Express", "PostgreSQL", "Redis", "REST / GraphQL"],
-    bg: "#0f0f0f",
-    accent: "#1c1a0f",
-  },
-  {
-    num: "03",
-    icon: Network,
-    title: "System Design",
-    desc: "Architecture reviews, technical blueprints, microservices strategy, and service-oriented patterns that scale before the first line is written.",
-    tags: ["Microservices", "SOA", "API Design", "DDD"],
-    bg: "#0f0f0f",
-    accent: "#0f1a0f",
-  },
-  {
-    num: "04",
-    icon: Package,
-    title: "SaaS Product Development",
-    desc: "Multi-tenant platforms from zero to production. Subscriptions, onboarding flows, role-based dashboards, and data models that scale with you.",
-    tags: ["Multi-tenancy", "Stripe", "Supabase", "Prisma"],
-    bg: "#0f0f0f",
-    accent: "#0f0f1a",
-  },
-  {
-    num: "05",
-    icon: Plug,
-    title: "API Design and Integration",
-    desc: "RESTful and GraphQL API design, third-party integrations, webhook handlers, and service orchestration across complex distributed systems.",
-    tags: ["REST", "GraphQL", "Webhooks", "Third-party APIs"],
-    bg: "#0f0f0f",
-    accent: "#0d1a1a",
-  },
-  {
-    num: "06",
-    icon: Lock,
-    title: "Security and Identity",
-    desc: "Authentication systems, RBAC, OAuth 2.0, JWT, rate limiting, input validation, and OWASP-aligned patterns to protect every endpoint.",
-    tags: ["JWT", "OAuth", "RBAC", "OWASP"],
-    bg: "#0f0f0f",
-    accent: "#1a100f",
-  },
-  {
-    num: "07",
-    icon: Cpu,
-    title: "DevOps and Infrastructure",
-    desc: "CI/CD pipelines, Docker containers, Nginx configuration, and Vercel, Render or Railway deployments. Every release ships reliably and consistently.",
-    tags: ["Docker", "GitHub Actions", "Render", "Vercel", "Nginx"],
-    bg: "#0f0f0f",
-    accent: "#1a1a0d",
-  },
-  {
-    num: "08",
-    icon: Code2,
-    title: "Frontend Engineering",
-    desc: "Performant, accessible, and animated interfaces built with Framer Motion, Tailwind, and shadcn/ui, with the same rigor as the backend.",
-    tags: ["React", "Tailwind", "Framer Motion", "Accessibility"],
-    bg: "#0f0f0f",
-    accent: "#1a0f0f",
-  },
-  {
-    num: "09",
-    icon: ShieldCheck,
-    title: "Technical Leadership",
-    desc: "Hands-on technical direction. Architecture decisions, team guidance, product strategy, and technical roadmaps for startups and growing engineering teams.",
-    tags: ["Strategy", "Architecture", "Mentorship", "Roadmapping"],
-    bg: "#0f0f0f",
-    accent: "#1a1a1a",
-  },
-  {
-    num: "10",
-    icon: MessageSquare,
-    title: "Consultation",
-    desc: "Technical advisory for founders and product teams. Architecture reviews, technology stack decisions, and implementation planning before the first line of code.",
-    tags: ["Advisory", "Architecture", "Tech Stack", "Planning"],
-    bg: "#0f0f0f",
-    accent: "#1a0f1a",
-  },
-  {
-    num: "11",
-    icon: Globe,
-    title: "WordPress Development",
-    desc: "Custom WordPress websites built for performance and scale. From business sites and portfolios to complex content-driven platforms, delivered with clean, maintainable setups.",
-    tags: ["Custom Websites", "Business Sites", "CMS", "Performance"],
-    bg: "#0f0f0f",
-    accent: "#0f1a1a",
-  },
-];
+// Icons and colours per item; the text lives in data/content.ts.
+const presentation: Record<string, { icon: LucideIcon; bg: string; accent: string }> = {
+  "01": { icon: Layers, bg: "#0f0f0f", accent: "#1a1a2e" },
+  "02": { icon: Server, bg: "#0f0f0f", accent: "#1c1a0f" },
+  "03": { icon: Network, bg: "#0f0f0f", accent: "#0f1a0f" },
+  "04": { icon: Package, bg: "#0f0f0f", accent: "#0f0f1a" },
+  "05": { icon: Plug, bg: "#0f0f0f", accent: "#0d1a1a" },
+  "06": { icon: Lock, bg: "#0f0f0f", accent: "#1a100f" },
+  "07": { icon: Cpu, bg: "#0f0f0f", accent: "#1a1a0d" },
+  "08": { icon: Code2, bg: "#0f0f0f", accent: "#1a0f0f" },
+  "09": { icon: ShieldCheck, bg: "#0f0f0f", accent: "#1a1a1a" },
+  "10": { icon: MessageSquare, bg: "#0f0f0f", accent: "#1a0f1a" },
+  "11": { icon: Globe, bg: "#0f0f0f", accent: "#0f1a1a" },
+};
+
+const services = servicesContent.map((item) => ({ ...item, ...presentation[item.num] }));
 
 function ServiceCard({ service, index }: { service: (typeof services)[0]; index: number }) {
   const { theme } = useTheme();

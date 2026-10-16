@@ -2,45 +2,20 @@
 
 import { motion } from "framer-motion";
 import { Layers, Rocket, Shield, Globe, MessageCircle, Sparkles } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { principles as principlesContent } from "@/data/content";
 
-const usps = [
-  {
-    icon: Layers,
-    number: "01",
-    title: "Systems First",
-    desc: "Architecture before code. Every function has a reason, every service has a boundary. Systems designed to hold together under real-world pressure.",
-  },
-  {
-    icon: Rocket,
-    number: "02",
-    title: "Ships to Production",
-    desc: "Not just works locally. Every project I deliver handles real users, real traffic, and the edge cases that take products down at scale.",
-  },
-  {
-    icon: Shield,
-    number: "03",
-    title: "Full Ownership",
-    desc: "From DB schema to UI. One engineer with complete context means no handoffs, no communication gaps, and nothing slipping through the cracks.",
-  },
-  {
-    icon: Sparkles,
-    number: "04",
-    title: "AI-Augmented Delivery",
-    desc: "Agentic AI tools accelerate my research, implementation, and debugging while I own every technical decision and the quality of what ships.",
-  },
-  {
-    icon: Globe,
-    number: "05",
-    title: "Cross-Industry Range",
-    desc: "Projects across fintech, energy, healthcare, mining, and e-commerce. Different domains, same quality bar. Adaptability is a technical skill.",
-  },
-  {
-    icon: MessageCircle,
-    number: "06",
-    title: "Zero Ambiguity",
-    desc: "You always know what is happening, what is blocked, and what ships next. Surprises belong in production monitoring, not in status updates.",
-  },
-];
+// Icons and colours per item; the text lives in data/content.ts.
+const presentation: Record<string, { icon: LucideIcon }> = {
+  "01": { icon: Layers },
+  "02": { icon: Rocket },
+  "03": { icon: Shield },
+  "04": { icon: Sparkles },
+  "05": { icon: Globe },
+  "06": { icon: MessageCircle },
+};
+
+const usps = principlesContent.map((item) => ({ ...item, ...presentation[item.number] }));
 
 export default function WhyMe() {
   return (

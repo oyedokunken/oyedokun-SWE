@@ -2,60 +2,20 @@
 
 import { motion } from "framer-motion";
 import { GraduationCap, Award, Trophy, Users, Plus } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import { education as educationContent } from "@/data/content";
 
-const education = [
-  {
-    icon: GraduationCap,
-    institution: "Federal University of Technology, Akure",
-    credential: "Bachelor of Technology (B.Tech)",
-    field: "Computer Information Systems",
-    period: "Oct. 2021 - Jul. 2026",
-    meta: "CGPA: 4.72 / 5.00",
-    location: "Akure, Nigeria",
-    type: "Degree",
-  },
-  {
-    icon: Award,
-    institution: "Amazon (via Coursera)",
-    credential: "Professional Software Development Certification",
-    field: "Software Development",
-    period: "September 2026",
-    meta: null,
-    location: "Online",
-    type: "Certificate",
-  },
-  {
-    icon: Users,
-    institution: "Aspire Institute",
-    credential: "Aspire Leaders Program",
-    field: "Organizational Leadership",
-    period: "August 2025",
-    meta: "In collaboration with Harvard Business School",
-    location: "Global (Online)",
-    type: "Program",
-  },
-  {
-    icon: Award,
-    institution: "Cipher Training and Software Development",
-    credential: "Certificate of Completion",
-    field: "Full Stack Web Development",
-    period: "November 2025",
-    meta: null,
-    location: "Akure, Nigeria",
-    type: "Certificate",
-  },
-  {
-    icon: Trophy,
-    institution: "NACOSS, FUTA Chapter",
-    credential: "Emerging Award Winner",
-    field: "2025 Annual Hackathon",
-    period: "September 2025",
-    meta: null,
-    location: "Akure, Nigeria",
-    type: "Award",
-  },
-];
+// Icons and colours per item; the text lives in data/content.ts.
+const presentation: Record<string, { icon: LucideIcon }> = {
+  "Federal University of Technology, Akure": { icon: GraduationCap },
+  "Amazon (via Coursera)": { icon: Award },
+  "Aspire Institute": { icon: Users },
+  "Cipher Training and Software Development": { icon: Award },
+  "NACOSS, FUTA Chapter": { icon: Trophy },
+};
+
+const education = educationContent.map((item) => ({ ...item, ...presentation[item.institution] }));
 
 export default function Education() {
   const { theme } = useTheme();

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import { useSiteReady } from "@/lib/useSiteReady";
+import { hero } from "@/data/content";
 
 function GreenDot() {
   return (
@@ -15,7 +16,7 @@ function GreenDot() {
   );
 }
 
-const titleWords = ["Architecting", "systems.", "Shipping", "at", "scale."];
+const { titleWords } = hero;
 
 function Word({ word, i, total, ready }: { word: string; i: number; total: number; ready: boolean }) {
   return (
@@ -110,9 +111,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-md"
             >
-              Full-stack software engineer. Comfortable managing complexity. Always
-              thinking ahead. I build software for the happy path, the edge
-              cases, and everything in between.
+              {hero.intro}
             </motion.p>
 
             <motion.div
