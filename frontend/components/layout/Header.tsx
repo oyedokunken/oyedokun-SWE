@@ -64,7 +64,7 @@ export default function Header() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
-          <button onClick={() => scrollTo("#hero")} aria-label="Home">
+          <button onClick={() => scrollTo("#hero")} aria-label="oyedokun.dev, back to top">
             <Logo />
           </button>
 

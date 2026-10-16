@@ -127,7 +127,7 @@ export default function WhatsAppFloat() {
               exit={{ opacity: 0, x: -8 }}
               transition={{ duration: 0.2 }}
               onClick={openChat}
-              className="bg-[#25D366] text-white text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-[0_4px_16px_rgba(37,211,102,0.3)] whitespace-nowrap"
+              className="bg-[#25D366] text-[#0a0a0a] text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-[0_4px_16px_rgba(37,211,102,0.3)] whitespace-nowrap"
             >
               Let&apos;s chat!{" "}
               <motion.span

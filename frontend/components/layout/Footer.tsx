@@ -147,7 +147,7 @@ export default function Footer() {
                 href="https://wa.link/nv875h"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] underline underline-offset-2 transition-colors"
               >
                 @oyedokunken
               </a>

@@ -20,8 +20,8 @@ const titleWords = ["Architecting", "systems.", "Shipping", "at", "scale."];
 function Word({ word, i, total, ready }: { word: string; i: number; total: number; ready: boolean }) {
   return (
     <motion.span
-      initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
-      animate={ready ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 40, filter: "blur(8px)" }}
+      initial={{ y: 40, filter: "blur(8px)" }}
+      animate={ready ? { y: 0, filter: "blur(0px)" } : { y: 40, filter: "blur(8px)" }}
       transition={{ duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className={`inline-block mr-[0.25em] ${i >= total - 2 ? "text-[var(--text-secondary)]" : ""}`}
     >
@@ -30,6 +30,9 @@ function Word({ word, i, total, ready }: { word: string; i: number; total: numbe
   );
 }
 
+// The headline, intro and portrait are LCP candidates, so they stay fully
+// opaque from the first paint and only animate transform/filter. Opacity-0
+// starts would hold LCP back until the preloader finished.
 export default function Hero() {
   const ready = useSiteReady();
   const ref = useRef<HTMLDivElement>(null);
@@ -55,8 +58,8 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           <motion.div
             style={{ y: imageY }}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={ready ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+            initial={{ scale: 0.95 }}
+            animate={ready ? { scale: 1 } : { scale: 0.95 }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative block lg:hidden order-first"
           >
@@ -102,8 +105,8 @@ export default function Hero() {
             </h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              initial={{ y: 20 }}
+              animate={ready ? { y: 0 } : { y: 20 }}
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-md"
             >
@@ -143,8 +146,8 @@ export default function Hero() {
 
           <motion.div
             style={{ y: imageY }}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={ready ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+            initial={{ scale: 0.95 }}
+            animate={ready ? { scale: 1 } : { scale: 0.95 }}
             transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="relative hidden lg:block order-last"
           >
