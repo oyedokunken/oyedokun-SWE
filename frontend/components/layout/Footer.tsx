@@ -1,6 +1,6 @@
 "use client";
 
-import { Linkedin, Github, Instagram, Facebook, Mail, Phone } from "lucide-react";
+import { Coffee, Linkedin, Github, Instagram, Facebook, Mail, Phone } from "lucide-react";
 import Logo from "@/components/Logo";
 import { useTheme } from "@/context/ThemeContext";
 import { motion } from "framer-motion";
@@ -23,8 +23,8 @@ function WhatsAppIcon({ size = 14 }: { size?: number }) {
 }
 
 const socials = [
-  { icon: Linkedin, href: "https://www.linkedin.com/in/oyedokunken/", label: "LinkedIn" },
   { icon: Github, href: "https://github.com/oyedokunken/", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/oyedokunken/", label: "LinkedIn" },
   { icon: Instagram, href: "https://www.instagram.com/oyedokunken", label: "Instagram" },
   { icon: Facebook, href: "https://www.facebook.com/oyedokunken/", label: "Facebook" },
   { icon: XIcon, href: "https://x.com/oyedokunken_", label: "X" },
@@ -69,10 +69,10 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-[var(--border-color)]">
             <div className="space-y-5">
               <Logo />
-              <p className="text-sm text-[var(--text-secondary)] leading-relaxed max-w-[260px]">
-                Full-stack software engineer. I build scalable systems, backend architecture, and full-stack products for teams worldwide.
+              <p className="text-sm text-[var(--text-secondary)] leading-relaxed max-w-none md:max-w-[260px]">
+                Full-stack software engineer based in Lagos, Nigeria. I build software for the happy path, the edge cases and everything in between.
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex w-full flex-wrap justify-start gap-2">
                 {socials.map((s) => (
                   <a
                     key={s.label}
@@ -80,12 +80,21 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] transition-all duration-200"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-color)] text-[var(--text-muted)] transition-all duration-200 hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"
                   >
                     <s.icon size={14} />
                   </a>
                 ))}
               </div>
+              <a
+                href="https://buymeamalt.com/@oyedokunken"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-auto items-center justify-center gap-2 self-start rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] px-4 py-2 text-xs font-medium text-[var(--text-secondary)] transition-all duration-200 hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"
+              >
+                <Coffee size={14} />
+                Buy me a coffee
+              </a>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-1 gap-8 md:gap-0 col-span-1 md:col-span-2 md:grid md:grid-cols-2">
