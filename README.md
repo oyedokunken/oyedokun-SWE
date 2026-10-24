@@ -2,8 +2,9 @@
 
 Personal portfolio and contact API backend for Oyedokun Kehinde. Built with Next.js 16, Express.js, and Tailwind CSS. Features custom animations, dark and light themes, security-hardened endpoints, and a project showcase. Deployed as serverless functions on Vercel.
 
-**Live:** [oyedokun.dev](https://oyedokunken.vercel.app/)  
-**Repository:** [github.com/oyedokunken/oyedokun-SWE](https://github.com/oyedokunken/oyedokun-SWE)
+**Live:** [https://www.oyedokun.dev](https://www.oyedokun.dev)  
+**Repository:** [https://github.com/oyedokunken/oyedokun-SWE](https://github.com/oyedokunken/oyedokun-SWE)  
+**Buy me a malt:** [https://buymeamalt.com/@oyedokunken](https://buymeamalt.com/@oyedokunken)
 
 ---
 

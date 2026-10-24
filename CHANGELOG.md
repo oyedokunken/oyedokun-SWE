@@ -8,6 +8,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+- Buy Me a Malt support links in the header, footer, README and GitHub profile documentation.
+
+### Changed
+- Footer positioning copy now identifies Lagos, Nigeria and emphasizes building for the happy path, edge cases and everything in between.
+- Footer social links are ordered GitHub, LinkedIn, Instagram, Facebook and X.
+
 ### Removed
 - CV/résumé request feature: the `/api/resume` route, its validation schema, the résumé delivery and request emails and their templates, the bundled CV PDF and its Vercel `includeFiles` entry, and the unused frontend modal and context. The privacy policy now covers only the contact form.
 

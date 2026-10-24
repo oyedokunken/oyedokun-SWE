@@ -118,6 +118,7 @@ I think in systems. I want to understand a problem before I build, clarify befor
 [![Portfolio](https://img.shields.io/badge/Portfolio-oyedokun.dev-000000?style=flat-square&logo=vercel&logoColor=white)](https://www.oyedokun.dev/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-oyedokunken-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/oyedokunken/)
 [![Email](https://img.shields.io/badge/Email-oyedokunken@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:oyedokunken@gmail.com)
+[![Buy me a malt](https://img.shields.io/badge/Buy%20me%20a%20malt-Support-F5A623?style=flat-square&logo=buymeacoffee&logoColor=white)](https://buymeamalt.com/@oyedokunken)
 
 ---
 
