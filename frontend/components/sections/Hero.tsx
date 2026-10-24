@@ -175,19 +175,20 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <motion.div style={{ opacity }} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
-          <motion.button
-            onClick={scrollDown}
-            animate={{ y: [0, 6, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
-            aria-label="Scroll down"
-          >
-            <span className="text-[10px] tracking-[3px] uppercase">Scroll</span>
-            <ArrowDown size={14} />
-          </motion.button>
-        </motion.div>
       </div>
+
+      <motion.div style={{ opacity }} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+        <motion.button
+          onClick={scrollDown}
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          className="flex flex-col items-center gap-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
+          aria-label="Scroll down"
+        >
+          <span className="text-[10px] tracking-[3px] uppercase">Scroll</span>
+          <ArrowDown size={14} />
+        </motion.button>
+      </motion.div>
     </section>
   );
 }

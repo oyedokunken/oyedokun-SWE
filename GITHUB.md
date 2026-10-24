@@ -1,10 +1,10 @@
 # Hey, my name is Kenny :)
 
-Full-stack software engineer based in Lagos, Nigeria. I build for the happy path, the edge cases, and everything between them.
+Full-stack software engineer based in Lagos, Nigeria. I build software for the happy path, the edge cases, and everything between them. I'm a systems thinker with the heart of a builder. I take ownership from schema to UI, from database to production, and I care about the details that make software reliable in the real world. I prioritize scalable architecture, performant code, and products that are built to last.
 
-I've shipped production systems across SaaS, critical minerals trading, renewable energy, blockchain, AI, e-commerce, healthcare, real estate, ESG compliance, education, and telecommunications, working with international teams across time zones.
+I've shipped production systems across SaaS, critical minerals trading, renewable energy, blockchain, AI, e-commerce, healthcare, real estate, ESG compliance, education, and telecommunications, working with international teams across time zones. I start with the system, not the screen: how data flows, where each boundary sits, and what breaks first under real load. Get the structure right and the features follow, and the structure is what still stands years later.
 
-I think in systems. I want to understand a problem before I build, clarify before I commit, and design for the cases that separate a working demo from software people can trust. Clean code, scalable architecture, and performance follow from that.
+I'm available to work. If you're building something genuinely exciting or you need someone like me on your team, don't be a stranger, [reach out](https://wa.link/nv875h).
 
 ---
 
@@ -72,18 +72,19 @@ I think in systems. I want to understand a problem before I build, clarify befor
 
 | Project | Description | Stack |
 |---|---|---|
-| [Job Central](https://jobcentrall.vercel.app) | Free two-sided hiring platform where candidates build portable profiles with auto-parsed resumes and track applications end-to-end, while organizations post roles via a drag-and-drop form builder and review AI-ranked shortlists | Next.js, TypeScript, FastAPI, Supabase, Prisma |
+| [Job Central](https://jobcentrall.vercel.app) | Two-sided hiring platform where candidates build portable profiles with auto-parsed resumes and track applications end-to-end, while organizations post roles via a drag-and-drop form builder and review AI-ranked shortlists | Next.js, TypeScript, FastAPI, Supabase, Prisma |
 | [Gistroom](https://gistroom.vercel.app) | Progressive web app for Nigerians to talk live about local topics. Find friends, chat, call one to one, or join audio rooms for up to 32 people with moderation and invite links. Audio first, data aware, PWA with offline support | Next.js, Socket.IO, LiveKit, Supabase, Prisma |
 | [Credence](https://credencely.vercel.app) | Blockchain credential verification for Nigerian universities, eliminating certificate fraud with Hyperledger Fabric, QR attestations, and instant lookup | Hyperledger Fabric, Next.js, Express, QR Verification, Prisma |
-| [Traqify](https://traqify.vercel.app) | Multi-tenant store management SaaS featuring real-time analytics, role-based access control, public storefronts, and integrated Paystack checkout | Next.js, Express, PostgreSQL, Supabase, Prisma |
 | [Ren Power](https://renpowerltd.com) | Solar energy marketplace linking manufacturers, distributors, recyclers, and customers with quote-based pricing, RBAC, AI chatbot, and onboarding tours | Next.js, Express, PostgreSQL, Socket.IO, Prisma |
-| [RIOS](https://www.riosintell.com/) | Multi-tenant ESG reporting SaaS for Nigerian corporates, covering GRI, TCFD, and IFRS benchmarks with branded, auto-generated PDF report delivery | Next.js, Express, PostgreSQL, pdf-lib, Prisma |
 | [MSP Reports](https://mspreports.com.au/) | Automated white-label reporting for MSPs pulling data from 20+ tools into branded client reports with AI-generated executive summaries and multi-tenant isolation | Laravel 12, React 19, PostgreSQL, TimescaleDB, AI |
-| [Glore](https://gloreenergy.com) | Critical mineral trading platform connecting Africa's mining sector to global markets, with real-time pricing, live WebSocket charts, and investor decks | React, Express, PostgreSQL, Socket.io, Redis |
+| [Traqify](https://traqify.vercel.app) | Multi-tenant store management SaaS featuring real-time analytics, role-based access control, public storefronts, and integrated Paystack checkout | Next.js, Express, PostgreSQL, Supabase, Prisma |
+| [RIOS](https://www.riosintell.com/) | Multi-tenant ESG reporting SaaS for Nigerian corporates, covering GRI, TCFD, and IFRS benchmarks with branded, auto-generated PDF report delivery | Next.js, Express, PostgreSQL, pdf-lib, Prisma |
 | [Prompt AI](https://prompt-swe.vercel.app) | Chat-based prompt builder that turns vague intent into structured, scored prompts for coding assistants and generative models, powered by a Python ML layer for intent classification | Next.js, FastAPI, Supabase, OpenAI, Prisma |
+| [Glore](https://gloreenergy.com) | Critical mineral trading platform connecting Africa's mining sector to global markets, with real-time pricing, live WebSocket charts, and investor decks | React, Express, PostgreSQL, Socket.io, Redis |
 | [Rexta](https://rextatech.com/) | Digital agency website with contact, quote, and consultation flows, ten service pages, a dynamic project showcase, and Nodemailer email delivery | Next.js 16, Supabase, Express, Nodemailer, SEO |
 | [Mailly](https://usemailly.com/) | Marketing site and waitlist for an AI inbox assistant, with a rate-limited signup flow, branded transactional emails, and a full admin portal with PDF reports and audit log | Next.js 16, Supabase, Nodemailer, shadcn/ui, Prisma |
 | [Storebook](https://storebookpro.com) | Laravel-based store management system for retail businesses with POS, multi-branch inventory, role-based access, PDF reports, and a public storefront | Laravel 11, PHP 8.2, MySQL, Tailwind CSS, Alpine.js |
+| [Trustbag](https://trustbag.vercel.app/) | Escrow and delivery platform for people who buy and sell on Instagram and WhatsApp in Nigeria, with buyer protection, rider delivery, and seller payout after confirmation | Next.js 16, Express 5, PostgreSQL, Redis, Paystack |
 | [Digital Hub Africa](https://www.digitalhubafrica.org/) | Editorial magazine helping Africans learn, work, and build with technology, featuring TipTap rich-text publishing, a role-based admin panel, ISR-driven SEO, and newsletter flows | Next.js 16, TypeScript, Supabase, TipTap, Prisma |
 | [Salmired Properties](https://www.salmiredproperties.com/) | Premium real estate platform for an Ibadan property developer with live listing filters, gallery lightboxes, multi-step application forms, and a JWT-protected admin dashboard | Next.js 16, TypeScript, Supabase, Tailwind CSS, Prisma |
 | [EduPilot](https://edupilotly.vercel.app) | Student workflow platform using Critical Path Method to automate scheduling and monitor cognitive load in real time across academic semesters | Next.js, TypeScript, Node.js, PostgreSQL, CPM |
@@ -105,6 +106,7 @@ I think in systems. I want to understand a problem before I build, clarify befor
 ## Right now
 
 - Open to interesting contracts and full-time remote roles where I can build impactful solutions
+- Learning and building with AI development environments (ADEs) to move faster from idea to reliable, production-ready software
 - Architecting and scaling production systems across multiple industries
 - Exploring AI/ML integration patterns for intelligent automation and data-driven decision systems
 - Deepening expertise in real-time systems, system design, and cloud deployment patterns

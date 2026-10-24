@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Coffee, Menu } from "lucide-react";
 import Logo from "@/components/Logo";
@@ -110,8 +111,16 @@ export default function Header() {
               href="https://wa.link/nv875h"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[var(--text-primary)] text-[var(--bg)] text-[11px] py-2 px-4 rounded-full font-medium tracking-wide hover:opacity-85 transition-opacity duration-200"
+              className="inline-flex items-center gap-1.5 bg-[var(--text-primary)] text-[var(--bg)] text-[11px] py-2 pl-2 pr-4 rounded-full font-medium tracking-wide hover:opacity-85 transition-opacity duration-200"
             >
+              <Image
+                src="/shoot/oyedokunken.webp"
+                alt=""
+                width={22}
+                height={22}
+                className="h-[22px] w-[22px] rounded-full object-cover object-center"
+                aria-hidden="true"
+              />
               Hire Me{" "}
               <motion.span
                 className="inline-block origin-[70%_70%]"

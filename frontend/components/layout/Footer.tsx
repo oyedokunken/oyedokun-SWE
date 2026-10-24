@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Coffee, Linkedin, Github, Instagram, Facebook, Mail, Phone } from "lucide-react";
 import Logo from "@/components/Logo";
 import { useTheme } from "@/context/ThemeContext";
@@ -171,17 +172,43 @@ export default function Footer() {
                 </a>
               ))}
             </nav>
-            <p className="text-xs text-[var(--text-muted)]">
-              Made with 🤍 by{" "}
-              <a
-                href="https://wa.link/nv875h"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] underline underline-offset-2 transition-colors"
+            <div className="group/attribution relative flex items-center">
+              <div
+                aria-label="Social links"
+                className="pointer-events-none absolute bottom-full right-0 mb-3 flex translate-y-1 items-center gap-1.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-elevated)] p-2 opacity-0 shadow-xl transition-all duration-200 after:absolute after:-bottom-3 after:left-0 after:right-0 after:h-3 after:content-[''] group-hover/attribution:pointer-events-auto group-hover/attribution:translate-y-0 group-hover/attribution:opacity-100 group-focus-within/attribution:pointer-events-auto group-focus-within/attribution:translate-y-0 group-focus-within/attribution:opacity-100"
               >
-                @oyedokunken
-              </a>
-            </p>
+                {socials.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="group relative flex h-8 w-8 items-center justify-center rounded-lg text-[var(--text-muted)] transition-all duration-200 hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)]"
+                  >
+                    <social.icon size={14} />
+                    <span className="pointer-events-none absolute bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap rounded-md bg-[var(--text-primary)] px-2 py-1 text-[9px] text-[var(--bg)] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                      {social.label}
+                    </span>
+                  </a>
+                ))}
+              </div>
+              <span className="text-xs text-[var(--text-muted)]">Built with 🤍 by{" "}</span>
+              <button
+                type="button"
+                aria-label="Show Oyedokun's social links"
+                className="ml-1 inline-flex items-center gap-1.5 rounded-full text-xs text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--text-primary)]/40"
+              >
+                <Image
+                  src="/shoot/oyedokunken.webp"
+                  alt="Oyedokun Kehinde"
+                  width={24}
+                  height={24}
+                  className="rounded-full object-cover"
+                />
+                <span className="underline underline-offset-2">@oyedokunken</span>
+              </button>
+            </div>
           </div>
         </div>
       </footer>
