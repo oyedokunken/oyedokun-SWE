@@ -12,8 +12,12 @@ import {
   getRecentSlice,
   getMonthLabels,
   MOBILE_MAX_WIDTH,
+  MOBILE_RANGES,
+  pickMobileLayout,
   positionTooltip,
+  toRows,
   type HeatmapLayout,
+  type HeatmapRow,
   type RecentLayout,
   type RecentSlice,
   type TooltipPosition,
@@ -30,7 +34,9 @@ type ActiveCell = {
 };
 
 function rangeLabel(range: string) {
-  return range === "last" ? "in the last 1 year" : range === "recent" ? "in the past 1 month" : `in ${range}`;
+  if (range === "last") return "in the last 1 year";
+  const mobileRange = MOBILE_RANGES.find((item) => item.key === range);
+  return mobileRange?.headerPhrase ?? `in ${range}`;
 }
 
 function YearOptions({
@@ -44,25 +50,36 @@ function YearOptions({
   onSelect: (range: string) => void;
   mobile: boolean;
 }) {
-  const options = mobile ? ["recent", ...years.map(String)] : ["last", ...years.map(String)];
+  const options = mobile
+    ? MOBILE_RANGES.map((range) => ({
+        key: range.key,
+        label: range.pillLabel,
+        ariaLabel: range.ariaLabel,
+      }))
+    : ["last", ...years.map(String)].map((range) => ({
+        key: range,
+        label: range === "last" ? "Last 1 year" : range,
+        ariaLabel: range === "last" ? "Last 1 year" : range,
+      }));
 
   return (
     <div className="flex flex-wrap gap-2 pb-1">
       {options.map((option) => {
-        const selected = selectedRange === option;
+        const selected = selectedRange === option.key;
         return (
           <button
-            key={option}
+            key={option.key}
             type="button"
             aria-pressed={selected}
-            onClick={() => onSelect(option)}
+            aria-label={option.ariaLabel}
+            onClick={() => onSelect(option.key)}
             className={`whitespace-nowrap rounded-full border px-3 py-2 text-left text-[11px] transition-colors max-[480px]:px-2 max-[480px]:py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--text-primary)]/50 ${
               selected
                 ? "border-[var(--text-primary)] bg-[var(--text-primary)] text-[var(--bg)]"
                 : "border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"
             }`}
           >
-            {option === "last" ? "Last 1 year" : option === "recent" ? "Past 1 month" : option}
+            {option.label}
           </button>
         );
       })}
@@ -115,7 +132,7 @@ function renderHorizontalGraph(
   activeDate: string | null,
 ) {
   const stepY = layout.cellH + layout.gapY;
-  const monthLabels = getMonthLabels(data.weeks);
+  const monthLabels = getMonthLabels(toRows(data));
   const columnX = (index: number) =>
     layout.gridX +
     layout.columnWidths.slice(0, index).reduce((sum, width) => sum + width, 0) +
@@ -164,12 +181,12 @@ function renderHorizontalGraph(
 }
 
 function renderVerticalGraph(
-  data: Contributions,
+  rows: HeatmapRow[],
   layout: HeatmapLayout,
   activeDate: string | null,
 ) {
   const stepY = layout.cellH + layout.gapY;
-  const monthLabels = getMonthLabels(data.weeks);
+  const monthLabels = getMonthLabels(rows);
   const weekdayLabels = ["S", "M", "T", "W", "T", "F", "S"];
   const columnX = (index: number) =>
     layout.gridX +
@@ -199,21 +216,23 @@ function renderVerticalGraph(
           {label}
         </text>
       ))}
-      {data.weeks.map((week, weekIndex) =>
-        week.days.map((day, dayIndex) => (
-          <Cell
-            key={day.date}
-            x={columnX(dayIndex)}
-            y={16 + weekIndex * stepY}
-            cellW={layout.columnWidths[dayIndex]}
-            cellH={layout.cellH}
-            rx={layout.cellW < 24 ? 3 : 4}
-            level={day.level}
-            date={day.date}
-            count={day.count}
-            active={activeDate === day.date}
-          />
-        )),
+      {rows.map((row, rowIndex) =>
+        row.map((day, dayIndex) =>
+          day ? (
+            <Cell
+              key={day.date}
+              x={columnX(dayIndex)}
+              y={16 + rowIndex * stepY}
+              cellW={layout.columnWidths[dayIndex]}
+              cellH={layout.cellH}
+              rx={layout.cellW < 24 ? 3 : 4}
+              level={day.level}
+              date={day.date}
+              count={day.count}
+              active={activeDate === day.date}
+            />
+          ) : null,
+        ),
       )}
     </>
   );
@@ -273,6 +292,7 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
   const [lastData, setLastData] = useState<Contributions | null>(initialData);
   const cache = useRef(new Map<string, Contributions>());
   const requestId = useRef(0);
+  const userPickedRef = useRef(false);
   const graphRef = useRef<HTMLDivElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
@@ -288,7 +308,14 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
     if (!graph) return;
 
     const updateWidth = () => {
-      setContainerWidth(graph.clientWidth);
+      const width = graph.clientWidth;
+      setContainerWidth(width);
+      setSelectedRange((current) => {
+        const mobile = width < MOBILE_MAX_WIDTH;
+        const isMobileRange = MOBILE_RANGES.some((range) => range.key === current);
+        if (mobile) return isMobileRange ? current : "1m";
+        return isMobileRange ? "last" : current;
+      });
       setActiveCell(null);
       setTooltipPosition(null);
     };
@@ -360,35 +387,54 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
     };
   }, [initialData]);
 
-  const recentSlice = lastData ? getRecentSlice(lastData) : null;
-  const responsiveRange = containerWidth > 0
-    ? containerWidth < MOBILE_MAX_WIDTH && selectedRange === "last"
-      ? "recent"
-      : containerWidth >= MOBILE_MAX_WIDTH && selectedRange === "recent"
+  const isMobile = containerWidth > 0 && containerWidth < MOBILE_MAX_WIDTH;
+  const selectedMobileRange = MOBILE_RANGES.find((range) => range.key === selectedRange);
+  const responsiveRange = containerWidth === 0
+    ? selectedRange
+    : isMobile
+      ? selectedMobileRange?.key ?? "1m"
+      : selectedMobileRange
         ? "last"
-        : selectedRange
-    : selectedRange;
-  const isRecent = responsiveRange === "recent";
-  const layout = data && containerWidth > 0
-    ? computeLayout(containerWidth, data.weeks.length)
+        : selectedRange;
+  const mobileRange = MOBILE_RANGES.find((range) => range.key === responsiveRange);
+  const mobileData = mobileRange ? lastData : null;
+  const mobileSlice = mobileRange && mobileRange.days
+    ? mobileData ? getRecentSlice(mobileData, mobileRange.days) : null
     : null;
-  const recentLayout = recentSlice && containerWidth > 0
-    ? computeRecentLayout(containerWidth, recentSlice.rows.length)
+  const mobileRows = mobileRange && mobileData
+    ? mobileRange.key === "1y"
+      ? toRows(mobileData)
+      : mobileSlice?.rows ?? []
     : null;
-  const displayTotal = isRecent ? recentSlice?.total : data?.total;
-  const graphLabel = isRecent && recentSlice
-    ? `GitHub contribution graph, ${recentSlice.total.toLocaleString("en-US")} contributions from ${new Date(`${recentSlice.startDate}T00:00:00Z`).toLocaleString("en-US", { month: "short", day: "numeric", timeZone: "UTC" })} to ${new Date(`${recentSlice.endDate}T00:00:00Z`).toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}`
+  const useCalendarLayout = mobileRange
+    ? pickMobileLayout(mobileRange.key) === "calendar"
+    : false;
+  const layoutData = mobileRange ? mobileData : data;
+  const layout = layoutData && containerWidth > 0 && !useCalendarLayout
+    ? computeLayout(containerWidth, mobileRows?.length ?? layoutData.weeks.length)
+    : null;
+  const recentLayout = mobileRange && useCalendarLayout && mobileSlice && containerWidth > 0
+    ? computeRecentLayout(containerWidth, mobileSlice.rows.length)
+    : null;
+  const displayTotal = mobileRange
+    ? mobileRange.key === "1y" ? mobileData?.total : mobileSlice?.total
+    : data?.total;
+  const graphLabel = mobileRange && (mobileRange.key === "1y" ? mobileData : mobileSlice)
+    ? mobileRange.key === "1y"
+      ? `GitHub contribution graph, ${mobileData?.total.toLocaleString("en-US")} contributions ${mobileRange.headerPhrase}`
+      : `GitHub contribution graph, ${mobileSlice?.total.toLocaleString("en-US")} contributions from ${new Date(`${mobileSlice?.startDate}T00:00:00Z`).toLocaleString("en-US", { month: "short", day: "numeric", timeZone: "UTC" })} to ${new Date(`${mobileSlice?.endDate}T00:00:00Z`).toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}`
     : data
     ? `GitHub contribution graph, ${data.total.toLocaleString("en-US")} contributions ${rangeLabel(responsiveRange)}`
     : "GitHub contribution graph";
-  const reservedHeight = (isRecent ? recentLayout?.height : layout?.height) ?? 180;
+  const reservedHeight = (mobileRange ? recentLayout?.height ?? layout?.height : layout?.height) ?? 180;
 
   async function selectRange(range: string) {
+    userPickedRef.current = true;
     setSelectedRange(range);
     setActiveCell(null);
     setTooltipPosition(null);
 
-    const requestedCacheKey = range === "recent" ? "last" : range;
+    const requestedCacheKey = MOBILE_RANGES.some((item) => item.key === range) ? "last" : range;
     const cached = cache.current.get(requestedCacheKey);
     if (cached) {
       setData(cached);
@@ -465,7 +511,7 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
           years={years}
           selectedRange={responsiveRange}
           onSelect={selectRange}
-          mobile={containerWidth > 0 && containerWidth < MOBILE_MAX_WIDTH}
+          mobile={isMobile}
         />
       </div>
 
@@ -498,22 +544,24 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
           className="relative block min-h-[180px] min-w-0 w-full transition-opacity duration-200"
           style={{ minHeight: `${reservedHeight}px` }}
         >
-          {((isRecent && recentSlice && recentLayout) || (!isRecent && layout && data)) && (
+          {((mobileRange && mobileRows && (recentLayout || layout)) || (!mobileRange && layout && data)) && (
             <svg
               role="img"
               aria-label={graphLabel}
-              width={isRecent ? recentLayout?.width : layout?.width}
-              height={isRecent ? recentLayout?.height : layout?.height}
+              width={mobileRange && recentLayout ? recentLayout.width : layout?.width}
+              height={mobileRange && recentLayout ? recentLayout.height : layout?.height}
               className={`block max-w-full ${loading ? "opacity-50" : "opacity-100"}`}
               onPointerMove={handlePointerMove}
               onPointerDown={handlePointerDown}
               onPointerLeave={handlePointerLeave}
             >
-              {isRecent && recentSlice && recentLayout
-                ? renderRecentGraph(recentSlice, recentLayout, activeCell?.date ?? null)
-                : layout && data && (layout.orientation === "horizontal"
-                  ? renderHorizontalGraph(data, layout, activeCell?.date ?? null)
-                  : renderVerticalGraph(data, layout, activeCell?.date ?? null))}
+              {mobileRange && useCalendarLayout && mobileSlice && recentLayout
+                ? renderRecentGraph(mobileSlice, recentLayout, activeCell?.date ?? null)
+                : mobileRange && mobileRows && layout
+                  ? renderVerticalGraph(mobileRows, layout, activeCell?.date ?? null)
+                  : layout && data && (layout.orientation === "horizontal"
+                    ? renderHorizontalGraph(data, layout, activeCell?.date ?? null)
+                    : renderVerticalGraph(toRows(data), layout, activeCell?.date ?? null))}
             </svg>
           )}
         </div>
