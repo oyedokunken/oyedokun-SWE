@@ -16,47 +16,49 @@ function weeksFromDates(dates: string[]) {
 
 describe("heatmap helpers", () => {
   it("chooses a responsive horizontal or vertical layout", () => {
-    expect(computeLayout(1200, 53)).toMatchObject({
-      orientation: "horizontal",
-      cell: 14,
-    });
-    expect(computeLayout(760, 53).orientation).toBe("horizontal");
-    expect(computeLayout(640, 53).orientation).toBe("horizontal");
-    expect(computeLayout(600, 53).orientation).toBe("vertical");
+    expect(computeLayout(1200, 53)).toMatchObject({ orientation: "horizontal", cell: 14 });
+    expect(computeLayout(559, 53).orientation).toBe("vertical");
+    expect(computeLayout(560, 53).orientation).toBe("horizontal");
+    expect(computeLayout(600, 53).orientation).toBe("horizontal");
     expect(computeLayout(768, 53).orientation).toBe("horizontal");
-    expect(computeLayout(360, 53)).toMatchObject({ orientation: "vertical" });
-    expect(computeLayout(360, 53).cell).toBe(30);
-    expect(computeLayout(320, 53).orientation).toBe("vertical");
+    expect(computeLayout(390, 53)).toMatchObject({ orientation: "vertical", gridX: 36 });
   });
 
-  it("never sizes the graph wider than its container", () => {
-    for (const width of [240, 280, 320, 360, 390, 430, 480, 540, 600, 640, 700, 768, 1024, 1440, 1920]) {
-      expect(computeLayout(width, 53).width).toBeLessThanOrEqual(width);
-    }
-  });
-
-  it("centers capped groups and fills uncapped vertical layouts", () => {
-    for (const width of [320, 360, 390, 430, 480]) {
+  it("fills vertical layouts and balances horizontal layouts", () => {
+    for (const width of [280, 320, 360, 390, 430, 480, 520, 559]) {
       const layout = computeLayout(width, 53);
-      const gridRight = layout.labelSize + 7 * (layout.cell + layout.gap) - layout.gap;
-      const leftMargin = layout.labelSize - 34;
-      const rightMargin = width - gridRight;
-      expect(Math.abs(leftMargin - rightMargin)).toBeLessThanOrEqual(1);
+      const gridRight =
+        layout.gridX +
+        layout.columnWidths.reduce((sum, columnWidth) => sum + columnWidth, 0) +
+        6 * layout.gapX;
+      expect(layout.gridX).toBe(36);
+      expect(gridRight).toBeGreaterThanOrEqual(width - 1);
+      expect(gridRight).toBeLessThanOrEqual(width);
+      expect(layout.width).toBe(width);
+      expect(layout.cellH).toBeGreaterThanOrEqual(14);
+      expect(layout.cellH).toBeLessThanOrEqual(34);
     }
 
-    expect(computeLayout(480, 53).height).toBeLessThan(2200);
+    const rectangular = computeLayout(520, 53);
+    expect(rectangular.cellW).toBeGreaterThan(rectangular.cellH);
+    expect(rectangular.columnWidths.reduce((sum, width) => sum + width, 0) + 6 * rectangular.gapX + rectangular.gridX)
+      .toBeGreaterThanOrEqual(519);
 
-    const horizontal = computeLayout(1440, 53);
-    expect(horizontal.cell).toBe(14);
-    expect(horizontal.labelSize - 32).toBe(
-      Math.floor((1440 - (32 + 53 * 14 + 52 * horizontal.gap)) / 2),
-    );
+    expect(computeLayout(430, 53).height).toBeLessThan(2400);
 
-    const vertical = computeLayout(540, 53);
-    expect(vertical.cell).toBe(30);
-    expect(vertical.labelSize - 34).toBe(
-      Math.floor((540 - (34 + 7 * 30 + 6 * vertical.gap)) / 2),
-    );
+    for (const width of [560, 600, 700, 768, 1024, 1440]) {
+      const layout = computeLayout(width, 53);
+      const contentWidth =
+        layout.gridX +
+        layout.columnWidths.reduce((sum, columnWidth) => sum + columnWidth, 0) +
+        (layout.columnWidths.length - 1) * layout.gapX;
+      const leftGap = layout.labelSize - 32;
+      const rightGap = width - contentWidth;
+      expect(layout.cell).toBeGreaterThanOrEqual(8);
+      expect(layout.cell).toBeLessThanOrEqual(14);
+      expect(Math.abs(leftGap - rightGap)).toBeLessThanOrEqual(2);
+      expect(layout.width).toBeLessThanOrEqual(width);
+    }
   });
 
   it("positions tooltips within the viewport", () => {
