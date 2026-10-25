@@ -428,7 +428,7 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
         </div>
       )}
 
-      <div className="mt-5 flex min-w-0 flex-col gap-4 text-[11px] text-[var(--text-muted)] min-[480px]:sm:flex-row min-[480px]:sm:items-center min-[480px]:sm:justify-between">
+      <div className="mt-5 flex min-w-0 flex-col gap-4 text-[11px] text-[var(--text-muted)] min-[480px]:flex-row min-[480px]:items-center min-[480px]:justify-between">
         <a
           href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile"
           target="_blank"
@@ -437,7 +437,7 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
         >
           Learn how we count contributions
         </a>
-        <div className="flex flex-wrap items-center justify-center gap-1.5 min-[480px]:sm:justify-end">
+        <div className="flex flex-wrap items-center justify-center gap-1.5 min-[480px]:justify-end">
           <span>Less</span>
           {[0, 1, 2, 3, 4].map((level) => (
             <span
@@ -461,7 +461,7 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
               tooltipPosition?.placement === "below"
                 ? "after:bottom-full after:border-b-[var(--border-color)]"
                 : "after:top-full after:border-t-[var(--border-color)]"
-            } after:absolute after:border-4 after:border-transparent`}
+            } after:absolute after:left-[var(--tooltip-arrow-left)] after:-translate-x-1/2 after:border-4 after:border-transparent`}
             style={{
               left: tooltipPosition?.left ?? activeCell.anchor.left,
               top: tooltipPosition?.top ?? activeCell.anchor.top,
@@ -469,13 +469,6 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
               ["--tooltip-arrow-left" as string]: `${tooltipPosition?.arrowLeft ?? 12}px`,
             }}
           >
-            <span
-              className="absolute"
-              style={{
-                left: "var(--tooltip-arrow-left)",
-                transform: "translateX(-50%)",
-              }}
-            />
             {formatTooltip(activeCell.date, activeCell.count)}
           </div>,
           document.body,

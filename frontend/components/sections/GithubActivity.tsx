@@ -5,7 +5,7 @@ export default async function GithubActivity() {
   const contributions = await getContributions("last");
 
   return (
-    <section id="activity" className="py-28 bg-[var(--bg-secondary)]">
+    <section id="activity" className="min-w-0 py-28 bg-[var(--bg-secondary)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="mb-12">
           <span className="section-label block mb-4">Activity</span>
