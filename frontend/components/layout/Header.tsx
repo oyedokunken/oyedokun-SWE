@@ -101,7 +101,7 @@ export default function Header() {
               href="https://buymeamalt.com/@oyedokunken"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative w-9 h-9 flex items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] transition-all duration-200"
+              className="relative hidden md:flex w-9 h-9 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] transition-all duration-200"
               aria-label="Buy me a coffee"
               title="Buy me a coffee"
             >
@@ -113,14 +113,15 @@ export default function Header() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 bg-[var(--text-primary)] text-[var(--bg)] text-[11px] py-2 pl-2 pr-4 rounded-full font-medium tracking-wide hover:opacity-85 transition-opacity duration-200"
             >
-              <Image
-                src="/shoot/oyedokunken.webp"
-                alt=""
-                width={22}
-                height={22}
-                className="h-[22px] w-[22px] rounded-full object-cover object-center"
-                aria-hidden="true"
-              />
+              <span className="relative h-[22px] w-[22px] shrink-0 overflow-hidden rounded-full">
+                <Image
+                  src="/shoot/oyedokunken.webp"
+                  alt=""
+                  fill
+                  className="object-cover object-center"
+                  aria-hidden="true"
+                />
+              </span>
               Hire Me{" "}
               <motion.span
                 className="inline-block origin-[70%_70%]"

@@ -199,13 +199,14 @@ export default function Footer() {
                 aria-label="Show Oyedokun's social links"
                 className="ml-1 inline-flex items-center gap-1.5 rounded-full text-xs text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--text-primary)]/40"
               >
-                <Image
-                  src="/shoot/oyedokunken.webp"
-                  alt="Oyedokun Kehinde"
-                  width={24}
-                  height={24}
-                  className="rounded-full object-cover"
-                />
+                <span className="relative h-6 w-6 shrink-0 overflow-hidden rounded-full">
+                  <Image
+                    src="/shoot/oyedokunken.webp"
+                    alt="Oyedokun Kehinde"
+                    fill
+                    className="object-cover"
+                  />
+                </span>
                 <span className="underline underline-offset-2">@oyedokunken</span>
               </button>
             </div>
