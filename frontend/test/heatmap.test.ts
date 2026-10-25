@@ -21,19 +21,42 @@ describe("heatmap helpers", () => {
       cell: 14,
     });
     expect(computeLayout(760, 53).orientation).toBe("horizontal");
-    expect(computeLayout(640, 53).orientation).toBe("vertical");
+    expect(computeLayout(640, 53).orientation).toBe("horizontal");
     expect(computeLayout(600, 53).orientation).toBe("vertical");
     expect(computeLayout(768, 53).orientation).toBe("horizontal");
     expect(computeLayout(360, 53)).toMatchObject({ orientation: "vertical" });
-    expect(computeLayout(360, 53).cell).toBeGreaterThanOrEqual(14);
-    expect(computeLayout(360, 53).cell).toBeLessThanOrEqual(22);
+    expect(computeLayout(360, 53).cell).toBe(30);
     expect(computeLayout(320, 53).orientation).toBe("vertical");
   });
 
   it("never sizes the graph wider than its container", () => {
-    for (const width of [280, 320, 360, 390, 430, 600, 768, 1024, 1440]) {
+    for (const width of [240, 280, 320, 360, 390, 430, 480, 540, 600, 640, 700, 768, 1024, 1440, 1920]) {
       expect(computeLayout(width, 53).width).toBeLessThanOrEqual(width);
     }
+  });
+
+  it("centers capped groups and fills uncapped vertical layouts", () => {
+    for (const width of [320, 360, 390, 430, 480]) {
+      const layout = computeLayout(width, 53);
+      const gridRight = layout.labelSize + 7 * (layout.cell + layout.gap) - layout.gap;
+      const leftMargin = layout.labelSize - 34;
+      const rightMargin = width - gridRight;
+      expect(Math.abs(leftMargin - rightMargin)).toBeLessThanOrEqual(1);
+    }
+
+    expect(computeLayout(480, 53).height).toBeLessThan(2200);
+
+    const horizontal = computeLayout(1440, 53);
+    expect(horizontal.cell).toBe(14);
+    expect(horizontal.labelSize - 32).toBe(
+      Math.floor((1440 - (32 + 53 * 14 + 52 * horizontal.gap)) / 2),
+    );
+
+    const vertical = computeLayout(540, 53);
+    expect(vertical.cell).toBe(30);
+    expect(vertical.labelSize - 34).toBe(
+      Math.floor((540 - (34 + 7 * 30 + 6 * vertical.gap)) / 2),
+    );
   });
 
   it("positions tooltips within the viewport", () => {
