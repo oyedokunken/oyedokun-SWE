@@ -358,6 +358,10 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
     setCellFromEvent(event);
   }
 
+  function handlePointerLeave(event: ReactPointerEvent<SVGSVGElement>) {
+    if (event.pointerType !== "touch") setActiveCell(null);
+  }
+
   const graphMotion = reduceMotion ? {} : { opacity: 1, y: 0 };
 
   return (
@@ -418,7 +422,7 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
               className={`block max-w-full ${loading ? "opacity-50" : "opacity-100"}`}
               onPointerMove={handlePointerMove}
               onPointerDown={handlePointerDown}
-              onPointerLeave={() => setActiveCell(null)}
+              onPointerLeave={handlePointerLeave}
             >
               {layout.orientation === "horizontal"
                 ? renderHorizontalGraph(data, layout, activeCell?.date ?? null)
