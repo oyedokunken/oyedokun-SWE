@@ -90,7 +90,7 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
     if (initialData) return;
 
     let cancelled = false;
-    fetch("/api/github/contributions?range=last")
+    fetch("/api/github/contributions/?range=last")
       .then(async (response) => {
         if (!response.ok) throw new Error("Unable to load contributions");
         return (await response.json()) as Contributions;
@@ -136,7 +136,7 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
     setError(false);
 
     try {
-      const response = await fetch(`/api/github/contributions?range=${encodeURIComponent(range)}`);
+      const response = await fetch(`/api/github/contributions/?range=${encodeURIComponent(range)}`);
       if (!response.ok) throw new Error("Unable to load contributions");
       const result = (await response.json()) as Contributions;
       if (currentRequest !== requestId.current) return;
