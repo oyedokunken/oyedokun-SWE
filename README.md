@@ -16,7 +16,7 @@ Personal portfolio and contact API backend for Oyedokun Kehinde. Built with Next
 - [Tech Stack](#tech-stack)
 - [Data Flow](#data-flow)
 - [Features](#features)
-- [Projects Showcased](#projects-showcased)
+- [Selected projects](#selected-projects)
 - [Local Development](#local-development)
 - [API Endpoints](#api-endpoints)
 - [Deployment](#deployment)
@@ -177,7 +177,7 @@ flowchart TD
 - About: animated philosophy statement, subtext paragraph under heading, personal details grid
 - Skills: 30 technologies in 6 grouped icon categories (Languages, Frontend, Backend, Data, DevOps, Tools)
 - Services: 11 cards with equalized descriptions, distinct SVG patterns (circles, squares, diamonds, lines), no em dashes
-- Projects: 28 projects filterable by category (Platform, SaaS, SaaS/AI, Blockchain, Healthcare, EdTech, E-commerce, Agency, WordPress); real cover image per card rendered in greyscale (colour reveals on hover); category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
+- Projects: filterable project showcase with real cover images rendered in greyscale (colour reveals on hover); category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
 - Experience: animated scroll-driven timeline line, spring-pop dots, impact-focused bullet points
 - Education: 5 cards - FUTA Akure B.Tech (Computer Information Systems, CGPA 4.72/5.00), Amazon Professional Software Development Certification, NACOSS FUTA Hackathon Emerging Award, Cipher Full Stack cert, Aspire Leaders Program (Harvard collab)
 - WhyMe: 6 USP cards with alternating elevated backgrounds (cards 2/4/6 elevated at rest); card 04 is "AI-Augmented Delivery"
@@ -194,7 +194,7 @@ flowchart TD
 
 ---
 
-## Projects Showcased
+## Selected projects
 
 | Project | Category | Live URL |
 |---|---|---|
@@ -206,27 +206,8 @@ flowchart TD
 | Traqify | SaaS | [traqify.vercel.app](https://traqify.vercel.app) |
 | RIOS | SaaS | [www.riosintell.com](https://www.riosintell.com) |
 | Prompt AI | SaaS / AI | [prompt-swe.vercel.app](https://prompt-swe.vercel.app) |
-| Glore | Platform | [gloreenergy.com](https://gloreenergy.com) |
-| Rexta | Web App | [rextatech.com](https://rextatech.com) |
-| Mailly | SaaS / AI | [usemailly.com](https://usemailly.com) |
 | Storebook | SaaS | [storebookpro.com](https://storebookpro.com) |
 | Trustbag | SaaS | [trustbag.vercel.app](https://trustbag.vercel.app) |
-| Digital Hub Africa | Platform | [digitalhubafrica.org](https://www.digitalhubafrica.org) |
-| Salmired Properties | Platform | [salmiredproperties.com](https://www.salmiredproperties.com) |
-| EduPilot | EdTech | [edupilotly.vercel.app](https://edupilotly.vercel.app) |
-| Kwiker | Platform | [kwiker-main.vercel.app](https://kwiker-main.vercel.app) |
-| TitanBid | SaaS / AI | [titan-bid-frontend.vercel.app](https://titan-bid-frontend.vercel.app) |
-| GramOne | Platform | [gramone.vercel.app](https://gramone.vercel.app) |
-| Dubai Avenue Scents | E-commerce | [dubaiavenuescent.com](https://dubaiavenuescent.com) |
-| DPA Summit | Platform | [digitalprocurement.africa](https://digitalprocurement.africa) |
-| FUTA HMS | Healthcare | [futahms.vercel.app](https://futahms.vercel.app) |
-| Ascentor LDP | Platform | [joinascentor.com](https://joinascentor.com/) |
-| Cooper Gaming Services | Agency | [coopergamingservices.com](https://coopergamingservices.com) |
-| Glory Fashion | WordPress | [glorybyjes.com](https://glorybyjes.com) |
-| Noble Land Africa | WordPress | [noblelandafrica.com](https://noblelandafrica.com) |
-| NextStars | WordPress | [nexstars.org](https://nexstars.org) |
-| WIME Awards | WordPress | [wimeawards.org](https://wimeawards.org) |
-| Minuteman | E-commerce | [minuteman.com.ng](https://minuteman.com.ng) |
 
 ---
 

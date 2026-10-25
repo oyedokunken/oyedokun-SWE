@@ -68,7 +68,7 @@ I'm available to work. If you're building something genuinely exciting or you ne
 
 ---
 
-## Things I have built
+## Selected projects
 
 | Project | Description | Stack |
 |---|---|---|
@@ -80,27 +80,8 @@ I'm available to work. If you're building something genuinely exciting or you ne
 | [Traqify](https://traqify.vercel.app) | Multi-tenant store management SaaS featuring real-time analytics, role-based access control, public storefronts, and integrated Paystack checkout | Next.js, Express, PostgreSQL, Supabase, Prisma |
 | [RIOS](https://www.riosintell.com/) | Multi-tenant ESG reporting SaaS for Nigerian corporates, covering GRI, TCFD, and IFRS benchmarks with branded, auto-generated PDF report delivery | Next.js, Express, PostgreSQL, pdf-lib, Prisma |
 | [Prompt AI](https://prompt-swe.vercel.app) | Chat-based prompt builder that turns vague intent into structured, scored prompts for coding assistants and generative models, powered by a Python ML layer for intent classification | Next.js, FastAPI, Supabase, OpenAI, Prisma |
-| [Glore](https://gloreenergy.com) | Critical mineral trading platform connecting Africa's mining sector to global markets, with real-time pricing, live WebSocket charts, and investor decks | React, Express, PostgreSQL, Socket.io, Redis |
-| [Rexta](https://rextatech.com/) | Digital agency website with contact, quote, and consultation flows, ten service pages, a dynamic project showcase, and Nodemailer email delivery | Next.js 16, Supabase, Express, Nodemailer, SEO |
-| [Mailly](https://usemailly.com/) | Marketing site and waitlist for an AI inbox assistant, with a rate-limited signup flow, branded transactional emails, and a full admin portal with PDF reports and audit log | Next.js 16, Supabase, Nodemailer, shadcn/ui, Prisma |
 | [Storebook](https://storebookpro.com) | Laravel-based store management system for retail businesses with POS, multi-branch inventory, role-based access, PDF reports, and a public storefront | Laravel 11, PHP 8.2, MySQL, Tailwind CSS, Alpine.js |
 | [Trustbag](https://trustbag.vercel.app/) | Escrow and delivery platform for people who buy and sell on Instagram and WhatsApp in Nigeria, with buyer protection, rider delivery, and seller payout after confirmation | Next.js 16, Express 5, PostgreSQL, Redis, Paystack |
-| [Digital Hub Africa](https://www.digitalhubafrica.org/) | Editorial magazine helping Africans learn, work, and build with technology, featuring TipTap rich-text publishing, a role-based admin panel, ISR-driven SEO, and newsletter flows | Next.js 16, TypeScript, Supabase, TipTap, Prisma |
-| [Salmired Properties](https://www.salmiredproperties.com/) | Premium real estate platform for an Ibadan property developer with live listing filters, gallery lightboxes, multi-step application forms, and a JWT-protected admin dashboard | Next.js 16, TypeScript, Supabase, Tailwind CSS, Prisma |
-| [EduPilot](https://edupilotly.vercel.app) | Student workflow platform using Critical Path Method to automate scheduling and monitor cognitive load in real time across academic semesters | Next.js, TypeScript, Node.js, PostgreSQL, CPM |
-| [Kwiker](https://kwiker-main.vercel.app) | Commerce operating system for African SMBs turning WhatsApp selling into structured digital business with AI storefront, order management, and payments | Next.js 16, Supabase, Express, Nodemailer, Prisma |
-| [TitanBid](https://titan-bid-frontend.vercel.app) | AI-powered construction cost estimating platform where builders upload blueprints and receive accurate project estimates within 24 to 48 hours | Next.js, TypeScript, Supabase, Stripe, AI |
-| [GramOne](https://gramone.vercel.app) | Full-stack platform for a critical minerals company spanning three verticals: mineral extraction, refining and processing, and deep-sea exploration | Next.js 16, Express 5, Supabase, Framer Motion, Prisma |
-| [Dubai Avenue Scents](https://dubaiavenuescent.com) | Ultra-premium luxury fragrance storefront with WhatsApp-first ordering, Supabase persistence, transactional email delivery, and a separate admin panel | Next.js 14, Express, Supabase, Nodemailer, TypeScript |
-| [DPA Summit](https://digitalprocurement.africa) | Event platform for C-suite executives and procurement leaders with registration flows, an admin panel, confirmation emails, and security hardening | Laravel, TailwindCSS, MySQL, Nodemailer |
-| [FUTA HMS](https://futahms.vercel.app) | University health management system with a PPSA queue algorithm, in-browser video consultations, real-time analytics, and end-to-end appointment flows | Next.js, Node.js, WebSockets, PostgreSQL, PPSA |
-| [Ascentor LDP](https://joinascentor.com/) | Leadership development platform for African professionals with an AI coach, weekly accountability community, live expert sessions, event registration and ticketing, Paystack payments, and a white-label partner programme | Next.js 16, TypeScript, Supabase, Claude AI, Paystack |
-| [Cooper Gaming Services](https://coopergamingservices.com/) | Business website for Queensland's premier gaming and technology specialists, featuring an interactive hero slider, counters, local SEO, and email flows | React 18, TypeScript, Vite, Bootstrap, Express |
-| [Minuteman](https://minuteman.com.ng/) | Multi-category WooCommerce storefront for a Nigerian e-commerce brand, with flash deals, product search, wishlist management, and full account features | WordPress, WooCommerce, PHP |
-| [Glory Fashion](https://glorybyjes.com) | Luxury fashion brand celebrating inclusive design for all women, with WooCommerce storefront, curated collections, and a New York Fashion Week showcase | WordPress, WooCommerce, PHP, CSS |
-| [Noble Land Africa](https://noblelandafrica.com) | Real estate platform connecting property buyers and sellers across Nigeria, with search, featured listings, and contact flows for land and apartments | WordPress, PHP, CSS, Real Estate |
-| [NextStars](https://nexstars.org) | STEM career placement hub empowering young talents with power skills, peer collaboration, real-world exposure, and upward social mobility pathways | WordPress, PHP, CSS |
-| [WIME Awards](https://wimeawards.org/) | Awards platform celebrating women in maritime and energy across Africa, with nominee profiles, event categories, registration flows, and sponsorship tiers | WordPress, PHP, CSS |
 ---
 
 ## Right now
