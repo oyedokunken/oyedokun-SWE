@@ -59,6 +59,11 @@ const PRESENCE_LABEL: Record<Presence, string> = {
   active: "Active Now",
 };
 
+const EMOJIS = ["😀", "😂", "😍", "🥰", "😎", "😊", "🤔", "👏", "🙌", "🔥", "❤️", "👍", "🎉", "✨", "🚀", "🙂"];
+const STICKERS = ["👋", "🤗", "💪", "🌟", "💖", "🎊", "🥳", "😄", "🙈", "🤝", "💯", "☀️"];
+const WHATSAPP_LINK = "https://wa.link/nv875h";
+const WHATSAPP_NUMBER = "2348028134942";
+
 // Each time the chat opens it "connects" for a moment, so the conversation
 // feels live. The reply only arrives once the status reaches "Active Now".
 function usePresence(isOpen: boolean): Presence {
@@ -101,8 +106,31 @@ function TypingBubble() {
 export default function WhatsAppFloat() {
   const { isOpen, openChat, closeChat } = useWhatsAppChat();
   const [draft, setDraft] = useState("");
+  const [sentMessage, setSentMessage] = useState("");
+  const [isEmojiPickerOpen, setIsEmojiPickerOpen] = useState(false);
+  const [isStickerPickerOpen, setIsStickerPickerOpen] = useState(false);
   const presence = usePresence(isOpen);
   const isActive = presence === "active";
+
+  function handleSend() {
+    const message = draft.trim();
+    if (!message) return;
+
+    setSentMessage(message);
+    setDraft("");
+    setIsEmojiPickerOpen(false);
+    setIsStickerPickerOpen(false);
+
+    const whatsappWindow = window.open("", "_blank");
+    window.setTimeout(() => {
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      if (whatsappWindow) {
+        whatsappWindow.location.href = url;
+      } else {
+        window.location.href = url;
+      }
+    }, 700);
+  }
 
   return (
     <>
@@ -127,7 +155,7 @@ export default function WhatsAppFloat() {
               exit={{ opacity: 0, x: -8 }}
               transition={{ duration: 0.2 }}
               onClick={openChat}
-              className="bg-[#25D366] text-[#0a0a0a] text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-[0_4px_16px_rgba(37,211,102,0.3)] whitespace-nowrap"
+              className="bg-[#25D366] text-white text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-[0_4px_16px_rgba(37,211,102,0.3)] whitespace-nowrap"
             >
               Let&apos;s chat!{" "}
               <motion.span
@@ -201,7 +229,7 @@ export default function WhatsAppFloat() {
                   </div>
                 </div>
                 <a
-                  href="https://wa.link/nv875h"
+                  href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Video call on WhatsApp"
@@ -210,7 +238,7 @@ export default function WhatsAppFloat() {
                   <Video size={17} />
                 </a>
                 <a
-                  href="https://wa.link/nv875h"
+                  href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Voice call on WhatsApp"
@@ -296,15 +324,104 @@ export default function WhatsAppFloat() {
                     )}
                   </AnimatePresence>
                 </div>
+                <AnimatePresence>
+                  {sentMessage && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.85, y: 8 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="mt-3 ml-auto max-w-[82%] rounded-xl rounded-br-none bg-[#D9FDD3] px-3.5 py-2.5 shadow-sm"
+                    >
+                      <p className="text-[13px] leading-snug text-[#111B21]">{sentMessage}</p>
+                      <p className="mt-1.5 text-right text-[10px] text-[#667781]"><MessageTime /></p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               <div
                 className="flex md:hidden items-center gap-2 px-2.5 py-2"
                 style={{ background: "#F0F2F5" }}
               >
-                <div className="flex-1 flex items-center gap-2.5 bg-white rounded-full pl-3 pr-2.5 py-2 shadow-sm">
-                  <Smile size={20} style={{ color: "#8696A0" }} className="flex-shrink-0" />
-                  <Sticker size={19} style={{ color: "#8696A0" }} className="flex-shrink-0" />
+                <div className="relative flex-1 flex items-center gap-2.5 bg-white rounded-full pl-3 pr-2.5 py-2 shadow-sm">
+                  <AnimatePresence>
+                    {isEmojiPickerOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 6, scale: 0.96 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 6, scale: 0.96 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute bottom-full left-0 mb-2 grid grid-cols-8 gap-1 rounded-2xl bg-white p-2 shadow-[0_8px_24px_rgba(0,0,0,0.18)]"
+                        aria-label="Emoji picker"
+                      >
+                        {EMOJIS.map((emoji) => (
+                          <button
+                            key={emoji}
+                            type="button"
+                            onClick={() => {
+                              setDraft((current) => `${current}${emoji}`);
+                              setIsEmojiPickerOpen(false);
+                            }}
+                            className="flex h-7 w-7 items-center justify-center rounded-lg text-base transition-colors hover:bg-[#F0F2F5]"
+                            aria-label={`Add ${emoji}`}
+                          >
+                            {emoji}
+                          </button>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsEmojiPickerOpen((open) => !open);
+                      setIsStickerPickerOpen(false);
+                    }}
+                    aria-label={isEmojiPickerOpen ? "Close emoji picker" : "Open emoji picker"}
+                    aria-expanded={isEmojiPickerOpen}
+                    className="flex-shrink-0 rounded-full text-[#8696A0] transition-colors hover:text-[#075E54]"
+                  >
+                    <Smile size={20} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsStickerPickerOpen((open) => !open);
+                      setIsEmojiPickerOpen(false);
+                    }}
+                    aria-label={isStickerPickerOpen ? "Close sticker picker" : "Open sticker picker"}
+                    aria-expanded={isStickerPickerOpen}
+                    className="flex-shrink-0 rounded-full text-[#8696A0] transition-colors hover:text-[#075E54]"
+                  >
+                    <Sticker size={19} />
+                  </button>
+                  <AnimatePresence>
+                    {isStickerPickerOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 6, scale: 0.96 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 6, scale: 0.96 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute bottom-full left-0 mb-2 grid grid-cols-6 gap-1 rounded-2xl bg-white p-2 shadow-[0_8px_24px_rgba(0,0,0,0.18)]"
+                        aria-label="Sticker picker"
+                      >
+                        {STICKERS.map((sticker) => (
+                          <button
+                            key={sticker}
+                            type="button"
+                            onClick={() => {
+                              setDraft((current) => `${current}${sticker}`);
+                              setIsStickerPickerOpen(false);
+                            }}
+                            className="flex h-9 w-9 items-center justify-center rounded-lg text-xl transition-colors hover:bg-[#F0F2F5]"
+                            aria-label={`Add sticker ${sticker}`}
+                          >
+                            {sticker}
+                          </button>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                   <input
                     type="text"
                     value={draft}
@@ -315,19 +432,19 @@ export default function WhatsAppFloat() {
                   />
                   <Paperclip size={18} style={{ color: "#8696A0" }} className="flex-shrink-0 rotate-45" />
                 </div>
-                <a
-                  href="https://wa.link/nv875h"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={draft.trim() ? handleSend : undefined}
+                  disabled={!draft.trim()}
                   aria-label={draft ? "Send on WhatsApp" : "Voice note on WhatsApp"}
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-[#075E54] hover:bg-[#054b44] transition-colors duration-200 flex-shrink-0"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-[#075E54] hover:bg-[#054b44] disabled:cursor-default transition-colors duration-200 flex-shrink-0"
                 >
                   {draft ? <SendHorizontal size={17} color="white" /> : <Mic size={18} color="white" />}
-                </a>
+                </button>
               </div>
 
               <a
-                href="https://wa.link/nv875h"
+                href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3.5 bg-[#25D366] hover:bg-[#1ebe5d] transition-colors duration-200 text-white text-[13px] font-semibold tracking-wide"
