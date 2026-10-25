@@ -26,7 +26,17 @@ export type Contributions = {
   weeks: ContributionWeek[];
 };
 
-type ContributionRange = "last" | number;
+export type ContributionRange = "last" | number;
+
+export type ContributionsErrorReason =
+  | "missing token"
+  | "github rejected request"
+  | "github request failed";
+
+export type ContributionsResult = {
+  data: Contributions | null;
+  error: ContributionsErrorReason | null;
+};
 
 type GithubResponse = {
   data?: {
@@ -84,9 +94,12 @@ function getRangeDates(range: ContributionRange) {
   return { from, to: range === now.getUTCFullYear() ? now : endOfYear };
 }
 
-export async function getContributions(range: ContributionRange): Promise<Contributions | null> {
+async function fetchContributions(range: ContributionRange): Promise<ContributionsResult> {
   const token = process.env.GITHUB_TOKEN;
-  if (!token) return null;
+  if (!token) {
+    console.error("[github] contributions request failed: missing token");
+    return { data: null, error: "missing token" };
+  }
 
   const { from, to } = getRangeDates(range);
 
@@ -108,24 +121,62 @@ export async function getContributions(range: ContributionRange): Promise<Contri
       next: { revalidate: 3600 },
     });
 
-    if (!response.ok) return null;
+    if (!response.ok) {
+      let message = "";
+      try {
+        const body = (await response.clone().json()) as { message?: string };
+        message = body.message ?? "";
+      } catch {
+        message = "";
+      }
+      console.error(
+        `[github] contributions request failed: HTTP ${response.status}${message ? `, ${message}` : ""}`,
+      );
+      return { data: null, error: "github rejected request" };
+    }
 
     const result = (await response.json()) as GithubResponse;
     const collection = result.data?.user?.contributionsCollection;
-    if (result.errors?.length || !collection) return null;
+    if (result.errors?.length) {
+      console.error(
+        `[github] contributions request failed: ${result.errors.map((error) => error.message).join("; ")}`,
+      );
+      return { data: null, error: "github rejected request" };
+    }
+    if (!collection) {
+      console.error("[github] contributions request failed: missing contribution data");
+      return { data: null, error: "github rejected request" };
+    }
 
     return {
-      total: collection.contributionCalendar.totalContributions,
-      years: [...collection.contributionYears].sort((a, b) => b - a),
-      weeks: collection.contributionCalendar.weeks.map((week) => ({
-        days: week.contributionDays.map((day) => ({
-          date: day.date,
-          count: day.contributionCount,
-          level: contributionLevels[day.contributionLevel],
+      data: {
+        total: collection.contributionCalendar.totalContributions,
+        years: [...collection.contributionYears].sort((a, b) => b - a),
+        weeks: collection.contributionCalendar.weeks.map((week) => ({
+          days: week.contributionDays.map((day) => ({
+            date: day.date,
+            count: day.contributionCount,
+            level: contributionLevels[day.contributionLevel],
+          })),
         })),
-      })),
+      },
+      error: null,
     };
-  } catch {
-    return null;
+  } catch (error) {
+    console.error(
+      "[github] contributions request failed: request error",
+      error instanceof Error ? error.message : "unknown error",
+    );
+    return { data: null, error: "github request failed" };
   }
+}
+
+export async function getContributions(range: ContributionRange): Promise<Contributions | null> {
+  return (await fetchContributions(range)).data;
+}
+
+export async function getContributionsWithReason(
+  range: ContributionRange,
+): Promise<ContributionsResult> {
+  return fetchContributions(range);
 }
