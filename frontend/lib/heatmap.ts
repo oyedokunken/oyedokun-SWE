@@ -9,6 +9,34 @@ export type HeatmapWeek = {
   days: Array<{ date: string; count: number; level: number }>;
 };
 
+export type HeatmapLayout = {
+  orientation: "horizontal" | "vertical";
+  cell: number;
+  gap: number;
+  labelSize: number;
+  width: number;
+  height: number;
+};
+
+type RectLike = {
+  left: number;
+  top: number;
+  right: number;
+  bottom: number;
+};
+
+type SizeLike = {
+  width: number;
+  height: number;
+};
+
+export type TooltipPosition = {
+  left: number;
+  top: number;
+  placement: "above" | "below";
+  arrowLeft: number;
+};
+
 const levelMap: Record<GithubContributionLevel, number> = {
   NONE: 0,
   FIRST_QUARTILE: 1,
@@ -19,6 +47,74 @@ const levelMap: Record<GithubContributionLevel, number> = {
 
 export function levelFromGithub(level: GithubContributionLevel) {
   return levelMap[level];
+}
+
+export function computeLayout(containerWidth: number, weekCount: number): HeatmapLayout {
+  const safeWidth = Math.max(0, containerWidth);
+  const safeWeekCount = Math.max(1, weekCount);
+  const horizontalCellWithThreeGap =
+    Math.floor((safeWidth - 32) / safeWeekCount) - 3;
+  const horizontalGap = horizontalCellWithThreeGap < 11 ? 2 : 3;
+  const horizontalCell = Math.min(
+    14,
+    Math.floor((safeWidth - 32) / safeWeekCount) - horizontalGap,
+  );
+
+  if (horizontalCell >= 10) {
+    return {
+      orientation: "horizontal",
+      cell: horizontalCell,
+      gap: horizontalGap,
+      labelSize: 32,
+      width: safeWidth,
+      height: 16 + horizontalCell * 7 + horizontalGap * 6,
+    };
+  }
+
+  const verticalCellWithThreeGap = Math.floor((safeWidth - 34) / 7) - 3;
+  const verticalGap = verticalCellWithThreeGap < 11 ? 2 : 3;
+  const verticalCell = Math.max(
+    14,
+    Math.min(22, Math.floor((safeWidth - 34) / 7) - verticalGap),
+  );
+
+  return {
+    orientation: "vertical",
+    cell: verticalCell,
+    gap: verticalGap,
+    labelSize: 34,
+    width: safeWidth,
+    height: 16 + verticalCell * safeWeekCount + verticalGap * Math.max(0, safeWeekCount - 1),
+  };
+}
+
+export function positionTooltip(
+  anchorRect: RectLike,
+  tipSize: SizeLike,
+  viewport: SizeLike,
+  margin = 8,
+): TooltipPosition {
+  const anchorCenter = (anchorRect.left + anchorRect.right) / 2;
+  const availableWidth = Math.max(0, viewport.width - margin * 2 - tipSize.width);
+  const left = Math.min(
+    Math.max(margin, anchorCenter - tipSize.width / 2),
+    margin + availableWidth,
+  );
+  const canPlaceAbove = anchorRect.top - margin - tipSize.height >= margin;
+  const top = canPlaceAbove
+    ? anchorRect.top - margin - tipSize.height
+    : anchorRect.bottom + margin;
+  const cornerPadding = Math.min(12, tipSize.width / 2);
+
+  return {
+    left,
+    top,
+    placement: canPlaceAbove ? "above" : "below",
+    arrowLeft: Math.min(
+      Math.max(cornerPadding, anchorCenter - left),
+      Math.max(cornerPadding, tipSize.width - cornerPadding),
+    ),
+  };
 }
 
 export function getMonthLabels(weeks: HeatmapWeek[]) {

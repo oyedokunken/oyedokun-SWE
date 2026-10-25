@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
 import {
   formatTooltip,
+  computeLayout,
   getMonthLabels,
   levelFromGithub,
+  positionTooltip,
   parseYearParam,
 } from "@/lib/heatmap";
 
@@ -13,6 +15,64 @@ function weeksFromDates(dates: string[]) {
 }
 
 describe("heatmap helpers", () => {
+  it("chooses a responsive horizontal or vertical layout", () => {
+    expect(computeLayout(1200, 53)).toMatchObject({
+      orientation: "horizontal",
+      cell: 14,
+    });
+    expect(computeLayout(760, 53).orientation).toBe("horizontal");
+    expect(computeLayout(640, 53).orientation).toBe("vertical");
+    expect(computeLayout(360, 53)).toMatchObject({ orientation: "vertical" });
+    expect(computeLayout(360, 53).cell).toBeGreaterThanOrEqual(14);
+    expect(computeLayout(360, 53).cell).toBeLessThanOrEqual(22);
+    expect(computeLayout(320, 53).orientation).toBe("vertical");
+  });
+
+  it("never sizes the graph wider than its container", () => {
+    for (const width of [280, 320, 360, 390, 430, 600, 768, 1024, 1440]) {
+      expect(computeLayout(width, 53).width).toBeLessThanOrEqual(width);
+    }
+  });
+
+  it("positions tooltips within the viewport", () => {
+    expect(
+      positionTooltip(
+        { left: 200, top: 300, right: 212, bottom: 312 },
+        { width: 120, height: 32 },
+        { width: 800, height: 600 },
+      ),
+    ).toEqual({ left: 146, top: 260, placement: "above", arrowLeft: 60 });
+    expect(
+      positionTooltip(
+        { left: 200, top: 10, right: 212, bottom: 22 },
+        { width: 120, height: 32 },
+        { width: 800, height: 600 },
+      ).placement,
+    ).toBe("below");
+    expect(
+      positionTooltip(
+        { left: 4, top: 300, right: 16, bottom: 312 },
+        { width: 120, height: 32 },
+        { width: 800, height: 600 },
+      ).left,
+    ).toBe(8);
+    expect(
+      positionTooltip(
+        { left: 790, top: 300, right: 802, bottom: 312 },
+        { width: 120, height: 32 },
+        { width: 800, height: 600 },
+      ).left,
+    ).toBe(672);
+    const wide = positionTooltip(
+      { left: 10, top: 300, right: 20, bottom: 310 },
+      { width: 900, height: 32 },
+      { width: 800, height: 600 },
+    );
+    expect(wide.left).toBe(8);
+    expect(wide.arrowLeft).toBeGreaterThanOrEqual(12);
+    expect(wide.arrowLeft).toBeLessThanOrEqual(888);
+  });
+
   it("maps GitHub contribution levels", () => {
     expect(levelFromGithub("NONE")).toBe(0);
     expect(levelFromGithub("FIRST_QUARTILE")).toBe(1);
