@@ -5,15 +5,21 @@ import {
   computeRecentLayout,
   getRecentSlice,
   getMonthLabels,
+  MOBILE_RANGES,
+  pickMobileLayout,
+  toRows,
+  type HeatmapRow,
   levelFromGithub,
   positionTooltip,
   parseYearParam,
 } from "@/lib/heatmap";
 
 function weeksFromDates(dates: string[]) {
-  return dates.map((date) => ({
-    days: [{ date, count: 0, level: 0 }],
-  }));
+  return dates.map((date) => {
+    const row: HeatmapRow = Array.from({ length: 7 }, () => null);
+    row[new Date(`${date}T00:00:00Z`).getUTCDay()] = { date, count: 0, level: 0 };
+    return row;
+  });
 }
 
 function contributionData(start: string, end: string) {
@@ -79,31 +85,65 @@ describe("heatmap helpers", () => {
     }
   });
 
-  it("builds a rolling UTC past-month slice", () => {
-    const slice = getRecentSlice(contributionData("2025-01-01", "2025-03-01"));
-    expect(slice.startDate).toBe("2025-01-31");
-    expect(slice.endDate).toBe("2025-03-01");
-    expect(slice.total).toBe(30);
-    expect(slice.rows.length).toBe(5);
-    expect(slice.rows[0].slice(0, 5).every((day) => day === null)).toBe(true);
-    const midweek = getRecentSlice(contributionData("2025-01-01", "2025-02-26"));
-    expect(midweek.rows.at(-1)?.slice(4).every((day) => day === null)).toBe(true);
+  it("builds rolling UTC slices for every mobile month range", () => {
+    const data = contributionData("2024-01-01", "2025-03-01");
+    for (const days of [30, 60, 90, 180]) {
+      const slice = getRecentSlice(data, days);
+      expect(slice.startDate).toBe(
+        new Date(Date.UTC(2025, 2, 1 - (days - 1))).toISOString().slice(0, 10),
+      );
+      expect(slice.endDate).toBe("2025-03-01");
+      expect(slice.total).toBe(days);
+      expect(slice.rows.every((row) => row.length === 7)).toBe(true);
+    }
 
-    const firstOfMonth = getRecentSlice(contributionData("2025-01-01", "2025-02-01"));
+    const slice = getRecentSlice(contributionData("2025-01-01", "2025-03-01"));
+    expect(slice.rows[0].some((day) => day === null)).toBe(true);
+    const midweek = getRecentSlice(contributionData("2025-01-01", "2025-02-26"));
+    expect(midweek.rows.at(-1)?.some((day) => day === null)).toBe(true);
+
+    const firstOfMonth = getRecentSlice(contributionData("2024-12-01", "2025-02-01"), 30);
     expect(firstOfMonth.startDate).toBe("2025-01-03");
     expect(firstOfMonth.total).toBe(30);
 
-    const yearBoundary = getRecentSlice(contributionData("2024-12-01", "2025-01-05"));
+    const yearBoundary = getRecentSlice(contributionData("2024-12-01", "2025-01-05"), 30);
     expect(yearBoundary.startDate).toBe("2024-12-07");
     expect(yearBoundary.total).toBe(30);
 
-    expect(getRecentSlice(contributionData("2025-01-01", "2025-01-10")).total).toBe(10);
+    expect(getRecentSlice(contributionData("2025-01-01", "2025-01-10"), 180).total).toBe(10);
     expect(getRecentSlice({ weeks: [] })).toEqual({
       rows: [],
       total: 0,
       startDate: null,
       endDate: null,
     });
+  });
+
+  it("converts weeks to padded Sunday-to-Saturday rows", () => {
+    const rows = toRows({
+      weeks: [
+        { days: [{ date: "2025-01-01", count: 1, level: 1 }] },
+        { days: [{ date: "2025-01-05", count: 2, level: 2 }] },
+      ],
+    });
+    expect(rows).toHaveLength(2);
+    expect(rows[0].map((day) => day?.date ?? null)).toEqual([
+      null, null, null, "2025-01-01", null, null, null,
+    ]);
+    expect(rows[1].map((day) => day?.date ?? null)).toEqual([
+      "2025-01-05", null, null, null, null, null, null,
+    ]);
+  });
+
+  it("defines the mobile ranges and their layouts", () => {
+    expect(MOBILE_RANGES.map((range) => range.key)).toEqual(["1m", "2m", "3m", "6m", "1y"]);
+    expect(MOBILE_RANGES[0]).toMatchObject({ pillLabel: "Past 1 month", days: 30 });
+    expect(MOBILE_RANGES[4]).toMatchObject({ pillLabel: "1Y", days: null });
+    expect(pickMobileLayout("1m")).toBe("calendar");
+    expect(pickMobileLayout("2m")).toBe("compact");
+    expect(pickMobileLayout("3m")).toBe("compact");
+    expect(pickMobileLayout("6m")).toBe("compact");
+    expect(pickMobileLayout("1y")).toBe("compact");
   });
 
   it("sizes the past-month grid to the full container", () => {
@@ -116,6 +156,23 @@ describe("heatmap helpers", () => {
         expect(layout.cell).toBe(layout.cell);
         expect(6 * layout.pitchX + layout.cell).toBeCloseTo(width, 0);
         expect(layout.height).toBe(16 + rowCount * (layout.cell + layout.gapY) - layout.gapY);
+      }
+    }
+  });
+
+  it("fits compact mobile layouts for every range", () => {
+    for (const width of [280, 320, 360, 390, 430, 480, 520, 559]) {
+      for (const rowCount of [5, 9, 13, 26, 53]) {
+        const layout = computeLayout(width, rowCount);
+        const gridRight =
+          layout.gridX +
+          layout.columnWidths.reduce((sum, columnWidth) => sum + columnWidth, 0) +
+          6 * layout.gapX;
+        expect(layout.width).toBe(width);
+        expect(gridRight).toBeGreaterThanOrEqual(width - 1);
+        expect(gridRight).toBeLessThanOrEqual(width);
+        expect(layout.cellW).toBeGreaterThanOrEqual(14);
+        expect(layout.cellH).toBeLessThanOrEqual(34);
       }
     }
   });
@@ -198,6 +255,20 @@ describe("heatmap helpers", () => {
     expect(labels.map((label) => label.label)).toEqual(["Jan", "Feb", "Mar"]);
     expect(labels[1].weekIndex - labels[0].weekIndex).toBeGreaterThanOrEqual(3);
     expect(labels[2].weekIndex - labels[1].weekIndex).toBeGreaterThanOrEqual(3);
+  });
+
+  it("uses the first non-null day for month labels", () => {
+    const rows = [
+      [null, null, { date: "2025-01-01", count: 0, level: 0 }, null, null, null, null],
+      [null, null, null, null, { date: "2025-01-08", count: 0, level: 0 }, null, null],
+      [null, null, null, null, null, null, { date: "2025-02-01", count: 0, level: 0 }],
+      [null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null],
+      [null, null, null, null, null, null, null],
+    ];
+    const labels = getMonthLabels(rows);
+    expect(labels).toEqual([{ weekIndex: 2, label: "Feb" }]);
   });
 
   it("skips a partial first month when the next month starts too soon", () => {
