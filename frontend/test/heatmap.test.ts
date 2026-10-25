@@ -22,6 +22,8 @@ describe("heatmap helpers", () => {
     });
     expect(computeLayout(760, 53).orientation).toBe("horizontal");
     expect(computeLayout(640, 53).orientation).toBe("vertical");
+    expect(computeLayout(600, 53).orientation).toBe("vertical");
+    expect(computeLayout(768, 53).orientation).toBe("horizontal");
     expect(computeLayout(360, 53)).toMatchObject({ orientation: "vertical" });
     expect(computeLayout(360, 53).cell).toBeGreaterThanOrEqual(14);
     expect(computeLayout(360, 53).cell).toBeLessThanOrEqual(22);
@@ -63,6 +65,20 @@ describe("heatmap helpers", () => {
         { width: 800, height: 600 },
       ).left,
     ).toBe(672);
+      expect(
+        positionTooltip(
+          { left: 400, top: 100, right: 412, bottom: 112 },
+          { width: 120, height: 32 },
+          { width: 800, height: 600 },
+        ).left,
+      ).toBe(346);
+      const leftEdge = positionTooltip(
+        { left: 4, top: 300, right: 16, bottom: 312 },
+        { width: 120, height: 32 },
+        { width: 800, height: 600 },
+      );
+      expect(leftEdge.arrowLeft).toBeGreaterThanOrEqual(12);
+      expect(leftEdge.arrowLeft).toBeLessThanOrEqual(108);
     const wide = positionTooltip(
       { left: 10, top: 300, right: 20, bottom: 310 },
       { width: 900, height: 32 },
