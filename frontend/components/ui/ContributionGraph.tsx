@@ -74,7 +74,9 @@ function YearOptions({
 function Cell({
   x,
   y,
-  cell,
+  cellW,
+  cellH,
+  rx,
   level,
   date,
   count,
@@ -82,7 +84,9 @@ function Cell({
 }: {
   x: number;
   y: number;
-  cell: number;
+  cellW: number;
+  cellH: number;
+  rx: number;
   level: number;
   date: string;
   count: number;
@@ -92,9 +96,9 @@ function Cell({
     <rect
       x={x}
       y={y}
-      width={cell}
-      height={cell}
-      rx={Math.min(2, cell / 4)}
+      width={cellW}
+      height={cellH}
+      rx={rx}
       fill={`var(--gh-l${Math.max(0, Math.min(level, 4))})`}
       stroke="var(--border-color)"
       strokeOpacity={level === 0 ? 0.35 : active ? 0.9 : 0}
@@ -111,15 +115,19 @@ function renderHorizontalGraph(
   layout: HeatmapLayout,
   activeDate: string | null,
 ) {
-  const step = layout.cell + layout.gap;
+  const stepY = layout.cellH + layout.gapY;
   const monthLabels = getMonthLabels(data.weeks);
+  const columnX = (index: number) =>
+    layout.gridX +
+    layout.columnWidths.slice(0, index).reduce((sum, width) => sum + width, 0) +
+    index * layout.gapX;
 
   return (
     <>
       {monthLabels.map(({ weekIndex, label }) => (
         <text
           key={`${weekIndex}-${label}`}
-          x={layout.labelSize + weekIndex * step}
+          x={columnX(weekIndex)}
           y="11"
           className="fill-[var(--text-muted)] text-[10px]"
         >
@@ -130,7 +138,7 @@ function renderHorizontalGraph(
         <text
           key={label}
           x="0"
-          y={16 + (index * 2 + 1) * step + layout.cell * 0.75}
+          y={16 + (index * 2 + 1) * stepY + layout.cellH * 0.75}
           className="fill-[var(--text-muted)] text-[10px]"
         >
           {label}
@@ -140,9 +148,11 @@ function renderHorizontalGraph(
         week.days.map((day, dayIndex) => (
           <Cell
             key={day.date}
-            x={layout.labelSize + weekIndex * step}
-            y={16 + dayIndex * step}
-            cell={layout.cell}
+            x={columnX(weekIndex)}
+            y={16 + dayIndex * stepY}
+            cellW={layout.columnWidths[weekIndex]}
+            cellH={layout.cellH}
+            rx={Math.min(2, layout.cellW / 4)}
             level={day.level}
             date={day.date}
             count={day.count}
@@ -159,16 +169,20 @@ function renderVerticalGraph(
   layout: HeatmapLayout,
   activeDate: string | null,
 ) {
-  const step = layout.cell + layout.gap;
+  const stepY = layout.cellH + layout.gapY;
   const monthLabels = getMonthLabels(data.weeks);
   const weekdayLabels = ["S", "M", "T", "W", "T", "F", "S"];
+  const columnX = (index: number) =>
+    layout.gridX +
+    layout.columnWidths.slice(0, index).reduce((sum, width) => sum + width, 0) +
+    index * layout.gapX;
 
   return (
     <>
       {weekdayLabels.map((label, dayIndex) => (
         <text
           key={`${label}-${dayIndex}`}
-          x={layout.labelSize + dayIndex * step + layout.cell / 2}
+          x={columnX(dayIndex) + layout.columnWidths[dayIndex] / 2}
           y="11"
           textAnchor="middle"
           className="fill-[var(--text-muted)] text-[10px]"
@@ -180,7 +194,7 @@ function renderVerticalGraph(
         <text
           key={`${weekIndex}-${label}`}
           x="0"
-          y={16 + weekIndex * step + layout.cell * 0.75}
+          y={16 + weekIndex * stepY + layout.cellH * 0.75}
           className="fill-[var(--text-muted)] text-[10px]"
         >
           {label}
@@ -190,9 +204,11 @@ function renderVerticalGraph(
         week.days.map((day, dayIndex) => (
           <Cell
             key={day.date}
-            x={layout.labelSize + dayIndex * step}
-            y={16 + weekIndex * step}
-            cell={layout.cell}
+            x={columnX(dayIndex)}
+            y={16 + weekIndex * stepY}
+            cellW={layout.columnWidths[dayIndex]}
+            cellH={layout.cellH}
+            rx={layout.cellW < 24 ? 3 : 4}
             level={day.level}
             date={day.date}
             count={day.count}

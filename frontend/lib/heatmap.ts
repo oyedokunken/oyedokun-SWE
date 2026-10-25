@@ -16,6 +16,12 @@ export type HeatmapLayout = {
   labelSize: number;
   width: number;
   height: number;
+  gridX: number;
+  cellW: number;
+  cellH: number;
+  gapX: number;
+  gapY: number;
+  columnWidths: number[];
 };
 
 type RectLike = {
@@ -52,13 +58,12 @@ export function levelFromGithub(level: GithubContributionLevel) {
 export function computeLayout(containerWidth: number, weekCount: number): HeatmapLayout {
   const safeWidth = Math.max(0, Math.floor(containerWidth));
   const safeWeekCount = Math.max(1, weekCount);
-  const horizontalCellForGap = (gap: number) =>
-    Math.floor((safeWidth - 32 - (safeWeekCount - 1) * gap) / safeWeekCount);
-  const horizontalGap = horizontalCellForGap(3) < 11 ? 2 : 3;
-  const horizontalCell = horizontalCellForGap(horizontalGap);
-
-  if (horizontalCell >= 9) {
-    const cell = Math.min(14, Math.max(0, horizontalCell));
+  if (safeWidth >= 560) {
+    const horizontalCellForGap = (gap: number) =>
+      Math.floor((safeWidth - 32 - (safeWeekCount - 1) * gap) / safeWeekCount);
+    const rawCell = horizontalCellForGap(3);
+    const horizontalGap = rawCell < 11 ? 2 : 3;
+    const cell = Math.min(14, Math.max(8, horizontalCellForGap(horizontalGap)));
     const contentWidth = 32 + safeWeekCount * cell + (safeWeekCount - 1) * horizontalGap;
     const labelOffset = Math.max(0, Math.floor((safeWidth - contentWidth) / 2));
 
@@ -69,30 +74,42 @@ export function computeLayout(containerWidth: number, weekCount: number): Heatma
       labelSize: 32 + labelOffset,
       width: safeWidth,
       height: 16 + cell * 7 + horizontalGap * 6,
+      gridX: 32 + labelOffset,
+      cellW: cell,
+      cellH: cell,
+      gapX: horizontalGap,
+      gapY: horizontalGap,
+      columnWidths: Array.from({ length: safeWeekCount }, () => cell),
     };
   }
 
-  const verticalCellForGap = (gap: number) =>
-    Math.floor((safeWidth - 34 - 6 * gap) / 7);
-  const verticalGap = verticalCellForGap(3) < 11 ? 2 : 3;
-  const computedVerticalCell = verticalCellForGap(verticalGap);
-  const minimumVerticalGroupWidth = 34 + 7 * 14 + 6 * verticalGap;
-  const verticalCell =
-    computedVerticalCell >= 14
-      ? Math.min(30, computedVerticalCell)
-      : minimumVerticalGroupWidth <= safeWidth
-        ? 14
-        : Math.max(0, computedVerticalCell);
-  const contentWidth = 34 + 7 * verticalCell + 6 * verticalGap;
-  const labelOffset = Math.max(0, Math.floor((safeWidth - contentWidth) / 2));
+  const gridX = 36;
+  const verticalCellWidth = (gap: number) =>
+    Math.floor((safeWidth - gridX - 6 * gap) / 7);
+  const gapX = verticalCellWidth(3) < 14 ? 2 : 3;
+  const cellW = Math.max(0, verticalCellWidth(gapX));
+  const cellH = Math.max(14, Math.min(cellW, 34));
+  const remainder = Math.max(
+    0,
+    safeWidth - gridX - 6 * gapX - 7 * cellW,
+  );
+  const columnWidths = Array.from({ length: 7 }, (_, index) =>
+    cellW + (index >= 7 - remainder ? 1 : 0),
+  );
 
   return {
     orientation: "vertical",
-    cell: verticalCell,
-    gap: verticalGap,
-    labelSize: 34 + labelOffset,
+    cell: cellW,
+    gap: gapX,
+    labelSize: 30,
     width: safeWidth,
-    height: 16 + safeWeekCount * (verticalCell + verticalGap) - verticalGap,
+    height: 16 + safeWeekCount * (cellH + gapX) - gapX,
+    gridX,
+    cellW,
+    cellH,
+    gapX,
+    gapY: gapX,
+    columnWidths,
   };
 }
 
