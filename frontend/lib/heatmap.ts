@@ -9,8 +9,11 @@ export type HeatmapWeek = {
   days: Array<{ date: string; count: number; level: number }>;
 };
 
+export type HeatmapDay = HeatmapWeek["days"][number];
+export type HeatmapRow = Array<HeatmapDay | null>;
+
 export type RecentSlice = {
-  rows: Array<Array<{ date: string; count: number; level: number } | null>>;
+  rows: HeatmapRow[];
   total: number;
   startDate: string | null;
   endDate: string | null;
@@ -44,6 +47,20 @@ export type RecentLayout = {
 };
 
 export const MOBILE_MAX_WIDTH = 560;
+
+export const MOBILE_RANGES = [
+  { key: "1m", pillLabel: "Past 1 month", ariaLabel: "Past 1 month", headerPhrase: "in the past month", days: 30 },
+  { key: "2m", pillLabel: "2M", ariaLabel: "Past 2 months", headerPhrase: "in the past 2 months", days: 60 },
+  { key: "3m", pillLabel: "3M", ariaLabel: "Past 3 months", headerPhrase: "in the past 3 months", days: 90 },
+  { key: "6m", pillLabel: "6M", ariaLabel: "Past 6 months", headerPhrase: "in the past 6 months", days: 180 },
+  { key: "1y", pillLabel: "1Y", ariaLabel: "Past year", headerPhrase: "in the last year", days: null },
+] as const;
+
+export type MobileRangeKey = typeof MOBILE_RANGES[number]["key"];
+
+export function pickMobileLayout(key: MobileRangeKey) {
+  return key === "1m" ? "calendar" : "compact";
+}
 
 type RectLike = {
   left: number;
@@ -169,6 +186,7 @@ export function getRecentSlice(data: { weeks: HeatmapWeek[] }, days = 30): Recen
       date.setUTCDate(date.getUTCDate() + dayIndex);
       row.push(byDate.get(dateKey(date)) ?? null);
     }
+
     rows.push(row);
   }
 
@@ -178,6 +196,17 @@ export function getRecentSlice(data: { weeks: HeatmapWeek[] }, days = 30): Recen
     startDate,
     endDate,
   };
+}
+
+export function toRows(data: { weeks: HeatmapWeek[] }): HeatmapRow[] {
+  return data.weeks.map((week) => {
+    const row: HeatmapRow = Array.from({ length: 7 }, () => null);
+    for (const day of week.days) {
+      const weekday = new Date(`${day.date}T00:00:00Z`).getUTCDay();
+      row[weekday] = day;
+    }
+    return row;
+  });
 }
 
 export function computeRecentLayout(containerWidth: number, rowCount: number): RecentLayout {
@@ -235,10 +264,10 @@ export function positionTooltip(
   };
 }
 
-export function getMonthLabels(weeks: HeatmapWeek[]) {
-  const candidates = weeks
-    .map((week, weekIndex) => {
-      const firstDay = week.days[0];
+export function getMonthLabels(rows: HeatmapRow[]) {
+  const candidates = rows
+    .map((row, weekIndex) => {
+      const firstDay = row.find((day) => day !== null);
       if (!firstDay) return null;
       const date = new Date(`${firstDay.date}T00:00:00Z`);
       return {
