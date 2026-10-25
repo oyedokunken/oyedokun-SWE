@@ -9,6 +9,13 @@ export type HeatmapWeek = {
   days: Array<{ date: string; count: number; level: number }>;
 };
 
+export type RecentSlice = {
+  rows: Array<Array<{ date: string; count: number; level: number } | null>>;
+  total: number;
+  startDate: string | null;
+  endDate: string | null;
+};
+
 export type HeatmapLayout = {
   orientation: "horizontal" | "vertical";
   cell: number;
@@ -23,6 +30,20 @@ export type HeatmapLayout = {
   gapY: number;
   columnWidths: number[];
 };
+
+export type RecentLayout = {
+  cell: number;
+  gapX: number;
+  gapY: number;
+  rx: number;
+  pitchX: number;
+  pitchY: number;
+  topRow: number;
+  width: number;
+  height: number;
+};
+
+export const MOBILE_MAX_WIDTH = 560;
 
 type RectLike = {
   left: number;
@@ -58,7 +79,7 @@ export function levelFromGithub(level: GithubContributionLevel) {
 export function computeLayout(containerWidth: number, weekCount: number): HeatmapLayout {
   const safeWidth = Math.max(0, Math.floor(containerWidth));
   const safeWeekCount = Math.max(1, weekCount);
-  if (safeWidth >= 560) {
+  if (safeWidth >= MOBILE_MAX_WIDTH) {
     const horizontalCellForGap = (gap: number) =>
       Math.floor((safeWidth - 32 - (safeWeekCount - 1) * gap) / safeWeekCount);
     const rawCell = horizontalCellForGap(3);
@@ -110,6 +131,78 @@ export function computeLayout(containerWidth: number, weekCount: number): Heatma
     gapX,
     gapY: gapX,
     columnWidths,
+  };
+}
+
+function dateKey(date: Date) {
+  return date.toISOString().slice(0, 10);
+}
+
+export function getRecentSlice(data: { weeks: HeatmapWeek[] }, days = 30): RecentSlice {
+  const allDays = data.weeks.flatMap((week) => week.days).sort((a, b) => a.date.localeCompare(b.date));
+  const latestDay = allDays[allDays.length - 1];
+  if (!latestDay || days <= 0) {
+    return { rows: [], total: 0, startDate: null, endDate: null };
+  }
+
+  const latest = new Date(`${latestDay.date}T00:00:00Z`);
+  const windowStart = new Date(latest);
+  windowStart.setUTCDate(windowStart.getUTCDate() - (days - 1));
+  const startDate = dateKey(windowStart);
+  const endDate = latestDay.date;
+  const inWindow = allDays.filter((day) => day.date >= startDate && day.date <= endDate);
+  if (inWindow.length === 0) {
+    return { rows: [], total: 0, startDate, endDate };
+  }
+
+  const byDate = new Map(inWindow.map((day) => [day.date, day]));
+  const firstWeek = new Date(`${startDate}T00:00:00Z`);
+  firstWeek.setUTCDate(firstWeek.getUTCDate() - firstWeek.getUTCDay());
+  const lastWeek = new Date(`${endDate}T00:00:00Z`);
+  lastWeek.setUTCDate(lastWeek.getUTCDate() - lastWeek.getUTCDay());
+  const rows: RecentSlice["rows"] = [];
+
+  for (const cursor = new Date(firstWeek); cursor <= lastWeek; cursor.setUTCDate(cursor.getUTCDate() + 7)) {
+    const row: RecentSlice["rows"][number] = [];
+    for (let dayIndex = 0; dayIndex < 7; dayIndex += 1) {
+      const date = new Date(cursor);
+      date.setUTCDate(date.getUTCDate() + dayIndex);
+      row.push(byDate.get(dateKey(date)) ?? null);
+    }
+    rows.push(row);
+  }
+
+  return {
+    rows,
+    total: inWindow.reduce((sum, day) => sum + day.count, 0),
+    startDate,
+    endDate,
+  };
+}
+
+export function computeRecentLayout(containerWidth: number, rowCount: number): RecentLayout {
+  const width = Math.max(0, Math.floor(containerWidth));
+  const preferredCell = Math.floor((width / 7) * 0.8);
+  const cell = Math.max(
+    18,
+    Math.min(48, Math.min(preferredCell, Math.floor((width - 6 * 5) / 7))),
+  );
+  const gapX = Math.max(0, (width - 7 * cell) / 6);
+  const gapY = Math.max(5, Math.min(12, Math.round(gapX)));
+  const topRow = 16;
+  const pitchX = cell + gapX;
+  const pitchY = cell + gapY;
+
+  return {
+    cell,
+    gapX,
+    gapY,
+    rx: 6,
+    pitchX,
+    pitchY,
+    topRow,
+    width,
+    height: rowCount > 0 ? topRow + rowCount * pitchY - gapY : topRow,
   };
 }
 
