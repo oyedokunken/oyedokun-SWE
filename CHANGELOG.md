@@ -10,6 +10,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - Buy Me a Malt support links in the header, footer, README and GitHub profile documentation.
+- Documented the two-project Vercel deployment flow and required frontend and backend Root Directory settings.
 
 ### Changed
 - Footer positioning copy now identifies Lagos, Nigeria and emphasizes building for the happy path, edge cases and everything in between.

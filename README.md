@@ -324,6 +324,8 @@ Only `https://www.oyedokun.dev`, `https://oyedokun.dev`, `https://oyedokunken.ve
 
 See `frontend/DEPLOY.md` and `backend/DEPLOY.md` for full step-by-step Vercel deployment guides including environment variable setup, SMTP configuration, and file bundling.
 
+The repository uses two Vercel projects: the frontend project serves `www.oyedokun.dev` and must use `frontend` as its Root Directory, while the backend project must use `backend` as its Root Directory. Deployments are triggered by pushing to `main`. Do not run `vercel --prod` from inside a subfolder when a Root Directory is configured, because the CLI uploads only that folder and the build fails with a missing Root Directory error.
+
 ---
 
 ## License
