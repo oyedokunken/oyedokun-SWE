@@ -9,9 +9,9 @@ export default async function GithubActivity() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="mb-12">
           <span className="section-label block mb-4">Activity</span>
-          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight">Built in the open.</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight">Building in public</h2>
           <p className="mt-4 max-w-xl text-sm text-[var(--text-secondary)]">
-            Live from my GitHub profile, refreshed every hour.
+            The consistency is real. See my contributions, live from GitHub.
           </p>
         </div>
         <ContributionGraph initialData={contributions} />

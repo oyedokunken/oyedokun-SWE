@@ -99,6 +99,7 @@ function Cell({
       stroke="var(--border-color)"
       strokeOpacity={level === 0 ? 0.35 : active ? 0.9 : 0}
       strokeWidth={active ? 1.5 : 1}
+      className="cursor-pointer"
       data-date={date}
       data-count={count}
     />
@@ -439,7 +440,7 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
           rel="noopener noreferrer"
           className="underline underline-offset-4 hover:text-[var(--text-primary)]"
         >
-          Learn how we count contributions
+          Learn how GitHub counts contributions
         </a>
         <div className="flex flex-wrap items-center justify-center gap-1.5 min-[480px]:justify-end">
           <span>Less</span>

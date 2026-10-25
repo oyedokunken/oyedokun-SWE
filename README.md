@@ -170,6 +170,7 @@ flowchart TD
 
 - Preloader with SVG ring, percentage counter, and `siteReady` event system
 - Dark mode default with persistent light mode toggle via ThemeContext
+- GitHub activity heatmap with responsive sizing, a vertical mobile layout, no scrolling, and viewport-clamped tooltips
 - Scroll-spy navigation with active section indicator dot
 - Header entrance animation gated on preloader exit
 - Hero: animated word-by-word heading, parallax image, green availability dot
