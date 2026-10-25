@@ -6,11 +6,16 @@ import type { PointerEvent as ReactPointerEvent } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Contributions } from "@/lib/github";
 import {
+  computeRecentLayout,
   computeLayout,
   formatTooltip,
+  getRecentSlice,
   getMonthLabels,
+  MOBILE_MAX_WIDTH,
   positionTooltip,
   type HeatmapLayout,
+  type RecentLayout,
+  type RecentSlice,
   type TooltipPosition,
 } from "@/lib/heatmap";
 
@@ -25,7 +30,7 @@ type ActiveCell = {
 };
 
 function rangeLabel(range: string) {
-  return range === "last" ? "in the last 1 year" : `in ${range}`;
+  return range === "last" ? "in the last 1 year" : range === "recent" ? "in the past month" : `in ${range}`;
 }
 
 function YearOptions({
@@ -39,7 +44,7 @@ function YearOptions({
   onSelect: (range: string) => void;
   mobile?: boolean;
 }) {
-  const options = ["last", ...years.map(String)];
+  const options = mobile ? ["recent", ...years.map(String)] : ["last", ...years.map(String)];
 
   return (
     <div
@@ -63,7 +68,7 @@ function YearOptions({
                 : "border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"
             }`}
           >
-            {option === "last" ? "Last 1 year" : option}
+            {option === "last" ? "Last 1 year" : option === "recent" ? "Past month" : option}
           </button>
         );
       })}
@@ -220,6 +225,48 @@ function renderVerticalGraph(
   );
 }
 
+function renderRecentGraph(
+  slice: RecentSlice,
+  layout: RecentLayout,
+  activeDate: string | null,
+) {
+  const weekdayLabels = ["S", "M", "T", "W", "T", "F", "S"];
+
+  return (
+    <>
+      {weekdayLabels.map((label, dayIndex) => (
+        <text
+          key={`${label}-${dayIndex}`}
+          x={dayIndex * layout.pitchX + layout.cell / 2}
+          y="11"
+          textAnchor="middle"
+          className="fill-[var(--text-muted)] text-[10px]"
+        >
+          {label}
+        </text>
+      ))}
+      {slice.rows.map((row, rowIndex) =>
+        row.map((day, dayIndex) =>
+          day ? (
+            <Cell
+              key={day.date}
+              x={dayIndex * layout.pitchX}
+              y={layout.topRow + rowIndex * layout.pitchY}
+              cellW={layout.cell}
+              cellH={layout.cell}
+              rx={layout.rx}
+              level={day.level}
+              date={day.date}
+              count={day.count}
+              active={activeDate === day.date}
+            />
+          ) : null,
+        ),
+      )}
+    </>
+  );
+}
+
 export default function ContributionGraph({ initialData }: ContributionGraphProps) {
   const [data, setData] = useState<Contributions | null>(initialData);
   const [selectedRange, setSelectedRange] = useState("last");
@@ -231,6 +278,7 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
   const [containerWidth, setContainerWidth] = useState(0);
   const cache = useRef(new Map<string, Contributions>());
   const requestId = useRef(0);
+  const userPickedRef = useRef(false);
   const graphRef = useRef<HTMLDivElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
@@ -258,6 +306,13 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
       window.removeEventListener("orientationchange", updateWidth);
     };
   }, []);
+
+  useEffect(() => {
+    if (containerWidth <= 0) return;
+    const mobile = containerWidth < MOBILE_MAX_WIDTH;
+    if (mobile && selectedRange === "last") setSelectedRange("recent");
+    if (!mobile && selectedRange === "recent") setSelectedRange("last");
+  }, [containerWidth, selectedRange]);
 
   useLayoutEffect(() => {
     if (!activeCell || !tooltipRef.current) return;
@@ -315,20 +370,31 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
     };
   }, [initialData]);
 
+  const lastData = cache.current.get("last") ?? initialData;
+  const recentSlice = lastData ? getRecentSlice(lastData) : null;
+  const isRecent = selectedRange === "recent";
   const layout = data && containerWidth > 0
     ? computeLayout(containerWidth, data.weeks.length)
     : null;
-  const graphLabel = data
+  const recentLayout = recentSlice && containerWidth > 0
+    ? computeRecentLayout(containerWidth, recentSlice.rows.length)
+    : null;
+  const displayTotal = isRecent ? recentSlice?.total : data?.total;
+  const graphLabel = isRecent && recentSlice
+    ? `GitHub contribution graph, ${recentSlice.total.toLocaleString("en-US")} contributions from ${new Date(`${recentSlice.startDate}T00:00:00Z`).toLocaleString("en-US", { month: "short", day: "numeric", timeZone: "UTC" })} to ${new Date(`${recentSlice.endDate}T00:00:00Z`).toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}`
+    : data
     ? `GitHub contribution graph, ${data.total.toLocaleString("en-US")} contributions ${rangeLabel(selectedRange)}`
     : "GitHub contribution graph";
-  const reservedHeight = layout?.height ?? 180;
+  const reservedHeight = (isRecent ? recentLayout?.height : layout?.height) ?? 180;
 
   async function selectRange(range: string) {
+    userPickedRef.current = true;
     setSelectedRange(range);
     setActiveCell(null);
     setTooltipPosition(null);
 
-    const cached = cache.current.get(range);
+    const requestedCacheKey = range === "recent" ? "last" : range;
+    const cached = cache.current.get(requestedCacheKey);
     if (cached) {
       setData(cached);
       setYears(cached.years);
@@ -341,11 +407,11 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
     setError(false);
 
     try {
-      const response = await fetch(`/api/github/contributions/?range=${encodeURIComponent(range)}`);
+      const response = await fetch(`/api/github/contributions/?range=${encodeURIComponent(requestedCacheKey)}`);
       if (!response.ok) throw new Error("Unable to load contributions");
       const result = (await response.json()) as Contributions;
       if (currentRequest !== requestId.current) return;
-      cache.current.set(range, result);
+      cache.current.set(requestedCacheKey, result);
       setData(result);
       setYears((existing) => [...new Set([...existing, ...result.years])].sort((a, b) => b - a));
     } catch {
@@ -392,8 +458,8 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
       <div className="mb-5 flex min-w-0 flex-col gap-4">
         <div className="flex min-w-0 items-center justify-between gap-4">
           <p className="min-w-0 text-sm font-medium text-[var(--text-primary)]">
-            {data
-              ? `${data.total.toLocaleString("en-US")} contributions ${rangeLabel(selectedRange)}`
+            {displayTotal !== undefined
+              ? `${displayTotal.toLocaleString("en-US")} ${displayTotal === 1 ? "contribution" : "contributions"} ${rangeLabel(selectedRange)}`
               : "GitHub contributions"}
           </p>
           {loading && <span className="shrink-0 text-[11px] text-[var(--text-muted)]">Updating</span>}
@@ -430,20 +496,22 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
           className="relative block min-h-[180px] min-w-0 w-full transition-opacity duration-200"
           style={{ minHeight: `${reservedHeight}px` }}
         >
-          {layout && data && (
+          {((isRecent && recentSlice && recentLayout) || (!isRecent && layout && data)) && (
             <svg
               role="img"
               aria-label={graphLabel}
-              width={layout.width}
-              height={layout.height}
+              width={isRecent ? recentLayout?.width : layout?.width}
+              height={isRecent ? recentLayout?.height : layout?.height}
               className={`block max-w-full ${loading ? "opacity-50" : "opacity-100"}`}
               onPointerMove={handlePointerMove}
               onPointerDown={handlePointerDown}
               onPointerLeave={handlePointerLeave}
             >
-              {layout.orientation === "horizontal"
-                ? renderHorizontalGraph(data, layout, activeCell?.date ?? null)
-                : renderVerticalGraph(data, layout, activeCell?.date ?? null)}
+              {isRecent && recentSlice && recentLayout
+                ? renderRecentGraph(recentSlice, recentLayout, activeCell?.date ?? null)
+                : layout && data && (layout.orientation === "horizontal"
+                  ? renderHorizontalGraph(data, layout, activeCell?.date ?? null)
+                  : renderVerticalGraph(data, layout, activeCell?.date ?? null))}
             </svg>
           )}
         </div>
