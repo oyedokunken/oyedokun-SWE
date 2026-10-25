@@ -77,10 +77,10 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               </div>
               <div className="absolute bottom-4 left-4 right-4">
-                <div className="glass rounded-xl p-3">
+                <div className="glass rounded-xl p-3" style={{ background: "rgba(0, 0, 0, 0.55)" }}>
                   <p className="text-sm text-white font-bold tracking-tight">Oyedokun Kehinde</p>
                   <p className="text-xs text-white/60 mt-0.5">Software Engineer</p>
-                  <p className="text-[10px] text-white/35 mt-0.5 tracking-wide flex items-center gap-1.5"><GreenDot /> Open to remote and hybrid SWE roles</p>
+                  <p className="text-[10px] text-white/35 mt-0.5 tracking-wide flex items-center gap-1.5"><GreenDot /> Open to remote SWE and founding engineer roles</p>
                 </div>
               </div>
             </div>
@@ -165,10 +165,10 @@ export default function Hero() {
               <div className="absolute -top-4 -right-4 w-24 h-24 border border-[var(--border-color)] rounded-xl opacity-40" />
               <div className="absolute -bottom-4 -left-4 w-16 h-16 border border-[var(--border-color)] rounded-lg opacity-30" />
               <div className="absolute bottom-5 left-5 right-5">
-                <div className="glass rounded-xl p-4">
+                <div className="glass rounded-xl p-4" style={{ background: "rgba(0, 0, 0, 0.55)" }}>
                   <p className="text-sm text-white font-bold tracking-tight">Oyedokun Kehinde</p>
                   <p className="text-xs text-white/60 mt-0.5">Software Engineer</p>
-                  <p className="text-[10px] text-white/35 mt-1 tracking-wide flex items-center gap-1.5"><GreenDot /> Open to remote and hybrid SWE roles</p>
+                  <p className="text-[10px] text-white/35 mt-1 tracking-wide flex items-center gap-1.5"><GreenDot /> Open to remote SWE and founding engineer roles</p>
                 </div>
               </div>
             </div>

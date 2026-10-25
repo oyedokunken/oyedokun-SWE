@@ -567,16 +567,16 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
         </div>
       )}
 
-      <div className="mt-5 flex min-w-0 flex-col gap-4 text-[11px] text-[var(--text-muted)] min-[480px]:flex-row min-[480px]:items-center min-[480px]:justify-between">
+      <div className="mt-5 flex min-w-0 flex-row items-center justify-between gap-2 text-[10px] text-[var(--text-muted)] min-[480px]:text-[11px]">
         <a
           href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline underline-offset-4 hover:text-[var(--text-primary)]"
+          className="min-w-0 truncate underline underline-offset-4 hover:text-[var(--text-primary)]"
         >
           Learn how GitHub counts contributions
         </a>
-        <div className="flex flex-wrap items-center justify-center gap-1.5 min-[480px]:justify-end">
+        <div className="flex shrink-0 items-center justify-end gap-1">
           <span>Less</span>
           {[0, 1, 2, 3, 4].map((level) => (
             <span
