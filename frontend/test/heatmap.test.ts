@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 import {
   formatTooltip,
   computeLayout,
+  computeRecentLayout,
+  getRecentSlice,
   getMonthLabels,
   levelFromGithub,
   positionTooltip,
@@ -12,6 +14,22 @@ function weeksFromDates(dates: string[]) {
   return dates.map((date) => ({
     days: [{ date, count: 0, level: 0 }],
   }));
+}
+
+function contributionData(start: string, end: string) {
+  const days = [];
+  for (const cursor = new Date(`${start}T00:00:00Z`); cursor <= new Date(`${end}T00:00:00Z`); cursor.setUTCDate(cursor.getUTCDate() + 1)) {
+    days.push({
+      date: cursor.toISOString().slice(0, 10),
+      count: 1,
+      level: 1,
+    });
+  }
+  const weeks = [];
+  for (let index = 0; index < days.length; index += 7) {
+    weeks.push({ days: days.slice(index, index + 7) });
+  }
+  return { total: days.length, years: [], weeks };
 }
 
 describe("heatmap helpers", () => {
@@ -58,6 +76,47 @@ describe("heatmap helpers", () => {
       expect(layout.cell).toBeLessThanOrEqual(14);
       expect(Math.abs(leftGap - rightGap)).toBeLessThanOrEqual(2);
       expect(layout.width).toBeLessThanOrEqual(width);
+    }
+  });
+
+  it("builds a rolling UTC past-month slice", () => {
+    const slice = getRecentSlice(contributionData("2025-01-01", "2025-03-01"));
+    expect(slice.startDate).toBe("2025-01-31");
+    expect(slice.endDate).toBe("2025-03-01");
+    expect(slice.total).toBe(30);
+    expect(slice.rows.length).toBe(5);
+    expect(slice.rows[0].slice(0, 5).every((day) => day === null)).toBe(true);
+    const midweek = getRecentSlice(contributionData("2025-01-01", "2025-02-26"));
+    expect(midweek.rows.at(-1)?.slice(4).every((day) => day === null)).toBe(true);
+
+    const firstOfMonth = getRecentSlice(contributionData("2025-01-01", "2025-02-01"));
+    expect(firstOfMonth.startDate).toBe("2025-01-03");
+    expect(firstOfMonth.total).toBe(30);
+
+    const yearBoundary = getRecentSlice(contributionData("2024-12-01", "2025-01-05"));
+    expect(yearBoundary.startDate).toBe("2024-12-07");
+    expect(yearBoundary.total).toBe(30);
+
+    expect(getRecentSlice(contributionData("2025-01-01", "2025-01-10")).total).toBe(10);
+    expect(getRecentSlice({ weeks: [] })).toEqual({
+      rows: [],
+      total: 0,
+      startDate: null,
+      endDate: null,
+    });
+  });
+
+  it("sizes the past-month grid to the full container", () => {
+    for (const width of [280, 320, 360, 390, 430, 480, 520, 559]) {
+      for (const rowCount of [5, 6]) {
+        const layout = computeRecentLayout(width, rowCount);
+        expect(layout.width).toBe(width);
+        expect(layout.cell).toBeGreaterThanOrEqual(26);
+        expect(layout.cell).toBeLessThanOrEqual(48);
+        expect(layout.cell).toBe(layout.cell);
+        expect(6 * layout.pitchX + layout.cell).toBeCloseTo(width, 0);
+        expect(layout.height).toBe(16 + rowCount * (layout.cell + layout.gapY) - layout.gapY);
+      }
     }
   });
 
