@@ -37,23 +37,17 @@ function YearOptions({
   years,
   selectedRange,
   onSelect,
-  mobile = false,
+  mobile,
 }: {
   years: number[];
   selectedRange: string;
   onSelect: (range: string) => void;
-  mobile?: boolean;
+  mobile: boolean;
 }) {
   const options = mobile ? ["recent", ...years.map(String)] : ["last", ...years.map(String)];
 
   return (
-    <div
-      className={
-        mobile
-          ? "flex flex-wrap gap-2 pb-1 lg:hidden"
-          : "hidden w-24 shrink-0 flex-col gap-1 lg:flex"
-      }
-    >
+    <div className="flex flex-wrap gap-2 pb-1">
       {options.map((option) => {
         const selected = selectedRange === option;
         return (
@@ -464,7 +458,12 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
           </p>
           {loading && <span className="shrink-0 text-[11px] text-[var(--text-muted)]">Updating</span>}
         </div>
-        <YearOptions years={years} selectedRange={selectedRange} onSelect={selectRange} mobile />
+        <YearOptions
+          years={years}
+          selectedRange={selectedRange}
+          onSelect={selectRange}
+          mobile={containerWidth > 0 && containerWidth < MOBILE_MAX_WIDTH}
+        />
       </div>
 
       {error && !data ? (
