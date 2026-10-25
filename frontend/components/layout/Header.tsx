@@ -118,6 +118,7 @@ export default function Header() {
                   src="/shoot/oyedokunken.webp"
                   alt=""
                   fill
+                  sizes="22px"
                   className="object-cover object-center"
                   aria-hidden="true"
                 />

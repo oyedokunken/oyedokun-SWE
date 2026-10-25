@@ -204,6 +204,7 @@ export default function Footer() {
                     src="/shoot/oyedokunken.webp"
                     alt="Oyedokun Kehinde"
                     fill
+                    sizes="24px"
                     className="object-cover"
                   />
                 </span>
