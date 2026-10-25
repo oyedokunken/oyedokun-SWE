@@ -12,7 +12,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Buy Me a Malt support links in the header, footer, README and GitHub profile documentation.
 - Documented the two-project Vercel deployment flow and required frontend and backend Root Directory settings.
 - Responsive GitHub activity heatmap with a vertical mobile layout, no scrolling, and viewport-clamped tooltips.
-- Mobile GitHub activity now defaults to a rolling past month calendar while desktop retains the full last-year view.
+- Mobile GitHub activity now defaults to a past 1 month calendar with 2M, 3M, 6M and 1Y ranges derived from the same hourly data while desktop retains the last-year view and real year switcher.
 
 ### Changed
 - GitHub activity heatmap now stretches its vertical grid to the card edge with fixed label spacing and responsive rectangular cells.

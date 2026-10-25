@@ -170,7 +170,7 @@ flowchart TD
 
 - Preloader with SVG ring, percentage counter, and `siteReady` event system
 - Dark mode default with persistent light mode toggle via ThemeContext
-- GitHub activity heatmap with responsive sizing, a rolling past month calendar view on mobile covering the last 30 days and updating daily, a full last-year view on desktop, shared year switching, no scrolling, and viewport-clamped tooltips
+- GitHub activity heatmap with responsive sizing, a mobile past 1 month calendar plus 2M, 3M, 6M and 1Y ranges derived from the same hourly data, a desktop last-year view with a real year switcher, no scrolling, and viewport-clamped tooltips
 - Scroll-spy navigation with active section indicator dot
 - Header entrance animation gated on preloader exit
 - Hero: animated word-by-word heading, parallax image, green availability dot
