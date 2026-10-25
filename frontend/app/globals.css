@@ -12,6 +12,11 @@
   --border-color: rgba(0, 0, 0, 0.08);
   --glass-bg: rgba(0, 0, 0, 0.02);
   --glass-border: rgba(0, 0, 0, 0.08);
+  --gh-l0: #ebedf0;
+  --gh-l1: #9be9a8;
+  --gh-l2: #40c463;
+  --gh-l3: #30a14e;
+  --gh-l4: #216e39;
 }
 
 .dark {
@@ -24,6 +29,11 @@
   --border-color: rgba(255, 255, 255, 0.08);
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
+  --gh-l0: #161b22;
+  --gh-l1: #0e4429;
+  --gh-l2: #006d32;
+  --gh-l3: #26a641;
+  --gh-l4: #39d353;
 }
 
 * {
