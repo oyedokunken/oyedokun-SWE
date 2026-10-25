@@ -14,6 +14,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Responsive GitHub activity heatmap with a vertical mobile layout, no scrolling, and viewport-clamped tooltips.
 
 ### Changed
+- GitHub activity heatmap now stretches its vertical grid to the card edge with fixed label spacing and responsive rectangular cells.
 - Footer positioning copy now identifies Lagos, Nigeria and emphasizes building for the happy path, edge cases and everything in between.
 - Footer social links are ordered GitHub, LinkedIn, Instagram, Facebook and X.
 

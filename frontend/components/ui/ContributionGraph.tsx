@@ -25,7 +25,7 @@ type ActiveCell = {
 };
 
 function rangeLabel(range: string) {
-  return range === "last" ? "in the last year" : `in ${range}`;
+  return range === "last" ? "in the last 1 year" : `in ${range}`;
 }
 
 function YearOptions({
@@ -63,7 +63,7 @@ function YearOptions({
                 : "border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"
             }`}
           >
-            {option === "last" ? "Last year" : option}
+            {option === "last" ? "Last 1 year" : option}
           </button>
         );
       })}
