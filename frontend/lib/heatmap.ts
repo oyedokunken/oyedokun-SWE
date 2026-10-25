@@ -50,41 +50,49 @@ export function levelFromGithub(level: GithubContributionLevel) {
 }
 
 export function computeLayout(containerWidth: number, weekCount: number): HeatmapLayout {
-  const safeWidth = Math.max(0, containerWidth);
+  const safeWidth = Math.max(0, Math.floor(containerWidth));
   const safeWeekCount = Math.max(1, weekCount);
-  const horizontalCellWithThreeGap =
-    Math.floor((safeWidth - 32) / safeWeekCount) - 3;
-  const horizontalGap = horizontalCellWithThreeGap < 11 ? 2 : 3;
-  const horizontalCell = Math.min(
-    14,
-    Math.floor((safeWidth - 32) / safeWeekCount) - horizontalGap,
-  );
+  const horizontalCellForGap = (gap: number) =>
+    Math.floor((safeWidth - 32 - (safeWeekCount - 1) * gap) / safeWeekCount);
+  const horizontalGap = horizontalCellForGap(3) < 11 ? 2 : 3;
+  const horizontalCell = horizontalCellForGap(horizontalGap);
 
-  if (horizontalCell >= 10) {
+  if (horizontalCell >= 9) {
+    const cell = Math.min(14, Math.max(0, horizontalCell));
+    const contentWidth = 32 + safeWeekCount * cell + (safeWeekCount - 1) * horizontalGap;
+    const labelOffset = Math.max(0, Math.floor((safeWidth - contentWidth) / 2));
+
     return {
       orientation: "horizontal",
-      cell: horizontalCell,
+      cell,
       gap: horizontalGap,
-      labelSize: 32,
+      labelSize: 32 + labelOffset,
       width: safeWidth,
-      height: 16 + horizontalCell * 7 + horizontalGap * 6,
+      height: 16 + cell * 7 + horizontalGap * 6,
     };
   }
 
-  const verticalCellWithThreeGap = Math.floor((safeWidth - 34) / 7) - 3;
-  const verticalGap = verticalCellWithThreeGap < 11 ? 2 : 3;
-  const verticalCell = Math.max(
-    14,
-    Math.min(22, Math.floor((safeWidth - 34) / 7) - verticalGap),
-  );
+  const verticalCellForGap = (gap: number) =>
+    Math.floor((safeWidth - 34 - 6 * gap) / 7);
+  const verticalGap = verticalCellForGap(3) < 11 ? 2 : 3;
+  const computedVerticalCell = verticalCellForGap(verticalGap);
+  const minimumVerticalGroupWidth = 34 + 7 * 14 + 6 * verticalGap;
+  const verticalCell =
+    computedVerticalCell >= 14
+      ? Math.min(30, computedVerticalCell)
+      : minimumVerticalGroupWidth <= safeWidth
+        ? 14
+        : Math.max(0, computedVerticalCell);
+  const contentWidth = 34 + 7 * verticalCell + 6 * verticalGap;
+  const labelOffset = Math.max(0, Math.floor((safeWidth - contentWidth) / 2));
 
   return {
     orientation: "vertical",
     cell: verticalCell,
     gap: verticalGap,
-    labelSize: 34,
+    labelSize: 34 + labelOffset,
     width: safeWidth,
-    height: 16 + verticalCell * safeWeekCount + verticalGap * Math.max(0, safeWeekCount - 1),
+    height: 16 + safeWeekCount * (verticalCell + verticalGap) - verticalGap,
   };
 }
 
