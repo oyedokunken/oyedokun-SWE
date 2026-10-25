@@ -1,9 +1,18 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import type { PointerEvent as ReactPointerEvent } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Contributions } from "@/lib/github";
-import { formatTooltip, getMonthLabels } from "@/lib/heatmap";
+import {
+  computeLayout,
+  formatTooltip,
+  getMonthLabels,
+  positionTooltip,
+  type HeatmapLayout,
+  type TooltipPosition,
+} from "@/lib/heatmap";
 
 type ContributionGraphProps = {
   initialData: Contributions | null;
@@ -12,17 +21,8 @@ type ContributionGraphProps = {
 type ActiveCell = {
   date: string;
   count: number;
-  left: number;
-  top: number;
+  anchor: { left: number; top: number; right: number; bottom: number };
 };
-
-const CELL_SIZE = 11;
-const CELL_GAP = 3;
-const COLUMN_STEP = CELL_SIZE + CELL_GAP;
-const GRAPH_LEFT = 36;
-const GRAPH_TOP = 24;
-const GRAPH_WIDTH = 780;
-const GRAPH_HEIGHT = 132;
 
 function rangeLabel(range: string) {
   return range === "last" ? "in the last year" : `in ${range}`;
@@ -42,7 +42,13 @@ function YearOptions({
   const options = ["last", ...years.map(String)];
 
   return (
-    <div className={mobile ? "flex gap-2 overflow-x-auto pb-1 lg:hidden" : "hidden w-24 shrink-0 flex-col gap-1 lg:flex"}>
+    <div
+      className={
+        mobile
+          ? "flex flex-wrap gap-2 pb-1 lg:hidden"
+          : "hidden w-24 shrink-0 flex-col gap-1 lg:flex"
+      }
+    >
       {options.map((option) => {
         const selected = selectedRange === option;
         return (
@@ -51,7 +57,7 @@ function YearOptions({
             type="button"
             aria-pressed={selected}
             onClick={() => onSelect(option)}
-            className={`whitespace-nowrap rounded-full border px-3 py-2 text-left text-[11px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--text-primary)]/50 ${
+            className={`whitespace-nowrap rounded-full border px-3 py-2 text-left text-[11px] transition-colors max-[480px]:px-2 max-[480px]:py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--text-primary)]/50 ${
               selected
                 ? "border-[var(--text-primary)] bg-[var(--text-primary)] text-[var(--bg)]"
                 : "border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"
@@ -65,26 +71,204 @@ function YearOptions({
   );
 }
 
+function Cell({
+  x,
+  y,
+  cell,
+  level,
+  date,
+  count,
+  active,
+}: {
+  x: number;
+  y: number;
+  cell: number;
+  level: number;
+  date: string;
+  count: number;
+  active: boolean;
+}) {
+  return (
+    <rect
+      x={x}
+      y={y}
+      width={cell}
+      height={cell}
+      rx={Math.min(2, cell / 4)}
+      fill={`var(--gh-l${Math.max(0, Math.min(level, 4))})`}
+      stroke="var(--border-color)"
+      strokeOpacity={level === 0 ? 0.35 : active ? 0.9 : 0}
+      strokeWidth={active ? 1.5 : 1}
+      data-date={date}
+      data-count={count}
+    />
+  );
+}
+
+function renderHorizontalGraph(
+  data: Contributions,
+  layout: HeatmapLayout,
+  activeDate: string | null,
+) {
+  const step = layout.cell + layout.gap;
+  const monthLabels = getMonthLabels(data.weeks);
+
+  return (
+    <>
+      {monthLabels.map(({ weekIndex, label }) => (
+        <text
+          key={`${weekIndex}-${label}`}
+          x={layout.labelSize + weekIndex * step}
+          y="11"
+          className="fill-[var(--text-muted)] text-[10px]"
+        >
+          {label}
+        </text>
+      ))}
+      {["Mon", "Wed", "Fri"].map((label, index) => (
+        <text
+          key={label}
+          x="0"
+          y={16 + (index * 2 + 1) * step + layout.cell * 0.75}
+          className="fill-[var(--text-muted)] text-[10px]"
+        >
+          {label}
+        </text>
+      ))}
+      {data.weeks.map((week, weekIndex) =>
+        week.days.map((day, dayIndex) => (
+          <Cell
+            key={day.date}
+            x={layout.labelSize + weekIndex * step}
+            y={16 + dayIndex * step}
+            cell={layout.cell}
+            level={day.level}
+            date={day.date}
+            count={day.count}
+            active={activeDate === day.date}
+          />
+        )),
+      )}
+    </>
+  );
+}
+
+function renderVerticalGraph(
+  data: Contributions,
+  layout: HeatmapLayout,
+  activeDate: string | null,
+) {
+  const step = layout.cell + layout.gap;
+  const monthLabels = getMonthLabels(data.weeks);
+  const weekdayLabels = ["S", "M", "T", "W", "T", "F", "S"];
+
+  return (
+    <>
+      {weekdayLabels.map((label, dayIndex) => (
+        <text
+          key={`${label}-${dayIndex}`}
+          x={layout.labelSize + dayIndex * step + layout.cell / 2}
+          y="11"
+          textAnchor="middle"
+          className="fill-[var(--text-muted)] text-[10px]"
+        >
+          {label}
+        </text>
+      ))}
+      {monthLabels.map(({ weekIndex, label }) => (
+        <text
+          key={`${weekIndex}-${label}`}
+          x="0"
+          y={16 + weekIndex * step + layout.cell * 0.75}
+          className="fill-[var(--text-muted)] text-[10px]"
+        >
+          {label}
+        </text>
+      ))}
+      {data.weeks.map((week, weekIndex) =>
+        week.days.map((day, dayIndex) => (
+          <Cell
+            key={day.date}
+            x={layout.labelSize + dayIndex * step}
+            y={16 + weekIndex * step}
+            cell={layout.cell}
+            level={day.level}
+            date={day.date}
+            count={day.count}
+            active={activeDate === day.date}
+          />
+        )),
+      )}
+    </>
+  );
+}
+
 export default function ContributionGraph({ initialData }: ContributionGraphProps) {
   const [data, setData] = useState<Contributions | null>(initialData);
   const [selectedRange, setSelectedRange] = useState("last");
   const [loading, setLoading] = useState(!initialData);
   const [error, setError] = useState(!initialData);
   const [activeCell, setActiveCell] = useState<ActiveCell | null>(null);
+  const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition | null>(null);
   const [years, setYears] = useState(initialData?.years ?? []);
+  const [containerWidth, setContainerWidth] = useState(0);
   const cache = useRef(new Map<string, Contributions>());
   const requestId = useRef(0);
-  const graphScrollRef = useRef<HTMLDivElement>(null);
+  const graphRef = useRef<HTMLDivElement>(null);
+  const tooltipRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     if (initialData) cache.current.set("last", initialData);
   }, [initialData]);
 
+  useLayoutEffect(() => {
+    const graph = graphRef.current;
+    if (!graph) return;
+
+    const updateWidth = () => {
+      setContainerWidth(graph.clientWidth);
+      setActiveCell(null);
+      setTooltipPosition(null);
+    };
+    const observer = new ResizeObserver(updateWidth);
+    observer.observe(graph);
+    updateWidth();
+    window.addEventListener("orientationchange", updateWidth);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("orientationchange", updateWidth);
+    };
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!activeCell || !tooltipRef.current) return;
+    const rect = tooltipRef.current.getBoundingClientRect();
+    setTooltipPosition(
+      positionTooltip(
+        activeCell.anchor,
+        { width: rect.width, height: rect.height },
+        { width: window.innerWidth, height: window.innerHeight },
+      ),
+    );
+  }, [activeCell]);
+
   useEffect(() => {
-    const container = graphScrollRef.current;
-    if (container) container.scrollLeft = container.scrollWidth;
-  }, [data]);
+    if (!activeCell) return;
+
+    const closeFromOutside = (event: PointerEvent) => {
+      if (!graphRef.current?.contains(event.target as Node)) setActiveCell(null);
+    };
+    const closeOnScroll = () => setActiveCell(null);
+    document.addEventListener("pointerdown", closeFromOutside);
+    document.addEventListener("scroll", closeOnScroll, true);
+
+    return () => {
+      document.removeEventListener("pointerdown", closeFromOutside);
+      document.removeEventListener("scroll", closeOnScroll, true);
+    };
+  }, [activeCell]);
 
   useEffect(() => {
     if (initialData) return;
@@ -114,14 +298,18 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
     };
   }, [initialData]);
 
-  const monthLabels = useMemo(() => getMonthLabels(data?.weeks ?? []), [data]);
+  const layout = data && containerWidth > 0
+    ? computeLayout(containerWidth, data.weeks.length)
+    : null;
   const graphLabel = data
     ? `GitHub contribution graph, ${data.total.toLocaleString("en-US")} contributions ${rangeLabel(selectedRange)}`
     : "GitHub contribution graph";
+  const reservedHeight = layout?.height ?? 180;
 
   async function selectRange(range: string) {
     setSelectedRange(range);
     setActiveCell(null);
+    setTooltipPosition(null);
 
     const cached = cache.current.get(range);
     if (cached) {
@@ -150,22 +338,24 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
     }
   }
 
-  function showCell(event: React.PointerEvent<SVGSVGElement>) {
+  function setCellFromEvent(event: ReactPointerEvent<SVGSVGElement>) {
     const target = (event.target as Element).closest<SVGRectElement>("rect[data-date]");
-    if (!target || !graphScrollRef.current) return;
-
-    const containerRect = graphScrollRef.current.getBoundingClientRect();
-    const targetRect = target.getBoundingClientRect();
+    if (!target) return;
+    const rect = target.getBoundingClientRect();
     setActiveCell({
       date: target.dataset.date ?? "",
       count: Number(target.dataset.count ?? 0),
-      left: targetRect.left - containerRect.left + targetRect.width / 2,
-      top: targetRect.top - containerRect.top,
+      anchor: { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom },
     });
   }
 
-  function closeCell(event: React.PointerEvent<HTMLDivElement>) {
-    if (!(event.target as Element).closest("rect[data-date]")) setActiveCell(null);
+  function handlePointerMove(event: ReactPointerEvent<SVGSVGElement>) {
+    if (event.pointerType === "touch") return;
+    setCellFromEvent(event);
+  }
+
+  function handlePointerDown(event: ReactPointerEvent<SVGSVGElement>) {
+    setCellFromEvent(event);
   }
 
   const graphMotion = reduceMotion ? {} : { opacity: 1, y: 0 };
@@ -176,17 +366,16 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
       whileInView={graphMotion}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6 }}
-      className="rounded-2xl border border-[var(--border-color)] bg-[var(--bg-elevated)] p-5 sm:p-6"
-      onPointerDown={closeCell}
+      className="min-w-0 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-elevated)] p-5 sm:p-6"
     >
-      <div className="mb-5 flex flex-col gap-4">
-        <div className="flex items-center justify-between gap-4">
-          <p className="text-sm font-medium text-[var(--text-primary)]">
+      <div className="mb-5 flex min-w-0 flex-col gap-4">
+        <div className="flex min-w-0 items-center justify-between gap-4">
+          <p className="min-w-0 text-sm font-medium text-[var(--text-primary)]">
             {data
               ? `${data.total.toLocaleString("en-US")} contributions ${rangeLabel(selectedRange)}`
               : "GitHub contributions"}
           </p>
-          {loading && <span className="text-[11px] text-[var(--text-muted)]">Updating</span>}
+          {loading && <span className="shrink-0 text-[11px] text-[var(--text-muted)]">Updating</span>}
         </div>
         <YearOptions years={years} selectedRange={selectedRange} onSelect={selectRange} mobile />
       </div>
@@ -215,77 +404,31 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
           </div>
         </div>
       ) : (
-        <div className="flex items-start gap-5">
-          <div
-            ref={graphScrollRef}
-            className={`relative min-w-0 flex-1 overflow-x-auto transition-opacity duration-200 ${loading ? "opacity-50" : "opacity-100"}`}
-          >
-            {activeCell && (
-              <div
-                role="status"
-                className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-md border border-[var(--border-color)] bg-[var(--bg)] px-2.5 py-1.5 text-[11px] text-[var(--text-primary)] shadow-lg after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:border-4 after:border-transparent after:border-t-[var(--border-color)]"
-                style={{ left: activeCell.left, top: Math.max(activeCell.top - 8, 32) }}
-              >
-                {formatTooltip(activeCell.date, activeCell.count)}
-              </div>
-            )}
+        <div
+          ref={graphRef}
+          className="relative block min-h-[180px] min-w-0 w-full transition-opacity duration-200"
+          style={{ minHeight: `${reservedHeight}px` }}
+        >
+          {layout && data && (
             <svg
               role="img"
               aria-label={graphLabel}
-              viewBox={`0 0 ${GRAPH_WIDTH} ${GRAPH_HEIGHT}`}
-              className="block min-w-[780px] w-full"
-              onPointerMove={showCell}
-              onPointerDown={showCell}
+              width={layout.width}
+              height={layout.height}
+              className={`block max-w-full ${loading ? "opacity-50" : "opacity-100"}`}
+              onPointerMove={handlePointerMove}
+              onPointerDown={handlePointerDown}
               onPointerLeave={() => setActiveCell(null)}
             >
-              {monthLabels.map(({ weekIndex, label }) => (
-                <text
-                  key={`${weekIndex}-${label}`}
-                  x={GRAPH_LEFT + weekIndex * COLUMN_STEP}
-                  y="12"
-                  className="fill-[var(--text-muted)] text-[10px]"
-                >
-                  {label}
-                </text>
-              ))}
-              {["Mon", "Wed", "Fri"].map((label, index) => (
-                <text
-                  key={label}
-                  x="0"
-                  y={GRAPH_TOP + (index * 2 + 1) * COLUMN_STEP + 9}
-                  className="fill-[var(--text-muted)] text-[10px]"
-                >
-                  {label}
-                </text>
-              ))}
-              {data?.weeks.map((week, weekIndex) =>
-                week.days.map((day, dayIndex) => {
-                  const active = activeCell?.date === day.date;
-                  return (
-                    <rect
-                      key={day.date}
-                      x={GRAPH_LEFT + weekIndex * COLUMN_STEP}
-                      y={GRAPH_TOP + dayIndex * COLUMN_STEP}
-                      width={CELL_SIZE}
-                      height={CELL_SIZE}
-                      rx="2"
-                      fill={`var(--gh-l${Math.max(0, Math.min(day.level, 4))})`}
-                      stroke="var(--border-color)"
-                      strokeOpacity={day.level === 0 ? 0.35 : active ? 0.9 : 0}
-                      strokeWidth={active ? 1.5 : 1}
-                      data-date={day.date}
-                      data-count={day.count}
-                    />
-                  );
-                }),
-              )}
+              {layout.orientation === "horizontal"
+                ? renderHorizontalGraph(data, layout, activeCell?.date ?? null)
+                : renderVerticalGraph(data, layout, activeCell?.date ?? null)}
             </svg>
-          </div>
-          <YearOptions years={years} selectedRange={selectedRange} onSelect={selectRange} />
+          )}
         </div>
       )}
 
-      <div className="mt-5 flex flex-col gap-4 text-[11px] text-[var(--text-muted)] sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-5 flex min-w-0 flex-col gap-4 text-[11px] text-[var(--text-muted)] min-[480px]:sm:flex-row min-[480px]:sm:items-center min-[480px]:sm:justify-between">
         <a
           href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile"
           target="_blank"
@@ -294,7 +437,7 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
         >
           Learn how we count contributions
         </a>
-        <div className="flex items-center gap-1.5">
+        <div className="flex flex-wrap items-center justify-center gap-1.5 min-[480px]:sm:justify-end">
           <span>Less</span>
           {[0, 1, 2, 3, 4].map((level) => (
             <span
@@ -307,6 +450,36 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
           <span>More</span>
         </div>
       </div>
+
+      {activeCell &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div
+            ref={tooltipRef}
+            role="status"
+            className={`pointer-events-none fixed z-[100] max-w-[min(280px,calc(100vw-16px))] whitespace-normal break-normal rounded-md border border-[var(--border-color)] bg-[var(--bg)] px-2.5 py-1.5 text-[11px] text-[var(--text-primary)] shadow-lg ${
+              tooltipPosition?.placement === "below"
+                ? "after:bottom-full after:border-b-[var(--border-color)]"
+                : "after:top-full after:border-t-[var(--border-color)]"
+            } after:absolute after:border-4 after:border-transparent`}
+            style={{
+              left: tooltipPosition?.left ?? activeCell.anchor.left,
+              top: tooltipPosition?.top ?? activeCell.anchor.top,
+              visibility: tooltipPosition ? "visible" : "hidden",
+              ["--tooltip-arrow-left" as string]: `${tooltipPosition?.arrowLeft ?? 12}px`,
+            }}
+          >
+            <span
+              className="absolute"
+              style={{
+                left: "var(--tooltip-arrow-left)",
+                transform: "translateX(-50%)",
+              }}
+            />
+            {formatTooltip(activeCell.date, activeCell.count)}
+          </div>,
+          document.body,
+        )}
     </motion.div>
   );
 }
