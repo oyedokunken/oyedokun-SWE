@@ -270,15 +270,17 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
   const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition | null>(null);
   const [years, setYears] = useState(initialData?.years ?? []);
   const [containerWidth, setContainerWidth] = useState(0);
+  const [lastData, setLastData] = useState<Contributions | null>(initialData);
   const cache = useRef(new Map<string, Contributions>());
   const requestId = useRef(0);
-  const userPickedRef = useRef(false);
   const graphRef = useRef<HTMLDivElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    if (initialData) cache.current.set("last", initialData);
+    if (initialData) {
+      cache.current.set("last", initialData);
+    }
   }, [initialData]);
 
   useLayoutEffect(() => {
@@ -300,13 +302,6 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
       window.removeEventListener("orientationchange", updateWidth);
     };
   }, []);
-
-  useEffect(() => {
-    if (containerWidth <= 0) return;
-    const mobile = containerWidth < MOBILE_MAX_WIDTH;
-    if (mobile && selectedRange === "last") setSelectedRange("recent");
-    if (!mobile && selectedRange === "recent") setSelectedRange("last");
-  }, [containerWidth, selectedRange]);
 
   useLayoutEffect(() => {
     if (!activeCell || !tooltipRef.current) return;
@@ -348,6 +343,7 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
       .then((result) => {
         if (cancelled) return;
         cache.current.set("last", result);
+        setLastData(result);
         setData(result);
         setYears(result.years);
         setError(false);
@@ -364,9 +360,15 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
     };
   }, [initialData]);
 
-  const lastData = cache.current.get("last") ?? initialData;
   const recentSlice = lastData ? getRecentSlice(lastData) : null;
-  const isRecent = selectedRange === "recent";
+  const responsiveRange = containerWidth > 0
+    ? containerWidth < MOBILE_MAX_WIDTH && selectedRange === "last"
+      ? "recent"
+      : containerWidth >= MOBILE_MAX_WIDTH && selectedRange === "recent"
+        ? "last"
+        : selectedRange
+    : selectedRange;
+  const isRecent = responsiveRange === "recent";
   const layout = data && containerWidth > 0
     ? computeLayout(containerWidth, data.weeks.length)
     : null;
@@ -377,12 +379,11 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
   const graphLabel = isRecent && recentSlice
     ? `GitHub contribution graph, ${recentSlice.total.toLocaleString("en-US")} contributions from ${new Date(`${recentSlice.startDate}T00:00:00Z`).toLocaleString("en-US", { month: "short", day: "numeric", timeZone: "UTC" })} to ${new Date(`${recentSlice.endDate}T00:00:00Z`).toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}`
     : data
-    ? `GitHub contribution graph, ${data.total.toLocaleString("en-US")} contributions ${rangeLabel(selectedRange)}`
+    ? `GitHub contribution graph, ${data.total.toLocaleString("en-US")} contributions ${rangeLabel(responsiveRange)}`
     : "GitHub contribution graph";
   const reservedHeight = (isRecent ? recentLayout?.height : layout?.height) ?? 180;
 
   async function selectRange(range: string) {
-    userPickedRef.current = true;
     setSelectedRange(range);
     setActiveCell(null);
     setTooltipPosition(null);
@@ -391,6 +392,7 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
     const cached = cache.current.get(requestedCacheKey);
     if (cached) {
       setData(cached);
+      if (requestedCacheKey === "last") setLastData(cached);
       setYears(cached.years);
       setError(false);
       return;
@@ -406,6 +408,7 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
       const result = (await response.json()) as Contributions;
       if (currentRequest !== requestId.current) return;
       cache.current.set(requestedCacheKey, result);
+      if (requestedCacheKey === "last") setLastData(result);
       setData(result);
       setYears((existing) => [...new Set([...existing, ...result.years])].sort((a, b) => b - a));
     } catch {
@@ -453,14 +456,14 @@ export default function ContributionGraph({ initialData }: ContributionGraphProp
         <div className="flex min-w-0 items-center justify-between gap-4">
           <p className="min-w-0 text-sm font-medium text-[var(--text-primary)]">
             {displayTotal !== undefined
-              ? `${displayTotal.toLocaleString("en-US")} ${displayTotal === 1 ? "contribution" : "contributions"} ${rangeLabel(selectedRange)}`
+              ? `${displayTotal.toLocaleString("en-US")} ${displayTotal === 1 ? "contribution" : "contributions"} ${rangeLabel(responsiveRange)}`
               : "GitHub contributions"}
           </p>
           {loading && <span className="shrink-0 text-[11px] text-[var(--text-muted)]">Updating</span>}
         </div>
         <YearOptions
           years={years}
-          selectedRange={selectedRange}
+          selectedRange={responsiveRange}
           onSelect={selectRange}
           mobile={containerWidth > 0 && containerWidth < MOBILE_MAX_WIDTH}
         />
