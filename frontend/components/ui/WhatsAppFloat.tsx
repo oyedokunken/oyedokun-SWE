@@ -431,6 +431,12 @@ export default function WhatsAppFloat() {
                     type="text"
                     value={draft}
                     onChange={(e) => setDraft(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" && !e.shiftKey) {
+                        e.preventDefault();
+                        handleSend();
+                      }
+                    }}
                     placeholder="Type a message"
                     className="flex-1 min-w-0 bg-transparent text-[13px] outline-none placeholder:text-[#8696A0]"
                     style={{ color: "#111B21" }}
