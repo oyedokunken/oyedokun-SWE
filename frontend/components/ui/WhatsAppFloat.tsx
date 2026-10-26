@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { X, Video, Phone, Lock, Smile, Sticker, Paperclip, Mic, SendHorizontal } from "lucide-react";
+import { X, Video, Phone, Lock, Smile, Sticker, Paperclip, Mic, SendHorizontal, CheckCheck } from "lucide-react";
 import { useWhatsAppChat } from "@/context/WhatsAppChatContext";
 
 function WhatsAppIcon({ size = 22, color = "white" }: { size?: number; color?: string }) {
@@ -330,10 +330,15 @@ export default function WhatsAppFloat() {
                       initial={{ opacity: 0, scale: 0.85, y: 8 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
                       transition={{ duration: 0.25 }}
-                      className="mt-3 ml-auto max-w-[82%] rounded-xl rounded-br-none bg-[#D9FDD3] px-3.5 py-2.5 shadow-sm"
+                      className="mt-3 ml-auto w-fit max-w-[82%] rounded-xl rounded-br-none bg-[#D9FDD3] px-3.5 py-2.5 shadow-sm"
                     >
-                      <p className="text-[13px] leading-snug text-[#111B21]">{sentMessage}</p>
-                      <p className="mt-1.5 text-right text-[10px] text-[#667781]"><MessageTime /></p>
+                      <p className="text-[13px] leading-[18px] text-[#111B21]">
+                        {sentMessage}
+                        <span className="float-right ml-2 mt-[3px] inline-flex items-center gap-0.5 whitespace-nowrap align-bottom text-[10px] leading-[12px] text-[#667781]">
+                          <MessageTime />
+                          <CheckCheck size={14} strokeWidth={2.2} className="text-[#53BDEB]" aria-label="Read" />
+                        </span>
+                      </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
