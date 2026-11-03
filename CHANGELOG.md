@@ -9,6 +9,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- Projects: Job Central, Gistroom, Credence and Traqify now point to their new oyedokun.dev subdomains; README project links open in a new tab.
 - Buy Me a Malt support links in the header, footer, README and GitHub profile documentation.
 - Documented the two-project Vercel deployment flow and required frontend and backend Root Directory settings.
 - Responsive GitHub activity heatmap with a vertical mobile layout, no scrolling, and viewport-clamped tooltips.

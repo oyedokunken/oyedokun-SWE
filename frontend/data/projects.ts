@@ -19,7 +19,7 @@ export const projects: Project[] = [
     cover: "/covers/jobcentral-cover.webp",
     desc: "Two-sided hiring platform where candidates build portable profiles with auto-parsed resumes and track applications end-to-end, while organizations post roles via a drag-and-drop form builder and review AI-ranked shortlists.",
     tags: ["Next.js", "TypeScript", "FastAPI", "Supabase", "Prisma"],
-    live: "https://jobcentrall.vercel.app/",
+    live: "https://jobcentral.oyedokun.dev/",
     github: "https://github.com/oyedokunken/jobcentral",
   },
   {
@@ -30,7 +30,7 @@ export const projects: Project[] = [
     cover: "/covers/gistroom-cover.webp",
     desc: "Progressive web app for Nigerians to talk live about local topics. Find friends, chat, call one to one, or join audio rooms for up to 32 people with moderation and invite links. Audio first, data aware, PWA with offline support.",
     tags: ["Next.js", "Socket.IO", "LiveKit", "Supabase", "Prisma"],
-    live: "https://gistroom.vercel.app/",
+    live: "https://gistroom.oyedokun.dev/",
     github: "https://github.com/oyedokunken/gistroom",
   },
   {
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     cover: "/covers/credence-cover.webp",
     desc: "Blockchain credential verification for Nigerian universities, eliminating certificate fraud with Hyperledger Fabric, QR attestations, and instant lookup.",
     tags: ["Hyperledger Fabric", "Next.js", "Express", "QR Verification", "Prisma"],
-    live: "https://credencely.vercel.app",
+    live: "https://credence.oyedokun.dev/",
     github: "https://github.com/oyedokunken/credence-app",
   },
   {
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     cover: "/covers/traqify-cover.webp",
     desc: "Multi-tenant store management SaaS featuring real-time analytics, role-based access control, public storefronts, and integrated Paystack checkout.",
     tags: ["Next.js", "Express", "PostgreSQL", "Supabase", "Prisma"],
-    live: "https://traqify.vercel.app/",
+    live: "https://traqify.oyedokun.dev/",
     github: "https://github.com/oyedokunken/traqify",
   },
   {

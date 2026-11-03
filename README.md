@@ -198,16 +198,16 @@ flowchart TD
 
 | Project | Category | Live URL |
 |---|---|---|
-| Job Central | SaaS | [jobcentrall.vercel.app](https://jobcentrall.vercel.app) |
-| Gistroom | Platform | [gistroom.vercel.app](https://gistroom.vercel.app) |
-| Credence | Blockchain | [credencely.vercel.app](https://credencely.vercel.app) |
-| Ren Power | Platform | [renpowerltd.com](https://renpowerltd.com) |
-| MSP Reports | SaaS | [mspreports.com.au](https://mspreports.com.au) |
-| Traqify | SaaS | [traqify.vercel.app](https://traqify.vercel.app) |
-| RIOS | SaaS | [www.riosintell.com](https://www.riosintell.com) |
-| Prompt AI | SaaS / AI | [prompt-swe.vercel.app](https://prompt-swe.vercel.app) |
-| Storebook | SaaS | [storebookpro.com](https://storebookpro.com) |
-| Trustbag | SaaS | [trustbag.vercel.app](https://trustbag.vercel.app) |
+| Job Central | SaaS | <a href="https://jobcentral.oyedokun.dev/" target="_blank" rel="noopener noreferrer">jobcentral.oyedokun.dev</a> |
+| Gistroom | Platform | <a href="https://gistroom.oyedokun.dev/" target="_blank" rel="noopener noreferrer">gistroom.oyedokun.dev</a> |
+| Credence | Blockchain | <a href="https://credence.oyedokun.dev/" target="_blank" rel="noopener noreferrer">credence.oyedokun.dev</a> |
+| Ren Power | Platform | <a href="https://renpowerltd.com" target="_blank" rel="noopener noreferrer">renpowerltd.com</a> |
+| MSP Reports | SaaS | <a href="https://mspreports.com.au" target="_blank" rel="noopener noreferrer">mspreports.com.au</a> |
+| Traqify | SaaS | <a href="https://traqify.oyedokun.dev/" target="_blank" rel="noopener noreferrer">traqify.oyedokun.dev</a> |
+| RIOS | SaaS | <a href="https://www.riosintell.com" target="_blank" rel="noopener noreferrer">www.riosintell.com</a> |
+| Prompt AI | SaaS / AI | <a href="https://prompt-swe.vercel.app" target="_blank" rel="noopener noreferrer">prompt-swe.vercel.app</a> |
+| Storebook | SaaS | <a href="https://storebookpro.com" target="_blank" rel="noopener noreferrer">storebookpro.com</a> |
+| Trustbag | SaaS | <a href="https://trustbag.vercel.app" target="_blank" rel="noopener noreferrer">trustbag.vercel.app</a> |
 
 ---
 
