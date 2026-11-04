@@ -198,6 +198,7 @@ flowchart TD
 
 | Project | Category | Live URL |
 |---|---|---|
+| Scrim | Desktop App | <a href="https://scrim.oyedokun.dev/" target="_blank" rel="noopener noreferrer">scrim.oyedokun.dev</a> |
 | Job Central | SaaS | <a href="https://jobcentral.oyedokun.dev/" target="_blank" rel="noopener noreferrer">jobcentral.oyedokun.dev</a> |
 | Gistroom | Platform | <a href="https://gistroom.oyedokun.dev/" target="_blank" rel="noopener noreferrer">gistroom.oyedokun.dev</a> |
 | Credence | Blockchain | <a href="https://credence.oyedokun.dev/" target="_blank" rel="noopener noreferrer">credence.oyedokun.dev</a> |

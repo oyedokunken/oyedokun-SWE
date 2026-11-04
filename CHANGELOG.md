@@ -9,6 +9,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- Projects: Scrim (Desktop App) added as the first project - free, open source screen recorder with cursor effects, auto zoom and MP4 export; carries the auto-expiring "New" pill. Also listed in README and GITHUB.md.
 - Projects: Job Central, Gistroom, Credence and Traqify now point to their new oyedokun.dev subdomains; README project links open in a new tab.
 - Buy Me a Malt support links in the header, footer, README and GitHub profile documentation.
 - Documented the two-project Vercel deployment flow and required frontend and backend Root Directory settings.

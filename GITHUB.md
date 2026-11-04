@@ -72,6 +72,7 @@ I'm available to work. If you're building something genuinely exciting or you ne
 
 | Project | Description | Stack |
 |---|---|---|
+| [Scrim](https://scrim.oyedokun.dev/) | Free, open source screen recorder and screenshot tool for Windows, macOS and Linux with cursor highlights, click ripples, automatic zoom, a face camera bubble and watermark-free MP4 export. Recordings stay on your computer | Electron, React, TypeScript, FFmpeg, Next.js |
 | [Job Central](https://jobcentral.oyedokun.dev/) | Two-sided hiring platform where candidates build portable profiles with auto-parsed resumes and track applications end-to-end, while organizations post roles via a drag-and-drop form builder and review AI-ranked shortlists | Next.js, TypeScript, FastAPI, Supabase, Prisma |
 | [Gistroom](https://gistroom.oyedokun.dev/) | Progressive web app for Nigerians to talk live about local topics. Find friends, chat, call one to one, or join audio rooms for up to 32 people with moderation and invite links. Audio first, data aware, PWA with offline support | Next.js, Socket.IO, LiveKit, Supabase, Prisma |
 | [Credence](https://credence.oyedokun.dev/) | Blockchain credential verification for Nigerian universities, eliminating certificate fraud with Hyperledger Fabric, QR attestations, and instant lookup | Hyperledger Fabric, Next.js, Express, QR Verification, Prisma |
