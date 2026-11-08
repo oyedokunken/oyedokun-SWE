@@ -7,13 +7,13 @@ export const services = [
     num: "01",
     title: "Full-Stack Product Engineering",
     desc: "End-to-end product development, from database design and backend architecture to polished, production-ready interfaces. I turn ideas and requirements into complete, scalable software products built for real-world use.",
-    tags: ["React", "Next.js", "Node.js", "TypeScript"],
+    tags: ["React", "Next.js", "Node.js", "TypeScript", "Python", "PHP"],
   },
   {
     num: "02",
     title: "SaaS Product Development",
     desc: "Building multi-tenant SaaS platforms from the ground up. From subscription management and onboarding to role-based dashboards and complex business workflows, I develop products designed to scale with their users.",
-    tags: ["Multi-tenancy", "SaaS", "PostgreSQL", "Prisma", "Supabase"],
+    tags: ["Multi-tenancy", "SaaS", "PostgreSQL", "Prisma", "Redis", "Supabase", "Firebase", "RBAC"],
   },
   {
     num: "03",

@@ -25,9 +25,9 @@
           "iconDark": "/stack/php-dark.svg"
         },
         {
-          "name": "HTML5",
-          "svgl": "HTML5",
-          "icon": "/stack/html5.svg"
+          "name": "Electron",
+          "svgl": "Electron",
+          "icon": "/stack/electron.svg"
         }
       ]
     },

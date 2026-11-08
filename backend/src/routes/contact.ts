@@ -8,7 +8,7 @@ const router = Router();
 router.post("/", recipientLimit, async (req: Request, res: Response) => {
   const parsed = contactSchema.safeParse(req.body);
   if (!parsed.success) {
-    res.status(400).json({ error: parsed.error.errors[0].message });
+    res.status(400).json({ error: parsed.error.issues[0].message });
     return;
   }
 

@@ -43,7 +43,7 @@ export default function Contact() {
     const parsed = contactSchema.safeParse(form);
     if (!parsed.success) {
       const errs: typeof errors = {};
-      parsed.error.errors.forEach((e) => { if (e.path[0]) errs[e.path[0] as keyof ContactForm] = e.message; });
+      parsed.error.issues.forEach((e) => { if (e.path[0]) errs[e.path[0] as keyof ContactForm] = e.message; });
       setErrors(errs);
       return;
     }

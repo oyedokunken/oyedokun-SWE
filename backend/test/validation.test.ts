@@ -18,7 +18,7 @@ describe("contactSchema", () => {
   it("trims fields before checking length", () => {
     const result = contactSchema.safeParse({ ...validContact, name: "   A   " });
     expect(result.success).toBe(false);
-    expect(result.error?.errors[0].message).toBe("Name too short");
+    expect(result.error?.issues[0].message).toBe("Name too short");
   });
 
   it.each([
@@ -30,7 +30,7 @@ describe("contactSchema", () => {
   ])("rejects an invalid %s", (field, value, error) => {
     const result = contactSchema.safeParse({ ...validContact, [field]: value });
     expect(result.success).toBe(false);
-    expect(result.error?.errors[0].message).toBe(error);
+    expect(result.error?.issues[0].message).toBe(error);
   });
 
   it("rejects a missing required field", () => {
