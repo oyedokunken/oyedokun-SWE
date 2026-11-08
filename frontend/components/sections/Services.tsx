@@ -2,23 +2,21 @@
 
 import { motion } from "framer-motion";
 import { useTheme } from "@/context/ThemeContext";
-import { Layers, Server, Code2, Network, Cpu, ShieldCheck, Plug, Lock, Package, Globe, MessageSquare } from "lucide-react";
+import { Layers, Server, Code2, Network, Cpu, ShieldCheck, Plug, Package, MessageSquare } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { services as servicesContent } from "@/data/content";
 
 // Icons and colours per item; the text lives in data/content.ts.
 const presentation: Record<string, { icon: LucideIcon; bg: string; accent: string }> = {
   "01": { icon: Layers, bg: "#0f0f0f", accent: "#1a1a2e" },
-  "02": { icon: Server, bg: "#0f0f0f", accent: "#1c1a0f" },
-  "03": { icon: Network, bg: "#0f0f0f", accent: "#0f1a0f" },
-  "04": { icon: Package, bg: "#0f0f0f", accent: "#0f0f1a" },
-  "05": { icon: Plug, bg: "#0f0f0f", accent: "#0d1a1a" },
-  "06": { icon: Lock, bg: "#0f0f0f", accent: "#1a100f" },
-  "07": { icon: Cpu, bg: "#0f0f0f", accent: "#1a1a0d" },
-  "08": { icon: Code2, bg: "#0f0f0f", accent: "#1a0f0f" },
+  "02": { icon: Package, bg: "#0f0f0f", accent: "#1c1a0f" },
+  "03": { icon: Cpu, bg: "#0f0f0f", accent: "#0f1a0f" },
+  "04": { icon: MessageSquare, bg: "#0f0f0f", accent: "#0f0f1a" },
+  "05": { icon: Server, bg: "#0f0f0f", accent: "#0d1a1a" },
+  "06": { icon: Code2, bg: "#0f0f0f", accent: "#1a100f" },
+  "07": { icon: Network, bg: "#0f0f0f", accent: "#1a1a0d" },
+  "08": { icon: Plug, bg: "#0f0f0f", accent: "#1a0f0f" },
   "09": { icon: ShieldCheck, bg: "#0f0f0f", accent: "#1a1a1a" },
-  "10": { icon: MessageSquare, bg: "#0f0f0f", accent: "#1a0f1a" },
-  "11": { icon: Globe, bg: "#0f0f0f", accent: "#0f1a1a" },
 };
 
 const services = servicesContent.map((item) => ({ ...item, ...presentation[item.num] }));
@@ -51,10 +49,6 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
             <pattern id={`svc-${service.num}`} width="32" height="32" patternUnits="userSpaceOnUse">
               {service.num === "09" ? (
                 <rect x="15.2" y="15.2" width="1.6" height="1.6" fill="currentColor"/>
-              ) : service.num === "10" ? (
-                <path d="M16 15 L17 16 L16 17 L15 16 Z" fill="currentColor"/>
-              ) : service.num === "11" ? (
-                <line x1="15" y1="16" x2="17" y2="16" stroke="currentColor" strokeWidth="0.5"/>
               ) : (
                 <circle cx="16" cy="16" r="0.8" fill="currentColor"/>
               )}
@@ -113,7 +107,7 @@ export default function Services() {
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-5">
           {services.map((service, i) => (
             <ServiceCard key={service.num} service={service} index={i} />
           ))}

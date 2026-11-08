@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Coffee, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import Logo from "@/components/Logo";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import MobileMenu from "@/components/layout/MobileMenu";
@@ -97,16 +97,6 @@ export default function Header() {
 
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <a
-              href="https://buymeamalt.com/@oyedokunken"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative hidden md:flex w-9 h-9 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] transition-all duration-200"
-              aria-label="Buy me a coffee"
-              title="Buy me a coffee"
-            >
-              <Coffee size={15} />
-            </a>
             <a
               href="https://wa.link/nv875h"
               target="_blank"
