@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Linkedin, Github, Instagram, Facebook } from "lucide-react";
+import { X, Linkedin, Github, Instagram } from "lucide-react";
 import Logo from "@/components/Logo";
 
 const navItems = [
@@ -14,10 +14,10 @@ const navItems = [
   { label: "Contact", href: "#contact" },
 ];
 
-function XIcon({ size = 15 }: { size?: number }) {
+function UpworkIcon({ size = 14 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/>
     </svg>
   );
 }
@@ -26,8 +26,7 @@ const socials = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/oyedokunken/", label: "LinkedIn" },
   { icon: Github, href: "https://github.com/oyedokunken/", label: "GitHub" },
   { icon: Instagram, href: "https://www.instagram.com/oyedokunken", label: "Instagram" },
-  { icon: Facebook, href: "https://www.facebook.com/oyedokunken/", label: "Facebook" },
-  { icon: XIcon, href: "https://x.com/oyedokunken_", label: "X" },
+  { icon: UpworkIcon, href: "https://www.upwork.com/freelancers/~01c59959ddebe93fe9", label: "Hire me on Upwork" },
 ];
 
 interface MobileMenuProps {

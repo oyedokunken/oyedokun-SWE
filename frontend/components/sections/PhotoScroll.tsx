@@ -64,6 +64,10 @@ export const photos = [
   "/shoot/oyedokun-50.webp",
   "/shoot/oyedokun-41.webp",
   "/shoot/oyedokun-42.webp",
+  "/shoot/oyedokun-51.webp",
+  "/shoot/oyedokun-52.webp",
+  "/shoot/oyedokun-53.webp",
+  "/shoot/oyedokun-54.webp",
 ];
 
 const evens = photos.filter((_, i) => i % 2 === 0);

@@ -4,7 +4,6 @@ Personal portfolio and contact API backend for Oyedokun Kehinde. Built with Next
 
 **Live:** [https://www.oyedokun.dev](https://www.oyedokun.dev)  
 **Repository:** [https://github.com/oyedokunken/oyedokun-SWE](https://github.com/oyedokunken/oyedokun-SWE)  
-**Buy me a malt:** [https://buymeamalt.com/@oyedokunken](https://buymeamalt.com/@oyedokunken)
 
 ---
 
@@ -198,7 +197,7 @@ flowchart TD
 
 | Project | Category | Live URL |
 |---|---|---|
-| Scrim | Desktop App | <a href="https://scrim.oyedokun.dev/" target="_blank" rel="noopener noreferrer">scrim.oyedokun.dev</a> |
+| Scrim | Desktop App | <a href="https://www.usescrim.app/" target="_blank" rel="noopener noreferrer">usescrim.app</a> |
 | Job Central | SaaS | <a href="https://jobcentral.oyedokun.dev/" target="_blank" rel="noopener noreferrer">jobcentral.oyedokun.dev</a> |
 | Gistroom | Platform | <a href="https://gistroom.oyedokun.dev/" target="_blank" rel="noopener noreferrer">gistroom.oyedokun.dev</a> |
 | Credence | Blockchain | <a href="https://credence.oyedokun.dev/" target="_blank" rel="noopener noreferrer">credence.oyedokun.dev</a> |
@@ -321,5 +320,4 @@ MIT. See [LICENSE](./LICENSE).
 
 Email: [oyedokunken@gmail.com](mailto:oyedokunken@gmail.com)  
 LinkedIn: [linkedin.com/in/oyedokun](https://www.linkedin.com/in/oyedokunken/)  
-Twitter/X: [x.com/oyedokunken_](https://x.com/oyedokunken_)  
 Portfolio: [oyedokun.dev](https://oyedokun.vercel.app/)

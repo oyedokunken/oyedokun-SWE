@@ -19,7 +19,7 @@ export const projects: Project[] = [
     cover: "/covers/scrim-cover.webp",
     desc: "Free, open source screen recorder and screenshot tool for Windows, macOS and Linux. Highlights the cursor, ripples every click, auto-zooms where you work, adds a face camera bubble, and exports a watermark-free MP4. Recordings stay on your computer with no account.",
     tags: ["Electron", "React", "TypeScript", "FFmpeg", "Next.js"],
-    live: "https://scrim.oyedokun.dev/",
+    live: "https://www.usescrim.app/",
     github: "https://github.com/oyedokunken/scrim",
   },
 

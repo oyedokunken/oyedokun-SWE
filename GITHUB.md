@@ -72,7 +72,7 @@ I'm available to work. If you're building something genuinely exciting or you ne
 
 | Project | Description | Stack |
 |---|---|---|
-| [Scrim](https://scrim.oyedokun.dev/) | Free, open source screen recorder and screenshot tool for Windows, macOS and Linux with cursor highlights, click ripples, automatic zoom, a face camera bubble and watermark-free MP4 export. Recordings stay on your computer | Electron, React, TypeScript, FFmpeg, Next.js |
+| [Scrim](https://www.usescrim.app/) | Free, open source screen recorder and screenshot tool for Windows, macOS and Linux with cursor highlights, click ripples, automatic zoom, a face camera bubble and watermark-free MP4 export. Recordings stay on your computer | Electron, React, TypeScript, FFmpeg, Next.js |
 | [Job Central](https://jobcentral.oyedokun.dev/) | Two-sided hiring platform where candidates build portable profiles with auto-parsed resumes and track applications end-to-end, while organizations post roles via a drag-and-drop form builder and review AI-ranked shortlists | Next.js, TypeScript, FastAPI, Supabase, Prisma |
 | [Gistroom](https://gistroom.oyedokun.dev/) | Progressive web app for Nigerians to talk live about local topics. Find friends, chat, call one to one, or join audio rooms for up to 32 people with moderation and invite links. Audio first, data aware, PWA with offline support | Next.js, Socket.IO, LiveKit, Supabase, Prisma |
 | [Credence](https://credence.oyedokun.dev/) | Blockchain credential verification for Nigerian universities, eliminating certificate fraud with Hyperledger Fabric, QR attestations, and instant lookup | Hyperledger Fabric, Next.js, Express, QR Verification, Prisma |
@@ -102,7 +102,7 @@ I'm available to work. If you're building something genuinely exciting or you ne
 [![Portfolio](https://img.shields.io/badge/Portfolio-oyedokun.dev-000000?style=flat-square&logo=vercel&logoColor=white)](https://www.oyedokun.dev/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-oyedokunken-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/oyedokunken/)
 [![Email](https://img.shields.io/badge/Email-oyedokunken@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:oyedokunken@gmail.com)
-[![Buy me a malt](https://img.shields.io/badge/Buy%20me%20a%20malt-Support-F5A623?style=flat-square&logo=buymeacoffee&logoColor=white)](https://buymeamalt.com/@oyedokunken)
+[![Hire me on Upwork](https://img.shields.io/badge/Hire%20me%20on-Upwork-14A800?style=flat-square&logo=upwork&logoColor=white)](https://www.upwork.com/freelancers/~01c59959ddebe93fe9)
 
 ---
 

@@ -68,7 +68,7 @@ export function llmsTxt(): string {
     `- [Sitemap](${SITE_URL}/sitemap.xml): XML sitemap`,
     "- [GitHub](https://github.com/oyedokunken/): Source code and public repositories",
     "- [LinkedIn](https://www.linkedin.com/in/oyedokunken/): Professional profile",
-    "- [X/Twitter](https://x.com/oyedokunken_): Social profile",
+    "- [Upwork](https://www.upwork.com/freelancers/~01c59959ddebe93fe9): Hire me on Upwork",
     "- [Instagram](https://www.instagram.com/oyedokunken): Social profile",
     "",
   ].join("\n");

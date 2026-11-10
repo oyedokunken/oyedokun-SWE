@@ -143,9 +143,8 @@ export default function RootLayout({
                   sameAs: [
                     "https://github.com/oyedokunken/",
                     "https://www.linkedin.com/in/oyedokunken/",
-                    "https://x.com/oyedokunken_",
                     "https://www.instagram.com/oyedokunken",
-                    "https://www.facebook.com/oyedokunken/",
+                    "https://www.upwork.com/freelancers/~01c59959ddebe93fe9",
                   ],
                 },
                 {

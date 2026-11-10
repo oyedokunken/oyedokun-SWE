@@ -13,7 +13,6 @@ export const contactDetails = {
   whatsapp: "https://wa.link/nv875h",
   linkedin: "https://www.linkedin.com/in/oyedokunken/",
   github: "https://github.com/oyedokunken/",
-  x: "https://x.com/oyedokunken_",
   location: "Lagos, Nigeria (works remotely worldwide)",
 };
 
