@@ -27,7 +27,6 @@ const socials = [
   { icon: Github, href: "https://github.com/oyedokunken/", label: "GitHub" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/oyedokunken/", label: "LinkedIn" },
   { icon: Instagram, href: "https://www.instagram.com/oyedokunken", label: "Instagram" },
-  { icon: UpworkIcon, href: "https://www.upwork.com/freelancers/~01c59959ddebe93fe9", label: "Hire me on Upwork" },
 ];
 
 const navLinks = [
@@ -86,6 +85,15 @@ export default function Footer() {
                   </a>
                 ))}
               </div>
+              <a
+                href="https://www.upwork.com/freelancers/~01c59959ddebe93fe9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-auto items-center justify-center gap-2 self-start rounded-full border border-[var(--border-color)] bg-[var(--bg-elevated)] px-4 py-2 text-xs font-medium text-[var(--text-secondary)] transition-all duration-200 hover:border-[var(--text-primary)] hover:text-[var(--text-primary)]"
+              >
+                <UpworkIcon size={14} />
+                Hire me on Upwork
+              </a>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-1 gap-8 md:gap-0 col-span-1 md:col-span-2 md:grid md:grid-cols-2">
