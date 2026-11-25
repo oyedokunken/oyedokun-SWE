@@ -67,7 +67,7 @@ export default function Hero() {
             <div className="relative w-full aspect-[3/4]">
               <div className="absolute inset-0 rounded-2xl border border-[var(--border-color)] overflow-hidden">
                 <Image
-                  src="/shoot/oyedokun-47.webp"
+                  src="/shoot/oyedokun-58.webp"
                   alt="Oyedokun Kehinde"
                   fill
                   className="object-cover object-center grayscale"
@@ -153,7 +153,7 @@ export default function Hero() {
             <div className="relative mx-auto w-full max-w-[420px] aspect-[3/4]">
               <div className="absolute inset-0 rounded-2xl border border-[var(--border-color)] overflow-hidden">
                 <Image
-                  src="/shoot/oyedokun-47.webp"
+                  src="/shoot/oyedokun-58.webp"
                   alt="Oyedokun Kehinde"
                   fill
                   className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-700"
