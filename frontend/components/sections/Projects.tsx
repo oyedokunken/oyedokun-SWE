@@ -149,6 +149,22 @@ export default function Projects() {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-20 flex flex-col items-center gap-6 border-t border-[var(--border-color)] pt-16 text-center"
+        >
+          <h3 className="text-3xl lg:text-5xl font-bold tracking-tight leading-[1.1]">There&apos;s more where that came from.</h3>
+          <p className="max-w-xl text-[var(--text-secondary)] leading-relaxed">
+            Browse all {projects.length} projects with live screenshots, stacks and links, one at a time.
+          </p>
+          <a href="/projects/" className="btn-primary">
+            View all projects <ArrowUpRight size={16} />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
