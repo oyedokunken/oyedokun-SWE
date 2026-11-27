@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail, Linkedin, Github } from "lucide-react";
-import { UpworkIcon, WhatsAppIcon } from "@/components/BrandIcons";
-import { education, experiences } from "@/data/content";
+import ChannelCards from "@/components/pages/ChannelCards";
+import { experiences } from "@/data/content";
 import { contactDetails } from "@/data/pages";
 
 const industries = [
@@ -59,13 +58,6 @@ const reveal = {
 };
 
 export default function AboutView() {
-  const channels = [
-    { label: "Email", note: contactDetails.email, href: `mailto:${contactDetails.email}`, icon: <Mail size={20} /> },
-    { label: "WhatsApp", note: "Chat now", href: contactDetails.whatsapp, icon: <WhatsAppIcon size={20} /> },
-    { label: "LinkedIn", note: "oyedokunken", href: contactDetails.linkedin, icon: <Linkedin size={20} /> },
-    { label: "GitHub", note: "oyedokunken", href: contactDetails.github, icon: <Github size={20} /> },
-    { label: "Upwork", note: "Hire me on Upwork", href: contactDetails.upwork, icon: <UpworkIcon size={20} /> },
-  ];
   const loop = [...industries, ...industries, ...industries];
 
   return (
@@ -195,17 +187,6 @@ export default function AboutView() {
             </motion.li>
           ))}
         </ul>
-        <ul className="mt-12 flex flex-wrap gap-3">
-          {education.map((e) => (
-            <li
-              key={e.credential}
-              className="rounded-full border border-[var(--border-color)] px-4 py-2 text-xs text-[var(--text-secondary)]"
-            >
-              <span className="font-semibold text-[var(--text-primary)]">{e.credential}</span>, {e.institution}
-              {e.meta ? ` (${e.meta})` : ""}
-            </li>
-          ))}
-        </ul>
       </section>
 
       <section className="bg-[var(--bg-secondary)] border-y border-[var(--border-color)] py-28">
@@ -243,29 +224,7 @@ export default function AboutView() {
         <p className="text-[var(--text-secondary)] max-w-xl mb-12">
           Based in {contactDetails.location}. Open to remote and hybrid roles, and to freelance and contract work.
         </p>
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {channels.map((c) => (
-            <li key={c.label}>
-              <a
-                href={c.href}
-                target={c.href.startsWith("http") ? "_blank" : undefined}
-                rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="group flex h-full flex-col justify-between gap-8 rounded-2xl border border-[var(--border-color)] bg-[var(--bg-elevated)] p-6 transition-colors hover:border-[var(--text-primary)]"
-              >
-                <span className="flex items-start justify-between">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-color)] bg-[var(--glass-bg)]">
-                    {c.icon}
-                  </span>
-                  <ArrowUpRight size={16} className="text-[var(--text-muted)] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </span>
-                <span className="space-y-1">
-                  <span className="block text-[10px] tracking-[3px] uppercase text-[var(--text-muted)]">{c.label}</span>
-                  <span className="block text-sm font-semibold break-all">{c.note}</span>
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <ChannelCards show={["email", "whatsapp", "linkedin", "github", "upwork"]} />
       </section>
     </>
   );

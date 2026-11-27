@@ -459,10 +459,7 @@ export default function ProjectsView() {
           Tell me what you have in mind and I&apos;ll tell you how I would approach it.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="/contact/" className="btn-primary">
-            Start a conversation
-          </a>
-          <a href={contactDetails.upwork} target="_blank" rel="noopener noreferrer" className="btn-outline">
+          <a href={contactDetails.upwork} target="_blank" rel="noopener noreferrer" className="btn-primary">
             Hire me on Upwork
           </a>
         </div>

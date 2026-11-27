@@ -29,10 +29,11 @@ const socials = [
   { icon: Instagram, href: "https://www.instagram.com/oyedokunken", label: "Instagram" },
 ];
 
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
+// Pages open their own route; the rest scroll to a homepage section.
+const navLinks: { label: string; href: string; page?: boolean }[] = [
+  { label: "About", href: "/about/", page: true },
+  { label: "Services", href: "/services/", page: true },
+  { label: "Projects", href: "/projects/", page: true },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
@@ -103,8 +104,8 @@ export default function Footer() {
                   {navLinks.map((link) => (
                     <li key={link.label}>
                       <a
-                        href={`/${link.href}`}
-                        onClick={(e) => scrollTo(link.href, e)}
+                        href={link.page ? link.href : `/${link.href}`}
+                        onClick={link.page ? undefined : (e) => scrollTo(link.href, e)}
                         className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                       >
                         {link.label}
