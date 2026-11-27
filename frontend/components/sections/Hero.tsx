@@ -77,10 +77,16 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               </div>
               <div className="absolute bottom-4 left-4 right-4">
-                <div className="glass rounded-xl p-3" style={{ background: "rgba(255, 255, 255, 0.92)", borderColor: "rgba(255, 255, 255, 0.7)" }}>
-                  <p className="text-sm text-black font-bold tracking-tight">Oyedokun Kehinde</p>
-                  <p className="text-xs text-black/65 mt-0.5">Software Engineer</p>
-                  <p className="text-[10px] text-black/55 mt-0.5 tracking-wide flex items-center gap-1.5"><GreenDot /> Open to remote SWE and founding engineer roles</p>
+                <div className="glass rounded-xl p-3" style={{
+                    background: "linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.14))",
+                    borderColor: "rgba(255, 255, 255, 0.45)",
+                    backdropFilter: "blur(24px) saturate(1.8)",
+                    WebkitBackdropFilter: "blur(24px) saturate(1.8)",
+                    boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 10px 40px rgba(0, 0, 0, 0.35)",
+                  }}>
+                  <p className="text-sm text-white font-bold tracking-tight">Oyedokun Kehinde</p>
+                  <p className="text-xs text-white/80 mt-0.5">Software Engineer</p>
+                  <p className="text-[10px] text-white/70 mt-0.5 tracking-wide flex items-center gap-1.5"><GreenDot /> Open to remote SWE and founding engineer roles</p>
                 </div>
               </div>
             </div>
@@ -165,10 +171,16 @@ export default function Hero() {
               <div className="absolute -top-4 -right-4 w-24 h-24 border border-[var(--border-color)] rounded-xl opacity-40" />
               <div className="absolute -bottom-4 -left-4 w-16 h-16 border border-[var(--border-color)] rounded-lg opacity-30" />
               <div className="absolute bottom-5 left-5 right-5">
-                <div className="glass rounded-xl p-4" style={{ background: "rgba(255, 255, 255, 0.92)", borderColor: "rgba(255, 255, 255, 0.7)" }}>
-                  <p className="text-sm text-black font-bold tracking-tight">Oyedokun Kehinde</p>
-                  <p className="text-xs text-black/65 mt-0.5">Software Engineer</p>
-                  <p className="text-[10px] text-black/55 mt-1 tracking-wide flex items-center gap-1.5"><GreenDot /> Open to remote SWE and founding engineer roles</p>
+                <div className="glass rounded-xl p-4" style={{
+                    background: "linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.14))",
+                    borderColor: "rgba(255, 255, 255, 0.45)",
+                    backdropFilter: "blur(24px) saturate(1.8)",
+                    WebkitBackdropFilter: "blur(24px) saturate(1.8)",
+                    boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 10px 40px rgba(0, 0, 0, 0.35)",
+                  }}>
+                  <p className="text-sm text-white font-bold tracking-tight">Oyedokun Kehinde</p>
+                  <p className="text-xs text-white/80 mt-0.5">Software Engineer</p>
+                  <p className="text-[10px] text-white/70 mt-1 tracking-wide flex items-center gap-1.5"><GreenDot /> Open to remote SWE and founding engineer roles</p>
                 </div>
               </div>
             </div>
