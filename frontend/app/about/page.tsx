@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import InfoPage from "@/components/InfoPage";
+import PageShell from "@/components/PageShell";
+import AboutView from "@/components/pages/AboutView";
 
 import { getInfoPage } from "@/data/pages";
 
@@ -13,5 +14,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <InfoPage page={page} />;
+  return (
+    <PageShell current={page.path}>
+      <AboutView />
+    </PageShell>
+  );
 }
