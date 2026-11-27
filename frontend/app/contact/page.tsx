@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import InfoPage from "@/components/InfoPage";
-import Contact from "@/components/sections/Contact";
+import PageShell from "@/components/PageShell";
+import ContactView from "@/components/pages/ContactView";
 import { getInfoPage } from "@/data/pages";
 
 const page = getInfoPage("/contact/");
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <InfoPage page={page}>
-      <Contact />
-    </InfoPage>
+    <PageShell current={page.path}>
+      <ContactView page={page} />
+    </PageShell>
   );
 }

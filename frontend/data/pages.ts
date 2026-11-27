@@ -172,9 +172,12 @@ const privacyPage: InfoPage = {
     {
       heading: "Your choices",
       paragraphs: [
-        `You can ask me to delete any message you've sent, or tell you what I hold about you, by emailing ${contactDetails.email}. I'll delete the relevant emails and confirm once it's done.`,
+        "You can ask me to delete any message you've sent, or tell you what I hold about you, by emailing me or using the contact page. I'll delete the relevant emails and confirm once it's done.",
       ],
-      links: [{ label: "Contact", href: "/contact/" }],
+      links: [
+        { label: "Email me", href: `mailto:${contactDetails.email}` },
+        { label: "Contact page", href: "/contact/" },
+      ],
     },
   ],
 };

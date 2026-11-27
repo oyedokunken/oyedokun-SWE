@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import InfoPage from "@/components/InfoPage";
-
+import PageShell from "@/components/PageShell";
+import PrivacyView from "@/components/pages/PrivacyView";
 import { getInfoPage } from "@/data/pages";
 
 const page = getInfoPage("/privacy/");
@@ -13,5 +13,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <InfoPage page={page} />;
+  return (
+    <PageShell current={page.path}>
+      <PrivacyView page={page} />
+    </PageShell>
+  );
 }
