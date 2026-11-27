@@ -8,10 +8,11 @@ export interface Project {
   live?: string;
   github?: string;
   addedOn?: string;
+  // Hidden projects stay in this file but are left out of the site, sitemap and agent files.
+  hidden?: boolean;
 }
 
-export const projects: Project[] = [
-  {
+const allProjects: Project[] = [  {
     id: "scrim",
     title: "Scrim",
     addedOn: "2026-11-04",
@@ -22,8 +23,7 @@ export const projects: Project[] = [
     live: "https://www.usescrim.app/",
     github: "https://github.com/oyedokunken/scrim",
   },
-
-  {
+  {
     id: "jobcentral",
     title: "Job Central",
     addedOn: "2026-10-09",
@@ -33,8 +33,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "TypeScript", "FastAPI", "Supabase", "Prisma"],
     live: "https://jobcentral.oyedokun.dev/",
     github: "https://github.com/oyedokunken/jobcentral",
-  },
-  {
+  },  {
     id: "gistroom",
     title: "Gistroom",
     addedOn: "2026-10-11",
@@ -44,8 +43,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "Socket.IO", "LiveKit", "Supabase", "Prisma"],
     live: "https://gistroom.oyedokun.dev/",
     github: "https://github.com/oyedokunken/gistroom",
-  },
-  {
+  },  {
     id: "credence",
     title: "Credence",
     category: "Blockchain",
@@ -54,8 +52,7 @@ export const projects: Project[] = [
     tags: ["Hyperledger Fabric", "Next.js", "Express", "QR Verification", "Prisma"],
     live: "https://credence.oyedokun.dev/",
     github: "https://github.com/oyedokunken/credence-app",
-  },
-  {
+  },  {
     id: "renpower",
     title: "Ren Power",
     category: "Platform",
@@ -64,8 +61,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "Express", "PostgreSQL", "Socket.IO", "Prisma"],
     live: "https://www.renpowerltd.com/",
     github: "https://github.com/oyedokunken/renpower",
-  },
-  {
+  },  {
     id: "msp-reports",
     title: "MSP Reports",
     category: "SaaS",
@@ -74,8 +70,7 @@ export const projects: Project[] = [
     tags: ["Laravel 12", "React 19", "PostgreSQL", "TimescaleDB", "AI"],
     live: "https://mspreports.com.au/",
     github: "https://github.com/oyedokunken/MSP-reports",
-  },
-  {
+  },  {
     id: "traqify",
     title: "Traqify",
     category: "SaaS",
@@ -84,8 +79,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "Express", "PostgreSQL", "Supabase", "Prisma"],
     live: "https://traqify.oyedokun.dev/",
     github: "https://github.com/oyedokunken/traqify",
-  },
-  {
+  },  {
     id: "rios",
     title: "RIOS",
     category: "SaaS",
@@ -94,8 +88,16 @@ export const projects: Project[] = [
     tags: ["Next.js", "Express", "PostgreSQL", "pdf-lib", "Prisma"],
     live: "https://www.riosintell.com/",
     github: "https://github.com/oyedokunken/RIOS-app",
-  },
-  {
+  },  {
+    id: "rexta",
+    title: "Rexta",
+    category: "Web App",
+    cover: "/covers/rexta-cover.webp",
+    desc: "Digital agency website with contact, quote, and consultation flows, ten service pages, a dynamic project showcase, and Nodemailer email delivery.",
+    tags: ["Next.js 16", "Supabase", "Express", "Nodemailer", "SEO"],
+    live: "https://rextatech.com/",
+    github: "https://github.com/oyedokunken/rexta",
+  },  {
     id: "prompt-ai",
     title: "Prompt AI",
     addedOn: "2026-09-29",
@@ -105,8 +107,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "FastAPI", "Supabase", "OpenAI", "Prisma"],
     live: "https://prompt-swe.vercel.app/",
     github: "https://github.com/oyedokunken/Prompt-AI",
-  },
-  {
+  },  {
     id: "glore",
     title: "Glore",
     category: "Platform",
@@ -115,18 +116,7 @@ export const projects: Project[] = [
     tags: ["React", "Express", "PostgreSQL", "Socket.io", "Redis"],
     live: "https://www.gloreenergy.com/",
     github: "https://github.com/oyedokunken/glore",
-  },
-  {
-    id: "rexta",
-    title: "Rexta",
-    category: "Web App",
-    cover: "/covers/rexta-cover.webp",
-    desc: "Digital agency website with contact, quote, and consultation flows, ten service pages, a dynamic project showcase, and Nodemailer email delivery.",
-    tags: ["Next.js 16", "Supabase", "Express", "Nodemailer", "SEO"],
-    live: "https://rextatech.com/",
-    github: "https://github.com/oyedokunken/rexta",
-  },
-  {
+  },  {
     id: "mailly",
     title: "Mailly",
     addedOn: "2026-09-22",
@@ -136,8 +126,7 @@ export const projects: Project[] = [
     tags: ["Next.js 16", "Supabase", "Nodemailer", "shadcn/ui", "Prisma"],
     live: "https://usemailly.com/",
     github: "https://github.com/oyedokunken/usemailly-v1",
-  },
-  {
+  },  {
     id: "storebook",
     title: "Storebook",
     category: "SaaS",
@@ -146,8 +135,7 @@ export const projects: Project[] = [
     tags: ["Laravel 11", "PHP 8.2", "MySQL", "Tailwind CSS", "Alpine.js"],
     live: "https://storebookpro.com/",
     github: "https://github.com/oyedokunken/storebook",
-  },
-  {
+  },  {
     id: "trustbag",
     title: "Trustbag",
     addedOn: "2026-10-24",
@@ -157,8 +145,7 @@ export const projects: Project[] = [
     tags: ["Next.js 16", "Express 5", "PostgreSQL", "Redis", "Paystack"],
     live: "https://trustbag.vercel.app/",
     github: "https://github.com/oyedokunken/trustbag",
-  },
-  {
+  },  {
     id: "dha",
     title: "Digital Hub Africa",
     addedOn: "2026-09-22",
@@ -168,8 +155,7 @@ export const projects: Project[] = [
     tags: ["Next.js 16", "TypeScript", "Supabase", "TipTap", "Prisma"],
     live: "https://www.digitalhubafrica.org/",
     github: "https://github.com/oyedokunken/dha-blog",
-  },
-  {
+  },  {
     id: "salmired",
     title: "Salmired Properties",
     addedOn: "2026-09-22",
@@ -179,78 +165,7 @@ export const projects: Project[] = [
     tags: ["Next.js 16", "TypeScript", "Supabase", "Tailwind CSS", "Prisma"],
     live: "https://www.salmiredproperties.com/",
     github: "https://github.com/oyedokunken/salmired-properties",
-  },
-  {
-    id: "edupilot",
-    title: "EduPilot",
-    category: "EdTech",
-    cover: "/covers/edupilot-cover.webp",
-    desc: "Student workflow platform using Critical Path Method to automate scheduling and monitor cognitive load in real time across academic semesters.",
-    tags: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "CPM"],
-    live: "https://edupilotly.vercel.app/",
-    github: "https://github.com/oyedokunken/edupilot",
-  },
-  {
-    id: "kwiker",
-    title: "Kwiker",
-    category: "Platform",
-    cover: "/covers/kwiker-cover.webp",
-    desc: "Commerce operating system for African SMBs turning WhatsApp selling into structured digital business with AI storefront, order management, and payments.",
-    tags: ["Next.js 16", "Supabase", "Express", "Nodemailer", "Prisma"],
-    live: "https://kwiker-main.vercel.app/",
-    github: "https://github.com/oyedokunken/kwiker-main",
-  },
-  {
-    id: "titanbid",
-    title: "TitanBid",
-    category: "SaaS / AI",
-    cover: "/covers/titanbid-cover.webp",
-    desc: "AI-powered construction cost estimating platform where builders upload blueprints and receive accurate project estimates within 24 to 48 hours.",
-    tags: ["Next.js", "TypeScript", "Supabase", "Stripe", "AI"],
-    live: "https://titan-bid-frontend.vercel.app/",
-    github: "https://github.com/oyedokunken/titan-bids",
-  },
-  {
-    id: "gramone",
-    title: "GramOne",
-    category: "Platform",
-    cover: "/covers/gramone-cover.webp",
-    desc: "Full-stack platform for a critical minerals company spanning three verticals: mineral extraction, refining and processing, and deep-sea exploration.",
-    tags: ["Next.js 16", "Express 5", "Supabase", "Framer Motion", "Prisma"],
-    live: "https://gramone.vercel.app/",
-    github: "https://github.com/oyedokunken/gramone",
-  },
-  {
-    id: "dubai-avenue",
-    title: "Dubai Avenue Scents",
-    category: "E-commerce",
-    cover: "/covers/dubai-avenue-cover.webp",
-    desc: "Ultra-premium luxury fragrance storefront with WhatsApp-first ordering, Supabase persistence, transactional email delivery, and a separate admin panel.",
-    tags: ["Next.js 14", "Express", "Supabase", "Nodemailer", "TypeScript"],
-    live: "https://www.dubaiavenuescent.com/",
-    github: "https://github.com/oyedokunken/dubai-avenue-scent",
-  },
-  {
-    id: "dpa",
-    title: "DPA Summit",
-    category: "Platform",
-    cover: "/covers/dpa-cover.webp",
-    desc: "Event platform for C-suite executives and procurement leaders with registration flows, an admin panel, confirmation emails, and security hardening.",
-    tags: ["Laravel", "TailwindCSS", "MySQL", "Nodemailer"],
-    live: "https://digitalprocurement.africa/",
-    github: "https://github.com/oyedokunken/dpa-landing",
-  },
-  {
-    id: "futahms",
-    title: "FUTA HMS",
-    category: "Healthcare",
-    cover: "/covers/futa-hms-cover.webp",
-    desc: "University health management system with a PPSA queue algorithm, in-browser video consultations, real-time analytics, and end-to-end appointment flows.",
-    tags: ["Next.js", "Node.js", "WebSockets", "PostgreSQL", "PPSA"],
-    live: "https://futahms.vercel.app/",
-    github: "https://github.com/oyedokunken/FUTA-HMS",
-  },
-  {
+  },  {
     id: "ascentor",
     title: "Ascentor LDP",
     category: "Platform",
@@ -259,9 +174,75 @@ export const projects: Project[] = [
     tags: ["Next.js 16", "TypeScript", "Supabase", "Claude AI", "Paystack"],
     live: "https://joinascentor.com/",
     github: "https://github.com/AscentorBI/Ascentor-New",
-  },
-  {
+  },  {
+    id: "edupilot",
+    title: "EduPilot",
+    category: "EdTech",
+    cover: "/covers/edupilot-cover.webp",
+    desc: "Student workflow platform using Critical Path Method to automate scheduling and monitor cognitive load in real time across academic semesters.",
+    tags: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "CPM"],
+    live: "https://edupilotly.vercel.app/",
+    github: "https://github.com/oyedokunken/edupilot",
+  },  {
+    id: "kwiker",
+    hidden: true,
+    title: "Kwiker",
+    category: "Platform",
+    cover: "/covers/kwiker-cover.webp",
+    desc: "Commerce operating system for African SMBs turning WhatsApp selling into structured digital business with AI storefront, order management, and payments.",
+    tags: ["Next.js 16", "Supabase", "Express", "Nodemailer", "Prisma"],
+    live: "https://kwiker-main.vercel.app/",
+    github: "https://github.com/oyedokunken/kwiker-main",
+  },  {
+    id: "titanbid",
+    hidden: true,
+    title: "TitanBid",
+    category: "SaaS / AI",
+    cover: "/covers/titanbid-cover.webp",
+    desc: "AI-powered construction cost estimating platform where builders upload blueprints and receive accurate project estimates within 24 to 48 hours.",
+    tags: ["Next.js", "TypeScript", "Supabase", "Stripe", "AI"],
+    live: "https://titan-bid-frontend.vercel.app/",
+    github: "https://github.com/oyedokunken/titan-bids",
+  },  {
+    id: "gramone",
+    title: "GramOne",
+    category: "Platform",
+    cover: "/covers/gramone-cover.webp",
+    desc: "Full-stack platform for a critical minerals company spanning three verticals: mineral extraction, refining and processing, and deep-sea exploration.",
+    tags: ["Next.js 16", "Express 5", "Supabase", "Framer Motion", "Prisma"],
+    live: "https://gramone.vercel.app/",
+    github: "https://github.com/oyedokunken/gramone",
+  },  {
+    id: "dubai-avenue",
+    title: "Dubai Avenue Scents",
+    category: "E-commerce",
+    cover: "/covers/dubai-avenue-cover.webp",
+    desc: "Ultra-premium luxury fragrance storefront with WhatsApp-first ordering, Supabase persistence, transactional email delivery, and a separate admin panel.",
+    tags: ["Next.js 14", "Express", "Supabase", "Nodemailer", "TypeScript"],
+    live: "https://www.dubaiavenuescent.com/",
+    github: "https://github.com/oyedokunken/dubai-avenue-scent",
+  },  {
+    id: "dpa",
+    title: "DPA Summit",
+    category: "Platform",
+    cover: "/covers/dpa-cover.webp",
+    desc: "Event platform for C-suite executives and procurement leaders with registration flows, an admin panel, confirmation emails, and security hardening.",
+    tags: ["Laravel", "TailwindCSS", "MySQL", "Nodemailer"],
+    live: "https://digitalprocurement.africa/",
+    github: "https://github.com/oyedokunken/dpa-landing",
+  },  {
+    id: "futahms",
+    hidden: true,
+    title: "FUTA HMS",
+    category: "Healthcare",
+    cover: "/covers/futa-hms-cover.webp",
+    desc: "University health management system with a PPSA queue algorithm, in-browser video consultations, real-time analytics, and end-to-end appointment flows.",
+    tags: ["Next.js", "Node.js", "WebSockets", "PostgreSQL", "PPSA"],
+    live: "https://futahms.vercel.app/",
+    github: "https://github.com/oyedokunken/FUTA-HMS",
+  },  {
     id: "cooper",
+    hidden: true,
     title: "Cooper Gaming Services",
     category: "Agency",
     cover: "/covers/cooper-cover.webp",
@@ -269,9 +250,9 @@ export const projects: Project[] = [
     tags: ["React 18", "TypeScript", "Vite", "Bootstrap", "Express"],
     live: "https://coopergamingservices.com/",
     github: "https://github.com/oyedokunken/cgs-web",
-  },
-  {
+  },  {
     id: "minuteman",
+    hidden: true,
     title: "Minuteman",
     category: "E-commerce",
     cover: "/covers/minuteman-cover.webp",
@@ -279,9 +260,9 @@ export const projects: Project[] = [
     tags: ["WordPress", "WooCommerce", "PHP"],
     live: "https://minuteman.com.ng/",
     github: undefined,
-  },
-  {
+  },  {
     id: "glory",
+    hidden: true,
     title: "Glory Fashion",
     category: "WordPress",
     cover: "/covers/glory-cover.webp",
@@ -289,9 +270,9 @@ export const projects: Project[] = [
     tags: ["WordPress", "WooCommerce", "PHP", "CSS"],
     live: "https://glorybyjes.com/",
     github: undefined,
-  },
-  {
+  },  {
     id: "nobleland",
+    hidden: true,
     title: "Noble Land Africa",
     category: "WordPress",
     cover: "/covers/noble-land-cover.webp",
@@ -299,9 +280,9 @@ export const projects: Project[] = [
     tags: ["WordPress", "PHP", "CSS", "Real Estate"],
     live: "https://noblelandafrica.com/",
     github: undefined,
-  },
-  {
+  },  {
     id: "nextstars",
+    hidden: true,
     title: "NextStars",
     category: "WordPress",
     cover: "/covers/nexstars-cover.webp",
@@ -309,9 +290,9 @@ export const projects: Project[] = [
     tags: ["WordPress", "PHP", "CSS"],
     live: "https://nexstars.org/",
     github: undefined,
-  },
-  {
+  },  {
     id: "wime-awards",
+    hidden: true,
     title: "WIME Awards",
     category: "WordPress",
     cover: "/covers/wime-awards-cover.webp",
@@ -321,3 +302,5 @@ export const projects: Project[] = [
     github: undefined,
   },
 ];
+
+export const projects: Project[] = allProjects.filter((p) => !p.hidden);

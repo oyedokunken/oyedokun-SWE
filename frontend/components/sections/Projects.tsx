@@ -6,6 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
 import { projects } from "@/data/projects";
 
+// Built from the visible projects, so hiding one never leaves an empty filter.
+const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
+
 const NEW_PROJECT_MS = 30 * 24 * 60 * 60 * 1000;
 
 function isNewProject(addedOn?: string) {
@@ -51,7 +54,7 @@ export default function Projects() {
             viewport={{ once: true }}
             className="flex flex-wrap gap-2"
           >
-            {["All", "Platform", "SaaS", "SaaS / AI", "Blockchain", "Healthcare", "EdTech", "E-commerce", "Agency", "WordPress"].map((cat) => (
+            {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
