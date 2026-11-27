@@ -2,7 +2,7 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import Footer from "@/components/layout/Footer";
 import ThemeToggle from "@/components/ui/ThemeToggle";
-import { infoPages, type InfoPage as InfoPageData } from "@/data/pages";
+import { siteNav, type InfoPage as InfoPageData } from "@/data/pages";
 
 // Shared layout for the standalone trust pages (/about, /contact, /privacy).
 // Server-rendered from data/pages.ts so the full text is in the raw HTML.
@@ -15,13 +15,13 @@ export default function InfoPage({ page, children }: { page: InfoPageData; child
             <Logo />
           </Link>
           <nav aria-label="Pages" className="flex items-center gap-1">
-            {infoPages.map((p) => (
+            {siteNav.map((p) => (
               <Link
-                key={p.path}
-                href={p.path}
-                aria-current={p.path === page.path ? "page" : undefined}
+                key={p.href}
+                href={p.href}
+                aria-current={p.href === page.path ? "page" : undefined}
                 className={`hidden sm:inline-block px-3 py-2 text-sm rounded-full transition-colors ${
-                  p.path === page.path
+                  p.href === page.path
                     ? "text-[var(--text-primary)]"
                     : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                 }`}

@@ -13,6 +13,7 @@ export const contactDetails = {
   whatsapp: "https://wa.link/nv875h",
   linkedin: "https://www.linkedin.com/in/oyedokunken/",
   github: "https://github.com/oyedokunken/",
+  upwork: "https://www.upwork.com/freelancers/~01c59959ddebe93fe9",
   location: "Lagos, Nigeria (works remotely worldwide)",
 };
 
@@ -46,7 +47,7 @@ const aboutPage: InfoPage = {
   description:
     "Oyedokun Kehinde is a full-stack software engineer in Lagos, Nigeria, focused on backend architecture, distributed systems and SaaS products.",
   intro:
-    "I'm Oyedokun Kehinde (oyedokunken), a full-stack software engineer based in Lagos, Nigeria. I design and build backend systems, APIs and full-stack SaaS products, and I take them from architecture through deployment and production support.",
+    "My name is Kenny (Oyedokun Kehinde, oyedokunken). I'm a full-stack software engineer based in Lagos, Nigeria. I design and build backend systems, APIs and full-stack SaaS products, and I take them from architecture through deployment and production support. I build for the happy path, the edge cases and everything in between.",
   sections: [
     {
       heading: "How I work",
@@ -177,6 +178,32 @@ const privacyPage: InfoPage = {
     },
   ],
 };
+
+// Standalone showcase pages. Their layouts live in components/pages; the
+// metadata and Markdown versions are built from the same data as the homepage.
+export const showcasePages = {
+  projects: {
+    path: "/projects/",
+    label: "Projects",
+    title: "Projects by Oyedokun Kehinde",
+    description:
+      "Every product Oyedokun Kehinde has built: SaaS platforms, real-time systems, AI tools, a desktop app and client websites, with stacks and live links.",
+  },
+  services: {
+    path: "/services/",
+    label: "Services",
+    title: "Services by Oyedokun Kehinde",
+    description:
+      "Full-stack product engineering, SaaS development, AI integration, backend architecture, system design and technical leadership for startups and teams.",
+  },
+} as const;
+
+export const siteNav = [
+  { label: "About", href: "/about/" },
+  { label: "Projects", href: "/projects/" },
+  { label: "Services", href: "/services/" },
+  { label: "Contact", href: "/contact/" },
+] as const;
 
 export const infoPages: InfoPage[] = [aboutPage, contactPage, privacyPage];
 

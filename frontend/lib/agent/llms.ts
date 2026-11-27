@@ -1,7 +1,7 @@
 import { projects } from "@/data/projects";
 import stack from "@/data/stack.json";
 import { services } from "@/data/content";
-import { infoPages, SITE_URL } from "@/data/pages";
+import { infoPages, showcasePages, SITE_URL } from "@/data/pages";
 
 // /llms.txt in the llmstxt.org format: H1, blockquote summary, free-form
 // details (no headings), then H2 sections that are lists of
@@ -57,6 +57,7 @@ export function llmsTxt(): string {
     "## Key Pages",
     "",
     `- [Home](${SITE_URL}/): Portfolio homepage with services, projects, experience and contact (Markdown via Accept: text/markdown)`,
+    ...Object.values(showcasePages).map((p) => `- [${p.label}](${SITE_URL}${p.path}): ${p.description}`),
     ...infoPages.map((p) => `- [${p.label}](${SITE_URL}${p.path}): ${p.description}`),
     "",
     "## Projects",

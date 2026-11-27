@@ -271,3 +271,32 @@ body:has(.not-found-page) .whatsapp-float {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Waving 3D emoji on the About page: the hand waves from the wrist while the whole emoji bobs. */
+@keyframes wave-hand {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(16deg); }
+  20% { transform: rotate(-10deg); }
+  30% { transform: rotate(16deg); }
+  40% { transform: rotate(-6deg); }
+  50% { transform: rotate(12deg); }
+}
+
+@keyframes wave-bob {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-7%) scale(1.05); }
+}
+
+.wave-wrap { animation: wave-bob 1.8s ease-in-out infinite; }
+.wave-hand { transform-origin: 70% 75%; animation: wave-hand 2.4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-wrap, .wave-hand { animation: none; }
+}
+
+/* overflow-x: hidden on html and body turns body into a scroll container, which breaks position: sticky.
+   The showcase pages clip horizontal overflow instead, so their sticky side panels work. */
+html:has(.page-shell),
+body:has(.page-shell) {
+  overflow-x: clip;
+}

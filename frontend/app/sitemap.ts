@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { infoPages, SITE_URL } from "@/data/pages";
+import { infoPages, showcasePages, SITE_URL } from "@/data/pages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -9,6 +9,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    ...Object.values(showcasePages).map((p) => ({
+      url: `${SITE_URL}${p.path}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
     ...infoPages.map((p) => ({
       url: `${SITE_URL}${p.path}`,
       lastModified: new Date(),

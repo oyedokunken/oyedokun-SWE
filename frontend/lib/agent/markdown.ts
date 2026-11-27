@@ -1,5 +1,5 @@
 import { about, education, experiences, hero, principles, services, testimonials } from "@/data/content";
-import { infoPages, SITE_URL, contactDetails, type InfoPage, type InfoLink } from "@/data/pages";
+import { infoPages, showcasePages, SITE_URL, contactDetails, type InfoPage, type InfoLink } from "@/data/pages";
 import { projects } from "@/data/projects";
 import stack from "@/data/stack.json";
 
@@ -105,6 +105,44 @@ export function infoPageMarkdown(page: InfoPage): string {
   return out.join("\n");
 }
 
+export function projectsMarkdown(): string {
+  const page = showcasePages.projects;
+  return [
+    `# ${page.title}`,
+    "",
+    page.description,
+    "",
+    "## All projects",
+    "",
+    ...projects.map((p) => {
+      const url = p.live ?? p.github;
+      const title = url ? `[${p.title}](${url})` : p.title;
+      const source = p.github && p.github !== url ? ` Source: ${p.github}` : "";
+      return `- **${title}** (${p.category}): ${p.desc} Stack: ${p.tags.join(", ")}.${source}`;
+    }),
+    "",
+  ].join("\n");
+}
+
+export function servicesMarkdown(): string {
+  const page = showcasePages.services;
+  return [
+    `# ${page.title}`,
+    "",
+    page.description,
+    "",
+    "## Services",
+    "",
+    ...services.map((s) => `- **${s.title}**: ${s.desc} (${s.tags.join(", ")})`),
+    "",
+    "## Work with me",
+    "",
+    `- [Contact](${SITE_URL}/contact/): Start a conversation`,
+    `- [Upwork](${contactDetails.upwork}): Hire me on Upwork`,
+    "",
+  ].join("\n");
+}
+
 export function notFoundMarkdown(pathname: string): string {
   return [
     "# 404 Not Found",
@@ -128,6 +166,8 @@ function normalize(pathname: string): string {
 export function resolveMarkdown(pathname: string): MarkdownResult {
   const path = normalize(pathname);
   if (path === "/") return { status: 200, body: homeMarkdown() };
+  if (path === showcasePages.projects.path) return { status: 200, body: projectsMarkdown() };
+  if (path === showcasePages.services.path) return { status: 200, body: servicesMarkdown() };
   const page = infoPages.find((p) => p.path === path);
   if (page) return { status: 200, body: infoPageMarkdown(page) };
   return { status: 404, body: notFoundMarkdown(pathname) };
