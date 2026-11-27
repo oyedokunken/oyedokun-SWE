@@ -1,0 +1,21 @@
+// Screenshots of each live project, captured from the live sites into public/screens.
+export const screens: Record<string, string[]> = {
+  "scrim": ["/screens/scrim-1.webp", "/screens/scrim-2.webp"],
+  "jobcentral": ["/screens/jobcentral-1.webp", "/screens/jobcentral-2.webp"],
+  "gistroom": ["/screens/gistroom-1.webp", "/screens/gistroom-2.webp"],
+  "credence": ["/screens/credence-1.webp", "/screens/credence-2.webp"],
+  "renpower": ["/screens/renpower-1.webp", "/screens/renpower-2.webp"],
+  "traqify": ["/screens/traqify-1.webp", "/screens/traqify-2.webp"],
+  "rios": ["/screens/rios-1.webp", "/screens/rios-2.webp"],
+  "rexta": ["/screens/rexta-1.webp", "/screens/rexta-2.webp"],
+  "prompt-ai": ["/screens/prompt-ai-1.webp", "/screens/prompt-ai-2.webp"],
+  "glore": ["/screens/glore-1.webp", "/screens/glore-2.webp"],
+  "storebook": ["/screens/storebook-1.webp", "/screens/storebook-2.webp"],
+  "trustbag": ["/screens/trustbag-1.webp", "/screens/trustbag-2.webp"],
+  "dha": ["/screens/dha-1.webp", "/screens/dha-2.webp"],
+  "salmired": ["/screens/salmired-1.webp", "/screens/salmired-2.webp"],
+  "ascentor": ["/screens/ascentor-1.webp", "/screens/ascentor-2.webp"],
+  "edupilot": ["/screens/edupilot-1.webp", "/screens/edupilot-2.webp"],
+  "dubai-avenue": ["/screens/dubai-avenue-1.webp", "/screens/dubai-avenue-2.webp"],
+  "dpa": ["/screens/dpa-1.webp", "/screens/dpa-2.webp"],
+};
