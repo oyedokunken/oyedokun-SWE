@@ -6,6 +6,8 @@ backend/node_modules/
 # Next.js
 frontend/.next/
 frontend/out/
+# Written by `next dev` on every start
+frontend/AGENTS.md
 
 # Build output
 backend/dist/

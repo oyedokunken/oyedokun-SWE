@@ -14,7 +14,8 @@ export interface Project {
   homepage?: boolean;
 }
 
-const allProjects: Project[] = [  {
+const allProjects: Project[] = [
+  {
     id: "scrim",
     title: "Scrim",
     addedOn: "2026-11-04",
