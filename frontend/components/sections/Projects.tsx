@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
-import { projects } from "@/data/projects";
+import { homepageProjects as projects } from "@/data/projects";
 
 // Built from the visible projects, so hiding one never leaves an empty filter.
 const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];

@@ -10,6 +10,8 @@ export interface Project {
   addedOn?: string;
   // Hidden projects stay in this file but are left out of the site, sitemap and agent files.
   hidden?: boolean;
+  // false keeps a project off the homepage grid; it still shows on /projects.
+  homepage?: boolean;
 }
 
 const allProjects: Project[] = [  {
@@ -99,6 +101,7 @@ const allProjects: Project[] = [  {
     github: "https://github.com/oyedokunken/rexta",
   },  {
     id: "prompt-ai",
+    homepage: false,
     title: "Prompt AI",
     addedOn: "2026-09-29",
     category: "SaaS / AI",
@@ -176,6 +179,7 @@ const allProjects: Project[] = [  {
     github: "https://github.com/AscentorBI/Ascentor-New",
   },  {
     id: "edupilot",
+    homepage: false,
     title: "EduPilot",
     category: "EdTech",
     cover: "/covers/edupilot-cover.webp",
@@ -205,6 +209,7 @@ const allProjects: Project[] = [  {
     github: "https://github.com/oyedokunken/titan-bids",
   },  {
     id: "gramone",
+    homepage: false,
     title: "GramOne",
     category: "Platform",
     cover: "/covers/gramone-cover.webp",
@@ -304,3 +309,6 @@ const allProjects: Project[] = [  {
 ];
 
 export const projects: Project[] = allProjects.filter((p) => !p.hidden);
+
+// The homepage shows a shorter selection; /projects lists everything.
+export const homepageProjects: Project[] = projects.filter((p) => p.homepage !== false);
