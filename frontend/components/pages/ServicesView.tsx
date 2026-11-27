@@ -41,7 +41,10 @@ export default function ServicesView() {
             founding-engineer role.
           </motion.p>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="mt-10 flex flex-wrap gap-4">
-            <a href={contactDetails.upwork} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <a href={contactDetails.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              Start a conversation
+            </a>
+            <a href={contactDetails.upwork} target="_blank" rel="noopener noreferrer" className="btn-outline">
               Hire me on Upwork
             </a>
           </motion.div>
@@ -124,7 +127,10 @@ export default function ServicesView() {
           Tell me what you need. I read every message myself and reply within 24 to 48 hours.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href={contactDetails.upwork} target="_blank" rel="noopener noreferrer" className="btn-primary">
+          <a href={contactDetails.whatsapp} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            Start a conversation
+          </a>
+          <a href={contactDetails.upwork} target="_blank" rel="noopener noreferrer" className="btn-outline">
             Hire me on Upwork
           </a>
         </div>
