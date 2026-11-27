@@ -72,7 +72,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
 
 export default function Services() {
   return (
-    <section id="services" className="py-28">
+    <section id="services" className="pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="mb-16">
           <motion.span

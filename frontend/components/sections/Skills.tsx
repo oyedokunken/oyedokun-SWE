@@ -16,7 +16,7 @@ const skillGroups: StackGroup[] = stack.groups;
 
 export default function Skills() {
   return (
-    <section className="py-28 bg-[var(--bg-secondary)]">
+    <section className="py-20 bg-[var(--bg-secondary)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
           <div>

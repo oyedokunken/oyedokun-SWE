@@ -41,7 +41,7 @@ export default function About() {
   const words = philosophyWords.split(" ");
 
   return (
-    <section id="about" ref={containerRef} className="py-32 relative overflow-hidden">
+    <section id="about" ref={containerRef} className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" className="opacity-[0.03]">
           <defs>

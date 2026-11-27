@@ -19,7 +19,7 @@ const usps = principlesContent.map((item) => ({ ...item, ...presentation[item.nu
 
 export default function WhyMe() {
   return (
-    <section id="why-me" className="py-28 bg-[var(--bg)]">
+    <section id="why-me" className="pt-10 pb-20 bg-[var(--bg)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="mb-16 grid grid-cols-1 lg:grid-cols-[1fr_auto] items-end gap-6">
           <div>

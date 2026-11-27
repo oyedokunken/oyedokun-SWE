@@ -44,6 +44,12 @@ const legalLinks = [
   { label: "Privacy", href: "/privacy/" },
 ];
 
+// The hover card next to the credit also offers WhatsApp.
+const creditSocials = [
+  ...socials,
+  { icon: WhatsAppIcon, href: "https://wa.link/nv875h", label: "WhatsApp" },
+];
+
 const contactLinks = [
   { icon: Mail, label: "Email", value: "oyedokunken@gmail.com", href: "mailto:oyedokunken@gmail.com" },
   { icon: Phone, label: "Phone", value: "+234 802 813 4942", href: "tel:+2348028134942" },
@@ -176,7 +182,7 @@ export default function Footer() {
                 aria-label="Social links"
                 className="pointer-events-none absolute bottom-full right-0 mb-3 flex translate-y-1 items-center gap-1.5 rounded-xl border border-[var(--border-color)] bg-[var(--bg-elevated)] p-2 opacity-0 shadow-xl transition-all duration-200 after:absolute after:-bottom-3 after:left-0 after:right-0 after:h-3 after:content-[''] group-hover/attribution:pointer-events-auto group-hover/attribution:translate-y-0 group-hover/attribution:opacity-100 group-focus-within/attribution:pointer-events-auto group-focus-within/attribution:translate-y-0 group-focus-within/attribution:opacity-100"
               >
-                {socials.map((social) => (
+                {creditSocials.map((social) => (
                   <a
                     key={social.label}
                     href={social.href}

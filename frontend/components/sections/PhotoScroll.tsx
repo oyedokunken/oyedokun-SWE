@@ -122,7 +122,7 @@ function PhotoStrip({ photos, reverse }: { photos: string[]; reverse?: boolean }
 
 export default function PhotoScroll() {
   return (
-    <section className="py-20 overflow-hidden bg-[var(--bg)]">
+    <section className="pt-8 pb-16 overflow-hidden bg-[var(--bg)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 mb-12">
         <motion.span
           initial={{ opacity: 0, y: 10 }}

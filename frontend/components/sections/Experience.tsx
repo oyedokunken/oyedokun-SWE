@@ -15,7 +15,7 @@ export default function Experience() {
   const lineScaleY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="experience" className="py-28">
+    <section id="experience" className="py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="mb-16">
           <motion.span

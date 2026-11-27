@@ -24,7 +24,7 @@ export default function Education() {
   const ghostItem = education[education.length - 1];
 
   return (
-    <section id="education" className="py-28 bg-[var(--bg-secondary)]">
+    <section id="education" className="py-20 bg-[var(--bg-secondary)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="mb-16">
           <motion.span

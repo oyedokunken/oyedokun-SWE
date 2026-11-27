@@ -12,7 +12,7 @@ export default function Testimonials() {
   const { theme } = useTheme();
   const avatarSrc = theme === "dark" ? "/avatar-dark.png" : "/avatar.png";
   return (
-    <section id="testimonials" className="py-28 bg-[var(--bg)]">
+    <section id="testimonials" className="pt-20 pb-8 bg-[var(--bg)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>

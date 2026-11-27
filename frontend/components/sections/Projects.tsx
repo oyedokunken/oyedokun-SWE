@@ -25,7 +25,7 @@ export default function Projects() {
     : projects.filter((p) => p.category === filter);
 
   return (
-    <section id="projects" className="py-28 bg-[var(--bg-secondary)]">
+    <section id="projects" className="pt-20 pb-10 bg-[var(--bg-secondary)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8 mb-12">
           <div>
@@ -155,7 +155,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-20 flex flex-col items-center gap-6 border-y border-[var(--border-color)] py-16 text-center"
+          className="mt-14 flex flex-col items-center gap-6 border-y border-[var(--border-color)] py-12 text-center"
         >
           <h3 className="text-3xl lg:text-5xl font-bold tracking-tight leading-[1.1]">There&apos;s more where that came from.</h3>
           <p className="max-w-xl text-[var(--text-secondary)] leading-relaxed">
