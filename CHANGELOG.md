@@ -9,19 +9,39 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
-- Projects: Scrim (Desktop App) added as the first project - free, open source screen recorder with cursor effects, auto zoom and MP4 export; carries the auto-expiring "New" pill. Also listed in README and GITHUB.md.
-- Projects: Job Central, Gistroom, Credence and Traqify now point to their new oyedokun.dev subdomains; README project links open in a new tab.
-- Buy Me a Malt support links in the header, footer, README and GitHub profile documentation.
+- Standalone pages built on a shared `PageShell`: `/projects/`, `/services/`, a redesigned `/about/`, and redesigned `/contact/` and `/privacy/`. Footer navigation, the sitemap, `llms.txt` and the Markdown versions of pages all include them.
+- `/projects/` shows every project in a pinned preview that follows the scroll. Each project has up to seven screenshots captured from its live site, shown in a Mac-style window (red, yellow and green buttons) with clickable thumbnails, also on mobile, and a full-screen lightbox with arrow keys and Esc.
+- `/about/`: "Hey, I'm Kenny." hero with a waving 3D emoji (Microsoft Fluent Emoji, MIT licence), industries marquee, current focus, numbered work history and a justified photo gallery of 20 photos.
+- Full-screen mobile menu for the standalone pages with numbered links, theme toggle, Hire me on Upwork button and socials.
+- Landing page: View all projects block under the projects grid, with dividers.
+- Hire me on Upwork buttons (footer, About, Projects, Services, Contact, mobile menu) and the Upwork profile in the structured data.
+- WhatsApp icon in the footer credit hover card.
+- Four more photos in the hero marquee and a new hero portrait; Electron added to the Languages stack group and Python, PHP, Redis, Firebase and RBAC to the service tags.
+- Projects: Scrim (Desktop App) added as the first project, linked to usescrim.app.
 - Documented the two-project Vercel deployment flow and required frontend and backend Root Directory settings.
 - Responsive GitHub activity heatmap with a vertical mobile layout, no scrolling, and viewport-clamped tooltips.
 - Mobile GitHub activity now defaults to a past 1 month calendar with 2M, 3M, 6M and 1Y ranges derived from the same hourly data while desktop retains the last-year view and real year switcher.
 
 ### Changed
+- Services rewritten to nine services (Full-Stack Product Engineering, SaaS Product Development, AI Engineering and Integration, Founding Engineer and Technical Leadership, Backend Engineering and Architecture, Frontend Engineering, System Design and Technical Architecture, API Engineering and Integration, DevOps, Infrastructure and Security) with equal-height cards.
+- Landing page shows 18 projects; Prompt AI, EduPilot and GramOne appear on `/projects` only. The homepage filter row is built from the projects it shows.
+- Eight projects hidden from the site and agent files without deleting their data (four WordPress sites, Cooper Gaming Services, FUTA HMS, TitanBid, Kwiker and Minuteman); Rexta and Ascentor LDP reordered.
+- Hero name card is now frosted glass instead of solid black.
+- Section spacing tightened: padding reduced from 112px to 80px, and neighbouring sections that share a background no longer stack their padding into large blank gaps.
+- About page hides the credentials list; the data stays in `data/content.ts`.
+- Footer navigation links About, Services and Projects to their pages. Footer social links are GitHub, LinkedIn and Instagram.
+- Email footers show LinkedIn, GitHub and Instagram.
+- Privacy page no longer prints the email address or phone number in its text; they are buttons.
 - GitHub activity heatmap now stretches its vertical grid to the card edge with fixed label spacing and responsive rectangular cells.
 - Footer positioning copy now identifies Lagos, Nigeria and emphasizes building for the happy path, edge cases and everything in between.
-- Footer social links are ordered GitHub, LinkedIn, Instagram, Facebook and X.
+- Upgraded Zod to 4 in the frontend and backend (`error.errors` is now `error.issues`) and applied `npm audit fix`, which cleared the CI audit failures for Next.js, body-parser, nodemailer and qs.
+- Commit history rewritten once to remove a stray Copilot co-author trailer.
 
 ### Removed
+- Buy Me a Malt links from the site and README; the GitHub profile keeps the Hire me on Upwork badge.
+- Facebook and X links from the footer, mobile menu, structured data, `llms.txt` and email templates, with their email icons.
+- HTML5 from the Languages stack group (replaced by Electron).
+- The old `InfoPage` template, replaced by the standalone page views.
 - CV/résumé request feature: the `/api/resume` route, its validation schema, the résumé delivery and request emails and their templates, the bundled CV PDF and its Vercel `includeFiles` entry, and the unused frontend modal and context. The privacy policy now covers only the contact form.
 
 ---

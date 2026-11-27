@@ -45,23 +45,32 @@ Key design decisions:
 
 ```text
 oyedokun/
-├── frontend/                       # Next.js 14 portfolio (deployed to Vercel)
+├── frontend/                       # Next.js 16 portfolio (deployed to Vercel)
 │   ├── app/
-│   │   ├── layout.tsx              # Root layout: metadata, providers, theme
-│   │   ├── page.tsx                # Main page assembling all sections
+│   │   ├── layout.tsx              # Root layout: metadata, structured data, providers, theme
+│   │   ├── page.tsx                # Landing page assembling all sections
+│   │   ├── about/ projects/ services/ contact/ privacy/   # Standalone pages
+│   │   ├── llms.txt/route.ts       # Agent-readable site summary (llmstxt.org)
 │   │   ├── globals.css             # CSS variables, Tailwind base, utilities
-│   │   └── sitemap.ts              # Dynamic sitemap
+│   │   └── sitemap.ts              # Sitemap: home plus every standalone page
 │   ├── components/
-│   │   ├── layout/                 # Header, Footer, MobileMenu
-│   │   ├── sections/               # Hero, MarqueeSection, About, Skills, Services,
-│   │   │                           # WhyMe, Projects, Experience, Education,
-│   │   │                           # Testimonials, PhotoScroll, Contact
+│   │   ├── layout/                 # Header, Footer, MobileMenu (landing page)
+│   │   ├── sections/               # Landing page sections: Hero, MarqueeSection, About,
+│   │   │                           # Skills, Services, WhyMe, Projects, GithubActivity,
+│   │   │                           # Experience, Education, Testimonials, PhotoScroll, Contact
+│   │   ├── pages/                  # Views for About, Projects, Services, Contact, Privacy
+│   │   ├── PageShell.tsx           # Header and footer for the standalone pages
+│   │   ├── PageMenu.tsx            # Full-screen mobile menu for the standalone pages
 │   │   └── ui/                     # Preloader, Modal, ThemeToggle,
 │   │                               # ScrollToTop, WhatsAppFloat
 │   ├── context/                    # ThemeContext, WhatsAppChatContext
-│   ├── data/                       # projects.ts (portfolio project list)
-│   ├── lib/                        # api.ts, utils.ts, useSiteReady.ts
-│   └── public/                     # covers/, shoot/, fonts, og.png, robots.txt
+│   ├── data/                       # projects.ts, screens.ts (project screenshots),
+│   │                               # content.ts, pages.ts, stack.json
+│   ├── lib/                        # api.ts, utils.ts, useSiteReady.ts,
+│   │                               # agent/ (llms.txt and Markdown versions of pages)
+│   ├── proxy.ts                    # Serves Markdown to clients that send Accept: text/markdown
+│   └── public/                     # covers/, screens/, shoot/, stack/, emoji/, email-icons/,
+│                                   # og.png, robots.txt
 │
 └── backend/                        # Express.js API (Vercel Serverless)
     ├── src/
@@ -112,7 +121,7 @@ The frontend and backend are separate Vercel projects with independent deploymen
 | Framer Motion | 14 | Animations, scroll-driven effects |
 | Lucide React | Latest | Icon system |
 | react-phone-number-input | 3 | International phone field |
-| Zod | 3 | Form schema validation |
+| Zod | 4 | Form schema validation |
 
 ### Backend
 
@@ -121,7 +130,7 @@ The frontend and backend are separate Vercel projects with independent deploymen
 | Express.js | 4 | HTTP server |
 | TypeScript | 5 | Type safety |
 | Nodemailer | 10 | SMTP email transport |
-| Zod | 3 | Request body validation |
+| Zod | 4 | Request body validation |
 | Helmet | 7 | Security headers |
 | express-rate-limit | 7 | Rate limiting (20 req / 15 min) |
 | dotenv | 16 | Environment variable loading |
@@ -174,26 +183,38 @@ flowchart TD
 - Header entrance animation gated on preloader exit
 - Hero: animated word-by-word heading, parallax image, green availability dot
 - About: animated philosophy statement, subtext paragraph under heading, personal details grid
-- Skills: 30 technologies in 6 grouped icon categories (Languages, Frontend, Backend, Data, DevOps, Tools)
-- Services: 11 cards with equalized descriptions, distinct SVG patterns (circles, squares, diamonds, lines), no em dashes
-- Projects: filterable project showcase with real cover images rendered in greyscale (colour reveals on hover); category pill and icon links use black bg only (no theme toggle); bottom section (bg, title, desc, tags) fully theme-responsive
+- Skills: 35 technologies in 7 grouped icon categories (Languages, Frontend, Backend, Data, DevOps, AI & Real-time, Tools), with logos downloaded locally by `npm run icons`
+- Services: 9 cards with equal heights, distinct SVG patterns and an icon per service, no em dashes
+- Projects: landing page shows a filterable selection of 18 projects with a View all projects link; categories in the filter row are built from the projects shown
 - Experience: animated scroll-driven timeline line, spring-pop dots, impact-focused bullet points
 - Education: 5 cards - FUTA Akure B.Tech (Computer Information Systems, CGPA 4.72/5.00), Amazon Professional Software Development Certification, NACOSS FUTA Hackathon Emerging Award, Cipher Full Stack cert, Aspire Leaders Program (Harvard collab)
 - WhyMe: 6 USP cards with alternating elevated backgrounds (cards 2/4/6 elevated at rest); card 04 is "AI-Augmented Delivery"
 - Testimonials: quote cards with avatar images
 - Projects: theme-aware "New" pill beside the title for entries carrying an `addedOn` date, auto-expiring after 30 days
-- Photo scroll: infinite bidirectional marquee of 58 photos in two rows
+- Photo scroll: infinite bidirectional marquee of 66 photos in two rows
 - Contact: form with field icons, Zod validation, rate-limited API, success/error modal
 - Open Graph and Twitter card metadata with custom 1200x630 OG image
 - Sitemap and robots.txt for search engine indexing
 - WhatsApp float button with "Let's chat" sticky label; opens an authentic chat modal with avatar and "Active Now" status, video/voice call icons, a live date pill, an end-to-end encryption notice, a welcome bubble with a live timestamp, and a mobile-only input bar (emoji, sticker, paperclip, mic/send)
 - Scroll-to-top button with circular SVG progress ring that fills as user scrolls
-- Marquee: infinite horizontal scroll of all 30 tools-of-the-trade after the Hero section; pauses on pointer interaction
+- Marquee: infinite horizontal scroll of all 35 tools-of-the-trade after the Hero section; pauses on pointer interaction
+- Standalone pages, each with the shared header, footer and a full-screen mobile menu:
+  - `/about/`: personal story, industries marquee, current focus, numbered work history, photo gallery and contact cards
+  - `/projects/`: all projects in a pinned preview that follows the scroll; each project has up to seven live-site screenshots in a Mac-style window with clickable thumbnails and a full-screen lightbox (arrow keys and Esc)
+  - `/services/`: the nine services with a how-I-work section
+  - `/contact/`: contact cards for email, phone, WhatsApp, LinkedIn, GitHub and Upwork plus the message form
+  - `/privacy/`: policy with a sticky table of contents; email and phone are links, never printed in the text
+- Hero name card is frosted glass over the portrait
+- Footer navigation links to the standalone pages; the credit hover card links GitHub, LinkedIn, Instagram and WhatsApp
+- Hire me on Upwork buttons across the site; other calls to action open WhatsApp
+- Agent-readable site: `/llms.txt` and Markdown versions of every page (`Accept: text/markdown`), generated from the same data as the pages
 - Responsive across mobile, tablet, and desktop
 
 ---
 
 ## Selected projects
+
+Every project listed here is shown on [oyedokun.dev/projects](https://www.oyedokun.dev/projects/). The landing page shows a shorter selection.
 
 | Project | Category | Live URL |
 |---|---|---|
@@ -201,13 +222,23 @@ flowchart TD
 | Job Central | SaaS | <a href="https://jobcentral.oyedokun.dev/" target="_blank" rel="noopener noreferrer">jobcentral.oyedokun.dev</a> |
 | Gistroom | Platform | <a href="https://gistroom.oyedokun.dev/" target="_blank" rel="noopener noreferrer">gistroom.oyedokun.dev</a> |
 | Credence | Blockchain | <a href="https://credence.oyedokun.dev/" target="_blank" rel="noopener noreferrer">credence.oyedokun.dev</a> |
-| Ren Power | Platform | <a href="https://renpowerltd.com" target="_blank" rel="noopener noreferrer">renpowerltd.com</a> |
-| MSP Reports | SaaS | <a href="https://mspreports.com.au" target="_blank" rel="noopener noreferrer">mspreports.com.au</a> |
+| Ren Power | Platform | <a href="https://www.renpowerltd.com/" target="_blank" rel="noopener noreferrer">www.renpowerltd.com</a> |
+| MSP Reports | SaaS | <a href="https://mspreports.com.au/" target="_blank" rel="noopener noreferrer">mspreports.com.au</a> |
 | Traqify | SaaS | <a href="https://traqify.oyedokun.dev/" target="_blank" rel="noopener noreferrer">traqify.oyedokun.dev</a> |
-| RIOS | SaaS | <a href="https://www.riosintell.com" target="_blank" rel="noopener noreferrer">www.riosintell.com</a> |
-| Prompt AI | SaaS / AI | <a href="https://prompt-swe.vercel.app" target="_blank" rel="noopener noreferrer">prompt-swe.vercel.app</a> |
-| Storebook | SaaS | <a href="https://storebookpro.com" target="_blank" rel="noopener noreferrer">storebookpro.com</a> |
-| Trustbag | SaaS | <a href="https://trustbag.vercel.app" target="_blank" rel="noopener noreferrer">trustbag.vercel.app</a> |
+| RIOS | SaaS | <a href="https://www.riosintell.com/" target="_blank" rel="noopener noreferrer">www.riosintell.com</a> |
+| Rexta | Web App | <a href="https://rextatech.com/" target="_blank" rel="noopener noreferrer">rextatech.com</a> |
+| Prompt AI | SaaS / AI | <a href="https://prompt-swe.vercel.app/" target="_blank" rel="noopener noreferrer">prompt-swe.vercel.app</a> |
+| Glore | Platform | <a href="https://www.gloreenergy.com/" target="_blank" rel="noopener noreferrer">www.gloreenergy.com</a> |
+| Mailly | SaaS / AI | <a href="https://usemailly.com/" target="_blank" rel="noopener noreferrer">usemailly.com</a> |
+| Storebook | SaaS | <a href="https://storebookpro.com/" target="_blank" rel="noopener noreferrer">storebookpro.com</a> |
+| Trustbag | SaaS | <a href="https://trustbag.vercel.app/" target="_blank" rel="noopener noreferrer">trustbag.vercel.app</a> |
+| Digital Hub Africa | Platform | <a href="https://www.digitalhubafrica.org/" target="_blank" rel="noopener noreferrer">www.digitalhubafrica.org</a> |
+| Salmired Properties | Platform | <a href="https://www.salmiredproperties.com/" target="_blank" rel="noopener noreferrer">www.salmiredproperties.com</a> |
+| Ascentor LDP | Platform | <a href="https://joinascentor.com/" target="_blank" rel="noopener noreferrer">joinascentor.com</a> |
+| EduPilot | EdTech | <a href="https://edupilotly.vercel.app/" target="_blank" rel="noopener noreferrer">edupilotly.vercel.app</a> |
+| GramOne | Platform | <a href="https://gramone.vercel.app/" target="_blank" rel="noopener noreferrer">gramone.vercel.app</a> |
+| Dubai Avenue Scents | E-commerce | <a href="https://www.dubaiavenuescent.com/" target="_blank" rel="noopener noreferrer">www.dubaiavenuescent.com</a> |
+| DPA Summit | Platform | <a href="https://digitalprocurement.africa/" target="_blank" rel="noopener noreferrer">digitalprocurement.africa</a> |
 
 ---
 
