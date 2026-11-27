@@ -74,15 +74,15 @@ export default function Hero() {
                   priority
                   sizes="(max-width: 1024px) calc(100vw - 48px), 0px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
               </div>
               <div className="absolute bottom-4 left-4 right-4">
                 <div className="glass rounded-xl p-3" style={{
-                    background: "linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.14))",
-                    borderColor: "rgba(255, 255, 255, 0.45)",
-                    backdropFilter: "blur(24px) saturate(1.8)",
-                    WebkitBackdropFilter: "blur(24px) saturate(1.8)",
-                    boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 10px 40px rgba(0, 0, 0, 0.35)",
+                    background: "linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.10))",
+                    borderColor: "rgba(255, 255, 255, 0.32)",
+                    backdropFilter: "blur(10px) saturate(1.4)",
+                    WebkitBackdropFilter: "blur(10px) saturate(1.4)",
+                    boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 6px 20px rgba(0, 0, 0, 0.18)",
                   }}>
                   <p className="text-sm text-white font-bold tracking-tight">Oyedokun Kehinde</p>
                   <p className="text-xs text-white/80 mt-0.5">Software Engineer</p>
@@ -166,17 +166,17 @@ export default function Hero() {
                   priority
                   sizes="420px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
               </div>
               <div className="absolute -top-4 -right-4 w-24 h-24 border border-[var(--border-color)] rounded-xl opacity-40" />
               <div className="absolute -bottom-4 -left-4 w-16 h-16 border border-[var(--border-color)] rounded-lg opacity-30" />
               <div className="absolute bottom-5 left-5 right-5">
                 <div className="glass rounded-xl p-4" style={{
-                    background: "linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.14))",
-                    borderColor: "rgba(255, 255, 255, 0.45)",
-                    backdropFilter: "blur(24px) saturate(1.8)",
-                    WebkitBackdropFilter: "blur(24px) saturate(1.8)",
-                    boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 10px 40px rgba(0, 0, 0, 0.35)",
+                    background: "linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.10))",
+                    borderColor: "rgba(255, 255, 255, 0.32)",
+                    backdropFilter: "blur(10px) saturate(1.4)",
+                    WebkitBackdropFilter: "blur(10px) saturate(1.4)",
+                    boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 6px 20px rgba(0, 0, 0, 0.18)",
                   }}>
                   <p className="text-sm text-white font-bold tracking-tight">Oyedokun Kehinde</p>
                   <p className="text-xs text-white/80 mt-0.5">Software Engineer</p>

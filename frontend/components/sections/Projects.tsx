@@ -159,7 +159,7 @@ export default function Projects() {
         >
           <h3 className="text-3xl lg:text-5xl font-bold tracking-tight leading-[1.1]">There&apos;s more where that came from.</h3>
           <p className="max-w-xl text-[var(--text-secondary)] leading-relaxed">
-            Browse every project with live screenshots, stacks and links, one at a time.
+            Browse the full catalogue of everything I&apos;ve built.
           </p>
           <a href="/projects/" className="btn-primary">
             View all projects <ArrowUpRight size={16} />
